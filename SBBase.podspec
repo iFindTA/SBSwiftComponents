@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBBase"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "a swift base kit"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -18,5 +18,6 @@ Pod::Spec.new do |s|
   s.source_files = "SBSwiftComponents/SBBase/*.swift"
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include","CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" =>"YES","ONLY_ACTIVE_ARCH" => "NO"}
   s.dependency 'SBExtension', '~> 0.0.2'
 end
