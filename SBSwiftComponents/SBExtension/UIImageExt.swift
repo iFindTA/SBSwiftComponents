@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-extension UIImage {
+public extension UIImage {
     
     // MARK: - Class Methods
     public class func pb_imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {

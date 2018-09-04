@@ -17,7 +17,7 @@ enum SBSceneState: Int {
     case netBroken
 }
 
-extension UIView {
+public extension UIView {
     private struct pb_associatedKeys {
         static var state = "pb_scene_load_key"
         static var indicator = "pb_scene_indicator_key"

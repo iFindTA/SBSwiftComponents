@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-extension UITextField {
+public extension UITextField {
     private struct pb_associatedKeys {
         static var acceptMaxLength = "pb_maxLength"
     }
