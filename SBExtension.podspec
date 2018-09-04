@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBExtension"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "a swift extension kit"
   s.description  = <<-DESC
        一个swift的扩展库，包括UIImage, UIDevice, UIInput etc.

@@ -62,6 +62,6 @@ public extension UIDevice {
     }
     
     public func isX() -> Bool {
-        return self.modelName.contains("iPhone X") || AppSize.HEIGHT_SCREEN == 812
+        return self.modelName.contains("iPhone X") || UIScreen.main.bounds.size.height == 812
     }
 }
