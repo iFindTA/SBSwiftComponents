@@ -5,24 +5,28 @@ PODS:
     - RealReachability/Ping (= 1.2.2)
   - RealReachability/Connection (1.2.2)
   - RealReachability/Ping (1.2.2)
+  - SnapKit (4.0.0)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.2)
   - RealReachability (~> 1.2.2)
+  - SnapKit (~> 4.0.0)
   - SwiftyJSON (~> 4.1.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - RealReachability
+    - SnapKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   RealReachability: 7ea2093650004e5e30635edbf9d29ce9b9091001
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: f3de3fdd396cf8d55dbeb67d0a86beeb7ac8f6be
+PODFILE CHECKSUM: 9e2a0bddf1ced54d3b60b573e47cd24f673b9827
 
 COCOAPODS: 1.5.0

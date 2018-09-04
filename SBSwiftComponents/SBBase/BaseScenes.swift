@@ -14,6 +14,8 @@ let HorizontalOffset = AppSize.WIDTH_MARGIN
 let HorizontalOffsetMAX = AppSize.WIDTH_BOUNDARY
 let SeperatorBgColor = RGBA(r: 244, g: 243, b: 245, a: 1)
 let ClearBgColor = UIColor(white: 0, alpha: 0.3)
+/// 延迟执行闭包：授权成功后执行动作
+public typealias DelayedClosure = ()->Void
 
 // MARK: - UIButton类
 class BaseButton: UIButton {
@@ -135,20 +137,45 @@ extension BaseTableView {
     }
 }
 
+// MARK: - UITextField
+class BaseTextField: UITextField {
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        addTarget(self, action: #selector(editingDidChanged(_:)), for: .editingChanged)
+        editingDidChanged(self)
+    }
+    @objc func editingDidChanged(_ textFiled: UITextField) {
+        guard let text = textFiled.text else {
+            return
+        }
+        let max = textFiled.maxLength
+        let lang = textFiled.textInputMode?.primaryLanguage
+        
+        if let lan = lang, lan == "zh-Hans" {
+            let range = textFiled.markedTextRange
+            if range == nil {
+                if text.count >= max {
+                    textFiled.text = String(text.prefix(max))
+                }
+            }
+        } else {
+            textFiled.text = String(text.prefix(max))
+        }
+    }
+}
+
 // MARK: - UIView
 class BaseScene: UIView {
-    
+    /// Variables
     public var sectionTag: Int = 0
     
     deinit {
         print("scene 析构: class: \(type(of: self))")
     }
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 public struct BaseError: LocalizedError {
-    //MARK: - Varables
+    // MARK: - Variables
     var desc: String = ""
     var code: Int = 0
     var localizedDescription: String {
