@@ -115,7 +115,6 @@ class BaseTableView: UITableView {
         }
     }
 }
-
 extension BaseTableView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
@@ -178,11 +177,6 @@ class BaseScene: UIView {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    // MARK: 用户相关
-    public func app() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
     }
 }
 

@@ -12,7 +12,7 @@ import Foundation
 // MARK: - Base Profile
 class BaseProfile: UIViewController {
     
-    // MARK: - override
+    /// - override
     deinit {
         debugPrint("profile:\(type(of: self)) 析构")
     }
@@ -47,14 +47,14 @@ class BaseProfile: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: - Variables
-    lazy var navigationBar: BaseNavigationBar = {
+    /// - Variables
+    public lazy var navigationBar: BaseNavigationBar = {
         let n = BaseNavigationBar()
         let tintColor = AppColor.COLOR_NAVIGATOR_TINT
         let barTintColor = UIColor.white //影响背景
         let font = AppFont.pingFangSC(AppFont.SIZE_LARGE_TITLE)
         n.barStyle = .black
-        let bgImg = UIImage.pb_imageWithColor(barTintColor);
+        let bgImg = generateBgImage(barTintColor);
         n.setBackgroundImage(bgImg, for: .default)
         n.shadowImage = UIImage()
         n.barTintColor = barTintColor
@@ -67,10 +67,19 @@ class BaseProfile: UIViewController {
         return n
     }()
     
-    // MARK: - Inner-Methods
-    public func app() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
+    /// - private methods
+    private func generateBgImage(_ color: UIColor) -> UIImage {
+        let rect = CGRect(x:0,y:0,width:1,height:1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context!.fill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
+    
+    /// - Inner-Methods
     @objc public func defaultGobackStack() {
         guard self.isBeingPresented else {
             self.navigationController?.popViewController(animated: true)
@@ -122,31 +131,6 @@ class BaseNavigationProfile: UINavigationController {
     //控制 vc present进来的横竖屏和进入方向 ，支持的旋转方向必须包含改返回值的方向 （详细的说明见下文）
     override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
         return (topViewController?.preferredInterfaceOrientationForPresentation)!
-    }
-}
-extension UINavigationController {
-    public func rooter() -> UIViewController? {
-        let app = UIApplication.shared.delegate as! AppDelegate
-        return app.window?.rootViewController
-    }
-    public func defaultGoBack(_ excute: DelayedClosure? = nil) {
-        let statcks = self.viewControllers
-        if statcks.count <= 1 {
-            guard let rooter = self.rooter() else {
-                self.dismiss(animated: true, completion: excute)
-                return
-            }
-            if self != rooter {
-                self.dismiss(animated: true, completion: excute)
-            }
-        } else {
-            // 初始化动画的持续时间，类型和子类型
-            UIView.animate(withDuration: Macros.APP_ANIMATE_INTERVAL, animations: {[weak self]in
-                self?.popViewController(animated: true)
-            }) { (finish) in
-                excute?()
-            }
-        }
     }
 }
 

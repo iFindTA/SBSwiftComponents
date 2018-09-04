@@ -11,7 +11,7 @@ import Foundation
 
 public extension UIDevice {
     
-    var modelName: String {
+    public var modelName: String {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
