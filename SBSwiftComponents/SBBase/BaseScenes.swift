@@ -181,7 +181,7 @@ class BaseScene: UIView {
     }
     
     // MARK: 用户相关
-    func app() -> AppDelegate {
+    public func app() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 }

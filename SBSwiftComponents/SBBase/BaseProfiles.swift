@@ -68,7 +68,7 @@ class BaseProfile: UIViewController {
     }()
     
     // MARK: - Inner-Methods
-    func app() -> AppDelegate {
+    public func app() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     @objc public func defaultGobackStack() {
@@ -125,13 +125,14 @@ class BaseNavigationProfile: UINavigationController {
     }
 }
 extension UINavigationController {
-    func app() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
+    public func rooter() -> UIViewController? {
+        let app = UIApplication.shared.delegate as! AppDelegate
+        return app.window?.rootViewController
     }
     public func defaultGoBack(_ excute: DelayedClosure? = nil) {
         let statcks = self.viewControllers
         if statcks.count <= 1 {
-            guard let rooter = self.app().window?.rootViewController else {
+            guard let rooter = self.rooter() else {
                 self.dismiss(animated: true, completion: excute)
                 return
             }

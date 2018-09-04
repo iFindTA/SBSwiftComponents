@@ -22,7 +22,7 @@ public extension UIButton {
         static var acceptEventTime = "pb_acceptEventTime"
     }
     
-    var pb_acceptEventInterval: TimeInterval {
+    public var pb_acceptEventInterval: TimeInterval {
         get {
             if let acceptEventInterval = objc_getAssociatedObject(self, &pb_associatedKeys.acceptEventInterval) as? TimeInterval {
                 return acceptEventInterval
@@ -35,7 +35,7 @@ public extension UIButton {
         }
     }
     
-    var pb_acceptEventTime: TimeInterval {
+    public var pb_acceptEventTime: TimeInterval {
         get {
             if let acceptEventTime = objc_getAssociatedObject(self, &pb_associatedKeys.acceptEventTime) as? TimeInterval {
                 return acceptEventTime

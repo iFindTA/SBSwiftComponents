@@ -12,7 +12,7 @@ import Foundation
 extension UIImage {
     
     // MARK: - Class Methods
-    public static func pb_imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    public class func pb_imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect = CGRect(x:0,y:0,width:size.width,height:size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
