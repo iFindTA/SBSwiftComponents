@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Foundation
 
-enum SBSceneState: Int {
+public enum SBSceneState: Int {
     case idle
     case empty
     case loading
