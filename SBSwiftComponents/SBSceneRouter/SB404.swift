@@ -39,7 +39,7 @@ public class SB404: BaseProfile {
 }
 
 extension SB404: SBSceneRouteable {
-    static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+    public static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
         return SB404(params)
     }
 }
