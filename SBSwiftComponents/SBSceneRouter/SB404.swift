@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SB404: BaseProfile {
+public class SB404: BaseProfile {
     
     private var label: BaseLabel = {
         let l = BaseLabel(frame: .zero)
@@ -24,11 +24,11 @@ class SB404: BaseProfile {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(self.label)

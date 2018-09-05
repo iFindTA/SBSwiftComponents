@@ -94,7 +94,7 @@ public extension UIImage {
         
         return newImage
     }
-    func pb_darkColor(color :UIColor, level :CGFloat) -> UIImage {
+    public func pb_darkColor(color :UIColor, level :CGFloat) -> UIImage {
         let imageRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         
         UIGraphicsBeginImageContextWithOptions(imageRect.size, false, self.scale)

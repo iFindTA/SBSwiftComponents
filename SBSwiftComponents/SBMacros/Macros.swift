@@ -19,7 +19,7 @@ public func adoptSize(_ size:CGFloat) -> CGFloat {
 }
 
 // MARK: - Macros Defines
-struct Macros {
+public struct Macros {
     /// 状态栏是否全局控制 View controller-based status bar appearance = NO
     public static let APP_STATUSBAR_GLOBAL_EFFECT   =   true;
     public static let APP_ANIMATE_INTERVAL = 0.25
@@ -50,7 +50,7 @@ struct Macros {
 }
 
 // MARK: - app字体
-struct AppFont {
+public struct AppFont {
     //字体
     public static let PF_SC = "PingFangSC-Regular"
     public static let PF_BOLD = "PingFangSC-SemiBold"
@@ -77,7 +77,7 @@ struct AppFont {
 }
 
 // MARK: - app常量尺寸
-struct AppSize {
+public struct AppSize {
     //屏幕
     public static let WIDTH_SCREEN: CGFloat = UIScreen.main.bounds.size.width
     public static let HEIGHT_SCREEN: CGFloat = UIScreen.main.bounds.size.height
@@ -136,7 +136,7 @@ struct AppSize {
 }
 
 // MARK: - app颜色
-struct AppColor {
+public struct AppColor {
     public static let COLOR_LINE = RGBA(r: 238, g: 238, b: 238, a: 1)
     public static let COLOR_THEME = RGBA(r: 16, g: 142, b: 233, a: 1)
     public static let COLOR_TITLE = RGBA(r: 51, g: 51, b: 51, a: 1)

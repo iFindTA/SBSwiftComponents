@@ -9,7 +9,7 @@
 import Toaster
 import Foundation
 
-struct DateFmt {
+fileprivate struct DateFmt {
     public let fmt: DateFormatter!
     static let shared = DateFmt()
     private init() {
@@ -19,7 +19,7 @@ struct DateFmt {
     }
 }
 
-struct Kits {
+public struct Kits {
     
     /// snadbox path
     private static func sandBoxPath() -> String {

@@ -19,7 +19,7 @@ fileprivate let APP_CHECK_HOST = "www.qq.com"
 public typealias SBResponse = (_ data: JSON?, _ error: BaseError?, _ page: JSON?) -> Void
 
 // MARK: - Extension for Request
-extension DataRequest {
+fileprivate extension DataRequest {
     private struct pb_associatedKeys {
         static var identifier_key = "identifier_key"
     }
@@ -37,7 +37,7 @@ extension DataRequest {
 }
 
 // MARK: - 网络Router
-class SBHTTPRouter {
+public class SBHTTPRouter {
     /// variables
     //private var manager: NetworkReachabilityManager?
     

@@ -10,13 +10,13 @@ import UIKit
 import Foundation
 
 // MARK: - Base Profile
-class BaseProfile: UIViewController {
+public class BaseProfile: UIViewController {
     
     /// - override
     deinit {
         debugPrint("profile:\(type(of: self)) 析构")
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     init() {
@@ -33,16 +33,16 @@ class BaseProfile: UIViewController {
             return
         }
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
-    override var shouldAutorotate: Bool {
+    override public var shouldAutorotate: Bool {
         return false
     }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
@@ -105,49 +105,49 @@ class BaseProfile: UIViewController {
 }
 
 // MARK: - Base NavigationController
-class BaseNavigationProfile: UINavigationController {
+public class BaseNavigationProfile: UINavigationController {
     /// override
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
         guard let top = self.topViewController else {
             return .default
         }
         return top.preferredStatusBarStyle
     }
-    override var childViewControllerForStatusBarStyle: UIViewController? {
+    override public var childViewControllerForStatusBarStyle: UIViewController? {
         return self.topViewController
     }
     
-    override var shouldAutorotate: Bool {
+    override public var shouldAutorotate: Bool {
         return (topViewController?.shouldAutorotate)!
     }
     //支持旋转的方向有哪些
-    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return (topViewController?.supportedInterfaceOrientations)!
     }
     //控制 vc present进来的横竖屏和进入方向 ，支持的旋转方向必须包含改返回值的方向 （详细的说明见下文）
-    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
+    override public var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
         return (topViewController?.preferredInterfaceOrientationForPresentation)!
     }
 }
 
 // MARK: - Base TabBarController
-class BaseTabBarProfile: UITabBarController {
+public class BaseTabBarProfile: UITabBarController {
     
     /// override
     //是否跟随屏幕旋转
-    override var shouldAutorotate : Bool {
+    override public var shouldAutorotate : Bool {
         return (selectedViewController?.shouldAutorotate)!
     }
     //支持旋转的方向有哪些
-    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return (selectedViewController?.supportedInterfaceOrientations)!
     }
     //控制 vc present进来的横竖屏和进入方向 ，支持的旋转方向必须包含改返回值的方向 （详细的说明见下文）
-    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
+    override public var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
         return (selectedViewController?.preferredInterfaceOrientationForPresentation)!
     }
     
@@ -194,7 +194,7 @@ class BaseTabBarProfile: UITabBarController {
         }
     }
 }
-extension BaseTabBarProfile {
+public extension BaseTabBarProfile {
     private struct pb_tabbarHiddenKeys {
         static var pb_isTabBarAnimating = "pb_isTabBarAnimating"
     }
