@@ -20,10 +20,12 @@ Pod::Spec.new do |s|
 
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
+    b.dependency 'SBComponents/Extension'
   end
 
   s.subspec 'Extension' do |e|
     e.source_files = "SBSwiftComponents/SBExtension/*.swift"
+    e.dependency 'SnapKit'
   end
 
 end
