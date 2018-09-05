@@ -9,16 +9,16 @@
 import UIKit
 import Foundation
 
-//MARK: - inline functions
+// MARK: - inline functions
 public func RGBA(r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -> UIColor {
     return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
 }
-// MARK: 以6的尺寸为准
+// MARK: - 以6的尺寸为准
 public func adoptSize(_ size:CGFloat) -> CGFloat {
     return ceil(size*(AppSize.WIDTH_SCREEN/375.0))
 }
 
-//MARK: - Macros Defines
+// MARK: - Macros Defines
 struct Macros {
     /// 状态栏是否全局控制 View controller-based status bar appearance = NO
     public static let APP_STATUSBAR_GLOBAL_EFFECT   =   true;
@@ -49,7 +49,7 @@ struct Macros {
     public static let EMPTY_NETWORK = "您貌似断开了互联网链接，请检查网络稍后重试！"
 }
 
-//MARK: - app字体
+// MARK: - app字体
 struct AppFont {
     //字体
     public static let PF_SC = "PingFangSC-Regular"
@@ -76,7 +76,7 @@ struct AppFont {
     }
 }
 
-//MARK: - app常量尺寸
+// MARK: - app常量尺寸
 struct AppSize {
     //屏幕
     public static let WIDTH_SCREEN: CGFloat = UIScreen.main.bounds.size.width
@@ -135,12 +135,32 @@ struct AppSize {
     }
 }
 
-//MARK: - app颜色
+// MARK: - app颜色
 struct AppColor {
     public static let COLOR_LINE = RGBA(r: 238, g: 238, b: 238, a: 1)
     public static let COLOR_THEME = RGBA(r: 16, g: 142, b: 233, a: 1)
     public static let COLOR_TITLE = RGBA(r: 51, g: 51, b: 51, a: 1)
     public static let COLOR_TITLE_GRAY = RGBA(r: 102, g: 102, b: 102, a: 1)
     public static let COLOR_NAVIGATOR_TINT = RGBA(r: 76, g: 75, b: 85, a: 1)
-    
+}
+
+// MARK: - 网络定义
+public enum SBHTTPState: Int {
+    case None, WiFi, WLAN, Unavailable
+}
+public enum SBHTTPRespCode: Int {
+    case unAuthorization = 401  //未授权
+    case forbidden = 403        //禁止访问 没有权限
+}
+
+// MARK: - 用户沙盒类型
+public enum SBUserPath: Int {
+    case root
+    case file
+    case image
+    case video
+    case audio
+    case lyrics
+    case record
+    case common
 }

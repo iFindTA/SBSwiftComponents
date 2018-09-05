@@ -17,15 +17,37 @@ Pod::Spec.new do |s|
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
   #s.dependency 'SBExtension', '~> 0.0.2'
-
+  
+  s.subspec 'Kit' do |k|
+    k.source_files = "SBSwiftComponents/SBKit/*.swift"
+    k.dependency 'Toaster'
+    k.dependency 'SBComponents/Macros'
+  end
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/Extension'
   end
 
+  s.subspec 'Error' do |r|
+    r.source_files = "SBSwiftComponents/SBError/*.swift"
+  end
+
+  s.subspec 'Macros' do |m|
+    m.source_files = "SBSwiftComponents/SBMacros/*.swift"
+  end
+
   s.subspec 'Extension' do |e|
     e.source_files = "SBSwiftComponents/SBExtension/*.swift"
     e.dependency 'SnapKit'
+  end
+
+  s.subspec 'HTTPRouter' do |h|
+    h.source_files = "SBSwiftComponents/SBHTTPRouter/*.swift"
+    h.dependency 'Alamofire'
+    h.dependency 'SwiftyJSON'
+    h.dependency 'SVProgressHUD'
+    h.dependency 'SBComponents/Error'
+    h.dependency 'SBComponents/Macros'
   end
 
 end

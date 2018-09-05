@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		035BB0F20801D932A9FEA813D2D8797B /* SBManualExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EF3D55F2977AA9797CC2D1844C249 /* SBManualExt.swift */; };
-		0AA4B946045CD848487DFF305D6DAC38 /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24230E76729CEBDA1F92170E1813F200 /* Kits.swift */; };
-		1A05292C42ECBBFA7151569C0608A517 /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BCFB022EF6D0AC30E99A170E6FBB30 /* Macros.swift */; };
+		03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */; };
+		2921F9D6AD30228B8005E20C163A77F1 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */; };
 		392F9FCA477F1992938F057AD4CCD3A9 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */; };
 		3B975828B3561D2DB36AFF93F8E13A51 /* SBHTTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */; };
 		3D5130A791FD865CC9F206C6D863A716 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C01C72432DB69EC8A5B5861EEA50F36 /* UIImageViewExt.swift */; };
 		493D9B3AAAC3D5FB3B080B85157A3F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F99772C3F9F270087FD5DD456B00D /* LaunchScreen.storyboard */; };
-		624749B2948467D896BE1D0F9BBBDDF7 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA99380B98593A7C6395E85BDECE095 /* BaseError.swift */; };
+		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
 		7C1FEE7B5762E05D0515E7B9B4353262 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049E6B22F98A99E3525752265532AED /* UIColorExt.swift */; };
 		7EECA29023E1326F8C8629E0EDFEF8F8 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE316495F08DAF2CD74AB0C2EFD2EF3A /* UIViewExt.swift */; };
@@ -68,10 +68,8 @@
 		0776AC30700BF826CA139D94DDE0A33F /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
 		0C01C72432DB69EC8A5B5861EEA50F36 /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
 		0CEC8598CA911ADABC9585608C4B76DC /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
-		24230E76729CEBDA1F92170E1813F200 /* Kits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kits.swift; sourceTree = "<group>"; };
 		24597C58F05C376AB409F8F733E58CA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2BA99380B98593A7C6395E85BDECE095 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		2CA1D19D45AE305F686505A0F9128793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSwiftComponentsUITests.swift; sourceTree = "<group>"; };
@@ -89,11 +87,13 @@
 		9A86E7F218154B2DDA7C80AD3D961DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E5FBB6DED2F1607EDA4050A75DE21CF /* BaseScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScenes.swift; sourceTree = "<group>"; };
+		A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
+		BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		CE316495F08DAF2CD74AB0C2EFD2EF3A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
-		D5BCFB022EF6D0AC30E99A170E6FBB30 /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		DCD65417A41741CE6209B4EA9E6A60EC /* SBSwiftComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSwiftComponentsTests.swift; sourceTree = "<group>"; };
 		DFE839BD9687B4702918963BAAB928B3 /* UIDeviceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
 		F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProfiles.swift; sourceTree = "<group>"; };
+		F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kits.swift; sourceTree = "<group>"; };
 		F6FAC2023B6C4D210C0F5478679EBDB2 /* SBSwiftComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBSwiftComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.release.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +166,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
+			isa = PBXGroup;
+			children = (
+				BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */,
+			);
+			path = SBError;
+			sourceTree = "<group>";
+		};
+		8769962C140E3F4E22A45A42A5494DB7 /* SBMacros */ = {
+			isa = PBXGroup;
+			children = (
+				A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */,
+			);
+			path = SBMacros;
+			sourceTree = "<group>";
+		};
+		E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */ = {
+			isa = PBXGroup;
+			children = (
+				F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */,
+			);
+			path = SBKit;
+			sourceTree = "<group>";
+		};
 		62D11C3C0ED5D7525C06FC2ACEBC9B34 /* SBHTTPRouter */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,11 +240,8 @@
 		E918AE02694A4798479C9E9D65E0234F /* SBBase */ = {
 			isa = PBXGroup;
 			children = (
-				2BA99380B98593A7C6395E85BDECE095 /* BaseError.swift */,
 				F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */,
 				9E5FBB6DED2F1607EDA4050A75DE21CF /* BaseScenes.swift */,
-				24230E76729CEBDA1F92170E1813F200 /* Kits.swift */,
-				D5BCFB022EF6D0AC30E99A170E6FBB30 /* Macros.swift */,
 			);
 			path = SBBase;
 			sourceTree = "<group>";
@@ -230,8 +251,11 @@
 			children = (
 				A421EC33AA2E672C487B705FE7E796AA /* Manualy */,
 				E918AE02694A4798479C9E9D65E0234F /* SBBase */,
+				62BC56500FD91D0B1B96A9925418562D /* SBError */,
 				2A08BD97620526ED7F7C7F805E79552B /* SBExtension */,
 				62D11C3C0ED5D7525C06FC2ACEBC9B34 /* SBHTTPRouter */,
+				E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */,
+				8769962C140E3F4E22A45A42A5494DB7 /* SBMacros */,
 				5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */,
 				283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */,
 				9A86E7F218154B2DDA7C80AD3D961DE9 /* Info.plist */,
@@ -399,15 +423,19 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RealReachability/RealReachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealReachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -438,12 +466,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F3585131E4F6D187D32DBBCA39224B3 /* AppDelegate.swift in Sources */,
-				624749B2948467D896BE1D0F9BBBDDF7 /* BaseError.swift in Sources */,
+				2921F9D6AD30228B8005E20C163A77F1 /* BaseError.swift in Sources */,
 				E315BA3A830F36152FCF450384568C0A /* BaseProfiles.swift in Sources */,
 				8E7ACDAADF2B731AF8EFDFCDB340FFCC /* BaseScenes.swift in Sources */,
 				AA5E3C66A1C750E26363BA29B27345E3 /* BundleExt.swift in Sources */,
-				0AA4B946045CD848487DFF305D6DAC38 /* Kits.swift in Sources */,
-				1A05292C42ECBBFA7151569C0608A517 /* Macros.swift in Sources */,
+				6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */,
+				03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */,
 				3B975828B3561D2DB36AFF93F8E13A51 /* SBHTTPRouter.swift in Sources */,
 				035BB0F20801D932A9FEA813D2D8797B /* SBManualExt.swift in Sources */,
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
@@ -503,10 +531,7 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -521,11 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -596,11 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -617,11 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -637,11 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -660,10 +669,7 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
