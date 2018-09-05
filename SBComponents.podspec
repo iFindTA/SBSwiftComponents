@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Macros' do |m|
     m.source_files = "SBSwiftComponents/SBMacros/*.swift"
+    m.dependency 'SBComponents/Extension'
   end
 
   s.subspec 'Extension' do |e|
@@ -46,6 +47,7 @@ Pod::Spec.new do |s|
     h.dependency 'Alamofire'
     h.dependency 'SwiftyJSON'
     h.dependency 'SVProgressHUD'
+    h.dependency 'RealReachability'
     h.dependency 'SBComponents/Error'
     h.dependency 'SBComponents/Macros'
   end

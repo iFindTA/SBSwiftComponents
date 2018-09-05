@@ -77,7 +77,8 @@ struct Kits {
             makeToast("请输入手机号码！")
             return (false, nil)
         }
-        guard m.isMatchRegexPattern(Macros.REGULAR_MOBILE) else {
+        let predicate = NSPredicate(format: "SELF MATCHES %@", Macros.REGULAR_MOBILE)
+        guard predicate.evaluate(with: m) else {
             makeToast("请输入正确的手机号码！")
             return (false, nil)
         }
