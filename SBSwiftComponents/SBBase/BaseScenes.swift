@@ -18,18 +18,18 @@ let ClearBgColor = UIColor(white: 0, alpha: 0.3)
 public typealias DelayedClosure = ()->Void
 
 // MARK: - UIButton类
-class BaseButton: UIButton {
-    required init?(coder aDecoder: NSCoder) {
+public class BaseButton: UIButton {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     init(type buttonType: UIButtonType) {
         super.init(frame: .zero)
     }
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let preEventStamp = self.pb_acceptEventTime
         let duration = self.pb_acceptEventInterval
         let curEventStamp = Date().timeIntervalSince1970
@@ -43,34 +43,34 @@ class BaseButton: UIButton {
 }
 
 // MARK: - UILbel类
-class BaseLabel: UILabel {
+public class BaseLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.white
     }
 }
 
 // MARK: - UIImageView类
-class BaseImageView: UIImageView {
+public class BaseImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         self.contentMode = .scaleToFill
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
 
 // MARK: - UIScrollView类
-class BaseScrollView: UIScrollView {
-    required init?(coder aDecoder: NSCoder) {
+public class BaseScrollView: UIScrollView {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -82,7 +82,7 @@ class BaseScrollView: UIScrollView {
         }
     }
 }
-extension BaseScrollView {
+public extension BaseScrollView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
         super.touchesBegan(touches, with: event)
@@ -104,8 +104,8 @@ extension BaseScrollView {
 }
 
 // MARK: - UITableView 类
-class BaseTableView: UITableView {
-    required init?(coder aDecoder: NSCoder) {
+public class BaseTableView: UITableView {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     override init(frame: CGRect, style: UITableViewStyle) {
@@ -115,7 +115,7 @@ class BaseTableView: UITableView {
         }
     }
 }
-extension BaseTableView {
+public extension BaseTableView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.next?.touchesBegan(touches, with: event)
         super.touchesBegan(touches, with: event)
@@ -137,9 +137,9 @@ extension BaseTableView {
 }
 
 // MARK: - UITextField
-class BaseTextField: UITextField {
+public class BaseTextField: UITextField {
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override public func willMove(toSuperview newSuperview: UIView?) {
         addTarget(self, action: #selector(editingDidChanged(_:)), for: .editingChanged)
         editingDidChanged(self)
     }
@@ -164,7 +164,7 @@ class BaseTextField: UITextField {
 }
 
 // MARK: - UIView
-class BaseScene: UIView {
+public class BaseScene: UIView {
     /// Variables
     public var sectionTag: Int = 0
     
@@ -175,13 +175,13 @@ class BaseScene: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
 
 // MARK: - UINavigationBar
-class BaseNavigationBar: UINavigationBar {
+public class BaseNavigationBar: UINavigationBar {
     var offset:CGFloat {
         guard UIDevice.current.isX() else {
             return 0
@@ -189,7 +189,7 @@ class BaseNavigationBar: UINavigationBar {
         return 30
     }
     //*
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         //status bar height
         let statusBarHeight = AppSize.HEIGHT_STATUSBAR()
