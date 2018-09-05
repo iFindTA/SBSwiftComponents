@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   end
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
+    b.dependency 'SBComponents/Macros'
     b.dependency 'SBComponents/Extension'
   end
 
