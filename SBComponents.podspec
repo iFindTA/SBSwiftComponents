@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.0.8"
+  s.version      = "0.0.9"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -52,5 +52,11 @@ Pod::Spec.new do |s|
     h.dependency 'SBComponents/Error'
     h.dependency 'SBComponents/Macros'
   end
-
+  
+  s.subspec 'SceneRouter' do |s|
+    s.source_files = "SBSwiftComponents/SBSceneRouter/*.swift"
+    s.dependency 'SBComponents/Base'
+    s.dependency 'SBComponents/Error'
+    s.dependency 'SBComponents/Macros'
+  end
 end

@@ -16,30 +16,3 @@ extension BaseProfile {
         return UIApplication.shared.delegate as! AppDelegate
     }
 }
-
-// MARK: - Base Navigation手动扩展
-extension UINavigationController {
-    public func rooter() -> UIViewController? {
-        let app = UIApplication.shared.delegate as! AppDelegate
-        return app.window?.rootViewController
-    }
-    public func defaultGoBack(_ excute: DelayedClosure? = nil) {
-        let statcks = self.viewControllers
-        if statcks.count <= 1 {
-            guard let rooter = self.rooter() else {
-                self.dismiss(animated: true, completion: excute)
-                return
-            }
-            if self != rooter {
-                self.dismiss(animated: true, completion: excute)
-            }
-        } else {
-            // 初始化动画的持续时间，类型和子类型
-            UIView.animate(withDuration: Macros.APP_ANIMATE_INTERVAL, animations: {[weak self]in
-                self?.popViewController(animated: true)
-            }) { (finish) in
-                excute?()
-            }
-        }
-    }
-}
