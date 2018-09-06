@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.4"
+  s.version      = "0.1.5"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   #s.dependency 'SBExtension', '~> 0.0.2'
 
   s.subspec 'DB' do |d|
-    d.source_files = "SBComponents/SBDB/*.swift"
+    d.source_files = "SBSwiftComponents/SBDB/*.swift"
     d.dependency 'SQLite.swift'
     d.dependency 'SBComponents/Kit'
   end
@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
     c.dependency 'Cordova'
     c.dependency 'SSZipArchive'
     c.dependency 'SBComponents/Kit'
-    c.dependency 'SBComponents/Base'
+    c.dependency 'SBComponents/SceneRouter'
   end
 
   s.subspec 'Extension' do |e|
