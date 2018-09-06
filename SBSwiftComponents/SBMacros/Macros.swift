@@ -27,8 +27,9 @@ public struct Macros {
     public static let APP_COUNT_DOWN_MAX: Int = 59
     public static let APP_APNS_TOKEN = "APP_APNS_TOKEN"
     public static let APP_USER_DID_INITIATIVE_LOGOUT = "APP_USER_DID_INITIATIVE_LOGOUT"
-    public static let APP_EXCUTE_BLOCK_AFTER_SIGNIN = "APP_EXCUTE_BLOCK_AFTER_SIGNIN"
+    public static let APP_EXCUTE_BLOCK_DELAY = "APP_EXCUTE_BLOCK_AFTER_DELAY"
     public static let APP_WHETHER_SHOW_VISITOR_WHEN_SIGNIN = "APP_WHETHER_SHOW_VISITOR_WHEN_SIGNIN"
+    public static let APP_REQUEST_RESIGNIN = "APP_REQUEST_RESIGNIN"
     
     /// 正则表达式
     public static let REGULAR_MOBILE = "^1+[3578]+\\d{9}"
@@ -47,6 +48,9 @@ public struct Macros {
     public static let EMPTY_TITLE = "Oops!"
     public static let EMPTY_DATA = "这里什么都木有，请稍后重试..."
     public static let EMPTY_NETWORK = "您貌似断开了互联网链接，请检查网络稍后重试！"
+    
+    /// Cordova
+    public static let CORDOVA_KEY_STARTPAGE = "CORDOVA_KEY_STARTPAGE"
 }
 
 // MARK: - app字体

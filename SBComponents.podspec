@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
     k.dependency 'Toaster'
     k.dependency 'SBComponents/Macros'
   end
+
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/Macros'
@@ -36,6 +37,14 @@ Pod::Spec.new do |s|
   s.subspec 'Macros' do |m|
     m.source_files = "SBSwiftComponents/SBMacros/*.swift"
     m.dependency 'SBComponents/Extension'
+  end
+
+  s.subspec 'Cordova' do |c|
+    c.source_files = "SBSwiftComponents/SBCordova/*.swift"
+    c.dependency 'Cordova'
+    c.dependency 'SSZipArchive'
+    c.dependency 'SBComponents/Kit'
+    c.dependency 'SBComponents/Base'
   end
 
   s.subspec 'Extension' do |e|

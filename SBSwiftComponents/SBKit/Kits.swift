@@ -26,22 +26,22 @@ public struct Kits {
         return NSHomeDirectory()
     }
     public static func locatePath(_ type: SBUserPath, owner: String?=nil) -> String {
-        var path: String = sandBoxPath() + "/Documents/"
+        var path: String = sandBoxPath() + "/Documents"
         switch type {
         case .file:
-            path = path + "files"
+            path = path + "/files"
         case .audio:
-            path = path + "audios"
+            path = path + "/audios"
         case .image:
-            path = path + "images"
+            path = path + "/images"
         case .video:
-            path = path + "videos"
+            path = path + "/videos"
         case .lyrics:
-            path = path + "lyrics"
+            path = path + "/lyrics"
         case .record:
-            path = path + "records"
+            path = path + "/records"
         case .common:
-            path = path + "commons"
+            path = path + "/commons"
         default:
             debugPrint("uncatch user sandbox type\(type.rawValue)")
         }
@@ -67,9 +67,38 @@ public struct Kits {
         if offset < AppSize.HEIGHT_SCREEN*0.5 {
             ToastView.appearance().bottomOffsetPortrait = AppSize.HEIGHT_SCREEN*0.5
         }
-        Toast(text: info).show()
+        DispatchQueue.main.async {
+            Toast(text: info).show()
+        }
     }
-    
+    public static func handleError(_ error: BaseError?) {
+        guard let e = error else {
+            ToastCenter.default.cancelAll()
+            return
+        }
+        if e.code == SBHTTPRespCode.forbidden.rawValue || e.code == SBHTTPRespCode.unAuthorization.rawValue {
+            let alert = UIAlertController(title: nil, message: e.errDescription, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            let resign = UIAlertAction(title: "确定", style: .default) { (act) in
+                Kits.route2SignIn()
+            }
+            alert.addAction(resign)
+            if let rooter = self.fetchRootProfile() {
+                rooter.present(alert, animated: true, completion: nil)
+            }
+            return
+        }
+        makeToast(e.errDescription)
+    }
+    private static func route2SignIn() {
+        /// 此处未实现需要登录 可发通知实现
+        let name = NSNotification.Name(Macros.APP_REQUEST_RESIGNIN)
+        NotificationCenter.default.post(name: name, object: nil)
+    }
+    private static func fetchRootProfile() -> UIViewController? {
+        return UIApplication.shared.keyWindow?.rootViewController
+    }
     
     /// check inputs
     public static func checkAccount(_ input: String?) -> (Bool, String?) {
@@ -105,5 +134,78 @@ public struct Kits {
             return (false, nil)
         }
         return (true, p)
+    }
+    
+    /// MARK: UIBarButtonItems @attention: iOS11+失效
+    public static func barSpacer() -> UIBarButtonItem {
+        let item = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        if #available(iOS 11.0, *) {
+            item.width = -AppSize.WIDTH_MARGIN
+        }
+        return item
+    }
+    
+    public static func defaultBackBarItem(_ target: Any?, action: Selector?) -> UIBarButtonItem {
+        return Kits.defaultBackBarItem(target, action: action, color: AppColor.COLOR_NAVIGATOR_TINT)
+    }
+    
+    public static func defaultBackBarItem(_ target: Any?, action: Selector?, color: UIColor?) -> UIBarButtonItem {
+        return Kits.barWithUnicode("\u{e6e2}", title:nil, color: color, target: target, action: action)
+    }
+    
+    public static func bar(_ code: String, title: String?, target: Any?, action: Selector?, right: Bool = false) -> UIBarButtonItem {
+        return barWithUnicode(code, title: title, color: AppColor.COLOR_NAVIGATOR_TINT, target: target, action: action, right: right)
+    }
+    public static func bar(_ title: String, target: Any?, action: Selector?, right: Bool = false) -> UIBarButtonItem {
+        let font = AppFont.pingFangSC(AppFont.SIZE_TITLE)
+        let fontColor = AppColor.COLOR_NAVIGATOR_TINT
+        let barSize = title.size(AppSize.WIDTH_SCREEN, font: font)
+        let btn = BaseButton(type: .custom)
+        btn.titleLabel?.font = font
+        btn.isExclusiveTouch = true
+        btn.frame = CGRect(x: 0, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
+        btn.setTitle(title, for: .normal)
+        btn.setTitleColor(fontColor, for: .normal)
+        btn.addTarget(target, action: action!, for: .touchUpInside)
+        guard #available(iOS 11, *) else {
+            return UIBarButtonItem(customView: btn)
+        }
+        let offset = right ? AppSize.WIDTH_MARGIN : -AppSize.WIDTH_MARGIN
+        var bounds = CGRect(x: offset, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
+        bounds.origin.x = offset
+        btn.frame = bounds
+        let barScene = BaseScene(frame: bounds)
+        barScene.backgroundColor = UIColor.clear
+        barScene.addSubview(btn)
+        let bar = UIBarButtonItem(customView: barScene)
+        bar.tintColor = fontColor
+        return bar
+    }
+    private static func barWithUnicode(_ code: String, title: String?, color: UIColor?, target: Any?, action:Selector?, right: Bool = false) -> UIBarButtonItem {
+        let fontName = "iconfont"
+        let font = UIFont(name: fontName, size: AppFont.SIZE_TITLE * 1.5)
+        let barTitle = code + (title?.available())!
+        let barSize = barTitle.size(AppSize.WIDTH_SCREEN, font: font!)
+        let fontColor = ((color != nil) ?color!:UIColor.white)
+        let btn = BaseButton(type: .custom)
+        btn.titleLabel?.font = font
+        btn.isExclusiveTouch = true
+        btn.frame = CGRect(x: 0, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
+        btn.setTitle(barTitle as String, for: .normal)
+        btn.setTitleColor(fontColor, for: .normal)
+        btn.addTarget(target, action: action!, for: .touchUpInside)
+        guard #available(iOS 11, *) else {
+            return UIBarButtonItem(customView: btn)
+        }
+        let offset = right ? AppSize.WIDTH_MARGIN : -AppSize.WIDTH_MARGIN
+        var bounds = CGRect(x: offset, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
+        bounds.origin.x = offset
+        btn.frame = bounds
+        let barScene = BaseScene(frame: bounds)
+        barScene.backgroundColor = UIColor.clear
+        barScene.addSubview(btn)
+        let bar = UIBarButtonItem(customView: barScene)
+        bar.tintColor = fontColor
+        return bar
     }
 }
