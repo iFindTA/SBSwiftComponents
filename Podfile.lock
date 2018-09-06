@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (4.7.3)
   - Cordova (4.5.4)
+  - DZNEmptyDataSet (1.8.1)
   - RealReachability (1.2.2):
     - RealReachability/Connection (= 1.2.2)
     - RealReachability/Ping (= 1.2.2)
   - RealReachability/Connection (1.2.2)
   - RealReachability/Ping (1.2.2)
   - SnapKit (4.0.0)
-  - SQLite (0.1.4)
+  - SQLite.swift (0.11.5):
+    - SQLite.swift/standard (= 0.11.5)
+  - SQLite.swift/standard (0.11.5)
   - SSZipArchive (2.1.4)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.1.0)
@@ -16,9 +19,10 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7.2)
   - Cordova (~> 4.5.4)
+  - DZNEmptyDataSet (~> 1.8.1)
   - RealReachability (~> 1.2.2)
   - SnapKit (~> 4.0.0)
-  - SQLite (~> 0.1.4)
+  - SQLite.swift (~> 0.11.5)
   - SSZipArchive (~> 2.1.4)
   - SVProgressHUD (~> 2.2.5)
   - SwiftyJSON (~> 4.1.0)
@@ -28,9 +32,10 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Cordova
+    - DZNEmptyDataSet
     - RealReachability
     - SnapKit
-    - SQLite
+    - SQLite.swift
     - SSZipArchive
     - SVProgressHUD
     - SwiftyJSON
@@ -39,14 +44,15 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Cordova: 90a337977b8667a80483f559268c82062b1183da
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   RealReachability: 7ea2093650004e5e30635edbf9d29ce9b9091001
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SQLite: c44d5b8b9c524a6393763da977c00bb4f5627df9
+  SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 3a98a135473a114fd378e6dd3706cd1f0fa2bede
+PODFILE CHECKSUM: 975c9ee515a4259786a0587c9182b6f81e09ce95
 
 COCOAPODS: 1.5.0

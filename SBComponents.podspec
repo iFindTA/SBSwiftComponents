@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -17,6 +17,12 @@ Pod::Spec.new do |s|
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
   #s.dependency 'SBExtension', '~> 0.0.2'
+
+  s.subspec 'DB' do |d|
+    d.source_files = "SBComponents/SBDB/*.swift"
+    d.dependency 'SQLite.swift'
+    d.dependency 'SBComponents/Kit'
+  end
   
   s.subspec 'Kit' do |k|
     k.source_files = "SBSwiftComponents/SBKit/*.swift"
@@ -37,6 +43,11 @@ Pod::Spec.new do |s|
   s.subspec 'Macros' do |m|
     m.source_files = "SBSwiftComponents/SBMacros/*.swift"
     m.dependency 'SBComponents/Extension'
+  end
+
+  s.subspec 'Empty' do |p|
+    p.source_files = "SBSwiftComponents/SBEmpty/*.swift"
+    p.dependency 'DZNEmptyDataSet'
   end
 
   s.subspec 'Cordova' do |c|

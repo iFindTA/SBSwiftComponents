@@ -105,6 +105,10 @@ public extension BaseScrollView {
 
 // MARK: - UITableView 类
 public class BaseTableView: UITableView {
+    /// Variables
+    public typealias EmptyCallback = ()->Void
+    public var callback: EmptyCallback?
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

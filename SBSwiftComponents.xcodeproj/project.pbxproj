@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		035BB0F20801D932A9FEA813D2D8797B /* SBManualExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5EF3D55F2977AA9797CC2D1844C249 /* SBManualExt.swift */; };
 		03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */; };
+		052B839A3F4F00B3884B81536D59E35A /* EmptyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28C6029507FC3390413CC6C2FBEDED4 /* EmptyDataSource.swift */; };
 		0F8468E3B153CABAD7F752A6309CD221 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42627A0851C3058910D73CCB43A2E /* DB.swift */; };
 		2921F9D6AD30228B8005E20C163A77F1 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */; };
 		392F9FCA477F1992938F057AD4CCD3A9 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */; };
@@ -103,6 +104,7 @@
 		A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		CE316495F08DAF2CD74AB0C2EFD2EF3A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		D28C6029507FC3390413CC6C2FBEDED4 /* EmptyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSource.swift; sourceTree = "<group>"; };
 		DCD65417A41741CE6209B4EA9E6A60EC /* SBSwiftComponentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSwiftComponentsTests.swift; sourceTree = "<group>"; };
 		DFE839BD9687B4702918963BAAB928B3 /* UIDeviceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExt.swift; sourceTree = "<group>"; };
 		EEA42627A0851C3058910D73CCB43A2E /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
@@ -157,6 +159,21 @@
 			path = SBSwiftComponentsTests;
 			sourceTree = "<group>";
 		};
+		184152EAAF93CB642900204FC178C2C1 /* SBScan */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SBScan;
+			sourceTree = "<group>";
+		};
+		1CE7FB8356E663AA22F6E8FCFB9830BF /* SBEmpty */ = {
+			isa = PBXGroup;
+			children = (
+				D28C6029507FC3390413CC6C2FBEDED4 /* EmptyDataSource.swift */,
+			);
+			path = SBEmpty;
+			sourceTree = "<group>";
+		};
 		2A08BD97620526ED7F7C7F805E79552B /* SBExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,47 +197,6 @@
 				F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		184152EAAF93CB642900204FC178C2C1 /* SBScan */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SBScan;
-			sourceTree = "<group>";
-		};
-		1CE7FB8356E663AA22F6E8FCFB9830BF /* SBEmpty */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SBEmpty;
-			sourceTree = "<group>";
-		};
-		A6F94045267A614DC2BC9B3C1822A383 /* SBDB */ = {
-			isa = PBXGroup;
-			children = (
-				EEA42627A0851C3058910D73CCB43A2E /* DB.swift */,
-				F7846F2067816E55BF73BCE3E77D5E45 /* DBColumns.swift */,
-				F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */,
-			);
-			path = SBDB;
-			sourceTree = "<group>";
-		};
-		BC4FF11A2FDDC677021F249B31367087 /* SBCordova */ = {
-			isa = PBXGroup;
-			children = (
-				5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */,
-				6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */,
-				51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */,
-			);
-			path = SBCordova;
-			sourceTree = "<group>";
-		};
-		A05FA94B2F7C87BF7E933062670C2B06 /* SBShare */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SBShare;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -257,6 +233,13 @@
 			path = SBMacros;
 			sourceTree = "<group>";
 		};
+		A05FA94B2F7C87BF7E933062670C2B06 /* SBShare */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SBShare;
+			sourceTree = "<group>";
+		};
 		A421EC33AA2E672C487B705FE7E796AA /* Manualy */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +255,26 @@
 				8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */,
 			);
 			path = SBSceneRouter;
+			sourceTree = "<group>";
+		};
+		A6F94045267A614DC2BC9B3C1822A383 /* SBDB */ = {
+			isa = PBXGroup;
+			children = (
+				EEA42627A0851C3058910D73CCB43A2E /* DB.swift */,
+				F7846F2067816E55BF73BCE3E77D5E45 /* DBColumns.swift */,
+				F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */,
+			);
+			path = SBDB;
+			sourceTree = "<group>";
+		};
+		BC4FF11A2FDDC677021F249B31367087 /* SBCordova */ = {
+			isa = PBXGroup;
+			children = (
+				5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */,
+				6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */,
+				51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */,
+			);
+			path = SBCordova;
 			sourceTree = "<group>";
 		};
 		D691FB097B0DB3FE93A95753E19EE20A = {
@@ -495,8 +498,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/RealReachability/RealReachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -507,6 +511,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealReachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
@@ -552,6 +557,7 @@
 				0F8468E3B153CABAD7F752A6309CD221 /* DB.swift in Sources */,
 				48203A096BDB513918D97E2F16BC9708 /* DBColumns.swift in Sources */,
 				7AD7B5015C9A2868DB3E99D45D1DE8BD /* DBTables.swift in Sources */,
+				052B839A3F4F00B3884B81536D59E35A /* EmptyDataSource.swift in Sources */,
 				6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */,
 				5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */,
 				03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */,
