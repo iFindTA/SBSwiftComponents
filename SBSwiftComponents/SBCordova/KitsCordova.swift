@@ -103,7 +103,13 @@ public extension Kits {
         }
         debugPrint("currend cdv version:\(old)")
         //FIXME: fetch newest version for Cordova
-        
+        let uri = URL(string: "ss")
+        let cfg = URLSessionConfiguration.default
+        let session = URLSession(configuration: cfg)
+        let task = session.dataTask(with: uri!) { (data, response, error) in
+            
+        }
+        task.resume()
     }
     private static func cdv_loadNewest(_ uriString: String) {
         guard let uri = URL(string: uriString) else {

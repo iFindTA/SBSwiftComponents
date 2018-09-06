@@ -9,5 +9,7 @@
 #ifndef SBSwiftComponents_bridge_header_h
 #define SBSwiftComponents_bridge_header_h
 
+#import <CommonCrypto/CommonHMAC.h>
+#import <CommonCrypto/CommonDigest.h>
 
 #endif /* SBSwiftComponents_bridge_header_h */
