@@ -57,7 +57,7 @@ public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
         var attributes = [NSAttributedStringKey: Any]()
         attributes[NSAttributedStringKey.font] = font
         attributes[NSAttributedStringKey.foregroundColor] = fontColor
-        guard SBHTTPRouter.shared.isReachable() else {
+        guard SBHTTPState.shared.isReachable() else {
             return NSAttributedString(string: Macros.EMPTY_NETWORK, attributes: attributes)
         }
         var display = Macros.EMPTY_DATA

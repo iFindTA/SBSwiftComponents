@@ -10,7 +10,6 @@ import Alamofire
 import Foundation
 import SwiftyJSON
 import SVProgressHUD
-import RealReachability
 
 // MARK: - Variables
 fileprivate let APP_TIMEOUT_INTERVAL  =   30.0
@@ -43,26 +42,6 @@ public class SBHTTPRouter {
     
     static let shared = SBHTTPRouter()
     private init() {
-//        manager = NetworkReachabilityManager(host: Macros.APP_PING_HOST)
-//        manager?.startListening()
-        RealReachability.sharedInstance().hostForPing = APP_PING_HOST
-        RealReachability.sharedInstance().hostForCheck = APP_CHECK_HOST
-        RealReachability.sharedInstance().autoCheckInterval = 0.3
-        RealReachability.sharedInstance().reachability { (status) in
-            debugPrint("network status:\(status.rawValue)")
-        }
-        //TODO:此处可以发送消息给RN组件
-        NotificationCenter.default.addObserver(self, selector: #selector(networkStatusChanged), name: NSNotification.Name.realReachabilityChanged, object: nil)
-        RealReachability.sharedInstance().startNotifier()
-    }
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.realReachabilityChanged, object: nil)
-    }
-    /// network status changed
-    @objc private func networkStatusChanged() {
-        let status = RealReachability.sharedInstance().currentReachabilityStatus()
-        let reachable = (status != .RealStatusNotReachable)
-        debugPrint("网络状态变化:\(reachable)")
     }
     public func challengeNetworkPermission() {
         let url = URL(string: "https://baidu.com")
@@ -70,16 +49,6 @@ public class SBHTTPRouter {
         let session = URLSession.shared
         let task = session.dataTask(with: request)
         task.resume()
-    }
-    public func isReachable() -> Bool {
-//        return (manager?.isReachable)!
-        let status = RealReachability.sharedInstance().currentReachabilityStatus()
-        return status != .RealStatusNotReachable
-    }
-    public func isViaWifi() -> Bool {
-//        return (manager?.isReachableOnEthernetOrWiFi)!
-        let status = RealReachability.sharedInstance().currentReachabilityStatus()
-        return status == .RealStatusViaWiFi
     }
     
     /// inner action

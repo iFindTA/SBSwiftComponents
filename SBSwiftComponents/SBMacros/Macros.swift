@@ -149,9 +149,6 @@ public struct AppColor {
 }
 
 // MARK: - 网络定义
-public enum SBHTTPState: Int {
-    case None, WiFi, WLAN, Unavailable
-}
 public enum SBHTTPRespCode: Int {
     case unAuthorization = 401  //未授权
     case forbidden = 403        //禁止访问 没有权限

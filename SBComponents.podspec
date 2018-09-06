@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.3"
+  s.version      = "0.1.4"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -27,7 +27,8 @@ Pod::Spec.new do |s|
   s.subspec 'Kit' do |k|
     k.source_files = "SBSwiftComponents/SBKit/*.swift"
     k.dependency 'Toaster'
-    k.dependency 'SBComponents/Macros'
+    k.dependency 'SBComponents/Base'
+    k.dependency 'SBComponents/Error'
   end
 
   s.subspec 'Base' do |b|
@@ -48,6 +49,8 @@ Pod::Spec.new do |s|
   s.subspec 'Empty' do |p|
     p.source_files = "SBSwiftComponents/SBEmpty/*.swift"
     p.dependency 'DZNEmptyDataSet'
+    p.dependency 'SBComponents/Macros'
+    p.dependency 'SBComponents/HTTPState'
   end
 
   s.subspec 'Cordova' do |c|
@@ -63,16 +66,20 @@ Pod::Spec.new do |s|
     e.dependency 'SnapKit'
   end
 
+  s.subspec 'HTTPState' do |st|
+    st.source_files = "SBSwiftComponents/SBHTTPState/*.swift"
+    st.dependency 'RealReachability'
+  end
+
   s.subspec 'HTTPRouter' do |h|
     h.source_files = "SBSwiftComponents/SBHTTPRouter/*.swift"
     h.dependency 'Alamofire'
     h.dependency 'SwiftyJSON'
     h.dependency 'SVProgressHUD'
-    h.dependency 'RealReachability'
     h.dependency 'SBComponents/Error'
     h.dependency 'SBComponents/Macros'
   end
-  
+
   s.subspec 'SceneRouter' do |s|
     s.source_files = "SBSwiftComponents/SBSceneRouter/*.swift"
     s.dependency 'SBComponents/Base'
