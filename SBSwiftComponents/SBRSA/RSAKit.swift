@@ -223,7 +223,7 @@ fileprivate func rsa_form_public(_ key: String) -> SecKey? {
         return nil
     }
     
-    /*method1: create with data
+    //method1: create with data
     let keyMap:[NSObject:NSObject] = [
         kSecAttrKeyType: kSecAttrKeyTypeRSA,
         kSecAttrKeyClass: kSecAttrKeyClassPublic,
@@ -232,9 +232,8 @@ fileprivate func rsa_form_public(_ key: String) -> SecKey? {
     ]
     let seckey = SecKeyCreateWithData(data as CFData, keyMap as CFDictionary, nil)
     return seckey
-     */
     
-    //method2: create with keychain
+    /*method2: create with keychain
      let tag = "RSA_PUBLIC_KEY"
      //delete old lingering key with same tag
      let pubMap:[NSObject:NSObject] = [
@@ -269,7 +268,7 @@ fileprivate func rsa_form_public(_ key: String) -> SecKey? {
      guard status == noErr, let ref:CFTypeRef = keyRef else {
         return nil
      }
-     return (ref as! SecKey)
+     return (ref as! SecKey)*/
     
     /*method3: create with certificate not working
      if let certifivate = SecCertificateCreateWithData(kCFAllocatorDefault, data as CFData) {

@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/iFindTA/"
   s.license      = "MIT"
   s.author       = { "nanhu" => "nanhujiaju@gmail.com" }
-  s.platform     = :ios,'9.0'
+  s.platform     = :ios,'10.0'
   s.source       = { :git => "https://github.com/iFindTA/SBSwiftComponents.git", :tag => "#{s.version}" }
   s.ios.deployment_target = '9.0'
   #s.source_files = "SBSwiftComponents/*/*.swift"
