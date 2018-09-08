@@ -61,45 +61,6 @@ public struct Kits {
         return path
     }
     
-    /// Toaster
-    public static func makeToast(_ info: String?) {
-        let offset = ToastView.appearance().bottomOffsetPortrait
-        if offset < AppSize.HEIGHT_SCREEN*0.5 {
-            ToastView.appearance().bottomOffsetPortrait = AppSize.HEIGHT_SCREEN*0.5
-        }
-        DispatchQueue.main.async {
-            Toast(text: info).show()
-        }
-    }
-    public static func handleError(_ error: BaseError?) {
-        guard let e = error else {
-            ToastCenter.default.cancelAll()
-            return
-        }
-        if e.code == SBHTTPRespCode.forbidden.rawValue || e.code == SBHTTPRespCode.unAuthorization.rawValue {
-            let alert = UIAlertController(title: nil, message: e.errDescription, preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            let resign = UIAlertAction(title: "确定", style: .default) { (act) in
-                Kits.route2SignIn()
-            }
-            alert.addAction(resign)
-            if let rooter = self.fetchRootProfile() {
-                rooter.present(alert, animated: true, completion: nil)
-            }
-            return
-        }
-        makeToast(e.errDescription)
-    }
-    private static func route2SignIn() {
-        /// 此处未实现需要登录 可发通知实现
-        let name = NSNotification.Name(Macros.APP_REQUEST_RESIGNIN)
-        NotificationCenter.default.post(name: name, object: nil)
-    }
-    private static func fetchRootProfile() -> UIViewController? {
-        return UIApplication.shared.keyWindow?.rootViewController
-    }
-    
     /// check inputs
     public static func checkAccount(_ input: String?) -> (Bool, String?) {
         guard let m = input, m.count > 0 else{
@@ -207,5 +168,48 @@ public struct Kits {
         let bar = UIBarButtonItem(customView: barScene)
         bar.tintColor = fontColor
         return bar
+    }
+    
+    /// Toaster
+    public static func makeToast(_ info: String?) {
+        let offset = ToastView.appearance().bottomOffsetPortrait
+        if offset < AppSize.HEIGHT_SCREEN*0.5 {
+            ToastView.appearance().bottomOffsetPortrait = AppSize.HEIGHT_SCREEN*0.5
+        }
+        DispatchQueue.main.async {
+            Toast(text: info).show()
+        }
+    }
+    public static func handleError(_ error: BaseError?, callback: DelayedClosure?=nil) {
+        guard let e = error else {
+            ToastCenter.default.cancelAll()
+            return
+        }
+        if e.code == SBHTTPRespCode.forbidden.rawValue || e.code == SBHTTPRespCode.unAuthorization.rawValue {
+            let alert = UIAlertController(title: nil, message: e.errDescription, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            let resign = UIAlertAction(title: "确定", style: .default) { (act) in
+                Kits.route2SignIn(callback)
+            }
+            alert.addAction(resign)
+            if let rooter = self.fetchRootProfile() {
+                rooter.present(alert, animated: true, completion: nil)
+            } else {
+                makeToast("当前授权已过期，请重新登录！")
+            }
+            return
+        }
+        makeToast(e.errDescription)
+    }
+    
+    /// re-signin
+    private static func route2SignIn(_ excutor: DelayedClosure?=nil) {
+        /// 发通知实现 可优化：场景路由到授权
+        let name = NSNotification.Name(Macros.APP_REQUEST_RESIGNIN)
+        NotificationCenter.default.post(name: name, object: excutor)
+    }
+    private static func fetchRootProfile() -> UIViewController? {
+        return UIApplication.shared.keyWindow?.rootViewController
     }
 }

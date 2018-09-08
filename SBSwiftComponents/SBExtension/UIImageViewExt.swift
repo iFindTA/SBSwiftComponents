@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 public extension UIImageView {
-    public func pb_setCorner(_ size: CGFloat = 8) {
+    public func sb_setCorner(_ size: CGFloat = 8) {
         //异步绘制图像
         DispatchQueue.global().async(execute: {
             //1.建立上下文

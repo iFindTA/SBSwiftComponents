@@ -20,7 +20,7 @@ public enum GradientType {
 public extension UIImage {
     
     // MARK: - Class Methods
-    public class func pb_imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    public class func sb_imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect = CGRect(x:0,y:0,width:size.width,height:size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -30,7 +30,7 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return image!
     }
-    public class func pb_gradient(_ size: CGSize, startColor start: UIColor, endColor end: UIColor, percentage: [CGFloat], type: GradientType = .left2Right) -> UIImage? {
+    public class func sb_gradient(_ size: CGSize, startColor start: UIColor, endColor end: UIColor, percentage: [CGFloat], type: GradientType = .left2Right) -> UIImage? {
         assert(percentage.count < 5, "too many args in percentage!")
         UIGraphicsBeginImageContext(size)
         let ctx = UIGraphicsGetCurrentContext()
@@ -69,7 +69,7 @@ public extension UIImage {
     }
     
     // MARK: - Instance Methods
-    public func pb_resize(_ targetSize: CGSize) -> UIImage? {
+    public func sb_resize(_ targetSize: CGSize) -> UIImage? {
         let size = self.size
         
         let widthRatio  = targetSize.width  / size.width
@@ -94,7 +94,7 @@ public extension UIImage {
         
         return newImage
     }
-    public func pb_darkColor(color :UIColor, level :CGFloat) -> UIImage {
+    public func sb_darkColor(color :UIColor, level :CGFloat) -> UIImage {
         let imageRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         
         UIGraphicsBeginImageContextWithOptions(imageRect.size, false, self.scale)
@@ -107,7 +107,7 @@ public extension UIImage {
         
         return destimg!
     }
-    public func pb_roundCorner(_ radius: CGFloat) -> UIImage? {
+    public func sb_roundCorner(_ radius: CGFloat) -> UIImage? {
         let size = self.size
         let imageRect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)

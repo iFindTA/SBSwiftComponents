@@ -11,7 +11,7 @@ import Foundation
 
 public extension UIColor {
     
-    public class func pb_randomColor() -> UIColor {
+    public class func sb_randomColor() -> UIColor {
         let r: CGFloat = CGFloat(arc4random()%255)
         let g: CGFloat = CGFloat(arc4random()%255)
         let b: CGFloat = CGFloat(arc4random()%255)

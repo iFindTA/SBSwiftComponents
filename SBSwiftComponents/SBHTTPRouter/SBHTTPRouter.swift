@@ -19,18 +19,18 @@ public typealias SBResponse = (_ data: JSON?, _ error: BaseError?, _ page: JSON?
 
 // MARK: - Extension for Request
 fileprivate extension DataRequest {
-    private struct pb_associatedKeys {
+    private struct sb_associatedKeys {
         static var identifier_key = "identifier_key"
     }
-    public var identifier: String {
+    fileprivate var identifier: String {
         get {
-            guard let i = objc_getAssociatedObject(self, &pb_associatedKeys.identifier_key) as? String else {
+            guard let i = objc_getAssociatedObject(self, &sb_associatedKeys.identifier_key) as? String else {
                 return ""
             }
             return i
         }
         set {
-            objc_setAssociatedObject(self, &pb_associatedKeys.identifier_key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &sb_associatedKeys.identifier_key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

@@ -17,6 +17,7 @@
 		3D5130A791FD865CC9F206C6D863A716 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C01C72432DB69EC8A5B5861EEA50F36 /* UIImageViewExt.swift */; };
 		48203A096BDB513918D97E2F16BC9708 /* DBColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7846F2067816E55BF73BCE3E77D5E45 /* DBColumns.swift */; };
 		493D9B3AAAC3D5FB3B080B85157A3F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F99772C3F9F270087FD5DD456B00D /* LaunchScreen.storyboard */; };
+		4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		8AC2CF3C8509B113D9DAEEFE7D232979 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0776AC30700BF826CA139D94DDE0A33F /* UIButtonExt.swift */; };
 		8E7ACDAADF2B731AF8EFDFCDB340FFCC /* BaseScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FBB6DED2F1607EDA4050A75DE21CF /* BaseScenes.swift */; };
 		9B96366B483337EA283F28754C2CC1B0 /* RSAKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */; };
+		9F37198B612C25187E718D8CAAF6A596 /* ScanProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */; };
 		AA5E3C66A1C750E26363BA29B27345E3 /* BundleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E868DC521C3317D3A2831FF9571C /* BundleExt.swift */; };
 		AB25BEB2398039DFDB6F711FCDA5E352 /* SBHTTPState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DB2C291D7E29F6FB186534CC6A849 /* SBHTTPState.swift */; };
 		B6F3DA0DE9BBB4D838777B05F140C938 /* SBSwiftComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD65417A41741CE6209B4EA9E6A60EC /* SBSwiftComponentsTests.swift */; };
@@ -101,6 +103,7 @@
 		7F5EF3D55F2977AA9797CC2D1844C249 /* SBManualExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBManualExt.swift; sourceTree = "<group>"; };
 		83FD280CEC732005FCED80E5EC973C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAKit.swift; sourceTree = "<group>"; };
+		8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanProfile.swift; sourceTree = "<group>"; };
 		8D6903C159C3BB7AD181B442AD0C008D /* Pods-SBSwiftComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSceneRouter.swift; sourceTree = "<group>"; };
 		9A86E7F218154B2DDA7C80AD3D961DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 		F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProfiles.swift; sourceTree = "<group>"; };
 		F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTables.swift; sourceTree = "<group>"; };
 		F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kits.swift; sourceTree = "<group>"; };
+		F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Scan.xcassets; sourceTree = "<group>"; };
 		F6FAC2023B6C4D210C0F5478679EBDB2 /* SBSwiftComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBSwiftComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7846F2067816E55BF73BCE3E77D5E45 /* DBColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBColumns.swift; sourceTree = "<group>"; };
 		F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.release.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,9 +168,19 @@
 			path = SBSwiftComponentsTests;
 			sourceTree = "<group>";
 		};
+		0BE476A6E7748D88B64F3EE3C3647F41 /* SBRSA */ = {
+			isa = PBXGroup;
+			children = (
+				89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */,
+			);
+			path = SBRSA;
+			sourceTree = "<group>";
+		};
 		184152EAAF93CB642900204FC178C2C1 /* SBScan */ = {
 			isa = PBXGroup;
 			children = (
+				7EA2A9FC4051EBE41CBAF31B0CAB2762 /* Assets */,
+				8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */,
 			);
 			path = SBScan;
 			sourceTree = "<group>";
@@ -195,6 +209,13 @@
 			path = SBExtension;
 			sourceTree = "<group>";
 		};
+		4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SBHash;
+			sourceTree = "<group>";
+		};
 		574F105C9362E00AB1A1D603D2E7B543 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,19 +225,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */ = {
+		7EA2A9FC4051EBE41CBAF31B0CAB2762 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */,
 			);
-			path = SBHash;
-			sourceTree = "<group>";
-		};
-		0BE476A6E7748D88B64F3EE3C3647F41 /* SBRSA */ = {
-			isa = PBXGroup;
-			children = (
-				89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */,
-			);
-			path = SBRSA;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -497,6 +511,7 @@
 				FD360D7F4C458FAC61DE49C9EF776A50 /* Assets.xcassets in Resources */,
 				493D9B3AAAC3D5FB3B080B85157A3F9C /* LaunchScreen.storyboard in Resources */,
 				E880A6CE13AD6C154EACCB4151A2B11C /* Main.storyboard in Resources */,
+				4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +615,7 @@
 				AB25BEB2398039DFDB6F711FCDA5E352 /* SBHTTPState.swift in Sources */,
 				035BB0F20801D932A9FEA813D2D8797B /* SBManualExt.swift in Sources */,
 				BCE5773C519ACC6655BEB642ED6966E1 /* SBSceneRouter.swift in Sources */,
+				9F37198B612C25187E718D8CAAF6A596 /* ScanProfile.swift in Sources */,
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
 				8AC2CF3C8509B113D9DAEEFE7D232979 /* UIButtonExt.swift in Sources */,
 				7C1FEE7B5762E05D0515E7B9B4353262 /* UIColorExt.swift in Sources */,
@@ -656,7 +672,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -814,7 +830,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

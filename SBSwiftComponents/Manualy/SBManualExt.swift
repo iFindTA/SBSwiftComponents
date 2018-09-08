@@ -44,14 +44,14 @@ public extension String {
      *   func：加密方法
      *   参数1：加密方式； 参数2：加密的key
      */
-    private func pb_stringFromResult(result: UnsafeMutablePointer<CUnsignedChar>, length: Int) -> String {
+    private func sb_stringFromResult(result: UnsafeMutablePointer<CUnsignedChar>, length: Int) -> String {
         let hash = NSMutableString()
         for i in 0..<length {
             hash.appendFormat("%02x", result[i])
         }
         return String(hash)
     }
-    public func pb_hmac(algorithm: CryptoAlgorithm, key: String = "com.landun.app") -> String {
+    public func sb_hmac(algorithm: CryptoAlgorithm, key: String = "com.landun.app") -> String {
         let str = self.cString(using: String.Encoding.utf8)
         let strLen = Int(self.lengthOfBytes(using: String.Encoding.utf8))
         let digestLen = algorithm.digestLength
@@ -59,7 +59,7 @@ public extension String {
         let keyStr = key.cString(using: String.Encoding.utf8)
         let keyLen = Int(key.lengthOfBytes(using: String.Encoding.utf8))
         CCHmac(algorithm.HMACAlgorithm, keyStr!, keyLen, str!, strLen, result)
-        let digest = pb_stringFromResult(result:  result, length: digestLen)
+        let digest = sb_stringFromResult(result:  result, length: digestLen)
         result.deallocate()
         return digest
     }

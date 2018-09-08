@@ -18,32 +18,32 @@ public enum SBSceneState: Int {
 }
 
 public extension UIView {
-    private struct pb_associatedKeys {
-        static var state = "pb_scene_load_key"
-        static var indicator = "pb_scene_indicator_key"
+    private struct sb_associatedKeys {
+        static var state = "sb_scene_load_key"
+        static var indicator = "sb_scene_indicator_key"
     }
     var state: SBSceneState {
         get{
-            if let s = objc_getAssociatedObject(self, &pb_associatedKeys.state) as? SBSceneState {
+            if let s = objc_getAssociatedObject(self, &sb_associatedKeys.state) as? SBSceneState {
                 return s
             }
             return .idle
         }
         set{
             self.update(newValue)
-            objc_setAssociatedObject(self, &pb_associatedKeys.state, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &sb_associatedKeys.state, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     private func loader() -> UIActivityIndicatorView {
         var acter: UIActivityIndicatorView!
-        if let s = objc_getAssociatedObject(self, &pb_associatedKeys.indicator) as? UIActivityIndicatorView {
+        if let s = objc_getAssociatedObject(self, &sb_associatedKeys.indicator) as? UIActivityIndicatorView {
             acter = s
         } else {
             let a = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             a.hidesWhenStopped = true
             acter = a
-            objc_setAssociatedObject(self, &pb_associatedKeys.indicator, a, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &sb_associatedKeys.indicator, a, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
         return acter
     }

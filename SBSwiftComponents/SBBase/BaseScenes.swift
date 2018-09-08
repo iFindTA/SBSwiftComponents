@@ -30,13 +30,13 @@ public class BaseButton: UIButton {
     }
     
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let preEventStamp = self.pb_acceptEventTime
-        let duration = self.pb_acceptEventInterval
+        let preEventStamp = self.sb_acceptEventTime
+        let duration = self.sb_acceptEventInterval
         let curEventStamp = Date().timeIntervalSince1970
         if abs(preEventStamp - curEventStamp) > duration {
             super.touchesBegan(touches, with: event)
         }
-        self.pb_acceptEventTime = curEventStamp
+        self.sb_acceptEventTime = curEventStamp
     }
     
     public var extendTag: Int = 0//扩展的属性 方便操作

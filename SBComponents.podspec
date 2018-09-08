@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.5"
+  s.version      = "0.1.6"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -13,10 +13,10 @@ Pod::Spec.new do |s|
   s.platform     = :ios,'9.0'
   s.source       = { :git => "https://github.com/iFindTA/SBSwiftComponents.git", :tag => "#{s.version}" }
   s.ios.deployment_target = '9.0'
-  #s.source_files = "SBSwiftComponents/SBBase/*.swift","SBSwiftComponents/SBExtension/*.swift"
+  #s.source_files = "SBSwiftComponents/*/*.swift"
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
-  #s.dependency 'SBExtension', '~> 0.0.2'
+  #s.dependency 
 
   s.subspec 'DB' do |d|
     d.source_files = "SBSwiftComponents/SBDB/*.swift"
@@ -31,10 +31,23 @@ Pod::Spec.new do |s|
     k.dependency 'SBComponents/Error'
   end
 
+  s.subspec 'RSA' do |rsa|
+    rsa.source_files = "SBSwiftComponents/SBRSA/*.swift"
+    rsa.framework = "Security"
+  end
+
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/Macros'
     b.dependency 'SBComponents/Extension'
+  end
+
+  s.subspec 'Scan' do |q|
+    q.source_files = "SBSwiftComponents/SBScan/*.swift"
+    q.resources = "SBSwiftComponents/SBScan/Assets/*.*"
+    #q.ios.deployment_target = '10.0'
+    q.framework = "CoreGraphics", "AVFoundation"
+    q.dependency 'SBComponents/SceneRouter'
   end
 
   s.subspec 'Error' do |r|

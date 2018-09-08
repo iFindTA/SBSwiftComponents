@@ -9,18 +9,18 @@
 import Foundation
 
 public extension Bundle {
-    public class func pb_displayName() -> String? {
+    public class func sb_displayName() -> String? {
         guard let bundleMap = Bundle.main.infoDictionary else {
             return ""
         }
         return bundleMap["CFBundleDisplayName"] as? String
     }
     
-    public class func pb_bunldeIdentifier() -> String? {
+    public class func sb_bunldeIdentifier() -> String? {
         return Bundle.main.bundleIdentifier
     }
     
-    public class func pb_buildVersion() -> String {
+    public class func sb_buildVersion() -> String {
         guard let bundleMap = Bundle.main.infoDictionary else {
             return "100"
         }
@@ -28,7 +28,7 @@ public extension Bundle {
         return build
     }
     
-    public class func pb_appVersion() -> String {
+    public class func sb_appVersion() -> String {
         guard let bundleMap = Bundle.main.infoDictionary else {
             return "1.0"
         }

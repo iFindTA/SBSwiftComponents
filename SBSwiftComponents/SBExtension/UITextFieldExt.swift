@@ -10,15 +10,15 @@ import UIKit
 import Foundation
 
 public extension UITextField {
-    private struct pb_associatedKeys {
-        static var acceptMaxLength = "pb_maxLength"
+    private struct sb_associatedKeys {
+        static var acceptMaxLength = "sb_maxLength"
     }
     public var maxLength: Int {
         set {
-            objc_setAssociatedObject(self, &pb_associatedKeys.acceptMaxLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self, &sb_associatedKeys.acceptMaxLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
         get {
-            if let rs = objc_getAssociatedObject(self, &pb_associatedKeys.acceptMaxLength) as? Int {
+            if let rs = objc_getAssociatedObject(self, &sb_associatedKeys.acceptMaxLength) as? Int {
                 return rs
             }
             

@@ -169,7 +169,7 @@ public class BaseTabBarProfile: UITabBarController {
         if !hide {
             self.tabBar.isHidden = hide
         }
-        self.pb_isTabBarAnimating = true
+        self.sb_isTabBarAnimating = true
         
         UIView.animate(withDuration: animate ? TimeInterval(UINavigationControllerHideShowBarDuration) : 0, delay: 0, options: .allowUserInteraction, animations: {
             var tabBarTop: CGFloat = 0
@@ -190,22 +190,22 @@ public class BaseTabBarProfile: UITabBarController {
             if hide {
                 self?.tabBar.isHidden = true
             }
-            self?.pb_isTabBarAnimating = false
+            self?.sb_isTabBarAnimating = false
         }
     }
 }
 public extension BaseTabBarProfile {
-    private struct pb_tabbarHiddenKeys {
-        static var pb_isTabBarAnimating = "pb_isTabBarAnimating"
+    private struct sb_tabbarHiddenKeys {
+        static var sb_isTabBarAnimating = "sb_isTabBarAnimating"
     }
     
-    private var pb_isTabBarAnimating: Bool {
+    private var sb_isTabBarAnimating: Bool {
         get {
-            return objc_getAssociatedObject(self, &pb_tabbarHiddenKeys.pb_isTabBarAnimating) as! Bool
+            return objc_getAssociatedObject(self, &sb_tabbarHiddenKeys.sb_isTabBarAnimating) as! Bool
         }
         
         set {
-            objc_setAssociatedObject(self, &pb_tabbarHiddenKeys.pb_isTabBarAnimating, newValue as Bool, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &sb_tabbarHiddenKeys.sb_isTabBarAnimating, newValue as Bool, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }

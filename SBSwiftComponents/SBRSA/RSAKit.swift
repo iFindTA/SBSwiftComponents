@@ -223,7 +223,7 @@ fileprivate func rsa_form_public(_ key: String) -> SecKey? {
         return nil
     }
     
-    //method1: create with data
+    /*method1: create with data
     let keyMap:[NSObject:NSObject] = [
         kSecAttrKeyType: kSecAttrKeyTypeRSA,
         kSecAttrKeyClass: kSecAttrKeyClassPublic,
@@ -232,43 +232,44 @@ fileprivate func rsa_form_public(_ key: String) -> SecKey? {
     ]
     let seckey = SecKeyCreateWithData(data as CFData, keyMap as CFDictionary, nil)
     return seckey
+     */
     
-    /*method2: create with keychain
+    //method2: create with keychain
      let tag = "RSA_PUBLIC_KEY"
      //delete old lingering key with same tag
      let pubMap:[NSObject:NSObject] = [
-     kSecClass: kSecClassKey,
-     kSecAttrKeyType: kSecAttrKeyTypeRSA,
-     kSecAttrApplicationTag:tag as NSObject,
+        kSecClass: kSecClassKey,
+        kSecAttrKeyType: kSecAttrKeyTypeRSA,
+        kSecAttrApplicationTag:tag as NSObject,
      ]
      SecItemDelete(pubMap as CFDictionary)
      //Add persistent version of the key to system keychain
      let keyDict:[NSObject:NSObject] = [
-     kSecClass: kSecClassKey,
-     kSecAttrKeyType: kSecAttrKeyTypeRSA,
-     kSecAttrApplicationTag:tag as NSObject,
-     kSecValueData: data as NSObject,
-     kSecReturnPersistentRef: true as NSObject
+        kSecClass: kSecClassKey,
+        kSecAttrKeyType: kSecAttrKeyTypeRSA,
+        kSecAttrApplicationTag:tag as NSObject,
+        kSecValueData: data as NSObject,
+        kSecReturnPersistentRef: true as NSObject
      ]
      var persistKey: CFTypeRef?
      var status = SecItemAdd(keyDict as CFDictionary, &persistKey)
      guard status == noErr  else {
-     debugPrint("empty persist key!")
-     return nil
+        debugPrint("empty persist key!")
+        return nil
      }
      let keyMap:[NSObject:NSObject] = [
-     kSecClass: kSecClassKey,
-     kSecAttrKeyType: kSecAttrKeyTypeRSA,
-     kSecAttrApplicationTag:tag as NSObject,
-     kSecReturnRef: true as NSObject
+        kSecClass: kSecClassKey,
+        kSecAttrKeyType: kSecAttrKeyTypeRSA,
+        kSecAttrApplicationTag:tag as NSObject,
+        kSecReturnRef: true as NSObject
      ]
      // Now fetch the SecKeyRef version of the key
      var keyRef: CFTypeRef?
      status = SecItemCopyMatching(keyMap as CFDictionary, &keyRef);
      guard status == noErr, let ref:CFTypeRef = keyRef else {
-     return nil
+        return nil
      }
-     return (ref as! SecKey)*/
+     return (ref as! SecKey)
     
     /*method3: create with certificate not working
      if let certifivate = SecCertificateCreateWithData(kCFAllocatorDefault, data as CFData) {
