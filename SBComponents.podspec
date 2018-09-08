@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author       = { "nanhu" => "nanhujiaju@gmail.com" }
   s.platform     = :ios,'10.0'
   s.source       = { :git => "https://github.com/iFindTA/SBSwiftComponents.git", :tag => "#{s.version}" }
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   #s.source_files = "SBSwiftComponents/*/*.swift"
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
@@ -31,10 +31,10 @@ Pod::Spec.new do |s|
     k.dependency 'SBComponents/Error'
   end
 
-  s.subspec 'RSA' do |rsa|
-    rsa.source_files = "SBSwiftComponents/SBRSA/*.swift"
-    rsa.framework = "Security"
-  end
+ # s.subspec 'RSA' do |rsa|
+ #   rsa.source_files = "SBSwiftComponents/SBRSA/*.swift"
+ #   rsa.framework = "Security", "CommonCrypto"
+ # end
 
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
@@ -47,6 +47,7 @@ Pod::Spec.new do |s|
     q.resources = "SBSwiftComponents/SBScan/Assets/*.*"
     #q.ios.deployment_target = '10.0'
     q.framework = "CoreGraphics", "AVFoundation"
+    q.dependency 'SBComponents/Kit'
     q.dependency 'SBComponents/SceneRouter'
   end
 
