@@ -78,6 +78,13 @@ public class BaseProfile: UIViewController {
         UIGraphicsEndImageContext()
         return image!
     }
+    private func fixedIssue() {
+        let s = BaseScrollView(frame: .zero)
+        view.addSubview(s)
+        s.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+        }
+    }
     
     /// - Inner-Methods
     @objc public func defaultGobackStack() {
@@ -101,6 +108,9 @@ public class BaseProfile: UIViewController {
             }
         }
         return contain
+    }
+    public override func viewDidLoad() {
+        super.viewDidLoad();fixedIssue()
     }
 }
 
