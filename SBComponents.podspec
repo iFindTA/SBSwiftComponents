@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.6"
+  s.version      = "0.1.7"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -100,4 +100,12 @@ Pod::Spec.new do |s|
     s.dependency 'SBComponents/Error'
     s.dependency 'SBComponents/Macros'
   end
+
+  s.subspec 'WebBrowser' do |w|
+    w.source_files = "SBSwiftComponents/SBBrowser/*.swift"
+    w.resources = "SBSwiftComponents/SBBrowser/Assets/*.*"
+    w.framework = "WebKit"
+    w.dependency 'SBComponents/Base'
+  end
+
 end

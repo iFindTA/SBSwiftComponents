@@ -111,6 +111,7 @@ public class BaseProfile: UIViewController {
     }
     public override func viewDidLoad() {
         super.viewDidLoad();fixedIssue()
+        view.backgroundColor = UIColor.white
     }
 }
 

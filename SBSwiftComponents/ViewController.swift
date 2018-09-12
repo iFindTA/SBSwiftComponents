@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 import Toaster
 
-class ViewController: UIViewController {
+class ViewController: BaseProfile {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let btn = BaseButton(type: .custom)
+        var btn = BaseButton(type: .custom)
         btn.setTitle("test api", for: .normal)
         btn.setTitleColor(UIColor.blue, for: .normal)
         btn.addTarget(self, action: #selector(fetchTest), for: .touchUpInside)
@@ -36,11 +36,27 @@ class ViewController: UIViewController {
             make.height.equalTo(AppSize.HEIGHT_ICON)
         }
         
+        btn = BaseButton(type: .custom)
+        btn.setTitle("test browser", for: .normal)
+        btn.setTitleColor(UIColor.blue, for: .normal)
+        btn.addTarget(self, action: #selector(testWebBrowser), for: .touchUpInside)
+        view.addSubview(btn)
+        btn.snp.makeConstraints { (make) in
+            make.top.equalTo(input.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
         
     }
     
     @objc private func fetchTest() {
         Kits.makeToast("test show")
+    }
+    @objc private func testWebBrowser() {
+        var p = SBSceneRouteParameter()
+        p["url"] = "https://github.com/iFindTA/"
+        let browser = WebBrowser(p)
+        self.navigationController?.pushViewController(browser, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

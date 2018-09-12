@@ -143,10 +143,12 @@ public struct Kits {
         return bar
     }
     private static func barWithUnicode(_ code: String, title: String?, color: UIColor?, target: Any?, action:Selector?, right: Bool = false) -> UIBarButtonItem {
-        let fontName = "iconfont"
-        let font = UIFont(name: fontName, size: AppFont.SIZE_TITLE * 1.5)
-        let barTitle = code + (title?.available())!
-        let barSize = barTitle.size(AppSize.WIDTH_SCREEN, font: font!)
+        let font = AppFont.iconFont(AppFont.SIZE_TITLE * 1.5)
+        var barTitle = code
+        if let t = title?.available() {
+            barTitle = code + t
+        }
+        let barSize = barTitle.size(AppSize.WIDTH_SCREEN, font: font)
         let fontColor = ((color != nil) ?color!:UIColor.white)
         let btn = BaseButton(type: .custom)
         btn.titleLabel?.font = font
