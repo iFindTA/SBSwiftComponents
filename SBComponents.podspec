@@ -105,7 +105,9 @@ Pod::Spec.new do |s|
     w.source_files = "SBSwiftComponents/SBBrowser/*.swift"
     w.resources = "SBSwiftComponents/SBBrowser/Assets/*.*"
     w.framework = "WebKit"
+    w.dependency 'SBComponents/Kit'
     w.dependency 'SBComponents/Base'
+    w.dependency 'SBComponents/SceneRouter'
   end
 
 end
