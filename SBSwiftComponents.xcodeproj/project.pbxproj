@@ -238,7 +238,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6048E97D214A42D00038B095 /* SBBanner */ = {
+		332B3942C80ABA84E0B27D16673C237D /* SBBanner */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -391,8 +391,8 @@
 		EE721996E53FF89A5F04BAFA236C1040 /* SBSwiftComponents */ = {
 			isa = PBXGroup;
 			children = (
-				6048E97D214A42D00038B095 /* SBBanner */,
 				A421EC33AA2E672C487B705FE7E796AA /* Manualy */,
+				332B3942C80ABA84E0B27D16673C237D /* SBBanner */,
 				E918AE02694A4798479C9E9D65E0234F /* SBBase */,
 				E79978D3C1A0EE8B4643CE0FD250AF39 /* SBBrowser */,
 				BC4FF11A2FDDC677021F249B31367087 /* SBCordova */,
