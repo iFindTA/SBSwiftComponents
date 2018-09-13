@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 // MARK: - Base Profile
-public class BaseProfile: UIViewController {
+open class BaseProfile: UIViewController {
     
     /// - override
     deinit {
@@ -33,16 +33,16 @@ public class BaseProfile: UIViewController {
             return
         }
     }
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
-    override public var shouldAutorotate: Bool {
+    override open var shouldAutorotate: Bool {
         return false
     }
-    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
@@ -109,56 +109,56 @@ public class BaseProfile: UIViewController {
         }
         return contain
     }
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad();fixedIssue()
         view.backgroundColor = UIColor.white
     }
 }
 
 // MARK: - Base NavigationController
-public class BaseNavigationProfile: UINavigationController {
+open class BaseNavigationProfile: UINavigationController {
     /// override
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
     }
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         guard let top = self.topViewController else {
             return .default
         }
         return top.preferredStatusBarStyle
     }
-    override public var childViewControllerForStatusBarStyle: UIViewController? {
+    override open var childViewControllerForStatusBarStyle: UIViewController? {
         return self.topViewController
     }
     
-    override public var shouldAutorotate: Bool {
+    override open var shouldAutorotate: Bool {
         return (topViewController?.shouldAutorotate)!
     }
     //支持旋转的方向有哪些
-    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return (topViewController?.supportedInterfaceOrientations)!
     }
     //控制 vc present进来的横竖屏和进入方向 ，支持的旋转方向必须包含改返回值的方向 （详细的说明见下文）
-    override public var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
+    override open var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
         return (topViewController?.preferredInterfaceOrientationForPresentation)!
     }
 }
 
 // MARK: - Base TabBarController
-public class BaseTabBarProfile: UITabBarController {
+open class BaseTabBarProfile: UITabBarController {
     
     /// override
     //是否跟随屏幕旋转
-    override public var shouldAutorotate : Bool {
+    override open var shouldAutorotate : Bool {
         return (selectedViewController?.shouldAutorotate)!
     }
     //支持旋转的方向有哪些
-    override public var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         return (selectedViewController?.supportedInterfaceOrientations)!
     }
     //控制 vc present进来的横竖屏和进入方向 ，支持的旋转方向必须包含改返回值的方向 （详细的说明见下文）
-    override public var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
+    override open var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
         return (selectedViewController?.preferredInterfaceOrientationForPresentation)!
     }
     

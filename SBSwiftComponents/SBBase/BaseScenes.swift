@@ -168,7 +168,7 @@ public class BaseTextField: UITextField {
 }
 
 // MARK: - UIView
-public class BaseScene: UIView {
+open class BaseScene: UIView {
     /// Variables
     public var sectionTag: Int = 0
     

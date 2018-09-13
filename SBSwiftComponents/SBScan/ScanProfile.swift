@@ -425,7 +425,7 @@ fileprivate class QRScanEngine: NSObject, AVCaptureMetadataOutputObjectsDelegate
 
 // MARK: - ==================================================================================================
 // MARK: - QR Scan Profile
-public class QRScanProfile: BaseProfile {
+open class QRScanProfile: BaseProfile {
     /// - Variables
     lazy private var scanView: QRScanView = {
         let s = QRScanView(frame: self.view.bounds)
@@ -472,14 +472,14 @@ public class QRScanProfile: BaseProfile {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         self.scanEngine.stopScan()
         self.scanView.stopScanAnimation()
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard whetherAutoScan else {
             debugPrint("should not start camera!")
@@ -557,7 +557,7 @@ public class QRScanProfile: BaseProfile {
         handle(input)
     }
     
-    public func handle(_ code: String) {
+    open func handle(_ code: String) {
         //TODO:需子类实现
     }
     public func restartScanEngine() {
@@ -569,7 +569,7 @@ public class QRScanProfile: BaseProfile {
 
 // MARK: - UI-Layouts
 extension QRScanProfile {
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black
         
