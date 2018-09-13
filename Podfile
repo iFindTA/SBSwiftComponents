@@ -13,4 +13,7 @@ pod 'SSZipArchive', '~> 2.1.4'
 pod 'SVProgressHUD', '~> 2.2.5'
 pod 'DZNEmptyDataSet', '~> 1.8.1'
 pod 'RealReachability', '~> 1.2.2'
+pod 'SJNavigationPopGesture', '~> 1.4.1'
+pod 'IQKeyboardManagerSwift', '~> 6.0.2'
+pod 'GDPerformanceView-Swift', '~> 1.3.2'
 end

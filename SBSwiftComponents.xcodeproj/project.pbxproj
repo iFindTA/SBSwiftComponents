@@ -238,23 +238,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E79978D3C1A0EE8B4643CE0FD250AF39 /* SBBrowser */ = {
+		6048E97D214A42D00038B095 /* SBBanner */ = {
 			isa = PBXGroup;
 			children = (
-				EFA4CFA04043B4DDEB459218AB04BC73 /* Assets */,
-				E3E75BC5235E7D10656F1D48606AFA1C /* Activities.swift */,
-				482C12716AEE6F30FB69EF9EE10EE7F8 /* Browser.swift */,
 			);
-			path = SBBrowser;
-			sourceTree = "<group>";
-		};
-		EFA4CFA04043B4DDEB459218AB04BC73 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */,
-				64D6654FC4BBBF2DD5989F44605E7563 /* SBWebBrowser.strings */,
-			);
-			path = Assets;
+			path = SBBanner;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -372,6 +360,16 @@
 			path = SBHTTPState;
 			sourceTree = "<group>";
 		};
+		E79978D3C1A0EE8B4643CE0FD250AF39 /* SBBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				EFA4CFA04043B4DDEB459218AB04BC73 /* Assets */,
+				E3E75BC5235E7D10656F1D48606AFA1C /* Activities.swift */,
+				482C12716AEE6F30FB69EF9EE10EE7F8 /* Browser.swift */,
+			);
+			path = SBBrowser;
+			sourceTree = "<group>";
+		};
 		E89C0D769BBDB231ECDBA2BC6587CE8A /* SBSwiftComponentsUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +391,7 @@
 		EE721996E53FF89A5F04BAFA236C1040 /* SBSwiftComponents */ = {
 			isa = PBXGroup;
 			children = (
+				6048E97D214A42D00038B095 /* SBBanner */,
 				A421EC33AA2E672C487B705FE7E796AA /* Manualy */,
 				E918AE02694A4798479C9E9D65E0234F /* SBBase */,
 				E79978D3C1A0EE8B4643CE0FD250AF39 /* SBBrowser */,
@@ -419,6 +418,15 @@
 				9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */,
 			);
 			path = SBSwiftComponents;
+			sourceTree = "<group>";
+		};
+		EFA4CFA04043B4DDEB459218AB04BC73 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */,
+				64D6654FC4BBBF2DD5989F44605E7563 /* SBWebBrowser.strings */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,7 +592,10 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RealReachability/RealReachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SJNavigationPopGesture/SJNavigationPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -597,7 +608,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealReachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJNavigationPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -724,10 +738,7 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
@@ -743,11 +754,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -819,11 +826,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -840,11 +843,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -860,11 +859,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -883,10 +878,7 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";

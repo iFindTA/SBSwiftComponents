@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SJNavigationPopGesture
+import IQKeyboardManagerSwift
+import GDPerformanceView_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //install services
+        SJNavigationPopGesture.install()
+        IQKeyboardManager.shared.enable = true
+        debugPrint(NSHomeDirectory())
+        
         let bounds = UIScreen.main.bounds
         window = UIWindow(frame: bounds)
         window?.backgroundColor = UIColor.white
@@ -25,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigator.setNavigationBarHidden(true, animated: true)
         window?.rootViewController = navigator
         window?.makeKeyAndVisible()
+        
+        #if DEBUG
+        GDPerformanceMonitor.sharedInstance.startMonitoring()
+        #endif
         
         return true
     }

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.7"
+  s.version      = "0.1.8"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -40,6 +40,8 @@ Pod::Spec.new do |s|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/Macros'
     b.dependency 'SBComponents/Extension'
+    b.dependency 'IQKeyboardManagerSwift'
+    b.dependency 'GDPerformanceView-Swift'
   end
 
   s.subspec 'Scan' do |q|
@@ -99,6 +101,7 @@ Pod::Spec.new do |s|
     s.dependency 'SBComponents/Base'
     s.dependency 'SBComponents/Error'
     s.dependency 'SBComponents/Macros'
+    s.dependency 'SJNavigationPopGesture'
   end
 
   s.subspec 'WebBrowser' do |w|

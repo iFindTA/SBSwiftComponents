@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import SJNavigationPopGesture
 
 // MARK: - Variables
 public typealias SBSceneRouteParameter = [String: Any]
@@ -68,7 +69,7 @@ public class SBSceneRouter {
             //如果未找到当前的navigation
             let navigator = BaseNavigationProfile(rootViewController: profile)
             navigator.setNavigationBarHidden(true, animated: true)
-            //navigator.sj_gestureType = .full
+            navigator.sj_gestureType = .full
             topestProfile.present(navigator, animated: true, completion: nil)
             let error = BaseError.init("未找到栈顶profile的navigator")
             return error
@@ -77,7 +78,7 @@ public class SBSceneRouter {
             //present
             let navigator = BaseNavigationProfile(rootViewController: profile)
             navigator.setNavigationBarHidden(true, animated: true)
-            //navigator.sj_gestureType = .full
+            navigator.sj_gestureType = .full
             curNavigator.present(navigator, animated: true, completion: nil)
             return nil
         }
