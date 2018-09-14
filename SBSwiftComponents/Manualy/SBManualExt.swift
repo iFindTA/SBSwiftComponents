@@ -9,8 +9,7 @@
 import UIKit
 import Foundation
 
-// MARK: - String Extension For Hash-MAC
-
+// MARK: - Hash-MAC for String
 public enum CryptoAlgorithm {
     /// 加密的枚举选项
     case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
@@ -40,10 +39,7 @@ public enum CryptoAlgorithm {
     }
 }
 public extension String {
-    /*
-     *   func：加密方法
-     *   参数1：加密方式； 参数2：加密的key
-     */
+    
     private func sb_stringFromResult(result: UnsafeMutablePointer<CUnsignedChar>, length: Int) -> String {
         let hash = NSMutableString()
         for i in 0..<length {

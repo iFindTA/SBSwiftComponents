@@ -11,14 +11,14 @@ import Foundation
 public struct BaseError: LocalizedError {
     // MARK: - Variables
     var desc: String = ""
-    var code: Int = 0
+    public var code: Int = 0
     var localizedDescription: String {
         return desc
     }
     var errDescription: String {
         return desc
     }
-    init(_ desc: String) {
+    public init(_ desc: String) {
         self.desc = desc
     }
 }

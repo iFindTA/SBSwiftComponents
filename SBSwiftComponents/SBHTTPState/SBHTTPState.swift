@@ -13,7 +13,7 @@ fileprivate let APP_PING_HOST = "www.baidu.com"
 fileprivate let APP_CHECK_HOST = "www.qq.com"
 
 public class SBHTTPState {
-    static let shared = SBHTTPState()
+    public static let shared = SBHTTPState()
     private init() {
 //        manager = NetworkReachabilityManager(host: Macros.APP_PING_HOST)
 //        manager?.startListening()

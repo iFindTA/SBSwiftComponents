@@ -22,7 +22,7 @@ public class BaseButton: UIButton {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    init(type buttonType: UIButtonType) {
+    public init(type buttonType: UIButtonType) {
         super.init(frame: .zero)
     }
     override public func layoutSubviews() {
@@ -45,7 +45,7 @@ public class BaseButton: UIButton {
 // MARK: - UILbel类
 public class BaseLabel: UILabel {
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
     }
@@ -58,7 +58,7 @@ public class BaseLabel: UILabel {
 
 // MARK: - UIImageView类
 public class BaseImageView: UIImageView {
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         self.contentMode = .scaleToFill
@@ -74,7 +74,7 @@ public class BaseScrollView: UIScrollView {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
         if #available(iOS 11.0, *) {
@@ -112,7 +112,7 @@ public class BaseTableView: UITableView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    override init(frame: CGRect, style: UITableViewStyle) {
+    public override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         if #available(iOS 11.0, *) {
             self.contentInsetAdjustmentBehavior = .never

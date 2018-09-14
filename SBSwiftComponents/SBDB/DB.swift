@@ -9,8 +9,8 @@
 import SQLite
 import Foundation
 
-fileprivate extension Connection {
-    fileprivate func tableExists(_ tableName: String) -> Bool {
+public extension Connection {
+    public func tableExists(_ tableName: String) -> Bool {
         guard let count = try? self.scalar("SELECT EXISTS(SELECT name FROM sqlite_master WHERE name = ?)", tableName) as! Int64, count > 0 else {
             return false
         }
@@ -32,10 +32,10 @@ public class DB {
         let dir = db_dir()
         return dir + "_caches.db"
     }
-    private static func getDB() -> Connection? {
+    public class func getDB() -> Connection? {
         return dbConne
     }
-    private static func resetDB() {
+    public class func resetDB() {
         dbConne = nil
     }
     

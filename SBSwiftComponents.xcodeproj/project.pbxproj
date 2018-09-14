@@ -14,6 +14,7 @@
 		0F8468E3B153CABAD7F752A6309CD221 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42627A0851C3058910D73CCB43A2E /* DB.swift */; };
 		1E19DA93CEF76C0B30D914E1BEC2BB2E /* SBWebBrowser.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64D6654FC4BBBF2DD5989F44605E7563 /* SBWebBrowser.strings */; };
 		2921F9D6AD30228B8005E20C163A77F1 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */; };
+		2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A9BFB2504F571681014F492355E980 /* TCPServer.swift */; };
 		392F9FCA477F1992938F057AD4CCD3A9 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */; };
 		3B975828B3561D2DB36AFF93F8E13A51 /* SBHTTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */; };
 		3D5130A791FD865CC9F206C6D863A716 /* UIImageViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C01C72432DB69EC8A5B5861EEA50F36 /* UIImageViewExt.swift */; };
@@ -102,6 +103,7 @@
 		5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordovaProfile.swift; sourceTree = "<group>"; };
 		5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsCordova.swift; sourceTree = "<group>"; };
+		64A9BFB2504F571681014F492355E980 /* TCPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPServer.swift; sourceTree = "<group>"; };
 		660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		6DE878A1D06A8093F56452C1FA00752F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E626915CBB1B1EB80A2E2DD18FFEFDC /* SBSwiftComponentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBSwiftComponentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,13 @@
 			path = SBExtension;
 			sourceTree = "<group>";
 		};
+		332B3942C80ABA84E0B27D16673C237D /* SBBanner */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SBBanner;
+			sourceTree = "<group>";
+		};
 		4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,11 +247,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		332B3942C80ABA84E0B27D16673C237D /* SBBanner */ = {
+		E0100CF07C886819B9C82F3E645A2C26 /* SBTCPServer */ = {
 			isa = PBXGroup;
 			children = (
+				64A9BFB2504F571681014F492355E980 /* TCPServer.swift */,
 			);
-			path = SBBanner;
+			path = SBTCPServer;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -409,6 +419,7 @@
 				184152EAAF93CB642900204FC178C2C1 /* SBScan */,
 				A50889B0D01F952986C8C9D5AA190D3C /* SBSceneRouter */,
 				A05FA94B2F7C87BF7E933062670C2B06 /* SBShare */,
+				E0100CF07C886819B9C82F3E645A2C26 /* SBTCPServer */,
 				5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */,
 				283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */,
 				9A86E7F218154B2DDA7C80AD3D961DE9 /* Info.plist */,
@@ -671,6 +682,7 @@
 				BCE5773C519ACC6655BEB642ED6966E1 /* SBSceneRouter.swift in Sources */,
 				9F37198B612C25187E718D8CAAF6A596 /* ScanProfile.swift in Sources */,
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
+				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
 				8AC2CF3C8509B113D9DAEEFE7D232979 /* UIButtonExt.swift in Sources */,
 				7C1FEE7B5762E05D0515E7B9B4353262 /* UIColorExt.swift in Sources */,
 				8AB7E96212E9A724DBD558815F4FB40D /* UIDeviceExt.swift in Sources */,
@@ -738,7 +750,10 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
@@ -754,7 +769,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -826,7 +845,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -843,7 +866,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -859,7 +886,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -878,7 +909,10 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";

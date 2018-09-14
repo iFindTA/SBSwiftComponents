@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         GDPerformanceMonitor.sharedInstance.startMonitoring()
         #endif
+        startServices()
         
         return true
     }
@@ -62,7 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    /// start services
+    private func startServices() {
+        _ = SBHTTPState.shared.isReachable()
+        SBHTTPRouter.shared.challengeNetworkPermission()
+    }
 
 }
 

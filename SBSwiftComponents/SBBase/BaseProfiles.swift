@@ -19,14 +19,14 @@ open class BaseProfile: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    public convenience init() {
+        self.init(nibName: nil, bundle: nil)
         guard #available(iOS 11.0, *) else {
             self.automaticallyAdjustsScrollViewInsets = false
             return
         }
     }
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         guard #available(iOS 11.0, *) else {
             self.automaticallyAdjustsScrollViewInsets = false

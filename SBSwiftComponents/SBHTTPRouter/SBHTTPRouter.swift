@@ -40,7 +40,7 @@ public class SBHTTPRouter {
     /// variables
     //private var manager: NetworkReachabilityManager?
     
-    static let shared = SBHTTPRouter()
+    public static let shared = SBHTTPRouter()
     private init() {
     }
     public func challengeNetworkPermission() {
