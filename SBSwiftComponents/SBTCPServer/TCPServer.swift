@@ -9,11 +9,12 @@
 import Foundation
 import CocoaAsyncSocket
 
-fileprivate let kGENERAL = 0x153
+public let kGENERAL = 0x153
 fileprivate let KRetryMaxCount = 5
 
 public typealias TCPConnectResponse = (BaseError?)->Void
 public typealias TCPDataResponse = (Data?, BaseError?)->Void
+public typealias TCPHeartbeat = ()->Void
 
 public class TCPServer: NSObject {
     
@@ -32,20 +33,18 @@ public class TCPServer: NSObject {
         let s = [[String: Any]]()
         return s
     }()
-    private lazy var socket: GCDAsyncSocket = {
+    public lazy var socket: GCDAsyncSocket = {
         let s = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
         s.isIPv4PreferredOverIPv6 = false
         return s
     }()
     
-    
+    /// share instance
     public static let shared = TCPServer()
-    private override init() {
-        
-    }
+    private override init() {}
     
     /// util
-    private func writeRawVarint32(value: inout UInt) -> NSMutableData {
+    public func writeRawVarint32(value: inout UInt) -> NSMutableData {
         let mutableData = NSMutableData()
         while true {
             if value & ~0x7F == 0 {
@@ -120,15 +119,11 @@ public class TCPServer: NSObject {
     /// heartbeat
     public func sendHeartbeat() {
         //FIXME:此处若是写json则可单独出来
-        
-    }
-    public func parserData() {
-        //FIXME:此处解析数据
-        
     }
     
     /// outter actions
     public var callback: TCPDataResponse?
+    public var heartbeat: TCPHeartbeat?
     public func add(_ host: String, port: UInt16) {
         var map = [String: Any]()
         map["host"] = host
@@ -177,7 +172,7 @@ extension TCPServer: GCDAsyncSocketDelegate {
         sock.readData(withTimeout: -1, tag: kGENERAL)
         connectionCalback?(nil)
         connectionCalback = nil
-        sendHeartbeat()
+        heartbeat?()
     }
     public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         receivedData.append(data)
