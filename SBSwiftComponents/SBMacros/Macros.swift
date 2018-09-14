@@ -29,7 +29,8 @@ public struct Macros {
     public static let APP_USER_DID_INITIATIVE_LOGOUT = "APP_USER_DID_INITIATIVE_LOGOUT"
     public static let APP_EXCUTE_BLOCK_DELAY = "APP_EXCUTE_BLOCK_AFTER_DELAY"
     public static let APP_WHETHER_SHOW_VISITOR_WHEN_SIGNIN = "APP_WHETHER_SHOW_VISITOR_WHEN_SIGNIN"
-    public static let APP_REQUEST_RESIGNIN = "APP_REQUEST_RESIGNIN"
+    public static let APP_REQUEST_RESIGNIN = "APP_REQUEST_RESIGNIN" //用户授权过期
+    public static let APP_USER_DID_KICKOUT = "APP_USER_DID_KICKOUT" //用户被蹬出
     
     /// 正则表达式
     public static let REGULAR_MOBILE = "^1+[3578]+\\d{9}"

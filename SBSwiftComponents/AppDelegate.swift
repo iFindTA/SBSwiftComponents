@@ -69,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = SBHTTPState.shared.isReachable()
         SBHTTPRouter.shared.challengeNetworkPermission()
     }
-
+    private func startShareServices() {
+        Share.configureShares()
+    }
 }
 

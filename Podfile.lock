@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - CocoaAsyncSocket (7.6.3)
   - Cordova (4.5.4)
   - DZNEmptyDataSet (1.8.1)
   - GDPerformanceView-Swift (1.3.2)
@@ -18,9 +19,25 @@ PODS:
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.1.0)
   - Toaster (2.1.1)
+  - UMCCommon (1.5.2)
+  - UMCShare/Core (6.9.4):
+    - UMCCommon
+  - UMCShare/Social/ReducedQQ (6.9.4):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.4):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.4):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.9.4):
+    - UMCCommon
+    - UMCShare/Core
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.2)
+  - CocoaAsyncSocket (~> 7.6.3)
   - Cordova (~> 4.5.4)
   - DZNEmptyDataSet (~> 1.8.1)
   - GDPerformanceView-Swift (~> 1.3.2)
@@ -33,10 +50,16 @@ DEPENDENCIES:
   - SVProgressHUD (~> 2.2.5)
   - SwiftyJSON (~> 4.1.0)
   - Toaster (~> 2.1.1)
+  - UMCCommon (~> 1.5.2)
+  - UMCShare/Social/ReducedQQ (~> 6.9.4)
+  - UMCShare/Social/ReducedSina (~> 6.9.4)
+  - UMCShare/Social/ReducedWeChat (~> 6.9.4)
+  - UMCShare/UI (~> 6.9.4)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - CocoaAsyncSocket
     - Cordova
     - DZNEmptyDataSet
     - GDPerformanceView-Swift
@@ -49,9 +72,12 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftyJSON
     - Toaster
+    - UMCCommon
+    - UMCShare
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   Cordova: 90a337977b8667a80483f559268c82062b1183da
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   GDPerformanceView-Swift: a74cd679587b199e4526492b6e68ce61593c6123
@@ -64,7 +90,9 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
+  UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
+  UMCShare: aa233aecad67979930fe43f3a2f676023b669439
 
-PODFILE CHECKSUM: fcb06eb2dcf327a60cc2bc397f635440487ce11d
+PODFILE CHECKSUM: e8ea776c5d1530401de28dce0ab46bf4f4f63f83
 
 COCOAPODS: 1.5.0

@@ -12,4 +12,8 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
 
+//share
+#import <UMCommon/UMConfigure.h>
+#import <UShareUI/UMSocialUIManager.h>
+
 #endif /* SBSwiftComponents_bridge_header_h */

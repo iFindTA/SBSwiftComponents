@@ -61,6 +61,18 @@ public extension String {
     }
 }
 
+// MARK: - 自增 自减
+extension Int {
+    static postfix func ++(num: inout Int) -> Int {
+        num = num + 1
+        return num
+    }
+    
+    static postfix func --(num: inout Int) -> Int {
+        num = num - 1
+        return num
+    }
+}
 
 // MARK: - Base Profile手动扩展
 extension BaseProfile {

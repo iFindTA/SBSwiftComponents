@@ -43,6 +43,22 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Public Domain License
+
+The CocoaAsyncSocket project is in the public domain.
+
+The original TCP version (AsyncSocket) was created by Dustin Voss in January 2003.
+Updated and maintained by Deusty LLC and the Apple development community.
+</string>
+			<key>License</key>
+			<string>public domain</string>
+			<key>Title</key>
+			<string>CocoaAsyncSocket</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>    "type": "Apache License, Version 2.0",
     "text": "      Licensed under the Apache License, Version 2.0 (the "License");
       you may not use this file except in compliance with the License.
@@ -380,6 +396,28 @@ THE SOFTWARE.
 			<string>WTPFL</string>
 			<key>Title</key>
 			<string>Toaster</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2011 - 2018 umeng.com. All rights reserved.
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>UMCCommon</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Copyright 2011 - 2018 umeng.com. All rights reserved.
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>UMCShare</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

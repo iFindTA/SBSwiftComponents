@@ -26,6 +26,7 @@
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
 		7AD7B5015C9A2868DB3E99D45D1DE8BD /* DBTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */; };
 		7C1FEE7B5762E05D0515E7B9B4353262 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049E6B22F98A99E3525752265532AED /* UIColorExt.swift */; };
+		7C6C93CEC683AB7E186CD2D31E48D012 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4179C358CD7B4588C20315FEFB613D /* Share.swift */; };
 		7EECA29023E1326F8C8629E0EDFEF8F8 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE316495F08DAF2CD74AB0C2EFD2EF3A /* UIViewExt.swift */; };
 		7F3585131E4F6D187D32DBBCA39224B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */; };
 		83219C6E7FC4AB327AC565C3BF259331 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */; };
@@ -87,6 +88,7 @@
 		0776AC30700BF826CA139D94DDE0A33F /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
 		0C01C72432DB69EC8A5B5861EEA50F36 /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
 		0CEC8598CA911ADABC9585608C4B76DC /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		0D4179C358CD7B4588C20315FEFB613D /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		24597C58F05C376AB409F8F733E58CA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		277A11646F844069C31A387E28706F35 /* SBSwiftComponents-bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SBSwiftComponents-bridge-header.h"; sourceTree = "<group>"; };
 		283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -247,14 +249,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E0100CF07C886819B9C82F3E645A2C26 /* SBTCPServer */ = {
-			isa = PBXGroup;
-			children = (
-				64A9BFB2504F571681014F492355E980 /* TCPServer.swift */,
-			);
-			path = SBTCPServer;
-			sourceTree = "<group>";
-		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +294,7 @@
 		A05FA94B2F7C87BF7E933062670C2B06 /* SBShare */ = {
 			isa = PBXGroup;
 			children = (
+				0D4179C358CD7B4588C20315FEFB613D /* Share.swift */,
 			);
 			path = SBShare;
 			sourceTree = "<group>";
@@ -352,6 +347,14 @@
 				0A5CC88C68BC02D12EB72ABBADF2745A /* SBSwiftComponentsTests */,
 				E89C0D769BBDB231ECDBA2BC6587CE8A /* SBSwiftComponentsUITests */,
 			);
+			sourceTree = "<group>";
+		};
+		E0100CF07C886819B9C82F3E645A2C26 /* SBTCPServer */ = {
+			isa = PBXGroup;
+			children = (
+				64A9BFB2504F571681014F492355E980 /* TCPServer.swift */,
+			);
+			path = SBTCPServer;
 			sourceTree = "<group>";
 		};
 		E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */ = {
@@ -489,6 +492,7 @@
 				D42F49A5B3456F50F1E717A7053DE3EF /* Resources */,
 				52F9E41341D2AAE80A2DF6A090D887D6 /* [CP] Embed Pods Frameworks */,
 				AF9408C9B7FB1D487A2B3BAEE44FC4DD /* Embed Frameworks */,
+				CA8FB9FDF13F6A9BD5D05D53B1E8478B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -601,6 +605,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
@@ -617,6 +622,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
@@ -633,6 +639,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA8FB9FDF13F6A9BD5D05D53B1E8478B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-resources.sh",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -681,6 +705,7 @@
 				035BB0F20801D932A9FEA813D2D8797B /* SBManualExt.swift in Sources */,
 				BCE5773C519ACC6655BEB642ED6966E1 /* SBSceneRouter.swift in Sources */,
 				9F37198B612C25187E718D8CAAF6A596 /* ScanProfile.swift in Sources */,
+				7C6C93CEC683AB7E186CD2D31E48D012 /* Share.swift in Sources */,
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
 				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
 				8AC2CF3C8509B113D9DAEEFE7D232979 /* UIButtonExt.swift in Sources */,

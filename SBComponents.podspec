@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.1.8"
+  s.version      = "0.1.9"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -40,6 +40,7 @@ Pod::Spec.new do |s|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/Macros'
     b.dependency 'SBComponents/Extension'
+    b.dependency 'ESPullToRefresh'
     b.dependency 'IQKeyboardManagerSwift'
     b.dependency 'GDPerformanceView-Swift'
   end
@@ -111,6 +112,12 @@ Pod::Spec.new do |s|
     w.dependency 'SBComponents/Kit'
     w.dependency 'SBComponents/Base'
     w.dependency 'SBComponents/SceneRouter'
+  end
+
+  s.subspec 'TCPServer' do |t|
+    t.source_files = "SBSwiftComponents/SBTCPServer/*.swift"
+    t.dependency 'CocoaAsyncSocket'
+    t.dependency 'SBComponents/Error'
   end
 
 end
