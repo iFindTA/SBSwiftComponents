@@ -10,10 +10,10 @@ import UIKit
 import Foundation
 
 //MARK: - 全局布局定义变量
-let HorizontalOffset = AppSize.WIDTH_MARGIN
-let HorizontalOffsetMAX = AppSize.WIDTH_BOUNDARY
-let SeperatorBgColor = RGBA(r: 244, g: 243, b: 245, a: 1)
-let ClearBgColor = UIColor(white: 0, alpha: 0.3)
+public let HorizontalOffset = AppSize.WIDTH_MARGIN
+public let HorizontalOffsetMAX = AppSize.WIDTH_BOUNDARY
+public let SeperatorBgColor = RGBA(r: 244, g: 243, b: 245, a: 1)
+public let ClearBgColor = UIColor(white: 0, alpha: 0.3)
 
 // MARK: - UIButton类
 public class BaseButton: UIButton {

@@ -180,3 +180,11 @@ public enum SBUserPath: Int {
     case record
     case common
 }
+
+// MARK: - app显示类型
+public enum SceneType: Int {
+    case none
+    case main
+    case oauth
+    case visitor
+}
