@@ -11,9 +11,9 @@ import Foundation
 
 // MARK: - String Extension
 public extension String {
-    public func available() -> String {
-        guard self.count > 0 else {
-            return ""
+    public func available(_ place: String="") -> String {
+        guard self.isEmpty == false, self.count > 0 else {
+            return place
         }
         return self
     }

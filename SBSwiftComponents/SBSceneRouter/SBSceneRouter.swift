@@ -39,7 +39,8 @@ public class SBSceneRouter {
             routePath = spaceName + "." + clsRoute
         } else {
             let spaceName = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String
-            routePath = spaceName! + "." + clsRoute
+            let s = spaceName?.available("SBComponents")
+            routePath = s! + "." + clsRoute
         }
         guard let cls = NSClassFromString(routePath) else {
             let error = BaseError.init("route path error!")
@@ -218,7 +219,7 @@ public class RouterKit {
         }
         debugPrint(error.localizedDescription)
         //可以转到404页面
-        _ = SBSceneRouter.route2(SBNotFound.notFound)
+        _ = SBSceneRouter.route2(SBNotFound.notFound, params: nil, space: "SBComponents")
     }
 }
 // MARK: - Base Navigation手动扩展
