@@ -18,7 +18,7 @@ public protocol SBScenePathable {
     func route() -> String
 }
 extension SBScenePathable {
-    func route() -> String {
+    public func route() -> String {
         return "SB404"
     }
 }

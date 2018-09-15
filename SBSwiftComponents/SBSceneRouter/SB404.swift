@@ -11,13 +11,22 @@ import Foundation
 
 public class SB404: BaseProfile {
     
-    private var label: BaseLabel = {
+    private lazy var label: BaseLabel = {
         let l = BaseLabel(frame: .zero)
         l.font = AppFont.pingFangSC(AppFont.SIZE_TITLE)
         l.textAlignment = .center
         l.textColor = AppColor.COLOR_TITLE
-        l.text = "该服务目前不可用！"
+        l.text = "该服务飞到火星了，请稍后再来！"
         return l
+    }()
+    private lazy var backBarButtonItem: UIBarButtonItem =  {
+        var tempBackBarButtonItem = UIBarButtonItem(image: WebBrowser.bundledImage(named: "browser_icon_back"),
+                                                    style: UIBarButtonItemStyle.plain,
+                                                    target: self,
+                                                    action: #selector(defaultGobackStack))
+        tempBackBarButtonItem.width = 18.0
+        tempBackBarButtonItem.tintColor = nil
+        return tempBackBarButtonItem
     }()
     
     init(_ parameters: SBSceneRouteParameter?) {
@@ -31,7 +40,12 @@ public class SB404: BaseProfile {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(self.label)
+        view.addSubview(navigationBar)
+        let item = UINavigationItem(title: "Oops")
+        item.leftBarButtonItem = backBarButtonItem
+        navigationBar.pushItem(item, animated: true)
+        
+        view.insertSubview(label, belowSubview: navigationBar)
         self.label.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview()
         })

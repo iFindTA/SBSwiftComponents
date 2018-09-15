@@ -57,6 +57,7 @@ class ViewController: BaseProfile {
         p["url"] = "https://r.xiumi.us/stage/v5/2nQDs/104736814"
         let browser = WebBrowser(p)
         self.navigationController?.pushViewController(browser, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {
