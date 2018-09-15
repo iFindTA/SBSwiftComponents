@@ -18,6 +18,9 @@ public func adoptSize(_ size:CGFloat) -> CGFloat {
     return ceil(size*(AppSize.WIDTH_SCREEN/375.0))
 }
 
+/// 全局执行闭包
+public typealias NoneClosure = ()->Void
+
 // MARK: - Macros Defines
 public struct Macros {
     /// 状态栏是否全局控制 View controller-based status bar appearance = NO
@@ -52,6 +55,17 @@ public struct Macros {
     
     /// Cordova
     public static let CORDOVA_KEY_STARTPAGE = "CORDOVA_KEY_STARTPAGE"
+    
+    /// Methods
+    public static func executeInMain(_ closure:@escaping NoneClosure) {
+        if Thread.current.isMainThread {
+            closure()
+        } else {
+            DispatchQueue.main.async {
+                closure()
+            }
+        }
+    }
 }
 
 // MARK: - app字体

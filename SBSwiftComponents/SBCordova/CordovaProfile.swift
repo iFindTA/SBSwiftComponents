@@ -96,3 +96,10 @@ public class CordovaProfile: CDVViewController {
         self.view.backgroundColor = UIColor.white
     }
 }
+
+// MARK: - router protocol
+extension CordovaProfile: SBSceneRouteable {
+    public static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+        return CordovaProfile(params)
+    }
+}

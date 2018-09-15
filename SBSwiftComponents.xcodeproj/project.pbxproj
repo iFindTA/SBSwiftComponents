@@ -22,6 +22,7 @@
 		493D9B3AAAC3D5FB3B080B85157A3F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F99772C3F9F270087FD5DD456B00D /* LaunchScreen.storyboard */; };
 		4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
+		608509A6214CEA7000A12972 /* BaseCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608509A5214CEA7000A12972 /* BaseCountDown.swift */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
 		7AD7B5015C9A2868DB3E99D45D1DE8BD /* DBTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */; };
@@ -104,6 +105,7 @@
 		5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordovaProfile.swift; sourceTree = "<group>"; };
 		5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		608509A5214CEA7000A12972 /* BaseCountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCountDown.swift; sourceTree = "<group>"; };
 		6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsCordova.swift; sourceTree = "<group>"; };
 		64A9BFB2504F571681014F492355E980 /* TCPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPServer.swift; sourceTree = "<group>"; };
 		660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */,
 				9E5FBB6DED2F1607EDA4050A75DE21CF /* BaseScenes.swift */,
+				608509A5214CEA7000A12972 /* BaseCountDown.swift */,
 			);
 			path = SBBase;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				052B839A3F4F00B3884B81536D59E35A /* EmptyDataSource.swift in Sources */,
 				6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */,
 				5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */,
+				608509A6214CEA7000A12972 /* BaseCountDown.swift in Sources */,
 				03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */,
 				E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */,
 				9B96366B483337EA283F28754C2CC1B0 /* RSAKit.swift in Sources */,

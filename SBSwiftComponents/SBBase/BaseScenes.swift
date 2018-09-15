@@ -14,8 +14,6 @@ let HorizontalOffset = AppSize.WIDTH_MARGIN
 let HorizontalOffsetMAX = AppSize.WIDTH_BOUNDARY
 let SeperatorBgColor = RGBA(r: 244, g: 243, b: 245, a: 1)
 let ClearBgColor = UIColor(white: 0, alpha: 0.3)
-/// 延迟执行闭包：授权成功后执行动作
-public typealias DelayedClosure = ()->Void
 
 // MARK: - UIButton类
 public class BaseButton: UIButton {
