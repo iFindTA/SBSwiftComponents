@@ -20,7 +20,8 @@ public class SB404: BaseProfile {
         return l
     }()
     private lazy var backBarButtonItem: UIBarButtonItem =  {
-        var tempBackBarButtonItem = UIBarButtonItem(image: WebBrowser.bundledImage(named: "browser_icon_back"),
+        let icon = UIImage(named: "browser_icon_back")
+        var tempBackBarButtonItem = UIBarButtonItem(image:icon,
                                                     style: UIBarButtonItemStyle.plain,
                                                     target: self,
                                                     action: #selector(defaultGobackStack))
