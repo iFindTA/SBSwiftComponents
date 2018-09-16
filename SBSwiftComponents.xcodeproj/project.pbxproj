@@ -44,6 +44,7 @@
 		AC6ABD78304B5F82C41835AC6E2742BF /* SBBrowser.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */; };
 		B6F3DA0DE9BBB4D838777B05F140C938 /* SBSwiftComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD65417A41741CE6209B4EA9E6A60EC /* SBSwiftComponentsTests.swift */; };
 		BCE5773C519ACC6655BEB642ED6966E1 /* SBSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */; };
+		C48E2A2A670003D93AD7C7AEE6C17E10 /* SceneAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C59595A21CD6378B274F5F495C696F1 /* SceneAssets.xcassets */; };
 		CAB5E6388B4D64C690571FEF7C2E019B /* SB404.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3243EE3885B020A9B983789DA798382A /* SB404.swift */; };
 		DBF3E147AD950DAA397411A774BDB9D7 /* CordovaProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */; };
 		E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */; };
@@ -100,6 +101,7 @@
 		3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SBBrowser.xcassets; sourceTree = "<group>"; };
 		3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		482C12716AEE6F30FB69EF9EE10EE7F8 /* Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
+		4C59595A21CD6378B274F5F495C696F1 /* SceneAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SceneAssets.xcassets; sourceTree = "<group>"; };
 		51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginEnv.swift; sourceTree = "<group>"; };
 		54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSwiftComponentsUITests.swift; sourceTree = "<group>"; };
 		5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
@@ -251,6 +253,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E48F231F6E9ED501D6B76B596F08F91B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4C59595A21CD6378B274F5F495C696F1 /* SceneAssets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +323,7 @@
 		A50889B0D01F952986C8C9D5AA190D3C /* SBSceneRouter */ = {
 			isa = PBXGroup;
 			children = (
+				E48F231F6E9ED501D6B76B596F08F91B /* Assets */,
 				3243EE3885B020A9B983789DA798382A /* SB404.swift */,
 				8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */,
 			);
@@ -575,6 +586,7 @@
 				AC6ABD78304B5F82C41835AC6E2742BF /* SBBrowser.xcassets in Resources */,
 				1E19DA93CEF76C0B30D914E1BEC2BB2E /* SBWebBrowser.strings in Resources */,
 				4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */,
+				C48E2A2A670003D93AD7C7AEE6C17E10 /* SceneAssets.xcassets in Resources */,
 				A890CF2A12394113807B455ED6BE2E9B /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

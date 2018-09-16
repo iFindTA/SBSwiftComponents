@@ -156,10 +156,12 @@ public struct AppSize {
 
 // MARK: - app颜色
 public struct AppColor {
-    public static let COLOR_LINE = RGBA(r: 238, g: 238, b: 238, a: 1)
+    public static let COLOR_LINE = RGBA(r: 221, g: 221, b: 221, a: 1)//0xdddddd
+    public static let COLOR_LINE_GRAY = RGBA(r: 238, g: 238, b: 238, a: 1)//0xeeeeee
     public static let COLOR_THEME = RGBA(r: 16, g: 142, b: 233, a: 1)
-    public static let COLOR_TITLE = RGBA(r: 51, g: 51, b: 51, a: 1)
-    public static let COLOR_TITLE_GRAY = RGBA(r: 102, g: 102, b: 102, a: 1)
+    public static let COLOR_TITLE = RGBA(r: 51, g: 51, b: 51, a: 1)//0x333333
+    public static let COLOR_TITLE_GRAY = RGBA(r: 102, g: 102, b: 102, a: 1)//0x666666
+    public static let COLOR_TITLE_LIGHTGRAY = RGBA(r: 153, g: 153, b: 153, a: 1)//0x999999
     public static let COLOR_NAVIGATOR_TINT = RGBA(r: 76, g: 75, b: 85, a: 1)
 }
 

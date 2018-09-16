@@ -20,7 +20,7 @@ public class SB404: BaseProfile {
         return l
     }()
     private lazy var backBarButtonItem: UIBarButtonItem =  {
-        let icon = UIImage(named: "browser_icon_back")
+        let icon = SB404.bundledImage(named: "browser_icon_back")
         var tempBackBarButtonItem = UIBarButtonItem(image:icon,
                                                     style: UIBarButtonItemStyle.plain,
                                                     target: self,
@@ -50,6 +50,13 @@ public class SB404: BaseProfile {
         self.label.snp.makeConstraints({ (make) in
             make.edges.equalToSuperview()
         })
+    }
+    class func bundledImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil {
+            return UIImage(named: named, in: Bundle(for: SB404.classForCoder()), compatibleWith: nil)
+        } // Replace MyBasePodClass with yours
+        return image
     }
 }
 

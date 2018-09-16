@@ -248,7 +248,7 @@ fileprivate class QRScanView: UIView {
         if lineAnimator == nil {
             lineAnimator = QRLineAnimator(frame: .zero);
         }
-        let img = UIImage(named: "qr_scan_line")
+        let img = QRScanProfile.bundledImage(named: "qr_scan_line")
         self.lineAnimator?.startAnimating(self.scanRectangleRect, parentView: self, image: img!)
     }
     
@@ -603,6 +603,13 @@ open class QRScanProfile: BaseProfile {
 
 // MARK: - UI-Layouts
 extension QRScanProfile {
+    class func bundledImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil {
+            return UIImage(named: named, in: Bundle(for: QRScanProfile.classForCoder()), compatibleWith: nil)
+        } // Replace MyBasePodClass with yours
+        return image
+    }
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black
@@ -677,7 +684,7 @@ extension QRScanProfile {
         //weichat
         let smallFont = AppFont.iconFont(AppFont.SIZE_SUB_TITLE)
         let iconColor = UIColor.white
-        var icon = UIImage(named: "qr_icon_scan")
+        var icon = QRScanProfile.bundledImage(named: "qr_icon_scan")
         btn = BaseButton(type: .custom)
         btn.titleLabel?.font = smallFont
         btn.setTitleColor(iconColor, for: .normal)
@@ -690,7 +697,7 @@ extension QRScanProfile {
             make.right.equalTo(line.snp.left)
         }
         btn.sb_fixImagePosition(.top, spacing: AppSize.WIDTH_DIS)
-        icon = UIImage(named: "qr_icon_input")
+        icon = QRScanProfile.bundledImage(named: "qr_icon_input")
         btn = BaseButton(type: .custom)
         btn.titleLabel?.font = smallFont
         btn.setTitleColor(iconColor, for: .normal)
