@@ -270,6 +270,7 @@ fileprivate class QRScanEngine: NSObject, AVCaptureMetadataOutputObjectsDelegate
     /// 视频预览视图
     weak var videoPreview: UIView?
     
+    private var scanRect: CGRect = .zero
     private var device: AVCaptureDevice?
     private var input: AVCaptureDeviceInput?
     private var output: AVCaptureMetadataOutput?
@@ -279,6 +280,9 @@ fileprivate class QRScanEngine: NSObject, AVCaptureMetadataOutputObjectsDelegate
     
     override init() {
         super.init()
+    }
+    deinit {
+        device?.removeObserver(self, forKeyPath: "adjustingFocus")
     }
     init(_ preview: UIView, scanRect: CGRect) {
         super.init()
@@ -294,6 +298,8 @@ fileprivate class QRScanEngine: NSObject, AVCaptureMetadataOutputObjectsDelegate
             return
         }
         device = d
+        // auto focus
+        d.addObserver(self, forKeyPath: "adjustingFocus", options: [.new, .old], context: nil)
         //input
         guard let tmpInput = try? AVCaptureDeviceInput(device: d) else {
             debugPrint("failed to create device input!")
@@ -420,6 +426,34 @@ fileprivate class QRScanEngine: NSObject, AVCaptureMetadataOutputObjectsDelegate
         self.stopScan()
         //callback
         self.callback?(nil)
+    }
+    //MARK: - Observing
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "adjustingFocus" {
+            debugPrint("adjustingFocus")
+            guard let d = device else {
+                debugPrint("empty device for focus")
+                return
+            }
+            let width = scanRect.width
+            let point = CGPoint(x: scanRect.minX+width*0.5, y: scanRect.minY+width*0.5)
+            do {
+                try d.lockForConfiguration()
+                //对焦模式和对焦点
+                if d.isFocusModeSupported(.autoFocus) {
+                    d.focusPointOfInterest = point
+                    d.focusMode = .autoFocus
+                }
+                //曝光模式 曝光点
+                if d.isExposureModeSupported(.autoExpose) {
+                    d.exposurePointOfInterest = point
+                    d.exposureMode = .autoExpose
+                }
+                d.unlockForConfiguration()
+            } catch {
+                debugPrint("try lock error:\(error.localizedDescription)")
+            }
+        }
     }
 }
 
