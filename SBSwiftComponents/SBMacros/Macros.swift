@@ -20,6 +20,7 @@ public func adoptSize(_ size:CGFloat) -> CGFloat {
 
 /// 全局执行闭包
 public typealias NoneClosure = ()->Void
+public typealias ErrorClosure = (BaseError?)->Void
 
 // MARK: - Macros Defines
 public struct Macros {
