@@ -11,11 +11,11 @@ import Foundation
 
 // MARK: - String Extension
 public extension String {
-    public func available(_ place: String="") -> String {
-        guard self.isEmpty == false, self.count > 0 else {
-            return place
+    public static func available(_ info: String?, replace: String="") -> String {
+        guard let i = info, i.count > 0 else {
+            return replace
         }
-        return self
+        return i
     }
     public func isMatchRegexPattern(_ p: String) -> Bool {
         guard self.isEmpty == false else {
@@ -30,14 +30,5 @@ public extension String {
         }
         let bounds = NSString(string: self).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         return bounds.size
-    }
-}
-public extension NSString {
-    public func available() -> NSString {
-        print(self.length)
-        guard self.length > 0 else {
-            return "" as NSString
-        }
-        return self
     }
 }

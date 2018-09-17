@@ -39,8 +39,8 @@ public class SBSceneRouter {
             routePath = spaceName + "." + clsRoute
         } else {
             let spaceName = Bundle.main.infoDictionary!["CFBundleExecutable"] as? String
-            let s = spaceName?.available("SBComponents")
-            routePath = s! + "." + clsRoute
+            let s = String.available(spaceName, replace: "SBComponents")
+            routePath = s + "." + clsRoute
         }
         guard let cls = NSClassFromString(routePath) else {
             let error = BaseError.init("route path error!")

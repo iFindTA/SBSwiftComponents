@@ -47,7 +47,7 @@ public extension Share {
         
         let qqInstalled = UMSocialManager.default().isInstall(.QQ)
         let wxInstalled = UMSocialManager.default().isInstall(.wechatSession)
-        guard wxInstalled, qqInstalled else {
+        if wxInstalled, qqInstalled {
             let platforms: [UMSocialPlatformType] = [.QQ, .wechatSession, .wechatTimeLine]
             UMSocialUIManager.setPreDefinePlatforms(platforms)
             UMSocialUIManager.showShareMenuViewInWindow { (type, info) in
