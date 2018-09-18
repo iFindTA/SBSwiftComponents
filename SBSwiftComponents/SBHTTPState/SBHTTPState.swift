@@ -13,10 +13,12 @@ fileprivate let APP_PING_HOST = "www.baidu.com"
 fileprivate let APP_CHECK_HOST = "www.qq.com"
 
 public class SBHTTPState {
+    
+    /// Callback
+    public var callback: NoneClosure?
+    
     public static let shared = SBHTTPState()
     private init() {
-//        manager = NetworkReachabilityManager(host: Macros.APP_PING_HOST)
-//        manager?.startListening()
         RealReachability.sharedInstance().hostForPing = APP_PING_HOST
         RealReachability.sharedInstance().hostForCheck = APP_CHECK_HOST
         RealReachability.sharedInstance().autoCheckInterval = 0.3
@@ -35,15 +37,15 @@ public class SBHTTPState {
         let status = RealReachability.sharedInstance().currentReachabilityStatus()
         let reachable = (status != .RealStatusNotReachable)
         debugPrint("网络状态变化:\(reachable)")
+        callback?()
     }
-    
+    /// 是否联通
     public func isReachable() -> Bool {
-        //        return (manager?.isReachable)!
         let status = RealReachability.sharedInstance().currentReachabilityStatus()
         return status != .RealStatusNotReachable
     }
+    /// 是否Wi-Fi
     public func isViaWifi() -> Bool {
-        //        return (manager?.isReachableOnEthernetOrWiFi)!
         let status = RealReachability.sharedInstance().currentReachabilityStatus()
         return status == .RealStatusViaWiFi
     }
