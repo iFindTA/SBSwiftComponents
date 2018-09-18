@@ -169,6 +169,7 @@ extension TCPServer: GCDAsyncSocketDelegate {
         debugPrint("TCP已链接：\(host):\(port)")
         serverIndex = 0
         clearTimer()
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(retry), object: nil)
         sock.readData(withTimeout: -1, tag: kGENERAL)
         connectionCalback?(nil)
         connectionCalback = nil
@@ -185,37 +186,41 @@ extension TCPServer: GCDAsyncSocketDelegate {
     }
     public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         debugPrint("tcp server断开:\(err?.localizedDescription)")
+        /// 是否主动退出
         guard whetherInitiativeLogout == false else {
             debugPrint("initive logout")
             return
         }
-        var e: BaseError?
-        if let error = err {
-            e = BaseError(error.localizedDescription)
-        }
-        connectionCalback?(e)
-        /// 自动重连
-        if retryCounts >= KRetryMaxCount {
+        
+        guard retryCounts < KRetryMaxCount else {
             debugPrint("重连达到上限!")
             clearTimer()
-            connTimer = Timer.scheduledTimer(withTimeInterval: Double(KRetryMaxCount), repeats: false, block: { [weak self](t) in
-                self?.retryCounts += 1
-            })
-            RunLoop.current.add(connTimer!, forMode: .commonModes)
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(retry), object: nil)
+            var e: BaseError?
+            if let error = err {
+                e = BaseError(error.localizedDescription)
+            }
+            connectionCalback?(e)
             return
-        } else {
-            if (serverIndex + 1) > servers.count {
-                serverIndex = 0
-            }
-            let s = servers[serverIndex]
-            let host = s["host"] as! String
-            let port = s["port"] as! UInt16
-            do {
-                try socket.connect(toHost: host, onPort: port)
-            } catch {
-                debugPrint("failed on retry-connect: \(error.localizedDescription)")
-            }
         }
+        clearTimer()
+        let after = (retryCounts + 1) * 2 //2的幂等
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .seconds(after), execute:{
+            self.retry()
+        })
         retryCounts += 1
+    }
+    @objc private func retry() {
+        if (serverIndex + 1) > servers.count {
+            serverIndex = 0
+        }
+        let s = servers[serverIndex]
+        let host = s["host"] as! String
+        let port = s["port"] as! UInt16
+        do {
+            try socket.connect(toHost: host, onPort: port)
+        } catch {
+            debugPrint("failed on retry-connect: \(error.localizedDescription)")
+        }
     }
 }
