@@ -47,6 +47,16 @@ class ViewController: BaseProfile {
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
         
+        let empty = BaseButton(type: .custom)
+        empty.setTitle("test empty", for: .normal)
+        empty.setTitleColor(UIColor.blue, for: .normal)
+        empty.addTarget(self, action: #selector(testEmpty), for: .touchUpInside)
+        view.addSubview(empty)
+        empty.snp.makeConstraints { (make) in
+            make.top.equalTo(btn.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
     }
     
     @objc private func fetchTest() {
@@ -57,7 +67,10 @@ class ViewController: BaseProfile {
         p["url"] = "https://r.xiumi.us/stage/v5/2nQDs/104736814"
         let browser = WebBrowser(p)
         self.navigationController?.pushViewController(browser, animated: true)
-        
+    }
+    @objc private func testEmpty() {
+        let err = SBSceneRouter.route2(TestPaths.empty)
+        Kits.handleError(err)
     }
 
     override func didReceiveMemoryWarning() {

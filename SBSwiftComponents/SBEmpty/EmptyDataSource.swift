@@ -11,7 +11,9 @@ import DZNEmptyDataSet
 
 fileprivate let EmptyImageName = "emptyDataSource"
 fileprivate let EmptyColor = UIColor(red: 102.0/255.0, green: 102.0/255.0, blue: 102.0/255.0, alpha: 1)
-
+public typealias emptyShouldDisplay = () -> Bool
+public typealias emptyDisplayDescription = ()->String
+public typealias emptyPlaceholderTrigger = () -> Void
 
 // MARK: - 方式1
 public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
@@ -21,12 +23,9 @@ public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
      super.init()
      }*/
     
-    typealias emptyShouldDisplay = () -> Bool
-    var shouldDisplay: emptyShouldDisplay?
-    typealias emptyDisplayDescription = ()->String
-    var displayDescription: emptyDisplayDescription?
-    typealias emptyPlaceholderTrigger = () -> Void
-    var didTrigger: emptyPlaceholderTrigger?
+    public var shouldDisplay: emptyShouldDisplay?
+    public var displayDescription: emptyDisplayDescription?
+    public var didTrigger: emptyPlaceholderTrigger?
     
     // MARK: empty delegate & dataSource
     public func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
@@ -36,7 +35,7 @@ public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
         return shouldDisplay!()
     }
     public func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        guard let icon = UIImage(named: EmptyImageName) else {
+        guard let icon = EmptyDataSource.bundledImage(named: EmptyImageName) else {
             return UIImage()
         }
         return icon
@@ -80,6 +79,14 @@ public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
             return
         }
         didTrigger!()
+    }
+    
+    private class func bundledImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil {
+            return UIImage(named: named, in: Bundle(for: EmptyDataSource.classForCoder()), compatibleWith: nil)
+        } // Replace MyBasePodClass with yours
+        return image
     }
 }
 

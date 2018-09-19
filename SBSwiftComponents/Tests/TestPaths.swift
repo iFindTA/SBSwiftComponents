@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+public enum TestPaths: SBScenePathable {
+    case test
+    case empty
+    
+    public func route() -> String {
+        switch self {
+        case .empty:
+            return "TestEmptyProfile"
+        default:
+            return "SB404"
+        }
+    }
+}

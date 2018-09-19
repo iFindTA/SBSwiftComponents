@@ -204,7 +204,7 @@ extension TCPServer: GCDAsyncSocketDelegate {
             return
         }
         clearTimer()
-        let after = (retryCounts + 1) * 2 //2的幂等
+        let after = (retryCounts + 1) * 2 //幂等
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + .seconds(after), execute:{
             self.retry()
         })
