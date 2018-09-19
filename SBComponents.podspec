@@ -60,6 +60,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Macros' do |m|
     m.source_files = "SBSwiftComponents/SBMacros/*.swift"
+    m.dependency 'SBComponents/Error'
     m.dependency 'SBComponents/Extension'
   end
 
@@ -87,6 +88,7 @@ Pod::Spec.new do |s|
   s.subspec 'HTTPState' do |st|
     st.source_files = "SBSwiftComponents/SBHTTPState/*.swift"
     st.dependency 'RealReachability'
+    st.dependency 'SBComponents/Macros'
   end
 
   s.subspec 'HTTPRouter' do |h|
