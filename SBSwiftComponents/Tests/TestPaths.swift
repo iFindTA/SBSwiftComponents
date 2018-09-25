@@ -11,11 +11,14 @@ import Foundation
 public enum TestPaths: SBScenePathable {
     case test
     case empty
+    case share
     
     public func route() -> String {
         switch self {
         case .empty:
             return "TestEmptyProfile"
+        case .share:
+            return "TShare"
         default:
             return "SB404"
         }

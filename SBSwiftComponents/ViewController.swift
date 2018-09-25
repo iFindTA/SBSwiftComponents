@@ -57,6 +57,17 @@ class ViewController: BaseProfile {
             make.left.right.equalToSuperview()
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
+        
+        let wxShare = BaseButton(type: .custom)
+        wxShare.setTitle("test share wechat", for: .normal)
+        wxShare.setTitleColor(UIColor.blue, for: .normal)
+        wxShare.addTarget(self, action: #selector(share2WeChat), for: .touchUpInside)
+        view.addSubview(wxShare)
+        wxShare.snp.makeConstraints { (make) in
+            make.top.equalTo(empty.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
     }
     
     @objc private func fetchTest() {
@@ -71,6 +82,17 @@ class ViewController: BaseProfile {
     @objc private func testEmpty() {
         let err = SBSceneRouter.route2(TestPaths.empty)
         Kits.handleError(err)
+    }
+    
+    @objc private func share2WeChat() {
+        
+        let title = "title for share"
+        let desc = "这是一段精彩的描述文档，请具体查看文档"
+        let link = "https://github.com/ifindTA/"
+        let icon = "http://e.hiphotos.baidu.com/image/pic/item/72f082025aafa40fafb5fbc1a664034f78f019be.jpg"
+        TPOpen.shared.shareLink([.qq, .wxSession], title: title, desciption: desc, icon: icon, hybrid: link, profile: self) { (error) in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -22,8 +22,10 @@
 		493D9B3AAAC3D5FB3B080B85157A3F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F99772C3F9F270087FD5DD456B00D /* LaunchScreen.storyboard */; };
 		4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
+		662B65F8DC7F431CF1A682763D3FA1F7 /* TShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE1400F2A7AE6F24DB9289A74900728 /* TShare.swift */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
+		6D67D87BBE6F80308C4F438C27EE697D /* TShare.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */; };
 		7439A5B5E913A4C107081575D51F556D /* BaseCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8D4D226B13E0C1C568D8EBF123C947 /* BaseCountDown.swift */; };
 		7AD7B5015C9A2868DB3E99D45D1DE8BD /* DBTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */; };
 		7C1FEE7B5762E05D0515E7B9B4353262 /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7049E6B22F98A99E3525752265532AED /* UIColorExt.swift */; };
@@ -115,6 +117,7 @@
 		6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsCordova.swift; sourceTree = "<group>"; };
 		64A9BFB2504F571681014F492355E980 /* TCPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPServer.swift; sourceTree = "<group>"; };
 		660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
+		6BE1400F2A7AE6F24DB9289A74900728 /* TShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TShare.swift; sourceTree = "<group>"; };
 		6DE878A1D06A8093F56452C1FA00752F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E626915CBB1B1EB80A2E2DD18FFEFDC /* SBSwiftComponentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBSwiftComponentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7049E6B22F98A99E3525752265532AED /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 		A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
 		B900D910E0B0B4C557103A3E4B576954 /* EmptyIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EmptyIcons.xcassets; sourceTree = "<group>"; };
 		BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TShare.xcassets; sourceTree = "<group>"; };
 		CE316495F08DAF2CD74AB0C2EFD2EF3A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		D0768912F313617330A271FA8E35DEB0 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		D28C6029507FC3390413CC6C2FBEDED4 /* EmptyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSource.swift; sourceTree = "<group>"; };
@@ -186,6 +190,16 @@
 				3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05A338D721B9EF9B2D989AA335FEBC23 /* SBTPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				6E6EEB68A1745AB946E19401B5510EC4 /* Assets */,
+				DF4E6E19AD86133AA8D9DB8E312C0D2D /* TPlatform.swift */,
+				6BE1400F2A7AE6F24DB9289A74900728 /* TShare.swift */,
+			);
+			path = SBTPlatform;
 			sourceTree = "<group>";
 		};
 		0A5CC88C68BC02D12EB72ABBADF2745A /* SBSwiftComponentsTests */ = {
@@ -262,12 +276,12 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		05A338D721B9EF9B2D989AA335FEBC23 /* SBTPlatform */ = {
+		6E6EEB68A1745AB946E19401B5510EC4 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				DF4E6E19AD86133AA8D9DB8E312C0D2D /* TPlatform.swift */,
+				C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */,
 			);
-			path = SBTPlatform;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -624,6 +638,7 @@
 				1E19DA93CEF76C0B30D914E1BEC2BB2E /* SBWebBrowser.strings in Resources */,
 				4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */,
 				C48E2A2A670003D93AD7C7AEE6C17E10 /* SceneAssets.xcassets in Resources */,
+				6D67D87BBE6F80308C4F438C27EE697D /* TShare.xcassets in Resources */,
 				A890CF2A12394113807B455ED6BE2E9B /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,6 +672,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -674,6 +690,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
@@ -762,6 +779,7 @@
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
 				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
 				88B46BE664F58E9E1251A70BEFA86E10 /* TPlatform.swift in Sources */,
+				662B65F8DC7F431CF1A682763D3FA1F7 /* TShare.swift in Sources */,
 				DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */,
 				C1B50F636033E0405794769CC6BDF700 /* TestPaths.swift in Sources */,
 				8AC2CF3C8509B113D9DAEEFE7D232979 /* UIButtonExt.swift in Sources */,
@@ -831,7 +849,10 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
@@ -847,7 +868,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -919,7 +944,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -936,7 +965,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -952,7 +985,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponentsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponentsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -971,7 +1008,10 @@
 				DEVELOPMENT_TEAM = M8K6A7692X;
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
