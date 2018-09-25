@@ -147,4 +147,50 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
+    public func sb_compress(_ bytes: Int) -> UIImage {
+        // Compress by quality
+        var compression: CGFloat = 1
+        guard let tmp = UIImageJPEGRepresentation(self, compression), tmp.count > bytes else {
+            return self
+        }
+        
+        var max: CGFloat = 1
+        var min: CGFloat = 0
+        var data: Data?
+        for _ in 0..<6 {
+            compression = (max + min) / 2
+            data = UIImageJPEGRepresentation(self, compression)
+            if let d = data, Double(d.count) < Double(bytes) * 0.9 {
+                min = compression
+            } else if let d = data, Double(d.count) > Double(bytes) {
+                max = compression
+            } else {
+                break
+            }
+        }
+        guard let aData = data else {
+            debugPrint("mpty")
+            return UIImage()
+        }
+        var resultImage: UIImage! = UIImage(data: aData)
+        if  aData.count < bytes {
+            return resultImage
+        }
+        
+        var tmpData = aData
+        // Compress by size
+        var lastDataLength: Int = 0
+        while tmpData.count > bytes && tmpData.count != lastDataLength {
+            lastDataLength = tmpData.count
+            let ratio: Float = Float(bytes) / Float(tmpData.count)
+            let size = CGSize(width: CGFloat(Int(resultImage.size.width * CGFloat(sqrtf(ratio)))), height: CGFloat(Int(resultImage.size.height * CGFloat(sqrtf(ratio))))) // Use NSUInteger to prevent white blank
+            UIGraphicsBeginImageContext(size)
+            resultImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            resultImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            tmpData = UIImageJPEGRepresentation(resultImage, compression)!
+        }
+        
+        return resultImage
+    }
 }

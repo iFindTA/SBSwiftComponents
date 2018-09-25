@@ -16,6 +16,7 @@ fileprivate let THIRD_WX_APPSECRET = "1c07b1856958233045ea2892f7c4f444"
 fileprivate let THIRD_QQ_APPID = "1107032734"
 fileprivate let THIRD_QQ_APPSECRET = "jpxcrr67Et52dkVS"
 
+/// 所有支持的第三方平台
 public enum TPlatform {
     case none
     case qq
@@ -24,7 +25,152 @@ public enum TPlatform {
     case wxFavorite
 }
 
-/// 第三方组件
+fileprivate let scene_height: CGFloat = 200
+public typealias TShareCallback = (TPlatform)->Void
+
+// MARK: - 第三方平台UI选择
+class TPlatformProfile: BaseProfile {
+    /// Callbacks
+    public var callback: TShareCallback?
+    
+    private var color = RGBA(r: 153, g: 153, b: 153, a: 1)
+    private var font = AppFont.pingFangBold(AppFont.SIZE_SUB_TITLE)
+    private lazy var scene: BaseScene = {
+        let s = BaseScene(frame: .zero)
+        return s
+    }()
+    private lazy var btnScene: BaseScene = {
+        let s = BaseScene()
+        return s
+    }()
+    private lazy var cancelBtn: BaseButton = {
+        let b = BaseButton(type: .custom)
+        b.titleLabel?.font = AppFont.pingFangBold(AppFont.SIZE_SUB_TITLE+1)
+        b.setTitleColor(color, for: .normal)
+        b.setTitle("取消", for: .normal)
+        b.layer.cornerRadius = AppSize.HEIGHT_SUBBAR*0.5
+        b.layer.masksToBounds = true
+        b.layer.borderWidth = AppSize.HEIGHT_LINE
+        b.layer.borderColor = RGBA(r: 221, g: 221, b: 221, a: 1).cgColor
+        b.addTarget(self, action: #selector(cancelShare), for: .touchUpInside)
+        return b
+    }()
+    private lazy var qqBtn: BaseButton = {
+        let b = BaseButton(type: .custom)
+        let icon = UIImage(named: "icon_grant_qq")
+        b.titleLabel?.font = font
+        b.setTitleColor(color, for: .normal)
+        b.setTitle("QQ好友", for: .normal)
+        b.setImage(icon, for: .normal)
+        b.addTarget(self, action: #selector(share2QQ), for: .touchUpInside)
+        return b
+    }()
+    private lazy var wxBtn: BaseButton = {
+        let b = BaseButton(type: .custom)
+        let icon = UIImage(named: "icon_grant_wx")
+        b.titleLabel?.font = font
+        b.setTitleColor(color, for: .normal)
+        b.setTitle("微信好友", for: .normal)
+        b.setImage(icon, for: .normal)
+        b.addTarget(self, action: #selector(share2WXSession), for: .touchUpInside)
+        return b
+    }()
+    private lazy var dlBtn: BaseButton = {
+        let b = BaseButton(type: .custom)
+        let icon = UIImage(named: "icon_grant_dl")
+        b.titleLabel?.font = font
+        b.setTitleColor(color, for: .normal)
+        b.setTitle("保存", for: .normal)
+        b.setImage(icon, for: .normal)
+        b.addTarget(self, action: #selector(save2Album), for: .touchUpInside)
+        return b
+    }()
+    
+    private var params: SBSceneRouteParameter?
+    init(_ parameters: SBSceneRouteParameter?) {
+        super.init(nibName: nil, bundle: nil)
+        params = parameters
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        cancelShare()
+    }
+    @objc private func cancelShare() {
+        SBSceneRouter.back()
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = ClearBgColor
+        
+        /// scene
+        let bottom = AppSize.HEIGHT_INVALID_BOTTOM()
+        view.addSubview(scene)
+        scene.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalToSuperview()
+            make.height.equalTo(bottom+scene_height)
+        }
+        
+        scene.addSubview(cancelBtn)
+        cancelBtn.snp.remakeConstraints { (make) in
+            make.left.equalToSuperview().offset(HorizontalOffsetMAX)
+            make.right.equalToSuperview().offset(-HorizontalOffsetMAX)
+            make.bottom.equalToSuperview().offset(-bottom-HorizontalOffset)
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
+        
+        /// btn scene
+        scene.addSubview(btnScene)
+        btnScene.snp.makeConstraints { (make) in
+            make.top.left.equalToSuperview().offset(HorizontalOffsetMAX)
+            make.right.equalToSuperview().offset(-HorizontalOffsetMAX)
+            make.bottom.equalTo(cancelBtn.snp.top).offset(-HorizontalOffset)
+        }
+        btnScene.addSubview(qqBtn)
+        btnScene.addSubview(wxBtn)
+        qqBtn.snp.makeConstraints { (make) in
+            make.top.left.bottom.equalToSuperview()
+            make.right.equalTo(wxBtn.snp.left)
+            make.width.equalTo(wxBtn.snp.width)
+        }
+        wxBtn.snp.makeConstraints { (make) in
+            make.top.right.bottom.equalToSuperview()
+            make.width.equalTo(qqBtn.snp.width)
+        }
+        let space = AppSize.WIDTH_DIS
+        wxBtn.sb_fixImagePosition(.top, spacing: space)
+        qqBtn.sb_fixImagePosition(.top, spacing: space)
+    }
+    @objc private func share2QQ() {
+        share2(.qq)
+    }
+    @objc private func share2WXSession() {
+        share2(.wxSession)
+    }
+    @objc private func share2WXTimeline() {
+        share2(.wxTimeline)
+    }
+    @objc private func share2WXFavorite() {
+        share2(.wxFavorite)
+    }
+    private func share2(_ platform: TPlatform) {
+        let clousure: NoneClosure = {[weak self] in
+            self?.callback?(platform)
+        }
+        SBSceneRouter.back(nil, excute: clousure)
+    }
+    @objc private func save2Album() {
+        
+    }
+}
+
+// MARK: - 第三方平台组件调用
 public class TPOpen: NSObject {
     
     /// Callbacks
@@ -72,29 +218,32 @@ public class TPOpen: NSObject {
     }
     /// 分享网页链接
     public func shareLink(_ platform: [TPlatform], title: String, desciption desc: String, icon uri: String, hybrid link: String, profile: UIViewController, completion:@escaping ErrorClosure) {
+        /// weak refrerence
+        callback = completion
+        
         let qqInstalled = isInstalled(.qq)
         let wxInstalled = isInstalled(.wxSession)
         if qqInstalled && wxInstalled {
             var p = SBSceneRouteParameter()
             p["platforms"] = platform
-            let plater = TShare(p)
+            let plater = TPlatformProfile(p)
             let rooter = BaseNavigationProfile(rootViewController: plater)
             rooter.view.backgroundColor = ClearBgColor
             rooter.modalPresentationStyle = .overCurrentContext
             rooter.setNavigationBarHidden(true, animated: true)
             profile.present(rooter, animated: true, completion: nil)
             plater.callback = {[weak self](platform) in
-                self?.shareLinkThrid(platform, title: title, desciption: desc, icon: uri, hybrid: link, completion: completion)
+                self?.shareLinkThrid(platform, title: title, desciption: desc, icon: uri, hybrid: link)
             }
             return
         }
-        shareLinkSystem(title: title, desciption: desc, icon: uri, hybrid: link, profile: profile, completion: completion)
+        shareLinkSystem(title: title, desciption: desc, icon: uri, hybrid: link, profile: profile)
     }
     /// 选择分享平台
     private func previousChoosenPlatform() {
         
     }
-    private func shareLinkSystem(title: String, desciption desc: String, icon uri: String, hybrid link: String, profile: UIViewController,  completion:@escaping ErrorClosure) {
+    private func shareLinkSystem(title: String, desciption desc: String, icon uri: String, hybrid link: String, profile: UIViewController) {
         var image: UIImage = UIImage()
         if let i = UIImage(named: "AppIcon") {
             image = i
@@ -103,34 +252,37 @@ public class TPOpen: NSObject {
         let items:[Any] = [title, desc, image, link]
         let shreProfile = UIActivityViewController(activityItems: items, applicationActivities: nil)
         shreProfile.excludedActivityTypes = [.mail, .print, .airDrop, .message, .postToVimeo, .postToFlickr, .postToTwitter, .assignToContact, .saveToCameraRoll, .addToReadingList, .copyToPasteboard, .postToTencentWeibo]
-        shreProfile.completionWithItemsHandler = {(type, completed, returnItems, error) in
+        shreProfile.completionWithItemsHandler = { [weak self](type, completed, returnItems, error) in
             var err: BaseError?
             if completed == false, let e = error {
                 err = BaseError(e.localizedDescription)
             }
-            completion(err)
+            self?.callback?(err)
         }
         profile.present(shreProfile, animated: true, completion: nil)
     }
-    private func shareLinkThrid(_ platform: TPlatform, title: String, desciption desc: String, icon uri: String, hybrid link: String, completion:@escaping ErrorClosure) {
+    private func shareLinkThrid(_ platform: TPlatform, title: String, desciption desc: String, icon uri: String, hybrid link: String) {
         
         SVProgressHUD.show()
         Alamofire.request(uri).responseImage { [weak self](response) in
+            SVProgressHUD.dismiss()
             guard let icon = response.result.value else {
-                SVProgressHUD.showError(withStatus: "分享图片数据错误！")
+                let e = BaseError("f分享图片数据错误！")
+                self?.callback?(e)
                 return
             }
-            SVProgressHUD.dismiss()
             /// compress
             guard let compressed = self?.compress(icon, to: 32768) else {
                 debugPrint("failed compress")
+                let e = BaseError("failed compress")
+                self?.callback?(e)
                 return
             }
             /// share
-            self?.realShareLink(platform, title: title, desciption: desc, icon: compressed, hybrid: link, completion: completion)
+            self?.realShareLink(platform, title: title, desciption: desc, icon: compressed, hybrid: link)
         }
     }
-    private func realShareLink(_ platform: TPlatform, title: String, desciption desc: String, icon source: UIImage, hybrid link: String, completion:@escaping ErrorClosure) {
+    private func realShareLink(_ platform: TPlatform, title: String, desciption desc: String, icon source: UIImage, hybrid link: String) {
         if platform == .wxSession || platform == .wxTimeline || platform == .wxFavorite {
             let msg = WXMediaMessage()
             msg.title = title
@@ -213,25 +365,25 @@ public class TPOpen: NSObject {
                 completion(e)
                 return
             }
-            realShareImage(platform, icon: data, completion: completion)
+            realShareImage(platform, icon: data)
             return
         }
-        shareImageSystem(source, profile: profile, completion: completion)
+        shareImageSystem(source, profile: profile)
     }
-    private func shareImageSystem(_ icon: UIImage, profile: UIViewController, completion:@escaping ErrorClosure) {
+    private func shareImageSystem(_ icon: UIImage, profile: UIViewController) {
         let items:[Any] = [icon]
         let shreProfile = UIActivityViewController(activityItems: items, applicationActivities: nil)
         shreProfile.excludedActivityTypes = [.mail, .print, .airDrop, .message, .postToVimeo, .postToFlickr, .postToTwitter, .assignToContact, .saveToCameraRoll, .addToReadingList, .copyToPasteboard, .postToTencentWeibo]
-        shreProfile.completionWithItemsHandler = {(type, completed, returnItems, error) in
+        shreProfile.completionWithItemsHandler = { [weak self](type, completed, returnItems, error) in
             var err: BaseError?
             if completed == false, let e = error {
                 err = BaseError(e.localizedDescription)
             }
-            completion(err)
+            self?.callback?(err)
         }
         profile.present(shreProfile, animated: true, completion: nil)
     }
-    private func realShareImage(_ platform: TPlatform, icon source: Data, completion:@escaping ErrorClosure) {
+    private func realShareImage(_ platform: TPlatform, icon source: Data) {
         if platform == .wxSession || platform == .wxTimeline || platform == .wxFavorite {
             let msg = WXMediaMessage()
             let obj = WXImageObject()
@@ -258,7 +410,19 @@ class TWXHandler: NSObject, WXApiDelegate {
     }
     /// callback
     public func onResp(_ resp: BaseResp!) {
-        
+        debugPrint("wx response")
+        if resp.errCode != WXSuccess.rawValue {
+            var e = BaseError(resp.errStr)
+            e.code = Int(resp.errCode)
+            TPOpen.shared.callback?(e)
+            return
+        }
+        /// whether share
+        if let ret = resp as? SendMessageToWXResp {
+            
+        } else if let pay = resp as? PayResp {
+            
+        }
     }
 }
 
@@ -279,17 +443,11 @@ class TQQHandler: NSObject, QQApiInterfaceDelegate, TencentSessionDelegate {
     private override init() {
         
     }
-    public func onReq(_ req: QQBaseReq!) {
-        
-    }
+    public func onReq(_ req: QQBaseReq!) { }
+    public func isOnlineResponse(_ response: [AnyHashable : Any]!) {  }
     
     public func onResp(_ resp: QQBaseResp!) {
+        debugPrint("qq response")
         
     }
-    
-    public func isOnlineResponse(_ response: [AnyHashable : Any]!) {
-        
-    }
-    
-    
 }
