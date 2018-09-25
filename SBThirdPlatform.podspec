@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = "SBComponents"
+  s.name         = "SBThirdPlatform"
   s.version      = "0.2.6"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
@@ -27,4 +27,6 @@ Pod::Spec.new do |s|
   s.dependency 'SBComponents/Error'
   s.dependency 'SBComponents/Macros'
   s.dependency 'SBComponents/SceneRouter'
+  
+  s.static_framework = true
 end

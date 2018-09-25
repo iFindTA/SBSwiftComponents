@@ -276,14 +276,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6E6EEB68A1745AB946E19401B5510EC4 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +290,14 @@
 				782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */,
 			);
 			path = SBHTTPRouter;
+			sourceTree = "<group>";
+		};
+		6E6EEB68A1745AB946E19401B5510EC4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		7C0450ED635834E930C8BA363F0113D3 /* Products */ = {
