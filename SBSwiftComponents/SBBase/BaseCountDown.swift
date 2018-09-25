@@ -6,6 +6,7 @@
 //  Copyright © 2018年 nanhu. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 public typealias CountDownChanging = (Int)->String

@@ -18,11 +18,8 @@ pod 'SJNavigationPopGesture', '~> 1.4.1'
 pod 'IQKeyboardManagerSwift', '~> 6.0.2'
 pod 'GDPerformanceView-Swift', '~> 1.3.2'
 
-pod 'UMCCommon', '~> 1.5.2'
-pod 'UMCShare/UI', '~> 6.9.4'
-pod 'UMCShare/Social/ReducedQQ', '~> 6.9.4'
-pod 'UMCShare/Social/ReducedSina', '~> 6.9.4'
-pod 'UMCShare/Social/ReducedWeChat', '~> 6.9.4'
-
+#third platform
+pod 'WechatOpenSDK', '~> 1.8.2'
+pod 'TencentOpenAPI', '~> 1.0.0'
 
 end

@@ -21,9 +21,8 @@ public struct Share {
     
     /// share
     public static func configureShares() {
-        //图片水印
+        /*
         UMSocialGlobal.shareInstance().isUsingWaterMark = true
-        //关闭https允许分享http图片
         UMSocialGlobal.shareInstance().isUsingHttpsWhenShareContent = false
         UMConfigure.initWithAppkey(THIRD_ACC_UMENG, channel: "App Store")
         //设置分享平台
@@ -32,6 +31,7 @@ public struct Share {
         UMSocialManager.default().setPlaform(.wechatTimeLine, appKey: THIRD_WX_APPID, appSecret: THIRD_WX_APPSECRET, redirectURL: redirectUri)
         UMSocialManager.default().setPlaform(.QQ, appKey: THIRD_QQ_APPID, appSecret: THIRD_QQ_APPSECRET, redirectURL: redirectUri)
         UMSocialManager.default().setPlaform(.sina, appKey: THIRD_WB_APPID, appSecret: THIRD_WB_APPSECRET, redirectURL: redirectUri)
+        */
        
     }
     
@@ -42,7 +42,9 @@ public struct Share {
 }
 
 public extension Share {
+    /*
     typealias KitsShareCallback = (Error?)->Void
+    
     public static func share(_ title: String, desciption desc: String, icon: UIImage? = nil, iconUri: String, hybrid: String, profile: UIViewController, completion: @escaping KitsShareCallback) {
         
         let qqInstalled = UMSocialManager.default().isInstall(.QQ)
@@ -71,9 +73,11 @@ public extension Share {
             completion(err)
         }
         profile.present(shreProfile, animated: true, completion: nil)
+ 
     }
     
     private static func share2(_ platform: UMSocialPlatformType, title: String, desciption desc: String, iconUri: String, hybrid: String, profile: UIViewController , completion: @escaping KitsShareCallback) {
+
         let bundle = Bundle.sb_displayName()
         let newTitle = "【\(bundle == nil ? "师享童年" : bundle!)】"
         //创建分享消息对象
@@ -101,4 +105,5 @@ public extension Share {
             completion(nil)
         }
     }
+ */
 }
