@@ -26,5 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'SBComponents/Base'
   s.dependency 'SBComponents/Error'
   s.dependency 'SBComponents/Macros'
-
+  s.dependency 'SBComponents/SceneRouter'
 end
