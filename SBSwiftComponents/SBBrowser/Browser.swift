@@ -205,11 +205,16 @@ extension WebBrowser {
         
         /// request
         if let p = params, p.keys.contains("url") {
-            var urlString = p["url"] as! String
-            if !urlString.hasPrefix("https://") && !urlString.hasPrefix("http://") {
-                urlString = "https://"+urlString
+            let urlString = p["url"] as! String
+            var uri: URL!
+            guard (urlString.hasPrefix("http://")||urlString.hasPrefix("https://")) else {
+                uri = URL(fileURLWithPath: urlString)
+                let root = Kits.locatePath(.file)
+                let rootUri = URL(fileURLWithPath: root)
+                webView.loadFileURL(uri, allowingReadAccessTo: rootUri)
+                return
             }
-            let uri = URL(string: urlString)
+            uri = URL(string: urlString)
             request = URLRequest(url: uri!)
         }
         webView.load(request)
@@ -217,19 +222,11 @@ extension WebBrowser {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateToolbarItems()
-        
-        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
-            self.navigationController?.setToolbarHidden(false, animated: false)
-        }
-        else if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
-            self.navigationController?.setToolbarHidden(true, animated: true)
-        }
+        self.navigationController?.setToolbarHidden(false, animated: animated)
     }
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone) {
-            self.navigationController?.setToolbarHidden(true, animated: true)
-        }
+        self.navigationController?.setToolbarHidden(true, animated: animated)
     }
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -257,23 +254,20 @@ extension WebBrowser {
                 toolbar.items = items as? [UIBarButtonItem]
                 if presentingViewController == nil {
                     toolbar.barTintColor = navigationController!.navigationBar.barTintColor
-                }
-                else {
+                } else {
                     toolbar.barStyle = navigationController!.navigationBar.barStyle
                 }
                 toolbar.tintColor = navigationController!.navigationBar.tintColor
             }
             navigationItem.rightBarButtonItems = items.reverseObjectEnumerator().allObjects as? [UIBarButtonItem]
             
-        }
-        else {
+        } else {
             let items: NSArray = sharingEnabled ? [fixedSpace, backBarButtonItem, flexibleSpace, forwardBarButtonItem, flexibleSpace, refreshStopBarButtonItem, flexibleSpace, actionBarButtonItem, fixedSpace] : [fixedSpace, backBarButtonItem, flexibleSpace, forwardBarButtonItem, flexibleSpace, refreshStopBarButtonItem, fixedSpace]
             
             if let navigationController = navigationController, !closing {
                 if presentingViewController == nil {
                     navigationController.toolbar.barTintColor = navigationController.navigationBar.barTintColor
-                }
-                else {
+                } else {
                     navigationController.toolbar.barStyle = navigationController.navigationBar.barStyle
                 }
                 navigationController.toolbar.tintColor = navigationController.navigationBar.tintColor

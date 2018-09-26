@@ -55,7 +55,7 @@ public class SBSceneRouter {
         }
         //尝试初始化控制器
         let profile = destCls.__init(params)
-        profile.hidesBottomBarWhenPushed = true
+        //profile.hidesBottomBarWhenPushed = true
         
         //转场 push or present
         //找到栈顶profile
