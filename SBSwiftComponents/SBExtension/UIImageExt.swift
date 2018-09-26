@@ -30,7 +30,7 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return image!
     }
-    public class func sb_gradient(_ size: CGSize, startColor start: UIColor, endColor end: UIColor, percentage: [CGFloat], type: GradientType = .left2Right) -> UIImage? {
+    public class func sb_gradient(_ size: CGSize, with start: UIColor, with end: UIColor, percentage: [CGFloat], type: GradientType = .left2Right) -> UIImage? {
         assert(percentage.count < 5, "too many args in percentage!")
         UIGraphicsBeginImageContext(size)
         let ctx = UIGraphicsGetCurrentContext()
@@ -192,5 +192,30 @@ public extension UIImage {
         }
         
         return resultImage
+    }
+    
+    /// iconfont => UIImage
+    public class func sb_image(_ unicode: String, size: Int, color: UIColor?=nil, fontName: String = "iconfont") -> UIImage {
+        guard fontName.isEmpty == false else {
+            return UIImage()
+        }
+        let fontColor = color == nil ? UIColor.white : color
+        let scale = UIScreen.main.scale
+        let font = UIFont(name: fontName, size: CGFloat(size) * scale)
+        guard font != nil else {
+            debugPrint("font name not found!")
+            return UIImage()
+        }
+        var attributes = [NSAttributedStringKey: Any]()
+        attributes[NSAttributedStringKey.font] = font
+        attributes[NSAttributedStringKey.foregroundColor] = fontColor
+        let bitmapSize = CGFloat(size) * scale
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: bitmapSize, height: bitmapSize), false, scale)
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.setFillColor((fontColor?.cgColor)!)
+        NSString(string: unicode).draw(at: .zero, withAttributes: attributes)
+        let cgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
+        let image = UIImage(cgImage: cgImage!, scale: scale, orientation: .up)
+        return image
     }
 }

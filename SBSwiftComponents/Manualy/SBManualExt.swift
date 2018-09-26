@@ -61,6 +61,32 @@ public extension String {
     }
 }
 
+public extension Data {
+    public func md5String() -> String {
+        var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+        _ = withUnsafeBytes({ (bytes) in
+            CC_MD5(bytes, CC_LONG(count), &digest)
+        })
+        var digestHex = ""
+        for idx in 0 ..< Int(CC_MD5_DIGEST_LENGTH) {
+            digestHex += String(format: "%02x", digest[idx])
+        }
+        return digestHex
+    }
+    
+    public func sha256String() -> String {
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+        _ = withUnsafeBytes({ (bytes) in
+            CC_SHA256(bytes, CC_LONG(count), &digest)
+        })
+        var digestHex = ""
+        for idx in 0 ..< Int(CC_SHA256_DIGEST_LENGTH) {
+            digestHex += String(format: "%02x", digest[idx])
+        }
+        return digestHex
+    }
+}
+
 // MARK: - 自增 自减
 extension Int {
     static postfix func ++(num: inout Int) -> Int {
