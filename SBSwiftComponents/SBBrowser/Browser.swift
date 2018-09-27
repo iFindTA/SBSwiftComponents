@@ -207,14 +207,18 @@ extension WebBrowser {
         if let p = params, p.keys.contains("url") {
             let urlString = p["url"] as! String
             var uri: URL!
-            guard (urlString.hasPrefix("http://")||urlString.hasPrefix("https://")) else {
+            guard (urlString.hasPrefix("http://")||urlString.hasPrefix("https://")||urlString.hasPrefix("www")) else {
                 uri = URL(fileURLWithPath: urlString)
                 let root = Kits.locatePath(.file)
                 let rootUri = URL(fileURLWithPath: root)
                 webView.loadFileURL(uri, allowingReadAccessTo: rootUri)
                 return
             }
-            uri = URL(string: urlString)
+            if urlString.hasPrefix("www") {
+                uri = URL(string: "https://"+urlString)
+            } else {
+                uri = URL(string: urlString)
+            }
             request = URLRequest(url: uri!)
         }
         webView.load(request)

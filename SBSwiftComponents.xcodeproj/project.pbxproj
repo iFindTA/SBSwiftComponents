@@ -52,6 +52,7 @@
 		CB1BBF9D738BBF61F57000B613147882 /* EmptyIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B900D910E0B0B4C557103A3E4B576954 /* EmptyIcons.xcassets */; };
 		DBF3E147AD950DAA397411A774BDB9D7 /* CordovaProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */; };
 		DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */; };
+		DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */; };
 		E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */; };
 		E2706C09DDDC61F245914A0BBA9BAB95 /* SBSwiftComponentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */; };
 		E315BA3A830F36152FCF450384568C0A /* BaseProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */; };
@@ -126,6 +127,7 @@
 		89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAKit.swift; sourceTree = "<group>"; };
 		8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanProfile.swift; sourceTree = "<group>"; };
 		8D6903C159C3BB7AD181B442AD0C008D /* Pods-SBSwiftComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.debug.xcconfig"; sourceTree = "<group>"; };
+		8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioIndicator.swift; sourceTree = "<group>"; };
 		8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSceneRouter.swift; sourceTree = "<group>"; };
 		99E8617EE8C29A6F3D884508AC56E9D2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9A86E7F218154B2DDA7C80AD3D961DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -271,6 +273,14 @@
 				F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E6AE72069C2435D0912F4E0820DAB148 /* SBAudioIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */,
+			);
+			path = SBAudioIndicator;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -464,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				A421EC33AA2E672C487B705FE7E796AA /* Manualy */,
+				E6AE72069C2435D0912F4E0820DAB148 /* SBAudioIndicator */,
 				332B3942C80ABA84E0B27D16673C237D /* SBBanner */,
 				E918AE02694A4798479C9E9D65E0234F /* SBBase */,
 				E79978D3C1A0EE8B4643CE0FD250AF39 /* SBBrowser */,
@@ -750,6 +761,7 @@
 			files = (
 				ABB11240CF33EB9409266633EAAB0627 /* Activities.swift in Sources */,
 				7F3585131E4F6D187D32DBBCA39224B3 /* AppDelegate.swift in Sources */,
+				DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */,
 				7439A5B5E913A4C107081575D51F556D /* BaseCountDown.swift in Sources */,
 				2921F9D6AD30228B8005E20C163A77F1 /* BaseError.swift in Sources */,
 				E315BA3A830F36152FCF450384568C0A /* BaseProfiles.swift in Sources */,

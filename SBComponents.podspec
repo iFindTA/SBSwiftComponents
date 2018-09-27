@@ -124,4 +124,8 @@ Pod::Spec.new do |s|
     t.dependency 'SBComponents/Error'
   end
 
+  s.subspec 'AudioIndicator' do |a|
+    a.source_files = "SBSwiftComponents/SBAudioIndicator/*.swift"
+    a.dependency 'SBComponents/Macros'
+  end
 end
