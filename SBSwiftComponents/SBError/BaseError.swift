@@ -11,7 +11,8 @@ import Foundation
 public struct BaseError: LocalizedError {
     // MARK: - Variables
     var desc: String = ""
-    public var code: Int = 0
+    public var code: Int = -1 ///0成功 非0失败
+    public var ext: [String: Any]?
     var localizedDescription: String {
         return desc
     }
