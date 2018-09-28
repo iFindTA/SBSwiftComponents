@@ -19,8 +19,8 @@ pod 'IQKeyboardManagerSwift', '~> 6.0.2'
 pod 'GDPerformanceView-Swift', '~> 1.3.2'
 
 #third platform
-pod 'WechatOpenSDK', '~> 1.8.2'
-pod 'TencentOpenAPI', '~> 1.0.0'
+#pod 'WechatOpenSDK', '~> 1.8.2'
+#pod 'TencentOpenAPI', '~> 1.0.0'
 pod 'AlamofireImage', '~> 3.4.1'
 
 end

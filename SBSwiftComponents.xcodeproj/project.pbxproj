@@ -27,6 +27,9 @@
 		4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */; };
 		57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2ABA97AED7055EFE6B58A12552A8E4 /* libc++.tbd */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
+		60CE5D2F215DC31200E12E10 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE5D2B215DC31200E12E10 /* libWeChatSDK.a */; };
+		60CE5D30215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60CE5D2D215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		60CE5D31215DC31200E12E10 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE5D2E215DC31200E12E10 /* TencentOpenAPI.framework */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
 		6D67D87BBE6F80308C4F438C27EE697D /* TShare.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */; };
@@ -124,6 +127,12 @@
 		5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordovaProfile.swift; sourceTree = "<group>"; };
 		5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60CE5D28215DC31200E12E10 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		60CE5D29215DC31200E12E10 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		60CE5D2A215DC31200E12E10 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		60CE5D2B215DC31200E12E10 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		60CE5D2D215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		60CE5D2E215DC31200E12E10 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsCordova.swift; sourceTree = "<group>"; };
 		64A9BFB2504F571681014F492355E980 /* TCPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPServer.swift; sourceTree = "<group>"; };
 		660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
@@ -185,9 +194,11 @@
 				3EFEA19AB23B3C2492E05FACAD118863 /* CoreMotion.framework in Frameworks */,
 				77BCA6BED463823B6457CE8E64D841C5 /* CoreTelephony.framework in Frameworks */,
 				8CBF6E1B240CE56276833AA249CFBC65 /* CoreText.framework in Frameworks */,
+				60CE5D2F215DC31200E12E10 /* libWeChatSDK.a in Frameworks */,
 				F95CA441CEFF48186875369D1789DD18 /* Pods_SBSwiftComponents.framework in Frameworks */,
 				3DBCD068E375DEE3CCE28A5450FA78F1 /* SystemConfiguration.framework in Frameworks */,
 				57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */,
+				60CE5D31215DC31200E12E10 /* TencentOpenAPI.framework in Frameworks */,
 				CF12C17C8E4E73E9735AF2013F53D4C4 /* libresolv.tbd in Frameworks */,
 				3F819A8F37517057F06131E9D233F7FE /* libz.tbd in Frameworks */,
 			);
@@ -309,21 +320,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EF30B5E638DEF515C1B876DD031E613E /* Vendors */ = {
+		60CE5D27215DC31200E12E10 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
-				E10EC352660532BD50A2B26DE3D09B24 /* AliPay */,
+				60CE5D28215DC31200E12E10 /* WXApi.h */,
+				60CE5D29215DC31200E12E10 /* WXApiObject.h */,
+				60CE5D2A215DC31200E12E10 /* WechatAuthSDK.h */,
+				60CE5D2B215DC31200E12E10 /* libWeChatSDK.a */,
 			);
-			path = Vendors;
+			path = WeChat;
 			sourceTree = "<group>";
 		};
-		E10EC352660532BD50A2B26DE3D09B24 /* AliPay */ = {
+		60CE5D2C215DC31200E12E10 /* QQ */ = {
 			isa = PBXGroup;
 			children = (
-				91A9353BD2D014F3B59221E064E0C5DF /* AlipaySDK.bundle */,
-				2657647CA93D4380776669F935A23600 /* AlipaySDK.framework */,
+				60CE5D2D215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle */,
+				60CE5D2E215DC31200E12E10 /* TencentOpenAPI.framework */,
 			);
-			path = AliPay;
+			path = QQ;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -460,6 +474,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		E10EC352660532BD50A2B26DE3D09B24 /* AliPay */ = {
+			isa = PBXGroup;
+			children = (
+				91A9353BD2D014F3B59221E064E0C5DF /* AlipaySDK.bundle */,
+				2657647CA93D4380776669F935A23600 /* AlipaySDK.framework */,
+			);
+			path = AliPay;
+			sourceTree = "<group>";
+		};
 		E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +580,16 @@
 			path = SBSwiftComponents;
 			sourceTree = "<group>";
 		};
+		EF30B5E638DEF515C1B876DD031E613E /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				60CE5D2C215DC31200E12E10 /* QQ */,
+				60CE5D27215DC31200E12E10 /* WeChat */,
+				E10EC352660532BD50A2B26DE3D09B24 /* AliPay */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
 		EFA4CFA04043B4DDEB459218AB04BC73 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,7 +648,6 @@
 				D42F49A5B3456F50F1E717A7053DE3EF /* Resources */,
 				52F9E41341D2AAE80A2DF6A090D887D6 /* [CP] Embed Pods Frameworks */,
 				AF9408C9B7FB1D487A2B3BAEE44FC4DD /* Embed Frameworks */,
-				CA8FB9FDF13F6A9BD5D05D53B1E8478B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -689,6 +721,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CE5D30215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				88B44D8E032F717E1E161BC8F89E37EB /* AlipaySDK.bundle in Resources */,
 				FD360D7F4C458FAC61DE49C9EF776A50 /* Assets.xcassets in Resources */,
 				CB1BBF9D738BBF61F57000B613147882 /* EmptyIcons.xcassets in Resources */,
@@ -768,24 +801,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA8FB9FDF13F6A9BD5D05D53B1E8478B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-resources.sh",
-				"${PODS_ROOT}/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TencentOpenApi_IOS_Bundle.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -910,12 +925,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/AliPay",
+					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/QQ",
 				);
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/WeChat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1073,12 +1093,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/AliPay",
+					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/QQ",
 				);
 				INFOPLIST_FILE = SBSwiftComponents/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/WeChat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -13,7 +13,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 //third-platform
-#import <WXApi.h>
+#import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
