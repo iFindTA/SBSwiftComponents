@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.dependency 'SBComponents/Macros'
   s.dependency 'SBComponents/SceneRouter'
   
-  s.vendored_libraries = "libWeChatSDK.a"
+ # s.vendored_libraries = "libWeChatSDK.a"
   #s.vendored_frameworks = "Alipay.framework"
 
   s.static_framework = true

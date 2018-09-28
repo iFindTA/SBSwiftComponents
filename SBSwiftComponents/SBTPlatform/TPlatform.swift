@@ -706,4 +706,74 @@ class TUniversalHandler: NSObject {
         //active(map, with: type)
         delegate?.active?(map, with: type)
     }
+    
+//    /// 联网激活/关联 课程
+//    private func active(_ map: [String: Any], with type: ActiveType) {
+//        var path: SBHTTP!
+//        var cid: Int = 0
+//        var index: Int = 0
+//        if type == .active {
+//            path = SBHTTP.courseActive(map: map)
+//        } else if type == .relative{
+//            if let s = map["courseId"] as? String, let d = Int(s) {
+//                cid = d
+//            }
+//            if let s = map["curItemId"] as? String, let d = Int(s) {
+//                index = d
+//            }
+//            path = SBHTTP.courseRelative(cid: cid)
+//        } else {
+//            //            if let s = map["courseId"] as? String, let d = Int(s) {
+//            //                cid = d
+//            //            }
+//            //            var uid: Int = 0
+//            //            if let s = map["shareUserId"] as? String, let d = Int(s) {
+//            //                uid = d
+//            //            }
+//            //            path = SBHTTP.courseActiveGrant(u: uid, c: cid)
+//            path = SBHTTP.courseShared(map: map)
+//        }
+//
+//        let excutor: NoneClosure = {[weak self] in
+//            self?.active(map, with: type)
+//        };
+//        guard Kits.sessionValid() else {
+//            var params = SBSceneRouteParameter()
+//            params[Macros.APP_EXCUTE_BLOCK_DELAY] = excutor
+//            let err = SBSceneRouter.route2(SBScenes.signin, params: params, space: nil, push: false)
+//            Kits.handleError(err)
+//            return;
+//        }
+//        SBHTTPRouter.shared.fetch(path) { [weak self](res, err, _) in
+//            if let e = err {
+//                //Kits.handleError(e, callback: excutor)
+//                TPOpen.shared.callback?(e)
+//                return
+//            }
+//            guard let json = res else {
+//                let e = BaseError.init(Macros.EMPTY_DATA)
+//                TPOpen.shared.callback?(e)
+//                return
+//            }
+//            //parser
+//            if type == .active {
+//                cid = json["courseId"].intValue
+//            }
+//            self?.displayCourse(cid, index: index, with: type)
+//        }
+//    }
+//    private func displayCourse(_ cid: Int, index: Int, with type: ActiveType) {
+//        var scene: SBScenes!
+//        var p = SBSceneRouteParameter()
+//        if type == .relative {
+//            p["lastId"] = index
+//            p["courseId"] = cid
+//            scene = .learnCourse
+//        } else {
+//            p["id"] = cid
+//            scene = .courseInfo
+//        }
+//        let err = SBSceneRouter.route2(scene, params: p)
+//        Kits.handleError(err)
+//    }
 }
