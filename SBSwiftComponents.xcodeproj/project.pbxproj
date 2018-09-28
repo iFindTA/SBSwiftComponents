@@ -27,12 +27,10 @@
 		4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */; };
 		57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2ABA97AED7055EFE6B58A12552A8E4 /* libc++.tbd */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
-		60CE5D2F215DC31200E12E10 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE5D2B215DC31200E12E10 /* libWeChatSDK.a */; };
-		60CE5D30215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60CE5D2D215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle */; };
-		60CE5D31215DC31200E12E10 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE5D2E215DC31200E12E10 /* TencentOpenAPI.framework */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
 		6D67D87BBE6F80308C4F438C27EE697D /* TShare.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */; };
+		6F75BD823B472E3F6CC8A492CCE25578 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F88B750C49FB0AECAE0E6D5343E5622 /* libWeChatSDK.a */; };
 		7439A5B5E913A4C107081575D51F556D /* BaseCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8D4D226B13E0C1C568D8EBF123C947 /* BaseCountDown.swift */; };
 		77BCA6BED463823B6457CE8E64D841C5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE6CDD2C4E6E2053CF67AAEE402B754 /* CoreTelephony.framework */; };
 		7AD7B5015C9A2868DB3E99D45D1DE8BD /* DBTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */; };
@@ -55,6 +53,7 @@
 		AB25BEB2398039DFDB6F711FCDA5E352 /* SBHTTPState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1DB2C291D7E29F6FB186534CC6A849 /* SBHTTPState.swift */; };
 		ABB11240CF33EB9409266633EAAB0627 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E75BC5235E7D10656F1D48606AFA1C /* Activities.swift */; };
 		AC6ABD78304B5F82C41835AC6E2742BF /* SBBrowser.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */; };
+		AEB6C82B8C3922F530817023851C68BE /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1978A375F337BAC3ADDB60F61FFA515 /* TencentOpenAPI.framework */; };
 		B6F3DA0DE9BBB4D838777B05F140C938 /* SBSwiftComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD65417A41741CE6209B4EA9E6A60EC /* SBSwiftComponentsTests.swift */; };
 		BCE5773C519ACC6655BEB642ED6966E1 /* SBSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */; };
 		C1B50F636033E0405794769CC6BDF700 /* TestPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1868A7E00649A3D6F78F2B0CE193D9C /* TestPaths.swift */; };
@@ -69,6 +68,7 @@
 		E2706C09DDDC61F245914A0BBA9BAB95 /* SBSwiftComponentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */; };
 		E315BA3A830F36152FCF450384568C0A /* BaseProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */; };
 		E880A6CE13AD6C154EACCB4151A2B11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43B1AB68DCCACEACCA0CD1020203CDB /* Main.storyboard */; };
+		EFF0984A690BED8667E5AE02ADAEFEB4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */; };
 		F95CA441CEFF48186875369D1789DD18 /* Pods_SBSwiftComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */; };
 		FD360D7F4C458FAC61DE49C9EF776A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -109,6 +109,8 @@
 		0C01C72432DB69EC8A5B5861EEA50F36 /* UIImageViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExt.swift; sourceTree = "<group>"; };
 		0CEC8598CA911ADABC9585608C4B76DC /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		0D4179C358CD7B4588C20315FEFB613D /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		0DEF83FD6DCBCCC147C114891C127ECE /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		0F88B750C49FB0AECAE0E6D5343E5622 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		24597C58F05C376AB409F8F733E58CA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2657647CA93D4380776669F935A23600 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		277A11646F844069C31A387E28706F35 /* SBSwiftComponents-bridge-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SBSwiftComponents-bridge-header.h"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		3D1DB2C291D7E29F6FB186534CC6A849 /* SBHTTPState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBHTTPState.swift; sourceTree = "<group>"; };
 		3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SBBrowser.xcassets; sourceTree = "<group>"; };
 		3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		482C12716AEE6F30FB69EF9EE10EE7F8 /* Browser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Browser.swift; sourceTree = "<group>"; };
 		4C59595A21CD6378B274F5F495C696F1 /* SceneAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SceneAssets.xcassets; sourceTree = "<group>"; };
 		4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEmptyProfile.swift; sourceTree = "<group>"; };
@@ -127,12 +130,6 @@
 		5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordovaProfile.swift; sourceTree = "<group>"; };
 		5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		60CE5D28215DC31200E12E10 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		60CE5D29215DC31200E12E10 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		60CE5D2A215DC31200E12E10 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		60CE5D2B215DC31200E12E10 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		60CE5D2D215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
-		60CE5D2E215DC31200E12E10 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsCordova.swift; sourceTree = "<group>"; };
 		64A9BFB2504F571681014F492355E980 /* TCPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPServer.swift; sourceTree = "<group>"; };
 		660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
@@ -150,12 +147,14 @@
 		8D6903C159C3BB7AD181B442AD0C008D /* Pods-SBSwiftComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioIndicator.swift; sourceTree = "<group>"; };
 		8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBSceneRouter.swift; sourceTree = "<group>"; };
+		919CA916C155C748037CEEE64787A779 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		91A9353BD2D014F3B59221E064E0C5DF /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		99E8617EE8C29A6F3D884508AC56E9D2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		9A86E7F218154B2DDA7C80AD3D961DE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BC87A477F5AE145CEF53C01FC6ABD22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SBWebBrowser.strings; sourceTree = "<group>"; };
 		9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E5FBB6DED2F1607EDA4050A75DE21CF /* BaseScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScenes.swift; sourceTree = "<group>"; };
+		A1FF5D99F961DC28EF36E6F49CB54C73 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		A21438B8F19582F9936F0623C6F9458B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A4A599508F818864FC57F289890DAF70 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SBWebBrowser.strings"; sourceTree = "<group>"; };
 		A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
@@ -178,6 +177,7 @@
 		EEA42627A0851C3058910D73CCB43A2E /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProfiles.swift; sourceTree = "<group>"; };
 		F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTables.swift; sourceTree = "<group>"; };
+		F1978A375F337BAC3ADDB60F61FFA515 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kits.swift; sourceTree = "<group>"; };
 		F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Scan.xcassets; sourceTree = "<group>"; };
 		F6FAC2023B6C4D210C0F5478679EBDB2 /* SBSwiftComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBSwiftComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,11 +194,11 @@
 				3EFEA19AB23B3C2492E05FACAD118863 /* CoreMotion.framework in Frameworks */,
 				77BCA6BED463823B6457CE8E64D841C5 /* CoreTelephony.framework in Frameworks */,
 				8CBF6E1B240CE56276833AA249CFBC65 /* CoreText.framework in Frameworks */,
-				60CE5D2F215DC31200E12E10 /* libWeChatSDK.a in Frameworks */,
 				F95CA441CEFF48186875369D1789DD18 /* Pods_SBSwiftComponents.framework in Frameworks */,
 				3DBCD068E375DEE3CCE28A5450FA78F1 /* SystemConfiguration.framework in Frameworks */,
+				AEB6C82B8C3922F530817023851C68BE /* TencentOpenAPI.framework in Frameworks */,
+				6F75BD823B472E3F6CC8A492CCE25578 /* libWeChatSDK.a in Frameworks */,
 				57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */,
-				60CE5D31215DC31200E12E10 /* TencentOpenAPI.framework in Frameworks */,
 				CF12C17C8E4E73E9735AF2013F53D4C4 /* libresolv.tbd in Frameworks */,
 				3F819A8F37517057F06131E9D233F7FE /* libz.tbd in Frameworks */,
 			);
@@ -320,22 +320,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		60CE5D27215DC31200E12E10 /* WeChat */ = {
+		F1B0F84F5245218A376CC055ADD4743D /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
-				60CE5D28215DC31200E12E10 /* WXApi.h */,
-				60CE5D29215DC31200E12E10 /* WXApiObject.h */,
-				60CE5D2A215DC31200E12E10 /* WechatAuthSDK.h */,
-				60CE5D2B215DC31200E12E10 /* libWeChatSDK.a */,
+				919CA916C155C748037CEEE64787A779 /* WXApi.h */,
+				A1FF5D99F961DC28EF36E6F49CB54C73 /* WXApiObject.h */,
+				0DEF83FD6DCBCCC147C114891C127ECE /* WechatAuthSDK.h */,
+				0F88B750C49FB0AECAE0E6D5343E5622 /* libWeChatSDK.a */,
 			);
 			path = WeChat;
 			sourceTree = "<group>";
 		};
-		60CE5D2C215DC31200E12E10 /* QQ */ = {
+		97054114102D898DF3AD173D68857DD5 /* QQ */ = {
 			isa = PBXGroup;
 			children = (
-				60CE5D2D215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle */,
-				60CE5D2E215DC31200E12E10 /* TencentOpenAPI.framework */,
+				F1978A375F337BAC3ADDB60F61FFA515 /* TencentOpenAPI.framework */,
+				44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */,
 			);
 			path = QQ;
 			sourceTree = "<group>";
@@ -583,9 +583,9 @@
 		EF30B5E638DEF515C1B876DD031E613E /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				60CE5D2C215DC31200E12E10 /* QQ */,
-				60CE5D27215DC31200E12E10 /* WeChat */,
 				E10EC352660532BD50A2B26DE3D09B24 /* AliPay */,
+				97054114102D898DF3AD173D68857DD5 /* QQ */,
+				F1B0F84F5245218A376CC055ADD4743D /* WeChat */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -721,7 +721,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60CE5D30215DC31200E12E10 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				88B44D8E032F717E1E161BC8F89E37EB /* AlipaySDK.bundle in Resources */,
 				FD360D7F4C458FAC61DE49C9EF776A50 /* Assets.xcassets in Resources */,
 				CB1BBF9D738BBF61F57000B613147882 /* EmptyIcons.xcassets in Resources */,
@@ -732,6 +731,7 @@
 				4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */,
 				C48E2A2A670003D93AD7C7AEE6C17E10 /* SceneAssets.xcassets in Resources */,
 				6D67D87BBE6F80308C4F438C27EE697D /* TShare.xcassets in Resources */,
+				EFF0984A690BED8667E5AE02ADAEFEB4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A890CF2A12394113807B455ED6BE2E9B /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
