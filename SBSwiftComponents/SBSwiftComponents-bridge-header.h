@@ -14,6 +14,7 @@
 
 //third-platform
 #import <WXApi.h>
+#import <AlipaySDK/AlipaySDK.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 

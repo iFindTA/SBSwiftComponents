@@ -13,12 +13,13 @@ Pod::Spec.new do |s|
   s.platform     = :ios,'10.0'
   s.source       = { :git => "https://github.com/iFindTA/SBSwiftComponents.git", :tag => "#{s.version}" }
   s.ios.deployment_target = '10.0'
-  s.source_files = "SBSwiftComponents/SBTPlatform/*.swift"
+  s.source_files = "SBSwiftComponents/SBTPlatform/*.swift", "SBSwiftComponents/SBTPlatform/Vendors/**/*"
   s.resources = "SBSwiftComponents/SBTPlatform/Assets/*.*"
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
  
   s.dependency 'Alamofire'
+  s.dependency 'SwiftyJSON'
   s.dependency 'WechatOpenSDK'
   s.dependency 'TencentOpenAPI'
   s.dependency 'SVProgressHUD'
@@ -28,5 +29,7 @@ Pod::Spec.new do |s|
   s.dependency 'SBComponents/Macros'
   s.dependency 'SBComponents/SceneRouter'
   
+  s.vendored_frameworks = "Alipay.framework"
+
   s.static_framework = true
 end
