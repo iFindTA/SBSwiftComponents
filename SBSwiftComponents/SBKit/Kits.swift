@@ -98,10 +98,10 @@ public struct Kits {
     }
     
     /// MARK: UIBarButtonItems @attention: iOS11+失效
-    public static func barSpacer() -> UIBarButtonItem {
+    public static func barSpacer(_ right: Bool=false) -> UIBarButtonItem {
         let item = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         if #available(iOS 11.0, *) {
-            item.width = -AppSize.WIDTH_MARGIN
+            item.width = right ? AppSize.WIDTH_MARGIN : -AppSize.WIDTH_MARGIN
         }
         return item
     }
