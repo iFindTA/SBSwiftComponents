@@ -68,6 +68,10 @@ class ViewController: BaseProfile {
             make.left.right.equalToSuperview()
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
+        
+        let isX = UIDevice.current.isX()
+        debugPrint(isX)
+        debugPrint(UIScreen.main.bounds)
     }
     
     @objc private func fetchTest() {

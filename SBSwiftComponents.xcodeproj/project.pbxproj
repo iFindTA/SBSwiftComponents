@@ -47,6 +47,7 @@
 		8CBF6E1B240CE56276833AA249CFBC65 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC18BBBA9AB933BC0268D0FE4DFD2DB /* CoreText.framework */; };
 		8E7ACDAADF2B731AF8EFDFCDB340FFCC /* BaseScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FBB6DED2F1607EDA4050A75DE21CF /* BaseScenes.swift */; };
 		9B96366B483337EA283F28754C2CC1B0 /* RSAKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */; };
+		9CDFFB14E9CE48318D6AFA804D370EDD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7A280C89DC5C0557DCBC07283C98A0 /* CFNetwork.framework */; };
 		9F37198B612C25187E718D8CAAF6A596 /* ScanProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */; };
 		A890CF2A12394113807B455ED6BE2E9B /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0768912F313617330A271FA8E35DEB0 /* iconfont.ttf */; };
 		AA5E3C66A1C750E26363BA29B27345E3 /* BundleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396E868DC521C3317D3A2831FF9571C /* BundleExt.swift */; };
@@ -158,6 +159,7 @@
 		A21438B8F19582F9936F0623C6F9458B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A4A599508F818864FC57F289890DAF70 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SBWebBrowser.strings"; sourceTree = "<group>"; };
 		A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macros.swift; sourceTree = "<group>"; };
+		AA7A280C89DC5C0557DCBC07283C98A0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		ABE6CDD2C4E6E2053CF67AAEE402B754 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B900D910E0B0B4C557103A3E4B576954 /* EmptyIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EmptyIcons.xcassets; sourceTree = "<group>"; };
 		BF86BC8AD014D7243BC96FB5802322A4 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455905B737E245BE6C7EB1FEE2329027 /* AlipaySDK.framework in Frameworks */,
+				9CDFFB14E9CE48318D6AFA804D370EDD /* CFNetwork.framework in Frameworks */,
 				3EFEA19AB23B3C2492E05FACAD118863 /* CoreMotion.framework in Frameworks */,
 				77BCA6BED463823B6457CE8E64D841C5 /* CoreTelephony.framework in Frameworks */,
 				8CBF6E1B240CE56276833AA249CFBC65 /* CoreText.framework in Frameworks */,
@@ -224,6 +227,7 @@
 		03AF8F393E315390DB2AA50F3C08E566 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA7A280C89DC5C0557DCBC07283C98A0 /* CFNetwork.framework */,
 				A21438B8F19582F9936F0623C6F9458B /* CoreMotion.framework */,
 				ABE6CDD2C4E6E2053CF67AAEE402B754 /* CoreTelephony.framework */,
 				EDC18BBBA9AB933BC0268D0FE4DFD2DB /* CoreText.framework */,
@@ -320,26 +324,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		F1B0F84F5245218A376CC055ADD4743D /* WeChat */ = {
-			isa = PBXGroup;
-			children = (
-				919CA916C155C748037CEEE64787A779 /* WXApi.h */,
-				A1FF5D99F961DC28EF36E6F49CB54C73 /* WXApiObject.h */,
-				0DEF83FD6DCBCCC147C114891C127ECE /* WechatAuthSDK.h */,
-				0F88B750C49FB0AECAE0E6D5343E5622 /* libWeChatSDK.a */,
-			);
-			path = WeChat;
-			sourceTree = "<group>";
-		};
-		97054114102D898DF3AD173D68857DD5 /* QQ */ = {
-			isa = PBXGroup;
-			children = (
-				F1978A375F337BAC3ADDB60F61FFA515 /* TencentOpenAPI.framework */,
-				44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */,
-			);
-			path = QQ;
-			sourceTree = "<group>";
-		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +372,15 @@
 				A8D20D2202A5EB9C39651FC570BF52AF /* Macros.swift */,
 			);
 			path = SBMacros;
+			sourceTree = "<group>";
+		};
+		97054114102D898DF3AD173D68857DD5 /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				F1978A375F337BAC3ADDB60F61FFA515 /* TencentOpenAPI.framework */,
+				44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = QQ;
 			sourceTree = "<group>";
 		};
 		A05FA94B2F7C87BF7E933062670C2B06 /* SBShare */ = {
@@ -597,6 +590,17 @@
 				64D6654FC4BBBF2DD5989F44605E7563 /* SBWebBrowser.strings */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		F1B0F84F5245218A376CC055ADD4743D /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				919CA916C155C748037CEEE64787A779 /* WXApi.h */,
+				A1FF5D99F961DC28EF36E6F49CB54C73 /* WXApiObject.h */,
+				0DEF83FD6DCBCCC147C114891C127ECE /* WechatAuthSDK.h */,
+				0F88B750C49FB0AECAE0E6D5343E5622 /* libWeChatSDK.a */,
+			);
+			path = WeChat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -937,6 +941,40 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/WeChat",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"CocoaAsyncSocket\"",
+					"-framework",
+					"\"Cordova\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"GDPerformanceView_Swift\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"RealReachability\"",
+					"-framework",
+					"\"SJNavigationPopGesture\"",
+					"-framework",
+					"\"SQLite\"",
+					"-framework",
+					"\"SSZipArchive\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"Toaster\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
@@ -1104,6 +1142,40 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireImage\"",
+					"-framework",
+					"\"CocoaAsyncSocket\"",
+					"-framework",
+					"\"Cordova\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"GDPerformanceView_Swift\"",
+					"-framework",
+					"\"IQKeyboardManagerSwift\"",
+					"-framework",
+					"\"RealReachability\"",
+					"-framework",
+					"\"SJNavigationPopGesture\"",
+					"-framework",
+					"\"SQLite\"",
+					"-framework",
+					"\"SSZipArchive\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"Toaster\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
