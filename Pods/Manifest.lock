@@ -19,11 +19,11 @@ PODS:
   - SQLite.swift/standard (0.11.5)
   - SSZipArchive (2.1.4)
   - SVProgressHUD (2.2.5)
-  - SwiftyJSON (4.1.0)
+  - SwiftyJSON (4.2.0)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7.2)
+  - Alamofire (~> 4.7.3)
   - AlamofireImage (~> 3.4.1)
   - CocoaAsyncSocket (~> 7.6.3)
   - Cordova (~> 4.5.4)
@@ -36,11 +36,11 @@ DEPENDENCIES:
   - SQLite.swift (~> 0.11.5)
   - SSZipArchive (~> 2.1.4)
   - SVProgressHUD (~> 2.2.5)
-  - SwiftyJSON (~> 4.1.0)
+  - SwiftyJSON (~> 4.2.0)
   - Toaster (~> 2.1.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireImage
     - CocoaAsyncSocket
@@ -71,9 +71,9 @@ SPEC CHECKSUMS:
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: c6149c1fb56198faa4faa684179b8dbc4b56a454
+PODFILE CHECKSUM: 1c320f2f3550ffc41ff9de398333df7ba334d486
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.6.0.beta.1
