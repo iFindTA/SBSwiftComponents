@@ -369,7 +369,7 @@ public class TPOpen: NSObject {
         } else if platform == .qq {
             let data = UIImageJPEGRepresentation(source, 1)
             let obj = QQApiNewsObject.object(with: URL(string: link)!, title: title, description: desc, previewImageData: data)
-            let req = SendMessageToQQReq(content: obj as! QQApiObject)
+            let req = SendMessageToQQReq(content: obj as? QQApiObject)
             let code = QQApiInterface.send(req)
             debugPrint("code:\(code.rawValue)")
         }
@@ -435,7 +435,12 @@ public class TPOpen: NSObject {
                 completion(e)
                 return
             }
-            realShareImage(platform, icon: data)
+            let preSize = CGSize(width: AppSize.HEIGHT_CELL, height: AppSize.HEIGHT_CELL)
+            var thumbData: Data?
+            if let previous = source.sb_resize(preSize), let p = UIImageJPEGRepresentation(previous, 1.0) {
+                thumbData = p
+            }
+            realShareImage(platform, icon: data, thumb: thumbData)
             return
         }
         shareImageSystem(source, profile: profile)
@@ -453,11 +458,15 @@ public class TPOpen: NSObject {
         }
         profile.present(shreProfile, animated: true, completion: nil)
     }
-    private func realShareImage(_ platform: TPlatform, icon source: Data) {
+    private func realShareImage(_ platform: TPlatform, icon source: Data, thumb data: Data?) {
         if platform == .wxSession || platform == .wxTimeline || platform == .wxFavorite {
             let msg = WXMediaMessage()
             let obj = WXImageObject()
             obj.imageData = source
+            msg.mediaObject = obj
+            if let thumb = data {
+                msg.thumbData = thumb
+            }
             let req = SendMessageToWXReq()
             req.bText = false
             req.scene = (platform == .wxSession ? 0 : (platform == .wxTimeline ? 1 : 2))//WXSceneSession
@@ -465,6 +474,9 @@ public class TPOpen: NSObject {
             WXApi.send(req)
         } else if platform == .qq {
             let obj = QQApiImageObject(data: source, previewImageData: source, title: "", description: "")
+            if let thumb = data {
+                obj?.previewImageData = thumb
+            }
             let req = SendMessageToQQReq(content: obj)
             let code = QQApiInterface.send(req)
             debugPrint("code:\(code.rawValue)")
