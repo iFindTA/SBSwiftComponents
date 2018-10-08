@@ -38,7 +38,7 @@ public struct Macros {
     public static let APP_USER_DID_KICKOUT = "APP_USER_DID_KICKOUT" //用户被蹬出
     
     /// 正则表达式
-    public static let REGULAR_MOBILE = "^1+[3578]+\\d{9}"
+    public static let REGULAR_MOBILE = "^1+[34578]+\\d{9}"
     
     /// 输入长度限制
     public static let LENGTH_PWD_MIN: Int = 6
