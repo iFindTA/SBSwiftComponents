@@ -62,6 +62,7 @@
 		CAB5E6388B4D64C690571FEF7C2E019B /* SB404.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3243EE3885B020A9B983789DA798382A /* SB404.swift */; };
 		CB1BBF9D738BBF61F57000B613147882 /* EmptyIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B900D910E0B0B4C557103A3E4B576954 /* EmptyIcons.xcassets */; };
 		CF12C17C8E4E73E9735AF2013F53D4C4 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E62ABCAC276C54F3E010B655832367 /* libresolv.tbd */; };
+		D8F839DE096FA5CFCB443C1918052BF5 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A663553B53CE8E820861C30FFC3BA /* Navigator.swift */; };
 		DBF3E147AD950DAA397411A774BDB9D7 /* CordovaProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */; };
 		DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */; };
 		DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */; };
@@ -166,6 +167,7 @@
 		C0E62ABCAC276C54F3E010B655832367 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TShare.xcassets; sourceTree = "<group>"; };
 		C61A90875870B128FD3AD39B15AC394F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CC7A663553B53CE8E820861C30FFC3BA /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		CE316495F08DAF2CD74AB0C2EFD2EF3A /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		D0768912F313617330A271FA8E35DEB0 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		D28C6029507FC3390413CC6C2FBEDED4 /* EmptyDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataSource.swift; sourceTree = "<group>"; };
@@ -322,6 +324,14 @@
 				F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		79B30C29447397AC4D89A8643B93BF3A /* SBNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				CC7A663553B53CE8E820861C30FFC3BA /* Navigator.swift */,
+			);
+			path = SBNavigator;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -555,6 +565,7 @@
 				4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */,
 				E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */,
 				8769962C140E3F4E22A45A42A5494DB7 /* SBMacros */,
+				79B30C29447397AC4D89A8643B93BF3A /* SBNavigator */,
 				0BE476A6E7748D88B64F3EE3C3647F41 /* SBRSA */,
 				184152EAAF93CB642900204FC178C2C1 /* SBScan */,
 				A50889B0D01F952986C8C9D5AA190D3C /* SBSceneRouter */,
@@ -847,6 +858,7 @@
 				6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */,
 				5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */,
 				03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */,
+				D8F839DE096FA5CFCB443C1918052BF5 /* Navigator.swift in Sources */,
 				E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */,
 				9B96366B483337EA283F28754C2CC1B0 /* RSAKit.swift in Sources */,
 				CAB5E6388B4D64C690571FEF7C2E019B /* SB404.swift in Sources */,

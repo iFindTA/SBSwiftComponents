@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -124,8 +124,15 @@ Pod::Spec.new do |s|
     t.dependency 'SBComponents/Error'
   end
 
+  s.subspec 'Navigator' do |n|
+  	n.source_files = "SBSwiftComponents/SBNavigator/*.swift"
+  	n.dependency 'SBComponents/Base'
+  	n.dependency 'SBComponents/Macros'
+  end
+
   s.subspec 'AudioIndicator' do |a|
     a.source_files = "SBSwiftComponents/SBAudioIndicator/*.swift"
     a.dependency 'SBComponents/Macros'
   end
+
 end

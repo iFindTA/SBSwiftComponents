@@ -16,6 +16,16 @@ class ViewController: BaseProfile {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let topoffset = AppSize.HEIGHT_STATUSBAR()
+        let titles = ["课程", "推荐", "分类"]
+        let navigator = FixedNavigator.navigator(titles)
+        view.addSubview(navigator)
+        navigator.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(topoffset)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_NAVIGATIONBAR)
+        }
+        
         var btn = BaseButton(type: .custom)
         btn.setTitle("test api", for: .normal)
         btn.setTitleColor(UIColor.blue, for: .normal)
