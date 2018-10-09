@@ -10,14 +10,6 @@ import Cordova
 import Foundation
 
 @objc(PluginEnv) public class PluginEnv: CDVPlugin {
-    override public func pluginInitialize() {
-        super.pluginInitialize()
-    }
-    
-    override init() {
-        super.init()
-    }
-    
     static var envMap:[String:String] = [String:String]()
     
     public static func storeValuve(_ value: String, forKey key: String) {
