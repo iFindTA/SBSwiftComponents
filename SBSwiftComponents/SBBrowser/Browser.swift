@@ -22,6 +22,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
         w.uiDelegate = self
         w.navigationDelegate = self
         w.addObserver(self, forKeyPath: "estimatedProgress", options: [.new], context: nil)
+        w.scrollView.addSubview(sourceLab)
         return w
     }()
     private lazy var progress: UIProgressView = {
@@ -30,6 +31,15 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
         p.trackTintColor = UIColor.white//底色
         p.progress = 0
         return p
+    }()
+    private lazy var sourceLab: UILabel = {
+        let sb = CGRect(x: 0, y: -AppSize.HEIGHT_CELL, width: AppSize.WIDTH_SCREEN, height: AppSize.HEIGHT_CELL)
+        let l = UILabel(frame: sb)
+        l.font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE)
+        l.textColor = AppColor.COLOR_TITLE_GRAY
+        l.textAlignment = .center
+        l.text = "此网页由github.com提供"
+        return l
     }()
     
     private lazy var navigatorItem: UINavigationItem = {
@@ -286,6 +296,10 @@ extension WebBrowser {
         self.delegate?.didStartLoading()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         updateToolbarItems()
+        if let host = webView.url?.host {
+            let source = "此网页由 \(host) 提供"
+            sourceLab.text = source
+        }
     }
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

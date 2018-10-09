@@ -89,7 +89,7 @@ class ViewController: BaseProfile {
     }
     @objc private func testWebBrowser() {
         var p = SBSceneRouteParameter()
-        p["url"] = "https://r.xiumi.us/stage/v5/2nQDs/104736814"
+        p["url"] = "https://baidu.com/"
         let browser = WebBrowser(p)
         self.navigationController?.pushViewController(browser, animated: true)
     }
