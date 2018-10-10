@@ -13,7 +13,7 @@ public extension UITextField {
     private struct sb_associatedKeys {
         static var acceptMaxLength = "sb_maxLength"
     }
-    public var maxLength: Int {
+    public var sb_maxLength: Int {
         set {
             objc_setAssociatedObject(self, &sb_associatedKeys.acceptMaxLength, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
         }

@@ -149,7 +149,7 @@ public class BaseTextField: UITextField {
         guard let text = textFiled.text else {
             return
         }
-        let max = textFiled.maxLength
+        let max = textFiled.sb_maxLength
         let lang = textFiled.textInputMode?.primaryLanguage
         
         if let lan = lang, lan == "zh-Hans" {

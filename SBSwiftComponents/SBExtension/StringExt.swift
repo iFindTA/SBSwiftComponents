@@ -17,14 +17,14 @@ public extension String {
         }
         return i
     }
-    public func isMatchRegexPattern(_ p: String) -> Bool {
+    public func sb_matchRegex(_ p: String) -> Bool {
         guard self.isEmpty == false else {
             return false
         }
         let predicate = NSPredicate(format: "SELF MATCHES %@", p)
         return predicate.evaluate(with: self)
     }
-    public func size(_ width: CGFloat, font: UIFont) -> CGSize {
+    public func sb_size(_ width: CGFloat, font: UIFont) -> CGSize {
         guard self.count > 0 else {
             return .zero
         }

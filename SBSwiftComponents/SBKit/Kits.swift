@@ -120,7 +120,7 @@ public struct Kits {
     public static func bar(_ title: String, target: Any?, action: Selector?, right: Bool = false) -> UIBarButtonItem {
         let font = AppFont.pingFangSC(AppFont.SIZE_TITLE)
         let fontColor = AppColor.COLOR_NAVIGATOR_TINT
-        let barSize = title.size(AppSize.WIDTH_SCREEN, font: font)
+        let barSize = title.sb_size(AppSize.WIDTH_SCREEN, font: font)
         let btn = BaseButton(type: .custom)
         btn.titleLabel?.font = font
         btn.isExclusiveTouch = true
@@ -145,7 +145,7 @@ public struct Kits {
     private static func barWithUnicode(_ code: String, title: String?, color: UIColor?, target: Any?, action:Selector?, right: Bool = false) -> UIBarButtonItem {
         let font = AppFont.iconFont(AppFont.SIZE_TITLE * 1.5)
         let barTitle = code + String.available(title)
-        let barSize = barTitle.size(AppSize.WIDTH_SCREEN, font: font)
+        let barSize = barTitle.sb_size(AppSize.WIDTH_SCREEN, font: font)
         let fontColor = ((color != nil) ?color!:UIColor.white)
         let btn = BaseButton(type: .custom)
         btn.titleLabel?.font = font

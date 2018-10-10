@@ -492,7 +492,7 @@ open class QRScanProfile: BaseProfile {
         input.font = UIFont(name: AppFont.PF_SC, size: AppFont.SIZE_TITLE)
         input.placeholder = "请输入课程激活码"
         input.keyboardType = .phonePad
-        input.maxLength = Macros.LENGTH_MOBILE_CN
+        input.sb_maxLength = Macros.LENGTH_MOBILE_CN
         input.returnKeyType = .go
         return input
     }()
