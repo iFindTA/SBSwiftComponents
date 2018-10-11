@@ -29,14 +29,14 @@ class TestSnapkitProfile: BaseProfile {
         
         let bounds = CGRect(x: 0, y: 100, width: AppSize.WIDTH_SCREEN, height: 200)
         let scene = BaseScene(frame: bounds)
-        scene.backgroundColor = UIColor.sb_randomColor()
+        scene.backgroundColor = UIColor.sb_random()
         view.addSubview(scene)
         
         var arr: Array<ConstraintView> = []
         for _ in 0..<5 {
             let subview = UIButton()
             subview.addTarget(self, action: #selector(testTouch), for: .touchUpInside)
-            subview.backgroundColor = UIColor.sb_randomColor()
+            subview.backgroundColor = UIColor.sb_random()
             scene.addSubview(subview)
             arr.append(subview)
         }
