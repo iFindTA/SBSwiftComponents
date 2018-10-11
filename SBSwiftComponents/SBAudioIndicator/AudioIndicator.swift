@@ -186,7 +186,7 @@ public class AudioIndicator: UIView {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         layer.masksToBounds = true

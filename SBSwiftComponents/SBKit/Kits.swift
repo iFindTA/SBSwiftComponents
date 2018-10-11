@@ -97,6 +97,14 @@ public struct Kits {
         return (true, p)
     }
     
+    /// fetch page for scroller
+    public static func fetchPage(_ scroller: UIScrollView) -> Int {
+        let offsetX = scroller.contentOffset.x
+        let width = floor(scroller.bounds.width)
+        let p = floor(offsetX + width * 0.5) / width
+        return Int(p)
+    }
+    
     /// MARK: UIBarButtonItems @attention: iOS11+失效
     public static func barSpacer(_ right: Bool=false) -> UIBarButtonItem {
         let item = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
