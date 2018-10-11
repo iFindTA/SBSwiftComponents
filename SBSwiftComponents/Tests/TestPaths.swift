@@ -12,6 +12,7 @@ public enum TestPaths: SBScenePathable {
     case test
     case empty
     case share
+    case snapkit
     
     public func route() -> String {
         switch self {
@@ -19,6 +20,8 @@ public enum TestPaths: SBScenePathable {
             return "TestEmptyProfile"
         case .share:
             return "TShare"
+        case .snapkit:
+            return "TestSnapkitProfile"
         default:
             return "SB404"
         }

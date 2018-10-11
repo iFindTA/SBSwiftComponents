@@ -79,6 +79,17 @@ class ViewController: BaseProfile {
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
         
+        let snapKit = BaseButton(type: .custom)
+        snapKit.setTitle("test snapkit", for: .normal)
+        snapKit.setTitleColor(UIColor.blue, for: .normal)
+        snapKit.addTarget(self, action: #selector(testSnapkit), for: .touchUpInside)
+        view.addSubview(snapKit)
+        snapKit.snp.makeConstraints { (make) in
+            make.top.equalTo(wxShare.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
+        
         let isX = UIDevice.current.isX()
         debugPrint(isX)
         debugPrint(UIScreen.main.bounds)
@@ -107,6 +118,11 @@ class ViewController: BaseProfile {
         TPOpen.shared.shareLink([.qq, .wxSession], title: title, desciption: desc, icon: icon, hybrid: link, profile: self) { (error) in
             
         }
+    }
+    
+    @objc private func testSnapkit() {
+        let err = SBSceneRouter.route2(TestPaths.snapkit)
+        Kits.handleError(err)
     }
 
     override func didReceiveMemoryWarning() {
