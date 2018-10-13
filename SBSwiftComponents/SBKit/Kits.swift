@@ -187,7 +187,7 @@ public struct Kits {
             Toast(text: info).show()
         }
     }
-    public static func handleError(_ error: BaseError?, callback: NoneClosure?=nil) {
+    public static func handleError(_ error: BaseError?, callback: VoidClosure?=nil) {
         guard let e = error else {
             ToastCenter.default.cancelAll()
             return
@@ -211,7 +211,7 @@ public struct Kits {
     }
     
     /// re-signin
-    private static func route2SignIn(_ excutor: NoneClosure?=nil) {
+    private static func route2SignIn(_ excutor: VoidClosure?=nil) {
         /// 发通知实现 可优化：场景路由到授权
         let name = NSNotification.Name(Macros.APP_REQUEST_RESIGNIN)
         NotificationCenter.default.post(name: name, object: excutor)

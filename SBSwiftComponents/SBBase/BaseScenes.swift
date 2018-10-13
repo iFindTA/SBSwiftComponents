@@ -45,12 +45,12 @@ public class BaseLabel: UILabel {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
     }
 }
 
@@ -58,8 +58,9 @@ public class BaseLabel: UILabel {
 public class BaseImageView: UIImageView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
-        self.contentMode = .scaleToFill
+        clipsToBounds = true
+        contentMode = .scaleToFill
+        backgroundColor = UIColor.white
     }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -74,9 +75,9 @@ public class BaseScrollView: UIScrollView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
         if #available(iOS 11.0, *) {
-            self.contentInsetAdjustmentBehavior = .never
+            contentInsetAdjustmentBehavior = .never
         }
     }
 }
@@ -113,7 +114,7 @@ public class BaseTableView: UITableView {
     public override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
         if #available(iOS 11.0, *) {
-            self.contentInsetAdjustmentBehavior = .never
+            contentInsetAdjustmentBehavior = .never
         }
     }
 }
@@ -175,7 +176,7 @@ open class BaseScene: UIView {
     }
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
     }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

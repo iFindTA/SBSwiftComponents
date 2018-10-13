@@ -216,7 +216,7 @@ class TPlatformProfile: BaseProfile {
         share2(.wxFavorite)
     }
     private func share2(_ platform: TPlatform) {
-        let clousure: NoneClosure = {[weak self] in
+        let clousure: VoidClosure = {[weak self] in
             self?.callback?(platform)
         }
         SBSceneRouter.back(nil, excute: clousure)

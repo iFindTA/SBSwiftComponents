@@ -103,7 +103,7 @@ public class SBSceneRouter {
     }
     
     /// 返回
-    public class func back(_ to: String? = nil, excute: NoneClosure? = nil) {
+    public class func back(_ to: String? = nil, excute: VoidClosure? = nil) {
         //找到栈顶profile
         guard let topestProfile = RouterKit.topestProfile() else {
             //如果未找到栈顶 则直接pop
@@ -149,7 +149,7 @@ public class SBSceneRouter {
         }
     }
     
-    public class func dismiss(_ excute: NoneClosure? = nil) {
+    public class func dismiss(_ excute: VoidClosure? = nil) {
         //找到栈顶profile
         guard let topestProfile = RouterKit.topestProfile() else {
             //如果未找到栈顶 则直接pop
@@ -227,7 +227,7 @@ extension UINavigationController {
     public func rooter() -> UIViewController? {
         return UIApplication.shared.keyWindow?.rootViewController
     }
-    public func defaultGoBack(_ excute: NoneClosure? = nil) {
+    public func defaultGoBack(_ excute: VoidClosure? = nil) {
         let statcks = self.viewControllers
         if statcks.count <= 1 {
             guard let rooter = self.rooter() else {

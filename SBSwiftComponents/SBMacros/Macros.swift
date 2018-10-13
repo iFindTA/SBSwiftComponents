@@ -60,7 +60,7 @@ public struct Macros {
     public static let CORDOVA_KEY_STARTPAGE = "CORDOVA_KEY_STARTPAGE"
     
     /// Methods
-    public static func executeInMain(_ closure:@escaping NoneClosure) {
+    public static func executeInMain(_ closure:@escaping VoidClosure) {
         if Thread.current.isMainThread {
             closure()
         } else {

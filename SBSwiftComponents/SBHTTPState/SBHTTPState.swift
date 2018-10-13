@@ -15,7 +15,7 @@ fileprivate let APP_CHECK_HOST = "www.qq.com"
 public class SBHTTPState {
     
     /// Callback
-    public var callback: NoneClosure?
+    public var callback: VoidClosure?
     
     public static let shared = SBHTTPState()
     private init() {

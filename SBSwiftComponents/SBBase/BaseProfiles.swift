@@ -22,14 +22,14 @@ open class BaseProfile: UIViewController {
     public convenience init() {
         self.init(nibName: nil, bundle: nil)
         guard #available(iOS 11.0, *) else {
-            self.automaticallyAdjustsScrollViewInsets = false
+            automaticallyAdjustsScrollViewInsets = false
             return
         }
     }
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         guard #available(iOS 11.0, *) else {
-            self.automaticallyAdjustsScrollViewInsets = false
+            automaticallyAdjustsScrollViewInsets = false
             return
         }
     }
