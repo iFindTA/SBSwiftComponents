@@ -220,7 +220,7 @@ public class BaseNavigationBar: UINavigationBar {
 }
 
 // MARK: - mask 弹出遮罩 base
-class MaskBaseScene: BaseScene {
+open class MaskBaseScene: BaseScene {
     /// vars
     private var fatherScene: UIView?
     private var topOffset: CGFloat = 0
@@ -266,7 +266,7 @@ class MaskBaseScene: BaseScene {
         scene.frame = of
         configureSubviews()
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     /// getter
@@ -274,7 +274,7 @@ class MaskBaseScene: BaseScene {
         let top = whetherDisplay ? topOffset : AppSize.HEIGHT_SCREEN
         return CGRect(x: 0, y: top, width: AppSize.WIDTH_SCREEN, height: availableHeight)
     }
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         closeBtn.snp.makeConstraints { (m) in
             m.top.equalToSuperview().offset(HorizontalOffset)
