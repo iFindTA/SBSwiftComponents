@@ -247,7 +247,7 @@ open class BaseMaskScene: BaseScene {
         return BaseMaskScene(father, top: offset, with: bottom)
     }
     */
-    public init(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) {
+    public init(_ father: UIView?, top offset: CGFloat, with bottom: CGFloat=0) {
         super.init(frame: .zero)
         fatherScene = father
         topOffset = offset
@@ -255,7 +255,7 @@ open class BaseMaskScene: BaseScene {
         /// custom
         isHidden = true
         backgroundColor = ClearBgColor
-        father.addSubview(self)
+        father?.addSubview(self)
         self.snp.makeConstraints { (m) in
             m.edges.equalToSuperview()
         }
@@ -264,7 +264,6 @@ open class BaseMaskScene: BaseScene {
         scene.addSubview(closeBtn)
         let of = fetchEndFrame()
         scene.frame = of
-        configureSubviews()
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -281,14 +280,10 @@ open class BaseMaskScene: BaseScene {
             m.right.equalToSuperview().offset(-HorizontalOffset)
         }
     }
-    open func configureSubviews() {}/// should be implemented by sub-class
-    open func updateDisplay() {}/// should be implemented by sub-class
-    
     /// events
     public func show() {
         whetherDisplay.toggle()
         isHidden = false
-        updateDisplay()
         fatherScene?.bringSubview(toFront: self)
         updateScenePosition()
     }
