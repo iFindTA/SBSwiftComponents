@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.3.3"
+  s.version      = "0.3.4"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
     p.source_files = "SBSwiftComponents/SBEmpty/*.swift"
     p.resources = "SBSwiftComponents/SBEmpty/Assets/*.*"
     p.dependency 'DZNEmptyDataSet'
-    p.dependency 'SBComponents/Macros'
+    p.dependency 'SBComponents/Base'
     p.dependency 'SBComponents/HTTPState'
   end
 
