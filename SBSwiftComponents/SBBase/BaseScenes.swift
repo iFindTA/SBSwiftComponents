@@ -242,11 +242,12 @@ open class BaseMaskScene: BaseScene {
         return b
     }()
     
-    /// init
+    /* init
     public class func mask(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) -> BaseMaskScene {
         return BaseMaskScene(father, top: offset, with: bottom)
     }
-    private init(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) {
+    */
+    public init(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) {
         super.init(frame: .zero)
         fatherScene = father
         topOffset = offset
