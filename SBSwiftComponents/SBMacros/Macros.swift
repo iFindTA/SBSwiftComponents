@@ -166,6 +166,7 @@ public struct AppColor {
     public static let COLOR_TITLE_GRAY = RGBA(r: 102, g: 102, b: 102, a: 1)//0x666666
     public static let COLOR_TITLE_LIGHTGRAY = RGBA(r: 153, g: 153, b: 153, a: 1)//0x999999
     public static let COLOR_NAVIGATOR_TINT = RGBA(r: 76, g: 75, b: 85, a: 1)
+    public static let COLOR_CCCCCC = RGBA(r: 204, g: 204, b: 204, a: 1)//0xCCCCCC
 }
 
 // MARK: - 网络定义

@@ -104,9 +104,8 @@ public extension BaseScrollView {
 
 // MARK: - UITableView 类
 public class BaseTableView: UITableView {
-    /// Variables
-    public typealias EmptyCallback = ()->Void
-    public var callback: EmptyCallback?
+    /// callback
+    public var callback: VoidClosure?
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -220,9 +219,9 @@ public class BaseNavigationBar: UINavigationBar {
 }
 
 // MARK: - mask 弹出遮罩 base
-open class MaskBaseScene: BaseScene {
+open class BaseMaskScene: BaseScene {
     /// vars
-    private var fatherScene: UIView?
+    private weak var fatherScene: UIView?
     private var topOffset: CGFloat = 0
     private var availableHeight: CGFloat = 0///info scene
     private var whetherDisplay: Bool = false
@@ -244,8 +243,8 @@ open class MaskBaseScene: BaseScene {
     }()
     
     /// init
-    class func mask(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) -> MaskBaseScene {
-        return MaskBaseScene(father, top: offset, with: bottom)
+    class func mask(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) -> BaseMaskScene {
+        return BaseMaskScene(father, top: offset, with: bottom)
     }
     private init(_ father: UIView, top offset: CGFloat, with bottom: CGFloat=0) {
         super.init(frame: .zero)

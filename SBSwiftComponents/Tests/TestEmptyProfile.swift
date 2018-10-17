@@ -51,10 +51,17 @@ class TestEmptyProfile: BaseProfile {
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview().offset(-bottom)
         }
-        table.emptyDataSetSource = empty
-        table.emptyDataSetDelegate = empty
-        empty.shouldDisplay = {()->Bool in
-            return true
+        /// method 1
+//        table.emptyDataSetSource = empty
+//        table.emptyDataSetDelegate = empty
+//        empty.shouldDisplay = {()->Bool in
+//            return true
+//        }
+        
+        /// method 2
+        table.empty("去评论", with: "还没有人评论，快去抢沙发吧～")
+        table.callback = {
+            debugPrint("empty touched")
         }
     }
 }

@@ -81,28 +81,73 @@ public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
         didTrigger!()
     }
     
-    private class func bundledImage(named: String) -> UIImage? {
+    fileprivate class func bundledImage(named: String) -> UIImage? {
         let image = UIImage(named: named)
         if image == nil {
             return UIImage(named: named, in: Bundle(for: EmptyDataSource.classForCoder()), compatibleWith: nil)
-        } // Replace MyBasePodClass with yours
+        }
         return image
     }
 }
 
 // MARK: - 方式2
-//public extension BaseTableView {
-//    public func empty(_ title: String, with description: String, icon: String="emptyDataSource", height: CGFloat=300) {
-//        let footer = assemble(title, with: description, icon: icon, height: height)
-//        tableFooterView = footer
-//    }
-//    private func assemble(_ title: String, with description: String, icon: String="emptyDataSource", height: CGFloat=300) -> UIView {
-//        let b = CGRect(x: 0, y: 0, width: AppSize.WIDTH_SCREEN, height: height)
-//        let scene = BaseScene(frame: b)
-//        //TODO:subviews
-//        return scene
-//    }
-//    @objc private func emptyEvent() {
-//        callback?()
-//    }
-//}
+public extension BaseTableView {
+    public func empty(_ title: String, with description: String, height: CGFloat=300) {
+        let footer = assemble(title, with: description, height: height)
+        tableFooterView = footer
+    }
+    private func assemble(_ title: String, with description: String, height: CGFloat=300) -> UIView {
+        let b = CGRect(x: 0, y: 0, width: AppSize.WIDTH_SCREEN, height: height)
+        let scene = BaseScene(frame: b)
+        let icon = EmptyDataSource.bundledImage(named: EmptyImageName)
+        let whetherShowAction = title.count > 0///是否显示button
+        /// desc
+        var font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE)
+        var color = AppColor.COLOR_CCCCCC
+        let lab = BaseLabel(frame: .zero)
+        lab.font = font
+        lab.textColor = color
+        lab.textAlignment = .center
+        lab.text = description
+        scene.addSubview(lab)
+        lab.snp.makeConstraints { (m) in
+            m.centerY.equalToSuperview()
+            m.left.right.equalToSuperview()
+        }
+        /// icon
+        let iconView = BaseImageView(frame: .zero)
+        iconView.image = icon
+        scene.addSubview(iconView)
+        iconView.snp.makeConstraints { (m) in
+            m.centerX.equalToSuperview()
+            m.bottom.equalTo(lab.snp.top).offset(-HorizontalOffset)
+        }
+        /// title event
+        if whetherShowAction {
+            let bh = AppSize.HEIGHT_SUBBAR
+            let bw = bh*3
+            color = AppColor.COLOR_TITLE_LIGHTGRAY
+            font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE+1)
+            let bgColor = RGBA(r: 247, g: 247, b: 247, a: 1)
+            let btn = BaseButton(type: .custom)
+            btn.titleLabel?.font = font
+            btn.layer.cornerRadius = bh*0.5
+            btn.layer.masksToBounds = true
+            btn.backgroundColor = bgColor
+            btn.setTitleColor(color, for: .normal)
+            btn.setTitle(title, for: .normal)
+            btn.addTarget(self, action: #selector(emptyEvent), for: .touchUpInside)
+            scene.addSubview(btn)
+            btn.snp.makeConstraints { (m) in
+                m.top.equalTo(lab.snp.bottom).offset(HorizontalOffset)
+                m.centerX.equalToSuperview()
+                m.width.equalTo(bw)
+                m.height.equalTo(bh)
+            }
+        }
+        return scene
+    }
+    @objc private func emptyEvent() {
+        callback?()
+    }
+}
