@@ -280,8 +280,8 @@ open class BaseMaskScene: BaseScene {
             m.right.equalToSuperview().offset(-HorizontalOffset)
         }
     }
-    public func configureSubviews() {}/// should be implemented by sub-class
-    public func updateDisplay() {}/// should be implemented by sub-class
+    open func configureSubviews() {}/// should be implemented by sub-class
+    open func updateDisplay() {}/// should be implemented by sub-class
     
     /// events
     public func show() {
