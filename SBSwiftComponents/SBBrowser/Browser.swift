@@ -38,7 +38,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
         l.font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE)
         l.textColor = AppColor.COLOR_TITLE_GRAY
         l.textAlignment = .center
-        l.text = "此网页由github.com提供"
+        l.text = "此网页由 x16.com 提供"
         return l
     }()
     
@@ -216,20 +216,28 @@ extension WebBrowser {
         /// request
         if let p = params, p.keys.contains("url") {
             let urlString = p["url"] as! String
-            var uri: URL!
             guard (urlString.hasPrefix("http://")||urlString.hasPrefix("https://")||urlString.hasPrefix("www")) else {
-                uri = URL(fileURLWithPath: urlString)
+                let uri = URL(fileURLWithPath: urlString)
                 let root = Kits.locatePath(.file)
                 let rootUri = URL(fileURLWithPath: root)
                 webView.loadFileURL(uri, allowingReadAccessTo: rootUri)
                 return
             }
+            var uri: URL?
             if urlString.hasPrefix("www") {
                 uri = URL(string: "https://"+urlString)
             } else {
                 uri = URL(string: urlString)
             }
-            request = URLRequest(url: uri!)
+            guard let url = uri else {
+                let header = "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><meta  name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\"/></head>"
+                let body = "<body style='width:100%;background-color:white;padding:0px;margin:0px;display:block;'>"
+                let div = "<div id='myid' style = 'width:100%;height:10px;background-color:white;display:block'></div>"
+                let html = String(format: "<html> %@ %@ %@ </body></html>", header, body, urlString, div)
+                webView.loadHTMLString(html, baseURL: nil)
+                return
+            }
+            request = URLRequest(url: url)
         }
         webView.load(request)
     }
