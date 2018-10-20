@@ -18,7 +18,6 @@ class TestEmptyProfile: BaseProfile {
     }()
     private lazy var table: BaseTableView = {
         let t = BaseTableView(frame: .zero, style: .plain)
-        
         t.separatorStyle = .none
         t.tableFooterView = UIView()
         return t
@@ -59,10 +58,33 @@ class TestEmptyProfile: BaseProfile {
 //        }
         
         /// method 2
-        table.empty("去评论", with: "还没有人评论，快去抢沙发吧～")
-        table.callback = {
-            debugPrint("empty touched")
+//        table.empty("去评论", with: "还没有人评论，快去抢沙发吧～")
+//        table.callback = {
+//            debugPrint("empty touched")
+//        }
+        
+        /// method3
+        table.delegate = self
+        table.dataSource = self
+        table.reloadData()
+    }
+}
+
+extension TestEmptyProfile: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return EmptyCell.suggestedHeight()
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier = "empty_cell"
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? EmptyCell
+        if cell == nil {
+            cell = EmptyCell(style: .default, reuseIdentifier: identifier)
         }
+        cell?.update("去评论", with: "没有评论，赶快去抢沙发～")
+        return cell!
     }
 }
 

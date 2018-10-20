@@ -151,3 +151,87 @@ public extension BaseTableView {
         callback?()
     }
 }
+
+// MARK: - 方式3
+public class EmptyCell: UITableViewCell {
+    /// getters
+    class func suggestedHeight() -> CGFloat {
+        return AppSize.HEIGHT_CELL*6
+    }
+    /// vars
+    public var callback: VoidClosure?
+    /// lazy vars
+    private lazy var scene: BaseScene = {
+        let s = BaseScene(frame: .zero)
+        return s
+    }()
+    private lazy var iconView: BaseImageView = {
+        let i = BaseImageView(frame: .zero)
+        i.image = EmptyDataSource.bundledImage(named: EmptyImageName)
+        return i
+    }()
+    private lazy var titleLab: BaseLabel = {
+        let font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE)
+        let color = AppColor.COLOR_CCCCCC
+        let lab = BaseLabel(frame: .zero)
+        lab.font = font
+        lab.textColor = color
+        lab.textAlignment = .center
+        return lab
+    }()
+    private lazy var btn: BaseButton = {
+        let color = AppColor.COLOR_TITLE_LIGHTGRAY
+        let font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE+1)
+        let bgColor = RGBA(r: 247, g: 247, b: 247, a: 1)
+        let b = BaseButton(type: .custom)
+        b.titleLabel?.font = font
+        b.layer.cornerRadius = AppSize.HEIGHT_SUBBAR*0.5
+        b.layer.masksToBounds = true
+        b.backgroundColor = bgColor
+        b.setTitleColor(color, for: .normal)
+        b.addTarget(self, action: #selector(emptyEvent), for: .touchUpInside)
+        return b
+    }()
+    
+    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(scene)
+        scene.addSubview(titleLab)
+        scene.addSubview(iconView)
+        scene.addSubview(btn)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        scene.snp.makeConstraints { (m) in
+            m.edges.equalToSuperview()
+        }
+        iconView.snp.makeConstraints { (m) in
+            m.centerX.equalToSuperview()
+            m.centerY.equalToSuperview().offset(-AppSize.HEIGHT_ICON)
+        }
+        titleLab.snp.makeConstraints { (m) in
+            m.top.equalTo(iconView.snp.bottom).offset(HorizontalOffset)
+            m.left.right.equalToSuperview()
+        }
+        let bh = AppSize.HEIGHT_SUBBAR
+        let bw = bh*3
+        btn.snp.makeConstraints { (m) in
+            m.top.equalTo(titleLab.snp.bottom).offset(HorizontalOffset)
+            m.centerX.equalToSuperview()
+            m.width.equalTo(bw)
+            m.height.equalTo(bh)
+        }
+    }
+    @objc private func emptyEvent() {
+        callback?()
+    }
+    public func update(_ title: String, with desc: String) {
+        let hidden = title.count == 0
+        btn.isHidden = hidden
+        titleLab.text = desc
+        btn.setTitle(title, for: .normal)
+    }
+}

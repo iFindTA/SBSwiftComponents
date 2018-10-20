@@ -36,7 +36,15 @@ public struct Macros {
     public static let APP_WHETHER_SHOW_VISITOR_WHEN_SIGNIN = "APP_WHETHER_SHOW_VISITOR_WHEN_SIGNIN"
     public static let APP_WHETHER_SHOULDGOBACK_WHEN_SIGNIN = "APP_WHETHER_SHOULDGOBACK_WHEN_SIGNIN"
     public static let APP_REQUEST_RESIGNIN = "APP_REQUEST_RESIGNIN" //用户授权过期
+    
+    /// notifications
     public static let APP_USER_DID_KICKOUT = "APP_USER_DID_KICKOUT" //用户被蹬出
+    /// 音频服务即将被独占通知
+    public static let APP_AUDIO_WILL_EXCLUSIVE = "APP_AUDIO_WILL_EXCLUSIVE"
+    /// 音频已经开始播放
+    public static let APP_AUDIO_DID_START = "APP_AUDIO_DID_START"
+    /// 音频已经停止播放
+    public static let APP_AUDIO_DID_END = "APP_AUDIO_DID_END"
     
     /// 正则表达式
     public static let REGULAR_MOBILE = "^1+[34578]+\\d{9}"
