@@ -155,7 +155,7 @@ public extension BaseTableView {
 // MARK: - 方式3
 public class EmptyCell: UITableViewCell {
     /// getters
-    class func suggestedHeight() -> CGFloat {
+    public class func suggestedHeight() -> CGFloat {
         return AppSize.HEIGHT_CELL*6
     }
     /// vars
