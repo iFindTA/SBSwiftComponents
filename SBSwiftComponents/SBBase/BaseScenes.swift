@@ -144,6 +144,18 @@ public class BaseCell: UITableViewCell {
         let s = BaseScene(frame: .zero)
         return s
     }()
+    public lazy var iconScene: BaseScene = {
+        let s = BaseScene(frame: .zero)
+        return s
+    }()
+    public lazy var textScene: BaseScene = {
+        let s = BaseScene(frame: .zero)
+        return s
+    }()
+    public lazy var iconView: BaseImageView = {
+        let s = BaseImageView(frame: .zero)
+        return s
+    }()
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(scene)
