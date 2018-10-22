@@ -138,6 +138,27 @@ public extension BaseTableView {
     }
 }
 
+// MARK: - UITableViewCell
+public class BaseCell: UITableViewCell {
+    public lazy var scene: BaseScene = {
+        let s = BaseScene(frame: .zero)
+        return s
+    }()
+    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(scene)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        scene.snp.makeConstraints { (m) in
+            m.edges.equalToSuperview()
+        }
+    }
+}
+
 // MARK: - UITextField
 public class BaseTextField: UITextField {
     
