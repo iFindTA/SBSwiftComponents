@@ -368,9 +368,12 @@ public class BaseLoading: BaseScene {
             }
         }
     }
-    public func hide() {
-        isHidden = true
+    public func hide(_ hide: Bool=true) {
         acter.stopAnimating()
+        guard hide == true else {
+            return
+        }
+        isHidden = true
         removeFromSuperview()
     }
 }

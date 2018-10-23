@@ -139,7 +139,7 @@ class ViewController: BaseProfile {
     @objc private func testBaseloading() {
         BaseLoading.shared.showIn(view)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
-            BaseLoading.shared.hide()
+            BaseLoading.shared.hide(false)
         }
     }
     override func didReceiveMemoryWarning() {
