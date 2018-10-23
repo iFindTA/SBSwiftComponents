@@ -68,6 +68,11 @@ class TestEmptyProfile: BaseProfile {
         table.dataSource = self
         table.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
 }
 
 extension TestEmptyProfile: UITableViewDelegate, UITableViewDataSource {

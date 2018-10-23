@@ -90,6 +90,17 @@ class ViewController: BaseProfile {
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
         
+        let load = BaseButton(type: .custom)
+        load.setTitle("test baseloading", for: .normal)
+        load.setTitleColor(UIColor.blue, for: .normal)
+        load.addTarget(self, action: #selector(testBaseloading), for: .touchUpInside)
+        view.addSubview(load)
+        load.snp.makeConstraints { (make) in
+            make.top.equalTo(snapKit.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
+        
         let isX = UIDevice.current.isX()
         debugPrint(isX)
         debugPrint(UIScreen.main.bounds)
@@ -124,7 +135,13 @@ class ViewController: BaseProfile {
         let err = SBSceneRouter.route2(TestPaths.snapkit)
         Kits.handleError(err)
     }
-
+    
+    @objc private func testBaseloading() {
+        BaseLoading.shared.showIn(view)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
+            BaseLoading.shared.hide()
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

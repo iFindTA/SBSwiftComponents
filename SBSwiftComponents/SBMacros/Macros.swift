@@ -19,6 +19,7 @@ public func adoptSize(_ size:CGFloat) -> CGFloat {
 }
 
 /// 全局执行闭包
+public typealias AnyClosure = ([String: Any])->Void
 public typealias TagClosure = (Int)->Void
 public typealias VoidClosure = ()->Void
 public typealias BoolClosure = (Bool)->Void
