@@ -320,7 +320,7 @@ open class BaseMaskScene: BaseScene {
         fatherScene?.bringSubview(toFront: self)
         updateScenePosition()
     }
-    @objc private func dismiss() {
+    @objc public func dismiss() {
         whetherDisplay.toggle()
         updateScenePosition()
     }
@@ -413,7 +413,7 @@ open class BaseCenterMaskScene: BaseScene {
         fatherScene?.bringSubview(toFront: self)
         updateSceneTransform()
     }
-    @objc private func dismiss() {
+    @objc public func dismiss() {
         whetherDisplay.toggle()
         updateHiddenStates()
         updateSceneTransform()
