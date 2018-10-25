@@ -42,6 +42,7 @@ public class FixedNavigator: BaseScene {
     }()
     private lazy var layouter: BaseScene = {
         let s = BaseScene(frame: .zero)
+        //s.backgroundColor = UIColor.sb_random()
         return s
     }()
     private lazy var flager: BaseScene = {
@@ -116,8 +117,10 @@ public class FixedNavigator: BaseScene {
             let item = BaseButton(type: .custom)
             item.tag = NavigatorTagStart + idx
             item.titleLabel?.font = font
+            item.titleLabel?.adjustsFontSizeToFitWidth = true
             item.setTitleColor(fontColor, for: .normal)
             item.setTitle(t, for: .normal)
+            //item.backgroundColor = UIColor.sb_random()
             item.addTarget(self, action: #selector(didTouchItem(_:)), for: .touchUpInside)
             layouter.addSubview(item)
             /// weak ref

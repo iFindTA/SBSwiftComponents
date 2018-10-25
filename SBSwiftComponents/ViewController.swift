@@ -17,8 +17,9 @@ class ViewController: BaseProfile {
         // Do any additional setup after loading the view, typically from a nib.
         
         let topoffset = AppSize.HEIGHT_STATUSBAR()
-        let titles = ["课程", "推荐", "分类"]
-        let navigator = FixedNavigator.navigator(titles)
+        let titles = ["课程", "推荐", "小星阅读盒子"]
+        let availableWidth = AppSize.WIDTH_SCREEN - AppSize.HEIGHT_SUBBAR*2
+        let navigator = FixedNavigator.navigator(titles, available: availableWidth)
         view.addSubview(navigator)
         navigator.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(topoffset)
