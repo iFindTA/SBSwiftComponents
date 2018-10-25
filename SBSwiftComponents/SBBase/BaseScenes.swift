@@ -339,8 +339,8 @@ open class BaseCenterMaskScene: BaseScene {
     /// vars
     private weak var fatherScene: UIView?
     private var availableHeight: CGFloat = 0///info scene
-    private var whetherDisplay: Bool = false
-    
+    private var whetherThisDisplay: Bool = false
+    private var whetherShowClose: Bool = true///是否现实close&line
     /// lazy vars
     public lazy var scene: BaseScene = {
         let s = BaseScene(frame: .zero)
@@ -364,10 +364,11 @@ open class BaseCenterMaskScene: BaseScene {
         return s
     }()
     
-    public init(_ father: UIView?, available height: CGFloat=AppSize.WIDTH_SCREEN) {
+    public init(_ father: UIView?, whether showClose: Bool=true, available height: CGFloat=AppSize.WIDTH_SCREEN) {
         super.init(frame: .zero)
         fatherScene = father
         availableHeight = height
+        whetherShowClose = showClose
         /// custom
         isHidden = true
         backgroundColor = ClearBgColor
@@ -408,26 +409,29 @@ open class BaseCenterMaskScene: BaseScene {
     }
     /// events
     public func show() {
-        whetherDisplay.toggle()
+        whetherThisDisplay.toggle()
         isHidden = false
         fatherScene?.bringSubview(toFront: self)
         updateSceneTransform()
     }
     @objc public func dismiss() {
-        whetherDisplay.toggle()
+        whetherThisDisplay.toggle()
         updateHiddenStates()
         updateSceneTransform()
     }
     private func updateHiddenStates() {
-        self.line.isHidden = !whetherDisplay
-        self.closeBtn.isHidden = !whetherDisplay
+        guard whetherShowClose == true else {
+            return
+        }
+        self.line.isHidden = !whetherThisDisplay
+        self.closeBtn.isHidden = !whetherThisDisplay
     }
     private func updateSceneTransform() {
-        let to = whetherDisplay ? CGAffineTransform.identity : CGAffineTransform(scaleX: 1, y: 0.01)
+        let to = whetherThisDisplay ? CGAffineTransform.identity : CGAffineTransform(scaleX: 1, y: 0.01)
         UIView.animate(withDuration: Macros.APP_ANIMATE_INTERVAL, animations: {[weak self] in
             self?.scene.transform = to
         }) { [weak self](f) in
-            if f && self?.whetherDisplay == true {
+            if f && self?.whetherThisDisplay == true {
                 self?.updateHiddenStates()
             } else {
                 self?.isHidden = true

@@ -155,7 +155,7 @@ class ViewController: BaseProfile {
     }
     
     @objc private func testCenterMask() {
-        let s = BaseCenterMaskScene(view, available: AppSize.WIDTH_SCREEN)
+        let s = BaseCenterMaskScene(view, whether: false)
         s.show()
     }
     
