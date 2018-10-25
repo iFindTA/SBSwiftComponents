@@ -139,7 +139,7 @@ public extension BaseTableView {
 }
 
 // MARK: - UITableViewCell
-public class BaseCell: UITableViewCell {
+open class BaseCell: UITableViewCell {
     public lazy var scene: BaseScene = {
         let s = BaseScene(frame: .zero)
         return s
@@ -160,10 +160,10 @@ public class BaseCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(scene)
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         scene.snp.makeConstraints { (m) in
             m.edges.equalToSuperview()
@@ -344,6 +344,9 @@ open class BaseCenterMaskScene: BaseScene {
     /// lazy vars
     public lazy var scene: BaseScene = {
         let s = BaseScene(frame: .zero)
+        s.clipsToBounds = true
+        s.layer.masksToBounds = true
+        s.layer.cornerRadius = AppSize.RADIUS_NORMAL
         return s
     }()
     private let lineColor = UIColor.black
