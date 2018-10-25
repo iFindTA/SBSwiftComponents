@@ -101,6 +101,17 @@ class ViewController: BaseProfile {
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
         
+        let mask = BaseButton(type: .custom)
+        mask.setTitle("test mask center", for: .normal)
+        mask.setTitleColor(UIColor.blue, for: .normal)
+        mask.addTarget(self, action: #selector(testCenterMask), for: .touchUpInside)
+        view.addSubview(mask)
+        mask.snp.makeConstraints { (make) in
+            make.top.equalTo(load.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
+        
         let isX = UIDevice.current.isX()
         debugPrint(isX)
         debugPrint(UIScreen.main.bounds)
@@ -142,6 +153,12 @@ class ViewController: BaseProfile {
             BaseLoading.shared.hide(false)
         }
     }
+    
+    @objc private func testCenterMask() {
+        let s = BaseCenterMaskScene(view, available: AppSize.WIDTH_SCREEN)
+        s.show()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
