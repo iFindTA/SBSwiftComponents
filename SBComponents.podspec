@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.3.8"
+  s.version      = "0.3.9"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -38,9 +38,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
-    b.dependency 'SBComponents/Macros'
-    b.dependency 'SBComponents/Extension'
+    b.dependency 'SBComponents/HTTPRouter'
     b.dependency 'ESPullToRefresh'
+    b.dependency 'PPBadgeViewSwift'
     b.dependency 'IQKeyboardManagerSwift'
     b.dependency 'GDPerformanceView-Swift'
   end

@@ -77,7 +77,7 @@ extension SBHTTP: URLRequestConvertible {
         let uri = try baseURI.asURL()
         var request = URLRequest(url: uri.appendingPathComponent(path))
         request.httpMethod = method.rawValue
-        request.timeoutInterval = 30
+        request.timeoutInterval = 10
         
         let encoded = try encoder().encode(request, with: p)
         return encoded

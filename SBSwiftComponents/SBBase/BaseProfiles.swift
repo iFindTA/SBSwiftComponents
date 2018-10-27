@@ -113,6 +113,16 @@ open class BaseProfile: UIViewController {
         super.viewDidLoad();fixedIssue()
         view.backgroundColor = UIColor.white
     }
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopAllRequest()
+    }
+    private func stopAllRequest() {
+        let this = NSStringFromClass(type(of: self))
+        let range = (this as NSString).range(of: ".", options: .backwards)
+        let nr = (this as NSString).substring(with: NSMakeRange(range.location+1, this.count-range.location-range.length))
+        SBHTTPRouter.shared.cancel(nr)
+    }
 }
 
 // MARK: - Base NavigationController

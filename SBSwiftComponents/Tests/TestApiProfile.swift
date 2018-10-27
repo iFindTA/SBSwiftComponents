@@ -30,7 +30,14 @@ class TestApiProfile: BaseProfile {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        SBHTTPRouter.shared.fetch(SBHTTP.test) { (res, err, _) in
+            if let e = err {
+                Kits.handleError(e)
+            }
+        }
     }
+    
+    
 }
 extension TestApiProfile: SBSceneRouteable {
     static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {

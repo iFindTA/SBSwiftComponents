@@ -213,6 +213,20 @@ open class BaseScene: UIView {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
+        guard newSuperview == nil else {
+            return
+        }
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        stopAllRequest()
+    }
+    private func stopAllRequest() {
+        let this = NSStringFromClass(type(of: self))
+        let range = (this as NSString).range(of: ".", options: .backwards)
+        let nr = (this as NSString).substring(with: NSMakeRange(range.location+1, this.count-range.location-range.length))
+        SBHTTPRouter.shared.cancel(nr)
+    }
 }
 
 // MARK: - UINavigationBar
@@ -349,7 +363,7 @@ open class BaseCenterMaskScene: BaseScene {
         s.layer.cornerRadius = AppSize.RADIUS_NORMAL
         return s
     }()
-    private let lineColor = UIColor.black
+    private let lineColor = UIColor.white
     public lazy var closeBtn: BaseButton = {
         let font = AppFont.iconFont(AppFont.SIZE_TITLE*2)
         let b = BaseButton(type: .custom)

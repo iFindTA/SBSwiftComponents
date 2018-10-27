@@ -69,9 +69,14 @@ class TestEmptyProfile: BaseProfile {
         table.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        SBHTTPRouter.shared.fetch(SBHTTP.void) { (res, err, _) in
+            if let e = err {
+                Kits.handleError(e)
+            }
+        }
     }
 }
 

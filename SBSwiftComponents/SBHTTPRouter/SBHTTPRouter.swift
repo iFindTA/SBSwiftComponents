@@ -18,7 +18,7 @@ fileprivate let APP_CHECK_HOST = "www.qq.com"
 public typealias SBResponse = (_ data: JSON?, _ error: BaseError?, _ page: JSON?) -> Void
 
 // MARK: - Extension for Request
-fileprivate extension DataRequest {
+fileprivate extension URLSessionTask {
     private struct sb_associatedKeys {
         static var identifier_key = "identifier_key"
     }
@@ -58,16 +58,47 @@ public class SBHTTPRouter {
         }
         return res
     }
+    /// parser for caller in stack
+    private func parserStack(_ stack: String, with file: String) -> String {
+        var patternScene: String = "\\$[A-z0-9a-z]+(Scene)"
+        var patternProfile: String = "\\$[A-z0-9a-z]+(Profile)"
+        if let bd = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
+            patternScene = String(format: "%@+[A-Za-z0-9]+[Scene]", bd)
+            patternProfile = String(format: "%@+[A-Za-z0-9]+[Profile]", bd)
+        }
+        var dest = matches(for: patternProfile, in: stack)
+        var identifier: String = file
+        if dest.count == 0 {
+            dest = matches(for: patternScene, in: stack)
+        }
+        if dest.count > 0 {
+            identifier = dest[0]
+        }
+        return identifier
+    }
+    private func matches(for regex: String, in text: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
+            return results.map {
+                String(text[Range($0.range, in: text)!])
+            }
+        } catch let error {
+            debugPrint("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
     /// 返回401/403错误
     private func didCameForbiddenQuery() {
         //TODO:可以发送通知
     }
-    
     /// network fetch event
-    public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="请稍后...", completion:@escaping SBResponse) -> Void {
-        debugPrint("=======================================================================")
-        debugPrint(Thread.callStackSymbols)
-        debugPrint("=======================================================================")
+    public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="请稍后...", file: String=#file, completion:@escaping SBResponse) -> Void {
+        let stacks = Thread.callStackSymbols
+        var identifier = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
+        if stacks.count > 1 {
+            identifier = parserStack(stacks[1], with: file)
+        }
         if hud {
             SVProgressHUD.show(withStatus: hudString)
         }
@@ -78,7 +109,7 @@ public class SBHTTPRouter {
             }
             self?.handle(response, completion: completion)
         }
-        req.sb_identifier = "task"
+        req.task?.sb_identifier = identifier
     }
     private func handle(_ response: DataResponse<Any>, completion:@escaping SBResponse) -> Void {
         /// step1 filter response for authorization
@@ -92,7 +123,8 @@ public class SBHTTPRouter {
         
         /// step2 check error
         if let err = newRes.error {
-            let e = BaseError(err.localizedDescription)
+            var e = BaseError(err.localizedDescription)
+            e.code = (err as NSError).code
             completion(nil, e, nil)
             return
         }
@@ -121,7 +153,14 @@ public class SBHTTPRouter {
             })
         }
     }
-    public func cancel() {
-        
+    public func cancel(_ file: String=#file) {
+        let session = Alamofire.SessionManager.default
+        session.session.getAllTasks { (tasks) in
+            tasks.forEach({ (t) in
+                if t.sb_identifier.contains(file) {
+                    t.cancel()
+                }
+            })
+        }
     }
 }

@@ -192,6 +192,10 @@ public struct Kits {
             ToastCenter.default.cancelAll()
             return
         }
+        guard e.code != NSURLErrorCancelled else {
+            debugPrint("user canceled!")
+            return
+        }
         if e.code == SBHTTPRespCode.forbidden.rawValue || e.code == SBHTTPRespCode.unAuthorization.rawValue {
             let alert = UIAlertController(title: nil, message: e.errDescription, preferredStyle: .alert)
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)

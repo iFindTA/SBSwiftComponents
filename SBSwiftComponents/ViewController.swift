@@ -113,9 +113,6 @@ class ViewController: BaseProfile {
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
         
-        let isX = UIDevice.current.isX()
-        debugPrint(isX)
-        debugPrint(UIScreen.main.bounds)
     }
     
     @objc private func fetchTest() {
@@ -152,12 +149,12 @@ class ViewController: BaseProfile {
     @objc private func testBaseloading() {
         BaseLoading.shared.showIn(view)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
-            BaseLoading.shared.hide(false)
+            BaseLoading.shared.hide()
         }
     }
     
     @objc private func testCenterMask() {
-        let s = BaseCenterMaskScene(view, whether: false)
+        let s = BaseCenterMaskScene(view)
         s.show()
     }
     
