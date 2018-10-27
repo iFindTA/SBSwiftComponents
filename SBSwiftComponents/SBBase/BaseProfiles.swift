@@ -119,9 +119,14 @@ open class BaseProfile: UIViewController {
     }
     private func stopAllRequest() {
         let this = NSStringFromClass(type(of: self))
-        let range = (this as NSString).range(of: ".", options: .backwards)
-        let nr = (this as NSString).substring(with: NSMakeRange(range.location+1, this.count-range.location-range.length))
-        SBHTTPRouter.shared.cancel(nr)
+        let tmp = this as NSString
+        guard tmp.range(of: ".").location == NSNotFound else {
+            let range = tmp.range(of: ".", options: .backwards)
+            let nr = tmp.substring(with: NSMakeRange(range.location+1, this.count-range.location-range.length))
+            SBHTTPRouter.shared.cancel(nr)
+            return
+        }
+        SBHTTPRouter.shared.cancel(this)
     }
 }
 

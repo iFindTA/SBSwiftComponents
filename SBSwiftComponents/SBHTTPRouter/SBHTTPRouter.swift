@@ -97,7 +97,7 @@ public class SBHTTPRouter {
         let stacks = Thread.callStackSymbols
         var identifier = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
         if stacks.count > 1 {
-            identifier = parserStack(stacks[1], with: file)
+            identifier = parserStack(stacks[1], with: identifier)
         }
         if hud {
             SVProgressHUD.show(withStatus: hudString)

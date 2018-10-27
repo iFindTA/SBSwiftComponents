@@ -220,6 +220,17 @@ open class BaseScene: UIView {
         }
         NSObject.cancelPreviousPerformRequests(withTarget: self)
     }
+    public func stopAllRequest() {
+        let this = NSStringFromClass(type(of: self))
+        let tmp = this as NSString
+        guard tmp.range(of: ".").location == NSNotFound else {
+            let range = tmp.range(of: ".", options: .backwards)
+            let nr = tmp.substring(with: NSMakeRange(range.location+1, this.count-range.location-range.length))
+            SBHTTPRouter.shared.cancel(nr)
+            return
+        }
+        SBHTTPRouter.shared.cancel(this)
+    }
 }
 
 // MARK: - UINavigationBar
@@ -321,7 +332,7 @@ open class BaseMaskScene: BaseScene {
         }
     }
     /// events
-    public func show() {
+    open func show() {
         whetherDisplay.toggle()
         isHidden = false
         fatherScene?.bringSubview(toFront: self)
@@ -330,6 +341,10 @@ open class BaseMaskScene: BaseScene {
     @objc public func dismiss() {
         whetherDisplay.toggle()
         updateScenePosition()
+        didDisappear()
+    }
+    open func didDisappear() {
+        
     }
     private func updateScenePosition() {
         let to = fetchEndFrame()
@@ -428,6 +443,10 @@ open class BaseCenterMaskScene: BaseScene {
         whetherThisDisplay.toggle()
         updateHiddenStates()
         updateSceneTransform()
+        didDisappear()
+    }
+    open func didDisappear() {
+        
     }
     private func updateHiddenStates() {
         guard whetherShowClose == true else {
