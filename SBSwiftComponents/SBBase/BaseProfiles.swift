@@ -209,12 +209,10 @@ public extension BaseTabBarProfile {
     private struct sb_tabbarHiddenKeys {
         static var sb_isTabBarAnimating = "sb_isTabBarAnimating"
     }
-    
     private var sb_isTabBarAnimating: Bool {
         get {
             return objc_getAssociatedObject(self, &sb_tabbarHiddenKeys.sb_isTabBarAnimating) as! Bool
         }
-        
         set {
             objc_setAssociatedObject(self, &sb_tabbarHiddenKeys.sb_isTabBarAnimating, newValue as Bool, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }

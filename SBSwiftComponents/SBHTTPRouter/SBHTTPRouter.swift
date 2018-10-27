@@ -22,7 +22,7 @@ fileprivate extension DataRequest {
     private struct sb_associatedKeys {
         static var identifier_key = "identifier_key"
     }
-    fileprivate var identifier: String {
+    fileprivate var sb_identifier: String {
         get {
             guard let i = objc_getAssociatedObject(self, &sb_associatedKeys.identifier_key) as? String else {
                 return ""
@@ -41,8 +41,7 @@ public class SBHTTPRouter {
     //private var manager: NetworkReachabilityManager?
     
     public static let shared = SBHTTPRouter()
-    private init() {
-    }
+    private init() {}
     public func challengeNetworkPermission() {
         let url = URL(string: "https://baidu.com")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: APP_TIMEOUT_INTERVAL)
@@ -66,6 +65,9 @@ public class SBHTTPRouter {
     
     /// network fetch event
     public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="请稍后...", completion:@escaping SBResponse) -> Void {
+        debugPrint("=======================================================================")
+        debugPrint(Thread.callStackSymbols)
+        debugPrint("=======================================================================")
         if hud {
             SVProgressHUD.show(withStatus: hudString)
         }
@@ -76,7 +78,7 @@ public class SBHTTPRouter {
             }
             self?.handle(response, completion: completion)
         }
-        req.identifier = "task"
+        req.sb_identifier = "task"
     }
     private func handle(_ response: DataResponse<Any>, completion:@escaping SBResponse) -> Void {
         /// step1 filter response for authorization
@@ -118,5 +120,8 @@ public class SBHTTPRouter {
                 t.cancel()
             })
         }
+    }
+    public func cancel() {
+        
     }
 }

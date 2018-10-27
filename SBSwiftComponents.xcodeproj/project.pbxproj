@@ -26,6 +26,7 @@
 		493D9B3AAAC3D5FB3B080B85157A3F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0F99772C3F9F270087FD5DD456B00D /* LaunchScreen.storyboard */; };
 		4D3AF18C8573DC8BAD7E2020875FAF56 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3FDDDE3165786FBD8967993C2EB6FB8 /* Scan.xcassets */; };
 		57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2ABA97AED7055EFE6B58A12552A8E4 /* libc++.tbd */; };
+		5F5418D680F0271B70DE1AE8689BF05A /* TestApiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400DED0BE8D9DD1AFDC14F4A7D5AF1A /* TestApiProfile.swift */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
@@ -147,6 +148,7 @@
 		782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBHTTPRouter.swift; sourceTree = "<group>"; };
 		7F5EF3D55F2977AA9797CC2D1844C249 /* SBManualExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBManualExt.swift; sourceTree = "<group>"; };
 		83FD280CEC732005FCED80E5EC973C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8400DED0BE8D9DD1AFDC14F4A7D5AF1A /* TestApiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiProfile.swift; sourceTree = "<group>"; };
 		865B5076600121B5B76368CFA0E07287 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAKit.swift; sourceTree = "<group>"; };
 		8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanProfile.swift; sourceTree = "<group>"; };
@@ -333,14 +335,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C223D89214B20DCC539E8C56FCF07C1D /* SBFileStream */ = {
-			isa = PBXGroup;
-			children = (
-				BED3B5AA75E273EEC5F1417AE3D7D746 /* FileStreamer.swift */,
-			);
-			path = SBFileStream;
-			sourceTree = "<group>";
-		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +442,7 @@
 		AD3D1AFE6D028CBBBA42392E48A5FF1E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8400DED0BE8D9DD1AFDC14F4A7D5AF1A /* TestApiProfile.swift */,
 				4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */,
 				E1868A7E00649A3D6F78F2B0CE193D9C /* TestPaths.swift */,
 				F54F5FC46135A9D29B02326400E509D7 /* TestSnapkitProfile.swift */,
@@ -463,6 +458,14 @@
 				51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */,
 			);
 			path = SBCordova;
+			sourceTree = "<group>";
+		};
+		C223D89214B20DCC539E8C56FCF07C1D /* SBFileStream */ = {
+			isa = PBXGroup;
+			children = (
+				BED3B5AA75E273EEC5F1417AE3D7D746 /* FileStreamer.swift */,
+			);
+			path = SBFileStream;
 			sourceTree = "<group>";
 		};
 		D691FB097B0DB3FE93A95753E19EE20A = {
@@ -890,6 +893,7 @@
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
 				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
 				88B46BE664F58E9E1251A70BEFA86E10 /* TPlatform.swift in Sources */,
+				5F5418D680F0271B70DE1AE8689BF05A /* TestApiProfile.swift in Sources */,
 				DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */,
 				C1B50F636033E0405794769CC6BDF700 /* TestPaths.swift in Sources */,
 				9DE0FF2AD13606D7B620743E07E5B85C /* TestSnapkitProfile.swift in Sources */,

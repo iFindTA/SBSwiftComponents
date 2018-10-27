@@ -119,7 +119,8 @@ class ViewController: BaseProfile {
     }
     
     @objc private func fetchTest() {
-        Kits.makeToast("test show")
+        let err = SBSceneRouter.route2(TestPaths.api)
+        Kits.handleError(err)
     }
     @objc private func testWebBrowser() {
         var p = SBSceneRouteParameter()
