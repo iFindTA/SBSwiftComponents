@@ -11,17 +11,18 @@ import SnapKit
 import Toaster
 
 class ViewController: BaseProfile {
-
+    
+    private var navigator: FixedNavigator?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let topoffset = AppSize.HEIGHT_STATUSBAR()
-        let titles = ["课程", "推荐", "小星阅读盒子"]
-        let availableWidth = AppSize.WIDTH_SCREEN - AppSize.HEIGHT_SUBBAR*2
-        let navigator = FixedNavigator.navigator(titles, available: availableWidth)
-        view.addSubview(navigator)
-        navigator.snp.makeConstraints { (make) in
+        let titles = ["消息", "班聊", "小星阅读盒子"]
+        //let availableWidth = AppSize.WIDTH_SCREEN - AppSize.HEIGHT_SUBBAR*2
+        navigator = FixedNavigator.navigator(titles)
+        view.addSubview(navigator!)
+        navigator?.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(topoffset)
             make.left.right.equalToSuperview()
             make.height.equalTo(AppSize.HEIGHT_NAVIGATIONBAR)
@@ -113,6 +114,22 @@ class ViewController: BaseProfile {
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
         
+        let badge = BaseButton(type: .custom)
+        badge.setTitle("test badge", for: .normal)
+        badge.setTitleColor(UIColor.blue, for: .normal)
+        badge.addTarget(self, action: #selector(testBadge(_:)), for: .touchUpInside)
+        view.addSubview(badge)
+        badge.snp.makeConstraints { (make) in
+            make.top.equalTo(mask.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigator?.setBadge(2, for: 2)
     }
     
     @objc private func fetchTest() {
@@ -156,6 +173,15 @@ class ViewController: BaseProfile {
     @objc private func testCenterMask() {
         let s = BaseCenterMaskScene(view)
         s.show()
+    }
+    
+    @objc private func testBadge(_ btn: BaseButton) {
+        btn.isSelected.toggle()
+        if btn.isSelected {
+            navigator?.setBadge(12, for: 0)
+        } else {
+            navigator?.setBadge(0, for: 0)
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PPBadgeViewSwift
 
 /// callback
 public typealias NavigatorCallback = (Int, Int)->Void   //current/previous
@@ -181,5 +182,30 @@ public class FixedNavigator: BaseScene {
         guard index != curIndex else { return }
         curIndex = index
         updateFlager()
+    }
+}
+
+// MARK: - badge
+public extension FixedNavigator {
+    /// badge 0 for hidden
+    public func setBadge(_ badge: Int, for index: Int) {
+        guard index>=0, index < itemBtns.count else {
+            return
+        }
+        guard badge > 0 else {
+            itemBtns[index].pp.hiddenBadge()
+            return
+        }
+        let ref = itemBtns[index]
+        let size = ref.bounds.size
+        var xoffset = -AppSize.WIDTH_DIS
+        let yoffset = HorizontalOffset*1.5
+        if let lab = ref.titleLabel {
+            let lsize = lab.bounds.size
+            let absolute = (size.width-lsize.width)*0.5
+            xoffset = -absolute+HorizontalOffset
+        }
+        itemBtns[index].pp.moveBadge(x: xoffset, y: yoffset)
+        itemBtns[index].pp.addBadge(number: badge)
     }
 }
