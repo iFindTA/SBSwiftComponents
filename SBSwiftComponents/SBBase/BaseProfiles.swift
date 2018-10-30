@@ -232,4 +232,17 @@ public extension BaseTabBarProfile {
             objc_setAssociatedObject(self, &sb_tabbarHiddenKeys.sb_isTabBarAnimating, newValue as Bool, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
+    
+    public func setBadge(_ badge: Int, for index: Int) {
+        guard let items = self.tabBar.items, index < items.count else {
+            return
+        }
+        if badge < 0 {
+            items[index].pp.hiddenBadge()
+        } else if badge == 0 {
+            items[index].pp.addDot(color: UIColor.red)
+        } else {
+            items[index].pp.addBadge(number: badge)
+        }
+    }
 }
