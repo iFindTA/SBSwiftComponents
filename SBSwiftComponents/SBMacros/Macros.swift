@@ -63,7 +63,7 @@ public struct Macros {
     /// 空页面提示
     public static let EMPTY_PLACEHOLDER_ICONFONT = "\u{e673}"
     public static let EMPTY_TITLE = "Oops!"
-    public static let EMPTY_DATA = "这里什么都木有，请稍后重试..."
+    public static let EMPTY_DATA = "这里什么都木有~"
     public static let EMPTY_NETWORK = "您貌似断开了互联网链接，请检查网络稍后重试！"
     
     /// Cordova
