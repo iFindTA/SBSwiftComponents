@@ -23,6 +23,7 @@ public typealias AnyClosure = ([String: Any])->Void
 public typealias TagClosure = (Int)->Void
 public typealias VoidClosure = ()->Void
 public typealias BoolClosure = (Bool)->Void
+public typealias StringClosure = (String)->Void
 public typealias ErrorClosure = (BaseError?)->Void
 
 // MARK: - Macros Defines
