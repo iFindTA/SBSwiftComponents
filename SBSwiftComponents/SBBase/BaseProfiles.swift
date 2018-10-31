@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import PPBadgeViewSwift
 
 // MARK: - Base Profile
 open class BaseProfile: UIViewController {
