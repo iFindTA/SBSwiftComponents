@@ -17,7 +17,7 @@ fileprivate let kChatActionBarOriginalHeight: CGFloat = 50      //ActionBar orgi
 fileprivate let kChatActionBarTextViewMaxHeight: CGFloat = 120   //Expandable textview max height
 
 /// 全局评论scene（回复、评论）
-class CommentOnScene: BaseScene {
+public class CommentOnScene: BaseScene {
     /// vars
     public var callback: StringClosure?
     //private var fatherView: UIView?
@@ -70,7 +70,7 @@ class CommentOnScene: BaseScene {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         let bh = max(0, inputBarBottomOffsetNormal)
         bottomScene.snp.makeConstraints { (m) in
@@ -85,7 +85,7 @@ class CommentOnScene: BaseScene {
             m.height.equalTo(inputBarHeight)
         }
     }
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         guard newSuperview == nil else {
             IQKeyboardManager.shared.enable = false
@@ -95,7 +95,7 @@ class CommentOnScene: BaseScene {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
     }
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         guard superview != nil else {
             return
@@ -106,7 +106,7 @@ class CommentOnScene: BaseScene {
         }
     }
     /// events
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         dismiss()
     }
@@ -198,14 +198,14 @@ extension CommentOnScene {
 
 // MARK: - Delegate
 extension CommentOnScene: UITextViewDelegate {
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    private func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             willRelease()
             return false
         }
         return true
     }
-    func textViewDidChange(_ textView: UITextView) {
+    private func textViewDidChange(_ textView: UITextView) {
         let contentH = textView.contentSize.height
         guard contentH < kChatActionBarTextViewMaxHeight else {
             return
@@ -221,7 +221,7 @@ extension CommentOnScene: UITextViewDelegate {
             self?.layoutIfNeeded()
         }
     }
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    private func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         UIView.setAnimationsEnabled(false)
         let range = NSMakeRange(textView.text.count - 1, 1)
         textView.scrollRangeToVisible(range)
