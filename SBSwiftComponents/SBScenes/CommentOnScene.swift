@@ -41,7 +41,7 @@ public class CommentOnScene: BaseScene {
     }()
     
     /// getters
-    class func com(_ father: UIView?, bottom offset: CGFloat) -> CommentOnScene {
+    public class func com(_ father: UIView?, bottom offset: CGFloat) -> CommentOnScene {
         return CommentOnScene(father, bottom: offset)
     }
     fileprivate class func bundledImage(named: String) -> UIImage? {
@@ -198,14 +198,14 @@ extension CommentOnScene {
 
 // MARK: - Delegate
 extension CommentOnScene: UITextViewDelegate {
-    private func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             willRelease()
             return false
         }
         return true
     }
-    private func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         let contentH = textView.contentSize.height
         guard contentH < kChatActionBarTextViewMaxHeight else {
             return
@@ -221,7 +221,7 @@ extension CommentOnScene: UITextViewDelegate {
             self?.layoutIfNeeded()
         }
     }
-    private func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         UIView.setAnimationsEnabled(false)
         let range = NSMakeRange(textView.text.count - 1, 1)
         textView.scrollRangeToVisible(range)
