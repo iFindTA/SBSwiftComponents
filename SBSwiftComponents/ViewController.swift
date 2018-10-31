@@ -124,6 +124,17 @@ class ViewController: BaseProfile {
             make.left.right.equalToSuperview()
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
+        
+        let comment = BaseButton(type: .custom)
+        comment.setTitle("test comment", for: .normal)
+        comment.setTitleColor(UIColor.blue, for: .normal)
+        comment.addTarget(self, action: #selector(testComments), for: .touchUpInside)
+        view.addSubview(comment)
+        comment.snp.makeConstraints { (make) in
+            make.top.equalTo(badge.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -182,6 +193,10 @@ class ViewController: BaseProfile {
         } else {
             navigator?.setBadge(0, for: 0)
         }
+    }
+    @objc private func testComments() {
+        let err = SBSceneRouter.route2(TestPaths.comment)
+        Kits.handleError(err)
     }
     
     override func didReceiveMemoryWarning() {

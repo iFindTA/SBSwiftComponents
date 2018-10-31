@@ -13,6 +13,7 @@ PODS:
     - RealReachability/Ping (= 1.2.2)
   - RealReachability/Connection (1.2.2)
   - RealReachability/Ping (1.2.2)
+  - SDWebImage/Core (4.4.2)
   - SJNavigationPopGesture (1.4.5.1)
   - SnapKit (4.0.0)
   - SQLite.swift (0.11.5):
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (~> 6.0.2)
   - PPBadgeViewSwift (~> 2.2.2)
   - RealReachability (~> 1.2.2)
+  - SDWebImage/Core
   - SJNavigationPopGesture (~> 1.4.1)
   - SnapKit (~> 4.0.0)
   - SQLite.swift (~> 0.11.5)
@@ -52,6 +54,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - PPBadgeViewSwift
     - RealReachability
+    - SDWebImage
     - SJNavigationPopGesture
     - SnapKit
     - SQLite.swift
@@ -70,6 +73,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c14eca30f6001457d6ddf25e313f23fb6578c41c
   PPBadgeViewSwift: 96a41852df7437e9d948565a1bc894f757c29933
   RealReachability: 7ea2093650004e5e30635edbf9d29ce9b9091001
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SJNavigationPopGesture: bd7f458094c5cf9f53fdb31c5c122bbf15697d38
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
@@ -78,6 +82,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 15655896925bd0871b16eaf1d4a658d951198395
+PODFILE CHECKSUM: af67dd496b519d7b6f7af250e31cfcb6b28d940c
 
 COCOAPODS: 1.6.0.beta.1

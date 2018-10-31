@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.4.1"
+  s.version      = "0.4.2"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -43,6 +43,13 @@ Pod::Spec.new do |s|
     b.dependency 'PPBadgeViewSwift'
     b.dependency 'IQKeyboardManagerSwift'
     b.dependency 'GDPerformanceView-Swift'
+  end
+
+  s.subspec 'Scenes' do |ss|
+    ss.source_files = "SBSwiftComponents/SBScenes/*.swift"
+    ss.resources = "SBSwiftComponents/SBScenes/Assets/*.*"
+    ss.dependency 'SBComponents/Kit'
+    ss.dependency 'SDWebImage/Core'
   end
 
   s.subspec 'Scan' do |q|
