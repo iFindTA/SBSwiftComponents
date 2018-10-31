@@ -232,6 +232,25 @@ open class BaseScene: UIView {
         SBHTTPRouter.shared.cancel(this)
     }
 }
+extension UIView {
+    public func isVisible() -> Bool {
+        guard superview != nil else {
+            return false
+        }
+        guard isHidden == false else {
+            return false
+        }
+        let rect = self.convert(self.frame, from: nil)
+        if rect.isNull || rect.isEmpty || rect.equalTo(.zero) {
+            return false
+        }
+        let srect = UIScreen.main.bounds
+        guard rect.intersects(srect) == true else {
+            return false
+        }
+        return true
+    }
+}
 
 // MARK: - UINavigationBar
 public class BaseNavigationBar: UINavigationBar {
