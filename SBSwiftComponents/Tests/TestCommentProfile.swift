@@ -17,6 +17,12 @@ class TestCommentProfile: BaseProfile {
         return p
     }()
     
+    private lazy var testField: BaseTextField = {
+        let t = BaseTextField(frame: .zero)
+        t.placeholder = "测试联动"
+        return t
+    }()
+    
     private var params: SBSceneRouteParameter?
     init(_ parameters: SBSceneRouteParameter?) {
         super.init(nibName: nil, bundle: nil)
@@ -51,6 +57,13 @@ class TestCommentProfile: BaseProfile {
             m.top.equalTo(navigationBar.snp.bottom).offset(HorizontalOffsetMAX)
             m.left.right.equalToSuperview()
             m.height.equalTo(AppSize.HEIGHT_ICON)
+        }
+        
+        view.addSubview(testField)
+        testField.snp.makeConstraints { (m) in
+            m.top.equalTo(b.snp.bottom).offset(HorizontalOffset)
+            m.left.right.equalToSuperview()
+            m.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
     }
     

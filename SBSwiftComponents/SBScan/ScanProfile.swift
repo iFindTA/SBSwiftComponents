@@ -476,7 +476,7 @@ open class QRScanProfile: BaseProfile {
                 return
             }
             self?.didScanResult()
-        };
+        }
         return e
     }()
     //是否为自动扫描 否则为手动输入
@@ -497,7 +497,7 @@ open class QRScanProfile: BaseProfile {
         return input
     }()
     private var params: SBSceneRouteParameter?
-    init(_ parameters: SBSceneRouteParameter?) {
+    public init(_ parameters: SBSceneRouteParameter?) {
         super.init(nibName: nil, bundle: nil)
         params = parameters
     }
@@ -710,12 +710,5 @@ extension QRScanProfile {
             make.left.equalTo(line.snp.right)
         }
         btn.sb_fixImagePosition(.top, spacing: AppSize.WIDTH_DIS)
-    }
-}
-
-// MARK: - 路由扩展
-extension QRScanProfile: SBSceneRouteable {
-    public static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
-        return QRScanProfile(params)
     }
 }

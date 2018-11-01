@@ -217,10 +217,11 @@ extension WebBrowser {
         if let p = params, p.keys.contains("url") {
             let urlString = p["url"] as! String
             guard (urlString.hasPrefix("http://")||urlString.hasPrefix("https://")||urlString.hasPrefix("www")) else {
-                let uri = URL(fileURLWithPath: urlString)
-                let root = Kits.locatePath(.file)
-                let rootUri = URL(fileURLWithPath: root)
-                webView.loadFileURL(uri, allowingReadAccessTo: rootUri)
+                if urlString.hasPrefix("/Users/") || urlString.hasPrefix("/var/mobile/") {
+                    loadLocalFile(urlString)
+                } else {
+                    loadContentString(urlString)
+                }
                 return
             }
             var uri: URL?
@@ -230,16 +231,25 @@ extension WebBrowser {
                 uri = URL(string: urlString)
             }
             guard let url = uri else {
-                let header = "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><meta  name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\"/></head>"
-                let body = "<body style='width:100%;background-color:white;padding:0px;margin:0px;display:block;'>"
-                let div = "<div id='myid' style = 'width:100%;height:10px;background-color:white;display:block'></div>"
-                let html = String(format: "<html> %@ %@ %@ </body></html>", header, body, urlString, div)
-                webView.loadHTMLString(html, baseURL: nil)
+                loadContentString(urlString)
                 return
             }
             request = URLRequest(url: url)
         }
         webView.load(request)
+    }
+    private func loadLocalFile(_ path: String) {
+        let uri = URL(fileURLWithPath: path)
+        let root = Kits.locatePath(.file)
+        let rootUri = URL(fileURLWithPath: root)
+        webView.loadFileURL(uri, allowingReadAccessTo: rootUri)
+    }
+    private func loadContentString(_ info: String) {
+        let header = "<head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/><meta  name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\"/></head>"
+        let body = "<body style='width:100%;background-color:white;padding:0px;margin:0px;display:block;'>"
+        let div = "<div id='myid' style = 'width:100%;height:10px;background-color:white;display:block'></div>"
+        let html = String(format: "<html> %@ %@ %@ </body></html>", header, body, info, div)
+        webView.loadHTMLString(html, baseURL: nil)
     }
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

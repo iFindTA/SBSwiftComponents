@@ -24,7 +24,9 @@ public class CommentOnScene: BaseScene {
     private var inputBarHeight: CGFloat = kChatActionBarOriginalHeight
     private var inputBarBottomOffsetActive: CGFloat = 0 /// 激活状态offset
     private var inputBarBottomOffsetNormal: CGFloat = AppSize.HEIGHT_INVALID_BOTTOM()///正常情况offset
-    private var inputBarActived: Bool = false
+    //private var inputBarActived: Bool = false
+    /// 是否主动触发评论（是则可以响应键盘事件，否则不响应）
+    private var activeTriggered: Bool = false
     /// lazy vars
     private lazy var inputBar: ComInputBar = {
         let s = ComInputBar(frame: .zero)
@@ -78,7 +80,7 @@ public class CommentOnScene: BaseScene {
             m.height.equalTo(bh)
         }
         inputBar.snp.removeConstraints()
-        let offset = inputBarActived ? inputBarBottomOffsetActive : inputBarBottomOffsetNormal
+        let offset = activeTriggered ? inputBarBottomOffsetActive : inputBarBottomOffsetNormal
         inputBar.snp.makeConstraints { (m) in
             m.left.right.equalToSuperview()
             m.bottom.equalToSuperview().offset(-offset)
@@ -116,13 +118,14 @@ public class CommentOnScene: BaseScene {
         inputBar.update(uri, with: placeholder)
     }
     public func show() {
-        guard inputBarActived == false else {
+        guard activeTriggered == false else {
             return
         }
+        activeTriggered = true
         inputBar.focusOn()
     }
     public func dismiss() {
-        guard inputBarActived == true else {
+        guard activeTriggered == true else {
             return
         }
         inputBar.focusOff()
@@ -149,14 +152,15 @@ extension CommentOnScene {
         NotificationCenter.default.removeObserver(self)
     }
     @objc private func __keyboardWillShow(_ notify: NSNotification) {
-        guard inputBarActived == false else {
-            debugPrint("this was disappear, should not respond")
+        guard activeTriggered == true else {
+            debugPrint("this was inactived, should not respond for showing")
             return
         }
         __kbDidChanged(notify, with: true)
     }
     @objc private func __keyboardWillHide(_ notify: NSNotification) {
-        guard inputBarActived == true else {
+        guard activeTriggered == true else {
+            debugPrint("this was inactived, should not respond for hiding")
             return
         }
         __kbDidChanged(notify, with: false)
@@ -167,8 +171,8 @@ extension CommentOnScene {
         } else {
             inputBar.input.text = nil
             inputBarHeight = kChatActionBarOriginalHeight
+            activeTriggered  = false
         }
-        inputBarActived = show
         
         var userInfo = notify.userInfo!
         let kbRect = userInfo[UIKeyboardFrameEndUserInfoKey]! as! CGRect
@@ -226,6 +230,7 @@ extension CommentOnScene: UITextViewDelegate {
         let range = NSMakeRange(textView.text.count - 1, 1)
         textView.scrollRangeToVisible(range)
         UIView.setAnimationsEnabled(true)
+        activeTriggered = true
         return true
     }
 }
