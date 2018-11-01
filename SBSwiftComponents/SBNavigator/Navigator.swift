@@ -89,7 +89,7 @@ public class FixedNavigator: BaseScene {
             item.snp.remakeConstraints { (make) in
                 make.top.bottom.equalToSuperview()
                 make.width.equalTo(itemWidth)
-                make.height.equalTo(itemHeight)
+                //make.height.equalTo(itemHeight)
                 if let ref = lastMargin {
                     make.left.equalTo(ref.snp.right).offset(HorizontalOffset)
                 } else {
