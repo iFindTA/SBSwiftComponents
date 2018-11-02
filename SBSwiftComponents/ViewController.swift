@@ -135,6 +135,17 @@ class ViewController: BaseProfile {
             make.left.right.equalToSuperview()
             make.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
+        
+        let state = BaseButton(type: .custom)
+        state.setTitle("test state", for: .normal)
+        state.setTitleColor(UIColor.blue, for: .normal)
+        state.addTarget(self, action: #selector(testState(_:)), for: .touchUpInside)
+        view.addSubview(state)
+        state.snp.makeConstraints { (make) in
+            make.top.equalTo(comment.snp.bottom).offset(20)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(AppSize.HEIGHT_SUBBAR)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -199,11 +210,18 @@ class ViewController: BaseProfile {
         Kits.handleError(err)
     }
     
+    @objc private func testState(_ btn: BaseButton) {
+        btn.sb_busyState = true
+        btn.appearState = .loading
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            btn.sb_busyState = false
+            btn.appearState = .idle
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

@@ -8,8 +8,8 @@
 
 import Alamofire
 import Foundation
-import SwiftyJSON
 import SDWebImage
+import SwiftyJSON
 import SVProgressHUD
 
 fileprivate let THIRD_WX_APPID = "wxfa827e3c1a13590e"
@@ -331,7 +331,6 @@ public class TPOpen: NSObject {
         profile.present(shreProfile, animated: true, completion: nil)
     }
     private func shareLinkThrid(_ platform: TPlatform, title: String, desciption desc: String, icon uri: String, hybrid link: String) {
-        
         SVProgressHUD.show()
         SDWebImageDownloader.shared().downloadImage(with: URL(string: uri), options: [], progress: nil) { [weak self](image, data, err, finish) in
             SVProgressHUD.dismiss()

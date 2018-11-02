@@ -20,6 +20,20 @@ public extension UIButton {
     private struct sb_associatedKeys {
         static var acceptEventInterval = "sb_acceptEventInterval"
         static var acceptEventTime = "sb_acceptEventTime"
+        static var busyState = "sb_busyState"
+    }
+    
+    public var sb_busyState: Bool {
+        get {
+            if let busy = objc_getAssociatedObject(self, &sb_associatedKeys.busyState) as? Bool {
+                return busy
+            }
+            return false
+        }
+        
+        set {
+            objc_setAssociatedObject(self, &sb_associatedKeys.busyState, newValue as Bool, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
     
     public var sb_acceptEventInterval: TimeInterval {

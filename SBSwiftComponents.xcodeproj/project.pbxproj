@@ -329,6 +329,17 @@
 			path = SBBanner;
 			sourceTree = "<group>";
 		};
+		3D70FD93E03205999D7F2F983D3389C7 /* SBScenes */ = {
+			isa = PBXGroup;
+			children = (
+				78CF47F655D08085CA4CB2D63B616DB3 /* Assets */,
+				BC6AD576881D5068C3BC67730CC8C90B /* CenterMaskScene.swift */,
+				0ABAF45B6C1703F1217FEC0EECAC9916 /* CommentOnScene.swift */,
+				81F151C0FEE2D6602A284151DF3CFF7A /* PresentMaskScene.swift */,
+			);
+			path = SBScenes;
+			sourceTree = "<group>";
+		};
 		4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,25 +354,6 @@
 				F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		3D70FD93E03205999D7F2F983D3389C7 /* SBScenes */ = {
-			isa = PBXGroup;
-			children = (
-				78CF47F655D08085CA4CB2D63B616DB3 /* Assets */,
-				BC6AD576881D5068C3BC67730CC8C90B /* CenterMaskScene.swift */,
-				0ABAF45B6C1703F1217FEC0EECAC9916 /* CommentOnScene.swift */,
-				81F151C0FEE2D6602A284151DF3CFF7A /* PresentMaskScene.swift */,
-			);
-			path = SBScenes;
-			sourceTree = "<group>";
-		};
-		78CF47F655D08085CA4CB2D63B616DB3 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				86E151CDD5283148F7BCA510830F2E3A /* SBScenes.xcassets */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -384,6 +376,14 @@
 			isa = PBXGroup;
 			children = (
 				C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		78CF47F655D08085CA4CB2D63B616DB3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				86E151CDD5283148F7BCA510830F2E3A /* SBScenes.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -832,7 +832,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -852,7 +851,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",

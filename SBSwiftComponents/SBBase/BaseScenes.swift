@@ -31,7 +31,8 @@ public class BaseButton: UIButton {
         let preEventStamp = self.sb_acceptEventTime
         let duration = self.sb_acceptEventInterval
         let curEventStamp = Date().timeIntervalSince1970
-        if abs(preEventStamp - curEventStamp) > duration {
+        let whetherBusy = self.sb_busyState
+        if abs(preEventStamp - curEventStamp) > duration && whetherBusy == false {
             super.touchesBegan(touches, with: event)
         }
         self.sb_acceptEventTime = curEventStamp

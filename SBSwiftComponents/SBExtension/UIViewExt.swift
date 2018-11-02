@@ -22,7 +22,7 @@ public extension UIView {
         static var state = "sb_scene_load_key"
         static var indicator = "sb_scene_indicator_key"
     }
-    var state: SBSceneState {
+    public var appearState: SBSceneState {
         get{
             if let s = objc_getAssociatedObject(self, &sb_associatedKeys.state) as? SBSceneState {
                 return s
