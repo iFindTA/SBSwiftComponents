@@ -9,8 +9,8 @@
 import Alamofire
 import Foundation
 import SwiftyJSON
+import SDWebImage
 import SVProgressHUD
-import AlamofireImage
 
 fileprivate let THIRD_WX_APPID = "wxfa827e3c1a13590e"
 fileprivate let THIRD_WX_APPSECRET = "1c07b1856958233045ea2892f7c4f444"
@@ -333,9 +333,9 @@ public class TPOpen: NSObject {
     private func shareLinkThrid(_ platform: TPlatform, title: String, desciption desc: String, icon uri: String, hybrid link: String) {
         
         SVProgressHUD.show()
-        Alamofire.request(uri).responseImage { [weak self](response) in
+        SDWebImageDownloader.shared().downloadImage(with: URL(string: uri), options: [], progress: nil) { [weak self](image, data, err, finish) in
             SVProgressHUD.dismiss()
-            guard let icon = response.result.value else {
+            guard let icon = image else {
                 let e = BaseError("f分享图片数据错误！")
                 self?.callback?(e)
                 return
