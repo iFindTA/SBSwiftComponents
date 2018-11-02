@@ -29,6 +29,7 @@
 		57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2ABA97AED7055EFE6B58A12552A8E4 /* libc++.tbd */; };
 		5F5418D680F0271B70DE1AE8689BF05A /* TestApiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400DED0BE8D9DD1AFDC14F4A7D5AF1A /* TestApiProfile.swift */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
+		602ADFD7218BFE490065BEBF /* Pods_SBSwiftComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 602ADFD6218BFE490065BEBF /* Pods_SBSwiftComponents.framework */; };
 		6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C95CBDB0A378814D5EA759AC55B0EF /* Kits.swift */; };
 		6C15C0F480DD15EADD42E5B15B2F95AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D372AEE0F56F41390E6E39BC69FC10D /* ViewController.swift */; };
 		6D67D87BBE6F80308C4F438C27EE697D /* TShare.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C489A3C97F0B02C131C938E3F65F8043 /* TShare.xcassets */; };
@@ -80,7 +81,6 @@
 		E46705B0D6F86BADF03BDB88852907F7 /* SnapKitExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E372E115ED9F491ACD43A41C117EE /* SnapKitExt.swift */; };
 		E880A6CE13AD6C154EACCB4151A2B11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43B1AB68DCCACEACCA0CD1020203CDB /* Main.storyboard */; };
 		EFF0984A690BED8667E5AE02ADAEFEB4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */; };
-		F95CA441CEFF48186875369D1789DD18 /* Pods_SBSwiftComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */; };
 		FD360D7F4C458FAC61DE49C9EF776A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +144,8 @@
 		5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordovaProfile.swift; sourceTree = "<group>"; };
 		5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		602ADFD4218BFDC30065BEBF /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		602ADFD6218BFE490065BEBF /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitsCordova.swift; sourceTree = "<group>"; };
 		64A9BFB2504F571681014F492355E980 /* TCPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPServer.swift; sourceTree = "<group>"; };
 		660A56B7C4B11E3DFB30B8B0CDE05EF3 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
@@ -217,13 +219,13 @@
 				3EFEA19AB23B3C2492E05FACAD118863 /* CoreMotion.framework in Frameworks */,
 				77BCA6BED463823B6457CE8E64D841C5 /* CoreTelephony.framework in Frameworks */,
 				8CBF6E1B240CE56276833AA249CFBC65 /* CoreText.framework in Frameworks */,
-				F95CA441CEFF48186875369D1789DD18 /* Pods_SBSwiftComponents.framework in Frameworks */,
 				3DBCD068E375DEE3CCE28A5450FA78F1 /* SystemConfiguration.framework in Frameworks */,
 				AEB6C82B8C3922F530817023851C68BE /* TencentOpenAPI.framework in Frameworks */,
 				6F75BD823B472E3F6CC8A492CCE25578 /* libWeChatSDK.a in Frameworks */,
 				57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */,
 				CF12C17C8E4E73E9735AF2013F53D4C4 /* libresolv.tbd in Frameworks */,
 				3F819A8F37517057F06131E9D233F7FE /* libz.tbd in Frameworks */,
+				602ADFD7218BFE490065BEBF /* Pods_SBSwiftComponents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +249,8 @@
 		03AF8F393E315390DB2AA50F3C08E566 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				602ADFD6218BFE490065BEBF /* Pods_SBSwiftComponents.framework */,
+				602ADFD4218BFDC30065BEBF /* Pods_SBSwiftComponents.framework */,
 				AA7A280C89DC5C0557DCBC07283C98A0 /* CFNetwork.framework */,
 				A21438B8F19582F9936F0623C6F9458B /* CoreMotion.framework */,
 				ABE6CDD2C4E6E2053CF67AAEE402B754 /* CoreTelephony.framework */,
@@ -832,6 +836,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -851,6 +856,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",

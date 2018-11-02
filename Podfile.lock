@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.7.3)
+  - AlamofireImage (3.4.1):
+    - Alamofire (~> 4.7)
   - CocoaAsyncSocket (7.6.3)
   - Cordova (4.5.4)
   - DZNEmptyDataSet (1.8.1)
@@ -24,6 +26,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.3)
+  - AlamofireImage (~> 3.4.1)
   - CocoaAsyncSocket (~> 7.6.3)
   - Cordova (~> 4.5.4)
   - DZNEmptyDataSet (~> 1.8.1)
@@ -43,6 +46,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AlamofireImage
     - CocoaAsyncSocket
     - Cordova
     - DZNEmptyDataSet
@@ -61,6 +65,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   Cordova: 90a337977b8667a80483f559268c82062b1183da
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -77,6 +82,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 6004e99185f4406799663d9a7e7f041b80a53e9e
+PODFILE CHECKSUM: af67dd496b519d7b6f7af250e31cfcb6b28d940c
 
 COCOAPODS: 1.6.0.beta.1
