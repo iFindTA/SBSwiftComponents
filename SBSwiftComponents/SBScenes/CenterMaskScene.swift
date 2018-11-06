@@ -77,7 +77,7 @@ open class BaseCenterMaskScene: BaseScene {
             m.centerX.equalToSuperview()
             m.top.equalTo(scene.snp.bottom)
             m.width.equalTo(1)
-            m.height.equalTo(AppSize.HEIGHT_ICON*2)
+            m.height.equalTo(AppSize.HEIGHT_ICON)
         }
         closeBtn.snp.makeConstraints { (m) in
             m.centerX.equalToSuperview()

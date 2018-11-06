@@ -20,7 +20,7 @@ public class SB404: BaseProfile {
         return l
     }()
     private lazy var backBarButtonItem: UIBarButtonItem =  {
-        let icon = SB404.bundledImage(named: "browser_icon_back")
+        let icon = SB404.bundledImage(named: "scene_router_back")
         var tempBackBarButtonItem = UIBarButtonItem(image:icon,
                                                     style: UIBarButtonItemStyle.plain,
                                                     target: self,
@@ -42,7 +42,7 @@ public class SB404: BaseProfile {
         super.viewDidLoad()
         
         view.addSubview(navigationBar)
-        let item = UINavigationItem(title: "Oops")
+        let item = UINavigationItem(title: "Oops！")
         item.leftBarButtonItem = backBarButtonItem
         navigationBar.pushItem(item, animated: true)
         

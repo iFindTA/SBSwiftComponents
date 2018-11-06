@@ -206,8 +206,7 @@ class ViewController: BaseProfile {
         }
     }
     @objc private func testComments() {
-        let err = SBSceneRouter.route2(TestPaths.comment)
-        Kits.handleError(err)
+        _ = SBSceneRouter.route2(TestPaths.test)
     }
     
     @objc private func testState(_ btn: BaseButton) {
