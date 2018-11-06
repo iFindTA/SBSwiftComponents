@@ -35,10 +35,10 @@ public enum TPlatform {
 }
 
 /// 支付方式
-public enum PPlatform: Int {
-    case ali
-    case wechat
-    case applePay
+public enum PPlatform: String, CaseIterable {
+    case ali            =   "支付宝"
+    case wechat         =   "微信支付"
+    case applePay       =   "Apple Pay"
 }
 
 /// 课程激活方式
