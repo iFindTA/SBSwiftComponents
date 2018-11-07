@@ -82,3 +82,20 @@ public extension UIView {
         return true
     }
 }
+
+extension UIAlertAction {
+    private struct sb_associatedKeys {
+        static var tag = "sb_alert_action_tag"
+    }
+    public var sb_tag: Int {
+        get{
+            if let s = objc_getAssociatedObject(self, &sb_associatedKeys.tag) as? Int {
+                return s
+            }
+            return 0
+        }
+        set{
+            objc_setAssociatedObject(self, &sb_associatedKeys.tag, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+}
