@@ -81,6 +81,7 @@
 		E880A6CE13AD6C154EACCB4151A2B11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43B1AB68DCCACEACCA0CD1020203CDB /* Main.storyboard */; };
 		EFF0984A690BED8667E5AE02ADAEFEB4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */; };
 		F95CA441CEFF48186875369D1789DD18 /* Pods_SBSwiftComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */; };
+		F97D9181F7E1A41941F2DDA8E58947F2 /* TPShareProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8149EE4CDE14764A465ABB76E83C03E3 /* TPShareProfile.swift */; };
 		FD360D7F4C458FAC61DE49C9EF776A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283461FC1A6F819FB7BF47EAC0103577 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +134,6 @@
 		3243EE3885B020A9B983789DA798382A /* SB404.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SB404.swift; sourceTree = "<group>"; };
 		3D1DB2C291D7E29F6FB186534CC6A849 /* SBHTTPState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBHTTPState.swift; sourceTree = "<group>"; };
 		3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SBBrowser.xcassets; sourceTree = "<group>"; };
-		3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E799AEE7996AC4E79BD9D910F736B63 /* Pods_SBSwiftComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SBSwiftComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9E372E115ED9F491ACD43A41C117EE /* SnapKitExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitExt.swift; sourceTree = "<group>"; };
 		44EB6FEFB3C63E3785D26C07BFA3027F /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
@@ -155,6 +155,7 @@
 		7396E868DC521C3317D3A2831FF9571C /* BundleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExt.swift; sourceTree = "<group>"; };
 		782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBHTTPRouter.swift; sourceTree = "<group>"; };
 		7F5EF3D55F2977AA9797CC2D1844C249 /* SBManualExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBManualExt.swift; sourceTree = "<group>"; };
+		8149EE4CDE14764A465ABB76E83C03E3 /* TPShareProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPShareProfile.swift; sourceTree = "<group>"; };
 		81F151C0FEE2D6602A284151DF3CFF7A /* PresentMaskScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentMaskScene.swift; sourceTree = "<group>"; };
 		83FD280CEC732005FCED80E5EC973C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8400DED0BE8D9DD1AFDC14F4A7D5AF1A /* TestApiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiProfile.swift; sourceTree = "<group>"; };
@@ -266,6 +267,7 @@
 			children = (
 				6E6EEB68A1745AB946E19401B5510EC4 /* Assets */,
 				EF30B5E638DEF515C1B876DD031E613E /* Vendors */,
+				8149EE4CDE14764A465ABB76E83C03E3 /* TPShareProfile.swift */,
 				DF4E6E19AD86133AA8D9DB8E312C0D2D /* TPlatform.swift */,
 			);
 			path = SBTPlatform;
@@ -932,6 +934,7 @@
 				E46705B0D6F86BADF03BDB88852907F7 /* SnapKitExt.swift in Sources */,
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
 				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
+				F97D9181F7E1A41941F2DDA8E58947F2 /* TPShareProfile.swift in Sources */,
 				88B46BE664F58E9E1251A70BEFA86E10 /* TPlatform.swift in Sources */,
 				5F5418D680F0271B70DE1AE8689BF05A /* TestApiProfile.swift in Sources */,
 				D0E15875C24422650494B46D15854330 /* TestCommentProfile.swift in Sources */,
