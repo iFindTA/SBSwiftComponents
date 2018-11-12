@@ -14,7 +14,7 @@ PODS:
   - RealReachability/Connection (1.2.2)
   - RealReachability/Ping (1.2.2)
   - SDWebImage/Core (4.4.2)
-  - SJNavigationPopGesture (1.4.5.1)
+  - SJNavigationPopGesture (1.4.8)
   - SnapKit (4.0.0)
   - SQLite.swift (0.11.5):
     - SQLite.swift/standard (= 0.11.5)
@@ -74,7 +74,7 @@ SPEC CHECKSUMS:
   PPBadgeViewSwift: 96a41852df7437e9d948565a1bc894f757c29933
   RealReachability: 7ea2093650004e5e30635edbf9d29ce9b9091001
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
-  SJNavigationPopGesture: bd7f458094c5cf9f53fdb31c5c122bbf15697d38
+  SJNavigationPopGesture: 9b2c03b9c5b164e7880cf34386044ca3f1902567
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
