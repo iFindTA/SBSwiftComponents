@@ -6,6 +6,7 @@
 //  Copyright © 2018 nanhu. All rights reserved.
 //
 
+import SnapKit
 import Foundation
 
 class TestCommentProfile: BaseProfile {

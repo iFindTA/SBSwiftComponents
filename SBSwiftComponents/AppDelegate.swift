@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SJNavigationPopGesture
 import IQKeyboardManagerSwift
 import GDPerformanceView_Swift
 
@@ -21,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //install services
-        SJNavigationPopGesture.install()
+        //SJNavigationPopGesture.install()
         IQKeyboardManager.shared.enable = true
         debugPrint(NSHomeDirectory())
         

@@ -712,8 +712,8 @@
 			buildConfigurationList = 9589407F09BA3762EEE11E1E25D79ED2 /* Build configuration list for PBXNativeTarget "SBSwiftComponents" */;
 			buildPhases = (
 				1A12436C68F097C322F0EB4CBE66ACAE /* [CP] Check Pods Manifest.lock */,
-				601C756967BBF4E2157729CE9AF124ED /* Sources */,
 				4AC6DC5DCF2BE4886858F0997CBC962A /* Frameworks */,
+				601C756967BBF4E2157729CE9AF124ED /* Sources */,
 				D42F49A5B3456F50F1E717A7053DE3EF /* Resources */,
 				B1CCF279EAA74431D139077931D2518F /* [CP] Embed Pods Frameworks */,
 				AF9408C9B7FB1D487A2B3BAEE44FC4DD /* Embed Frameworks */,
@@ -835,7 +835,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
@@ -844,7 +843,6 @@
 				"${BUILT_PRODUCTS_DIR}/PPBadgeViewSwift/PPBadgeViewSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RealReachability/RealReachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SJNavigationPopGesture/SJNavigationPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -855,7 +853,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
@@ -864,7 +861,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPBadgeViewSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealReachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJNavigationPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -1021,12 +1017,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/WeChat",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					"\"Alamofire\"",
-					"-framework",
-					"\"AlamofireImage\"",
 					"-framework",
 					"\"CocoaAsyncSocket\"",
 					"-framework",
@@ -1039,8 +1034,6 @@
 					"\"IQKeyboardManagerSwift\"",
 					"-framework",
 					"\"RealReachability\"",
-					"-framework",
-					"\"SJNavigationPopGesture\"",
 					"-framework",
 					"\"SQLite\"",
 					"-framework",
@@ -1223,12 +1216,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SBSwiftComponents/SBTPlatform/Vendors/WeChat",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					"\"Alamofire\"",
-					"-framework",
-					"\"AlamofireImage\"",
 					"-framework",
 					"\"CocoaAsyncSocket\"",
 					"-framework",
@@ -1241,8 +1233,6 @@
 					"\"IQKeyboardManagerSwift\"",
 					"-framework",
 					"\"RealReachability\"",
-					"-framework",
-					"\"SJNavigationPopGesture\"",
 					"-framework",
 					"\"SQLite\"",
 					"-framework",
