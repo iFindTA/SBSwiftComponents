@@ -237,16 +237,30 @@ open class BaseScene: UIView {
 
 // MARK: - UINavigationBar
 public class BaseNavigationBar: UINavigationBar {
+    /// vars
     var offset:CGFloat {
         guard UIDevice.current.isX() else {
             return 0
         }
         return 30
     }
-    //*
+    /// lazy vars
+    private lazy var shadowLine: BaseScene = {
+        let s = BaseScene(frame: .zero)
+        s.backgroundColor = AppColor.COLOR_EEEEEE
+        return s
+    }()
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(shadowLine)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    /// re-layout
     override public func layoutSubviews() {
         super.layoutSubviews()
-        //status bar height
+        /// status bar height
         let statusBarHeight = AppSize.HEIGHT_STATUSBAR()
         let navigationBarHeight = AppSize.HEIGHT_NAVIGATIONBAR
         
@@ -267,7 +281,13 @@ public class BaseNavigationBar: UINavigationBar {
                 v.frame = frame;
             }
         }
-        
+        shadowLine.snp.makeConstraints { (m) in
+            m.left.bottom.right.equalToSuperview()
+            m.height.equalTo(AppSize.HEIGHT_LINE)
+        }
+    }
+    public func shadowLine(_ color: UIColor) {
+        shadowLine.backgroundColor = color
     }
 }
 

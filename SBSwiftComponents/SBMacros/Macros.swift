@@ -179,6 +179,8 @@ public struct AppColor {
     public static let COLOR_TITLE_LIGHTGRAY = RGBA(r: 153, g: 153, b: 153, a: 1)//0x999999
     public static let COLOR_NAVIGATOR_TINT = RGBA(r: 76, g: 75, b: 85, a: 1)
     public static let COLOR_CCCCCC = RGBA(r: 204, g: 204, b: 204, a: 1)//0xCCCCCC
+    public static let COLOR_DDDDDD = RGBA(r: 221, g: 221, b: 221, a: 1)//0xDDDDDD
+    public static let COLOR_EEEEEE = RGBA(r: 221, g: 221, b: 221, a: 1)//0xEEEEEE
     public static let COLOR_BG_GRAY = RGBA(r: 248, g: 248, b: 248, a: 1)//0xF8F8F8
 }
 
