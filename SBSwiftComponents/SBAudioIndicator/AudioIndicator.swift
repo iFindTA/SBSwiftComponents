@@ -60,8 +60,10 @@ class IndicatorContent: UIView {
     private func prepareBarLayers() {
         barLayers.removeAll()
         var xOffset: CGFloat = 0
+        let c = UIColor.white
         for i in 0..<style.barCount {
             let l = createLayer(xOffset, with: i, style: style)
+            l.backgroundColor = c.cgColor
             barLayers.append(l)
             layer.addSublayer(l)
             xOffset = l.frame.maxX + style.actualBarSpacing()
@@ -77,11 +79,6 @@ class IndicatorContent: UIView {
         return l
     }
     
-    override func tintColorDidChange() {
-        barLayers.forEach { (l) in
-            l.backgroundColor = UIColor.white.cgColor
-        }
-    }
     /// auto-layout
     override var intrinsicContentSize: CGSize {
         var unionFrame: CGRect = .zero
@@ -157,6 +154,11 @@ class IndicatorContent: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         animation.isRemovedOnCompletion = false
         layer.add(animation, forKey: kDecayAnimationKey)
+    }
+    public func updateLineColor(_ color: UIColor) {
+        barLayers.forEach { (l) in
+            l.backgroundColor = color.cgColor
+        }
     }
 }
 
@@ -250,5 +252,8 @@ public class AudioIndicator: UIView {
         }
         content.stopOscillation()
         content.startDecay()
+    }
+    public func updateColor(_ color: UIColor) {
+        content.updateLineColor(color)
     }
 }
