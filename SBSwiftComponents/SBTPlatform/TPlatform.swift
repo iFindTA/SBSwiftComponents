@@ -401,7 +401,7 @@ public class TPOpen: NSObject {
             qqAuth?.authorize(grants)
         case .wxSession, .wxTimeline, .wxFavorite:
             let req = SendAuthReq()
-            req.scope = "snsapi+userinfo"
+            req.scope = "snsapi_userinfo"
             req.state = "auth2_wx"
             WXApi.send(req)
         default:
