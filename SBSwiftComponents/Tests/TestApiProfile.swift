@@ -36,8 +36,6 @@ class TestApiProfile: BaseProfile {
             }
         }
     }
-    
-    
 }
 extension TestApiProfile: SBSceneRouteable {
     static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
