@@ -102,7 +102,6 @@ Pod::Spec.new do |s|
     h.source_files = "SBSwiftComponents/SBHTTPRouter/*.swift"
     h.dependency 'Alamofire'
     h.dependency 'SwiftyJSON'
-    h.dependency 'SVProgressHUD'
     h.dependency 'SBComponents/Scenes'
     h.dependency 'SBComponents/Macros'
   end

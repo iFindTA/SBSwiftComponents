@@ -10,7 +10,6 @@ import Alamofire
 import Foundation
 import SDWebImage
 import SwiftyJSON
-import SVProgressHUD
 
 // MARK: - Defines
 public typealias TPShareCallback = (TPlatform)->Void
@@ -207,9 +206,9 @@ public class TPOpen: NSObject {
         profile.present(shreProfile, animated: true, completion: nil)
     }
     private func shareLinkThrid(_ platform: TPlatform, title: String, desciption desc: String, icon uri: String, hybrid link: String) {
-        SVProgressHUD.show()
+        BallLoading.show()
         SDWebImageDownloader.shared().downloadImage(with: URL(string: uri), options: [], progress: nil) { [weak self](image, data, err, finish) in
-            SVProgressHUD.dismiss()
+            BallLoading.hide()
             guard let icon = image else {
                 let e = BaseError("f分享图片数据错误！")
                 self?.callback?(e)
