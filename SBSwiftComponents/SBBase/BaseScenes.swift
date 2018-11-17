@@ -61,7 +61,7 @@ public class BaseImageView: UIImageView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
-        contentMode = .scaleToFill
+        contentMode = .scaleAspectFill
         backgroundColor = UIColor.white
     }
     required public init?(coder aDecoder: NSCoder) {
