@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.5.0"
+  s.version      = "0.5.1"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -36,6 +36,10 @@ Pod::Spec.new do |s|
  #   rsa.framework = "Security", "CommonCrypto"
  # end
 
+  s.subspec 'Hud' do |hd|
+    hd.source_files = "SBSwiftComponents/SBHud/*.swift"
+    hd.dependency 'SBComponents/Macros'
+  end
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/HTTPRouter'
@@ -102,7 +106,8 @@ Pod::Spec.new do |s|
     h.source_files = "SBSwiftComponents/SBHTTPRouter/*.swift"
     h.dependency 'Alamofire'
     h.dependency 'SwiftyJSON'
-    h.dependency 'SBComponents/Scenes'
+    h.dependency 'SBComponents/Hud'
+    h.dependency 'SBComponents/Error'
     h.dependency 'SBComponents/Macros'
   end
 

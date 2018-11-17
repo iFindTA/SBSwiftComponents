@@ -8,56 +8,14 @@
 
 import Foundation
 
-// MARK: - base loading
-public class BaseLoading: BaseScene {
-    /// lazy vars
-    private lazy var acter: UIActivityIndicatorView = {
-        let a = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        a.hidesWhenStopped = true
-        return a
-    }()
-    public static let shared = BaseLoading(frame: .zero)
-    private override init(frame: CGRect) {
-        super.init(frame: frame)
-        isHidden = true
-        addSubview(acter)
-    }
-    required internal init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        acter.snp.makeConstraints { (m) in
-            m.center.equalToSuperview()
-        }
-    }
-    public func showIn(_ view: UIView!) {
-        isHidden = false
-        if let father = view {
-            acter.startAnimating()
-            father.addSubview(self)
-            self.snp.removeConstraints()
-            self.snp.makeConstraints { (m) in
-                m.edges.equalToSuperview()
-            }
-        }
-    }
-    public func hide(_ hide: Bool=true) {
-        acter.stopAnimating()
-        guard hide == true else {
-            return
-        }
-        isHidden = true
-        removeFromSuperview()
-    }
-}
-
 /// loading ball
 fileprivate let ballSize: CGFloat = 13
 fileprivate let ballScale: CGFloat = 1.5
 fileprivate let ballMargin: CGFloat = 3
 fileprivate let ballSceneSize: CGFloat = 100
 fileprivate let ballSceneBounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+
+/// 球球loading
 public class BallLoading: UIView {
     /// vars lets
     private let animationDuration: CGFloat = 1.6
