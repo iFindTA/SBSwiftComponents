@@ -75,6 +75,7 @@
 		DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */; };
 		DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */; };
 		E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */; };
+		E1E10B7009E5A66774C329130FE31CBA /* HUDScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7A86B6311E340031B69B92573B5A79 /* HUDScenes.swift */; };
 		E2706C09DDDC61F245914A0BBA9BAB95 /* SBSwiftComponentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */; };
 		E315BA3A830F36152FCF450384568C0A /* BaseProfiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B549F5CD1CA20C6EC58AEC12618932 /* BaseProfiles.swift */; };
 		E46705B0D6F86BADF03BDB88852907F7 /* SnapKitExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E372E115ED9F491ACD43A41C117EE /* SnapKitExt.swift */; };
@@ -162,6 +163,7 @@
 		865B5076600121B5B76368CFA0E07287 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		86E151CDD5283148F7BCA510830F2E3A /* SBScenes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SBScenes.xcassets; sourceTree = "<group>"; };
 		89EB82C832531A87AC1ACE05023CB050 /* RSAKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAKit.swift; sourceTree = "<group>"; };
+		8A7A86B6311E340031B69B92573B5A79 /* HUDScenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDScenes.swift; sourceTree = "<group>"; };
 		8BA6841EC0F1FF20610BFCEB5BCB8D60 /* ScanProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanProfile.swift; sourceTree = "<group>"; };
 		8D6903C159C3BB7AD181B442AD0C008D /* Pods-SBSwiftComponents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.debug.xcconfig"; sourceTree = "<group>"; };
 		8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioIndicator.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				78CF47F655D08085CA4CB2D63B616DB3 /* Assets */,
 				BC6AD576881D5068C3BC67730CC8C90B /* CenterMaskScene.swift */,
 				0ABAF45B6C1703F1217FEC0EECAC9916 /* CommentOnScene.swift */,
+				8A7A86B6311E340031B69B92573B5A79 /* HUDScenes.swift */,
 				81F151C0FEE2D6602A284151DF3CFF7A /* PresentMaskScene.swift */,
 			);
 			path = SBScenes;
@@ -913,6 +916,7 @@
 				7AD7B5015C9A2868DB3E99D45D1DE8BD /* DBTables.swift in Sources */,
 				052B839A3F4F00B3884B81536D59E35A /* EmptyDataSource.swift in Sources */,
 				C53CEEAE734FD2D1337551B21F1AD65E /* FileStreamer.swift in Sources */,
+				E1E10B7009E5A66774C329130FE31CBA /* HUDScenes.swift in Sources */,
 				6A47706452F6883C981ECA59DC7C348B /* Kits.swift in Sources */,
 				5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */,
 				03965EFEF21358F1381B5FD998EA60CE /* Macros.swift in Sources */,

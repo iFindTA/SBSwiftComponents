@@ -9,7 +9,6 @@
 import Alamofire
 import Foundation
 import SwiftyJSON
-import SVProgressHUD
 
 // MARK: - Variables
 fileprivate let APP_TIMEOUT_INTERVAL  =   30.0
@@ -39,7 +38,6 @@ fileprivate extension URLSessionTask {
 public class SBHTTPRouter {
     /// variables
     //private var manager: NetworkReachabilityManager?
-    
     public static let shared = SBHTTPRouter()
     private init() {}
     public func challengeNetworkPermission() {
@@ -93,19 +91,23 @@ public class SBHTTPRouter {
         //TODO:可以发送通知
     }
     /// network fetch event
-    public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="请稍后...", file: String=#file, completion:@escaping SBResponse) -> Void {
+    public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="", file: String=#file, completion:@escaping SBResponse) -> Void {
         let stacks = Thread.callStackSymbols
         var identifier = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
         if stacks.count > 1 {
             identifier = parserStack(stacks[1], with: identifier)
         }
         if hud {
-            SVProgressHUD.show(withStatus: hudString)
+            Macros.executeInMain {
+                BallLoading.show()
+            }
         }
         let session = Alamofire.SessionManager.default
         let req = session.request(request).responseJSON { [weak self](response) in
             if hud {
-                SVProgressHUD.dismiss()
+                Macros.executeInMain {
+                    BallLoading.hide()
+                }
             }
             self?.handle(response, completion: completion)
         }

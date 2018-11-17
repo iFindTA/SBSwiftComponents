@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 import IQKeyboardManagerSwift
 import GDPerformanceView_Swift
 
@@ -69,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SBHTTPRouter.shared.challengeNetworkPermission()
         
         TPOpen.shared.install()
+        /// load gif for hud
     }
     private func startShareServices() {
         Share.configureShares()

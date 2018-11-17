@@ -66,10 +66,15 @@ class TestCommentProfile: BaseProfile {
             m.left.right.equalToSuperview()
             m.height.equalTo(AppSize.HEIGHT_SUBBAR)
         }
+        
+        BallLoading.show()
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        BallLoading.hide()
+    }
     @objc private func willCommentOn() {
-        commentScene.show()
+        
     }
 }
 extension TestCommentProfile: SBSceneRouteable {

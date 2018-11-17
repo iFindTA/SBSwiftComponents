@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.4.8"
+  s.version      = "0.4.9"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -103,7 +103,7 @@ Pod::Spec.new do |s|
     h.dependency 'Alamofire'
     h.dependency 'SwiftyJSON'
     h.dependency 'SVProgressHUD'
-    h.dependency 'SBComponents/Error'
+    h.dependency 'SBComponents/Scenes'
     h.dependency 'SBComponents/Macros'
   end
 

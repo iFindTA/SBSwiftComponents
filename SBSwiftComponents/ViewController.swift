@@ -206,7 +206,7 @@ class ViewController: BaseProfile {
         }
     }
     @objc private func testComments() {
-        _ = SBSceneRouter.route2(TestPaths.test)
+        _ = SBSceneRouter.route2(TestPaths.comment)
     }
     
     @objc private func testState(_ btn: BaseButton) {
