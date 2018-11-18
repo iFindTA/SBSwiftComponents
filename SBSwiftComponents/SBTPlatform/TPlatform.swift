@@ -269,7 +269,7 @@ extension TPOpen {
         SDWebImageDownloader.shared().downloadImage(with: URL(string: uri), options: [], progress: nil) { [weak self](image, data, err, finish) in
             BallLoading.hide()
             guard let icon = image else {
-                let e = BaseError("f分享图片数据错误！")
+                let e = BaseError("分享图片数据错误！")
                 self?.callback?(e)
                 return
             }
@@ -367,7 +367,7 @@ extension TPOpen {
         }
     }
     
-    /// 分享音乐
+    /// 分享多媒体-音乐
     
 }
 
