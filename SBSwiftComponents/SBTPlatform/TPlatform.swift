@@ -154,6 +154,67 @@ public class TPOpen: NSObject {
         
         return true
     }
+}
+
+// MARK: - 第三方授权
+extension TPOpen {
+    /// 三方登录
+    public func oauth(_ platform: TPlatform, completion:@escaping ErrorClosure) {
+        /// weak reference
+        callback = completion
+        
+        switch platform {
+        case .qq:
+            debugPrint("qq oauth")
+            let grants: [Any] = [kOPEN_PERMISSION_GET_INFO]
+            qqAuth?.authorize(grants)
+        case .wxSession, .wxTimeline, .wxFavorite:
+            let req = SendAuthReq()
+            req.scope = "snsapi_userinfo"
+            req.state = "auth2_wx"
+            WXApi.send(req)
+        default:
+            debugPrint("unkown platform to oauth!")
+        }
+    }
+}
+
+// MARK: - 第三方支付
+extension TPOpen {
+    /// 支付
+    public func pay(_ order: JSON?, payment way: PPlatform, completion:@escaping ErrorClosure) {
+        /// weak refrerence
+        callback = completion
+        
+        guard let json = order else {
+            let err = BaseError("创建订单失败！")
+            completion(err)
+            return
+        }
+        
+        switch way {
+        case .ali:
+            //let orderNum = json["orderNo"]
+            let signature = json["sign"]
+            debugPrint("ali order sign:\(signature.stringValue)")
+            AlipaySDK.defaultService().payOrder(signature.stringValue, fromScheme: THIRD_Ali_APPID) { _ in /*called by web pay*/}
+        case .wechat:
+            let req = PayReq()
+            req.partnerId = json["mch_id"].stringValue//商户ID
+            req.prepayId = json["prepay_id"].stringValue
+            req.package = "Sign=WXPay"
+            req.nonceStr = json["nonce_str"].stringValue
+            req.timeStamp = json["timeStamp"].uInt32Value
+            req.sign = json["sign"].stringValue
+            WXApi.send(req)
+        default:
+            debugPrint("unknown payment!")
+        }
+    }
+}
+
+// MARK: - 第三方分享
+extension TPOpen {
     /// 分享网页链接
     public func shareLink(_ platform: [TPlatform], title: String, desciption desc: String, icon uri: String, hybrid link: String, profile: UIViewController, completion:@escaping ErrorClosure) {
         /// weak refrerence
@@ -183,10 +244,7 @@ public class TPOpen: NSObject {
         }
         shareLinkSystem(title: title, desciption: desc, icon: uri, hybrid: link, profile: profile)
     }
-    /// 选择分享平台
-    private func previousChoosenPlatform() {
-        
-    }
+    /// 分享链接（系统）
     private func shareLinkSystem(title: String, desciption desc: String, icon uri: String, hybrid link: String, profile: UIViewController) {
         var image: UIImage = UIImage()
         if let i = UIImage(named: "AppIcon") {
@@ -205,6 +263,7 @@ public class TPOpen: NSObject {
         }
         profile.present(shreProfile, animated: true, completion: nil)
     }
+    /// 分享链接（sdk）
     private func shareLinkThrid(_ platform: TPlatform, title: String, desciption desc: String, icon uri: String, hybrid link: String) {
         BallLoading.show()
         SDWebImageDownloader.shared().downloadImage(with: URL(string: uri), options: [], progress: nil) { [weak self](image, data, err, finish) in
@@ -248,55 +307,6 @@ public class TPOpen: NSObject {
             debugPrint("code:\(code.rawValue)")
         }
     }
-    
-    private func compress(_ image: UIImage, to size: Int) -> UIImage? {
-        // Compress by quality
-        var compression: CGFloat = 1
-        var data: Data? = UIImageJPEGRepresentation(image, compression)
-        if (data?.count ?? 0) < size {
-            return image
-        }
-        
-        var max: CGFloat = 1
-        var min: CGFloat = 0
-        for _ in 0..<6 {
-            compression = (max + min) / 2
-            data = UIImageJPEGRepresentation(image, compression)
-            if Double((data?.count ?? 0)) < Double(size) * 0.9 {
-                min = compression
-            } else if (data?.count ?? 0) > size {
-                max = compression
-            } else {
-                break
-            }
-        }
-        
-        guard let aData = data else {
-            debugPrint("mpty")
-            return nil
-        }
-        var resultImage: UIImage! = UIImage(data: aData)
-        if  aData.count < size {
-            return UIImage(data: aData)
-        }
-        
-        var tmpData = aData
-        // Compress by size
-        var lastDataLength: Int = 0
-        while tmpData.count > size && tmpData.count != lastDataLength {
-            lastDataLength = tmpData.count
-            let ratio = Float(size) / Float(tmpData.count)
-            let size = CGSize(width: CGFloat(Int(resultImage.size.width * CGFloat(sqrtf(ratio)))), height: CGFloat(Int(resultImage.size.height * CGFloat(sqrtf(ratio))))) // Use NSUInteger to prevent white blank
-            UIGraphicsBeginImageContext(size)
-            resultImage.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-            resultImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            tmpData = UIImageJPEGRepresentation(resultImage, compression)!
-        }
-        
-        return resultImage
-    }
-    
     
     /// 分享纯图片
     public func shareImage(_ platform: TPlatform, icon source: UIImage, profile: UIViewController, completion:@escaping ErrorClosure) {
@@ -357,56 +367,8 @@ public class TPOpen: NSObject {
         }
     }
     
-    /// 支付
-    public func pay(_ order: JSON?, payment way: PPlatform, completion:@escaping ErrorClosure) {
-        /// weak refrerence
-        callback = completion
-        
-        guard let json = order else {
-            let err = BaseError("创建订单失败！")
-            completion(err)
-            return
-        }
-        
-        switch way {
-        case .ali:
-            //let orderNum = json["orderNo"]
-            let signature = json["sign"]
-            debugPrint("ali order sign:\(signature.stringValue)")
-            AlipaySDK.defaultService().payOrder(signature.stringValue, fromScheme: THIRD_Ali_APPID) { _ in /*called by web pay*/}
-        case .wechat:
-            let req = PayReq()
-            req.partnerId = json["mch_id"].stringValue//商户ID
-            req.prepayId = json["prepay_id"].stringValue
-            req.package = "Sign=WXPay"
-            req.nonceStr = json["nonce_str"].stringValue
-            req.timeStamp = json["timeStamp"].uInt32Value
-            req.sign = json["sign"].stringValue
-            WXApi.send(req)
-        default:
-            debugPrint("unknown payment!")
-        }
-    }
+    /// 分享音乐
     
-    /// 三方登录
-    public func oauth(_ platform: TPlatform, completion:@escaping ErrorClosure) {
-        /// weak reference
-        callback = completion
-        
-        switch platform {
-        case .qq:
-            debugPrint("qq oauth")
-            let grants: [Any] = [kOPEN_PERMISSION_GET_INFO]
-            qqAuth?.authorize(grants)
-        case .wxSession, .wxTimeline, .wxFavorite:
-            let req = SendAuthReq()
-            req.scope = "snsapi_userinfo"
-            req.state = "auth2_wx"
-            WXApi.send(req)
-        default:
-            debugPrint("unkown platform to oauth!")
-        }
-    }
 }
 
 // MARK: - QQ SDK回调

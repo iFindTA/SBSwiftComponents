@@ -19,6 +19,9 @@ pod 'CocoaAsyncSocket', '~> 7.6.3'
 pod 'IQKeyboardManagerSwift', '~> 6.0.2'
 pod 'GDPerformanceView-Swift', '~> 1.3.2'
 
+pod 'FSPagerView', '~> 0.8.1'
+pod 'CHIPageControl/Jaloro', '~> 0.1.7'
+
 #third platform
 pod 'SDWebImage/Core'
 

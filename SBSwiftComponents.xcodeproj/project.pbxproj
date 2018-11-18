@@ -74,6 +74,7 @@
 		D8F839DE096FA5CFCB443C1918052BF5 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A663553B53CE8E820861C30FFC3BA /* Navigator.swift */; };
 		DBF3E147AD950DAA397411A774BDB9D7 /* CordovaProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */; };
 		DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */; };
+		DDA276C980FA8D7ED3FAA3C46DD74931 /* BannerPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D2FBF3E506D7A187C482C2A5D50C1B /* BannerPanel.swift */; };
 		DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */; };
 		E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */; };
 		E2706C09DDDC61F245914A0BBA9BAB95 /* SBSwiftComponentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */; };
@@ -154,6 +155,7 @@
 		6E626915CBB1B1EB80A2E2DD18FFEFDC /* SBSwiftComponentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBSwiftComponentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7049E6B22F98A99E3525752265532AED /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		7396E868DC521C3317D3A2831FF9571C /* BundleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExt.swift; sourceTree = "<group>"; };
+		73D2FBF3E506D7A187C482C2A5D50C1B /* BannerPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPanel.swift; sourceTree = "<group>"; };
 		782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBHTTPRouter.swift; sourceTree = "<group>"; };
 		7F5EF3D55F2977AA9797CC2D1844C249 /* SBManualExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBManualExt.swift; sourceTree = "<group>"; };
 		8149EE4CDE14764A465ABB76E83C03E3 /* TPShareProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPShareProfile.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		332B3942C80ABA84E0B27D16673C237D /* SBBanner */ = {
 			isa = PBXGroup;
 			children = (
+				73D2FBF3E506D7A187C482C2A5D50C1B /* BannerPanel.swift */,
 			);
 			path = SBBanner;
 			sourceTree = "<group>";
@@ -359,14 +362,6 @@
 				F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		AB49AC7889D3C7C3F7C72F9E1AD17306 /* SBHud */ = {
-			isa = PBXGroup;
-			children = (
-				A21AE1318E5E4D490F510CDEEFCE30D6 /* HUDScenes.swift */,
-			);
-			path = SBHud;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -479,6 +474,14 @@
 				F14EA4CE991FF22ED700005B07C1E494 /* DBTables.swift */,
 			);
 			path = SBDB;
+			sourceTree = "<group>";
+		};
+		AB49AC7889D3C7C3F7C72F9E1AD17306 /* SBHud */ = {
+			isa = PBXGroup;
+			children = (
+				A21AE1318E5E4D490F510CDEEFCE30D6 /* HUDScenes.swift */,
+			);
+			path = SBHud;
 			sourceTree = "<group>";
 		};
 		AD3D1AFE6D028CBBBA42392E48A5FF1E /* Tests */ = {
@@ -846,9 +849,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PPBadgeViewSwift/PPBadgeViewSwift.framework",
@@ -864,9 +869,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPBadgeViewSwift.framework",
@@ -910,6 +917,7 @@
 				ABB11240CF33EB9409266633EAAB0627 /* Activities.swift in Sources */,
 				7F3585131E4F6D187D32DBBCA39224B3 /* AppDelegate.swift in Sources */,
 				DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */,
+				DDA276C980FA8D7ED3FAA3C46DD74931 /* BannerPanel.swift in Sources */,
 				7439A5B5E913A4C107081575D51F556D /* BaseCountDown.swift in Sources */,
 				2921F9D6AD30228B8005E20C163A77F1 /* BaseError.swift in Sources */,
 				E315BA3A830F36152FCF450384568C0A /* BaseProfiles.swift in Sources */,
