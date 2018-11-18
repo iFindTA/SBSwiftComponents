@@ -10,7 +10,7 @@ import Foundation
 import FSPagerView
 import CHIPageControl
 
-fileprivate let BannerCellIdentifier = "banner-index-cell"
+fileprivate let BannerCellIdentifier = "banner-base-cell"
 /// banner scale w/h
 public let BannerWHScale: CGFloat = 2.34
 public let BannerPageWidth: CGFloat = HorizontalOffsetMid
@@ -19,7 +19,7 @@ public let BannerPageBgColor = AppColor.COLOR_BG_GRAY
 public let BannerPageTintColor = RGBA(r: 64, g: 57, b: 58, a: 1)
 
 /// banner cell基类
-public class BannerCell: FSPagerViewCell {
+fileprivate class BannerCell: FSPagerViewCell {
     private lazy var iconView: UIImageView = {
         let i = UIImageView(frame: .zero)
         i.contentMode = .scaleAspectFill
@@ -50,19 +50,16 @@ public class BannerCell: FSPagerViewCell {
 }
 
 /// banner基类
-class BaseBanner: UIView {
+open class BaseBanner: UIView {
     /// vars
     public var callback: TagClosure?
     /// lazy vars
-    private let offset: CGFloat = 0
     public lazy var banner: FSPagerView = {
         let b = FSPagerView(frame: .zero)
-        b.interitemSpacing = offset
         b.automaticSlidingInterval = 3.0
         b.delegate = self
         b.dataSource = self
         b.register(BannerCell.self, forCellWithReuseIdentifier: BannerCellIdentifier)
-        //b.itemSize = CGSize(width: AppSize.WIDTH_SCREEN-offset*2, height: BannerHeight-offset*2)
         return b
     }()
     public lazy var pageControl: CHIPageControlJaloro = {
@@ -88,11 +85,11 @@ class BaseBanner: UIView {
     private var source: [String]?
     public var shoouldResponseTouch: Bool = true    //是否需要响应点击事件
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(bannerScene)
         bannerScene.addSubview(banner)
@@ -100,7 +97,7 @@ class BaseBanner: UIView {
         pageScene.addSubview(pageControl)
         backgroundColor = UIColor.white
     }
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         banner.snp.makeConstraints { (m) in
             m.edges.equalToSuperview()
@@ -123,10 +120,10 @@ class BaseBanner: UIView {
 // MARK: - Banner Delegate
 extension BaseBanner: FSPagerViewDelegate, FSPagerViewDataSource {
     
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
+    public func numberOfItems(in pagerView: FSPagerView) -> Int {
         return source?.count ?? 0
     }
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+    public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: BannerCellIdentifier, at: index)
         if let c = cell as? BannerCell {
             c.update(source?[index])
