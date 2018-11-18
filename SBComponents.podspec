@@ -69,14 +69,6 @@ Pod::Spec.new do |s|
     r.source_files = "SBSwiftComponents/SBError/*.swift"
   end
 
-  s.subspec 'Banner' do |bn|
-  	bn.source_files = "SBSwiftComponents/SBBanner/*.swift"
-  	bn.dependency 'FSPagerView'
-  	bn.dependency 'SDWebImage/Core'
-  	bn.dependency 'CHIPageControl/Jaloro'
-  	bn.dependency 'SBComponents/Macros'
-  end
-
   s.subspec 'Macros' do |m|
     m.source_files = "SBSwiftComponents/SBMacros/*.swift"
     m.dependency 'SBComponents/Error'
