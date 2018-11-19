@@ -74,7 +74,7 @@ open class BaseBanner: UIView {
         return p
     }()
     public lazy var bannerScene: UIView = {
-        let s = BaseScene(frame: .zero)
+        let s = UIView(frame: .zero)
         s.backgroundColor = UIColor.white
         return s
     }()
