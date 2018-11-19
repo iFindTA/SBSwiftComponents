@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.5.3"
+  s.version      = "0.5.4"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -54,6 +54,14 @@ Pod::Spec.new do |s|
     ss.resources = "SBSwiftComponents/SBScenes/Assets/*.*"
     ss.dependency 'SBComponents/Kit'
     ss.dependency 'SDWebImage/Core'
+  end
+
+  s.subspec 'Banner' do |bn|
+  	bn.source_files = "SBSwiftComponents/SBBanner/*.swift"
+  	bn.dependency 'FSPagerView'
+  	bn.dependency 'SDWebImage/Core'
+  	bn.dependency 'CHIPageControl/Jaloro'
+  	bn.dependency 'SBComponents/Macros'
   end
 
   s.subspec 'Scan' do |q|

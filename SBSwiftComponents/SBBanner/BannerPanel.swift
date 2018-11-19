@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import SDWebImage
 import FSPagerView
 import CHIPageControl
 
 fileprivate let BannerCellIdentifier = "banner-base-cell"
 /// banner scale w/h
 public let BannerWHScale: CGFloat = 2.34
-public let BannerPageWidth: CGFloat = HorizontalOffsetMid
-public let BannerPageHeight: CGFloat = HorizontalOffset * 0.2
+public let BannerPageWidth: CGFloat = 15
+public let BannerPageHeight: CGFloat = 2
 public let BannerPageBgColor = AppColor.COLOR_BG_GRAY
 public let BannerPageTintColor = RGBA(r: 64, g: 57, b: 58, a: 1)
 
