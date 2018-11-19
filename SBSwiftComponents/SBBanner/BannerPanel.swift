@@ -20,7 +20,7 @@ public let BannerPageBgColor = AppColor.COLOR_BG_GRAY
 public let BannerPageTintColor = RGBA(r: 64, g: 57, b: 58, a: 1)
 
 /// banner cell基类
-fileprivate class BannerCell: FSPagerViewCell {
+public class BannerCell: FSPagerViewCell {
     private lazy var iconView: UIImageView = {
         let i = UIImageView(frame: .zero)
         i.contentMode = .scaleAspectFill
@@ -41,7 +41,7 @@ fileprivate class BannerCell: FSPagerViewCell {
             make.edges.equalToSuperview()
         }
     }
-    internal func update(_ img: String?) {
+    public func update(_ img: String?) {
         guard let uriString = img else {
             return
         }
@@ -131,13 +131,13 @@ extension BaseBanner: FSPagerViewDelegate, FSPagerViewDataSource {
         }
         return cell
     }
-    func pagerViewDidScroll(_ pagerView: FSPagerView) {
+    public func pagerViewDidScroll(_ pagerView: FSPagerView) {
         let p = pagerView.currentIndex
         //pageIndecator.currentPage = p
         pageControl.set(progress: p, animated: true)
     }
     
-    func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+    public func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         guard shoouldResponseTouch else {
             return
         }
