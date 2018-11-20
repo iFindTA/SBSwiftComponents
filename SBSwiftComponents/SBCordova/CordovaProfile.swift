@@ -56,7 +56,7 @@ public class CordovaProfile: CDVViewController {
         if let start = self.params![Macros.CORDOVA_KEY_STARTPAGE] as? String {
             let wwwPath = self.wwwFolderPath()
             self.startPage = wwwPath+"/"+start
-            debugPrint("cordova start page:\(self.startPage)")
+            debugPrint("cordova start page:\(String(describing: self.startPage))")
         } else {
             fatalError("cooud not start with empty uri!")
         }

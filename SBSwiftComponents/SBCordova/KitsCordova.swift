@@ -9,22 +9,15 @@
 import Foundation
 import SSZipArchive
 
-#if DEBUG
-public let APP_ENV = "dev"
-public let APP_HOST = "http://ost.x16.com/open/res"
-#else
-public let APP_ENV = "prod"
-public let APP_HOST = "http://ost.x16.com/open/res"
-#endif
-
 // MARK: - Kits Extension For Cordova
 public extension Kits {
     
-    /// prepare env
+    /// prepare env（跨域问题，改由主target配置）
+    @available(*, deprecated)
     public static func cdv_configureEnv(_ token: String) {
-        PluginEnv.storeValuve(APP_ENV, forKey: "env")
-        PluginEnv.storeValuve(APP_HOST, forKey: "webServer")
-        PluginEnv.storeValuve(token, forKey: "sessionToken")
+//        PluginEnv.storeValuve(APP_ENV, forKey: "env")
+//        PluginEnv.storeValuve(APP_HOST, forKey: "webServer")
+//        PluginEnv.storeValuve(token, forKey: "sessionToken")
     }
     
     /// codorva path
