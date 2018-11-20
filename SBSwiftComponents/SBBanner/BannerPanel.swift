@@ -33,6 +33,7 @@ public class BannerCell: FSPagerViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        clipsToBounds = true
         addSubview(iconView)
     }
     public override func layoutSubviews() {
