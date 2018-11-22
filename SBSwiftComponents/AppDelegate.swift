@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: bounds)
         window?.backgroundColor = UIColor.white
         let rooter = ViewController(nibName: nil, bundle: nil)
-        let navigator = BaseNavigationProfile(rootViewController: rooter)
+        let navigator = UINavigationController(navigationBarClass: BaseNavigationBar.self, toolbarClass: nil)
+        navigator.viewControllers = [rooter]
+        //let navigator = BaseNavigationProfile(rootViewController: rooter)
         navigator.setNavigationBarHidden(true, animated: true)
         window?.rootViewController = navigator
         window?.makeKeyAndVisible()

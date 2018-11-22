@@ -267,6 +267,7 @@ public class BaseNavigationBar: UINavigationBar {
         let allHeight = statusBarHeight+navigationBarHeight
         self.frame = CGRect(x: 0, y: 0, width: AppSize.WIDTH_SCREEN, height: allHeight)
         for v in self.subviews {
+            v.layoutMargins = .zero
             let clsString = NSStringFromClass(type(of: v))
             if clsString.contains("Background") {
                 v.frame = self.bounds
@@ -280,6 +281,7 @@ public class BaseNavigationBar: UINavigationBar {
                 frame.size.width = AppSize.WIDTH_SCREEN
                 v.frame = frame;
             }
+            
         }
         shadowLine.snp.makeConstraints { (m) in
             m.left.bottom.right.equalToSuperview()
@@ -288,6 +290,79 @@ public class BaseNavigationBar: UINavigationBar {
     }
     public func shadowLine(_ color: UIColor) {
         shadowLine.backgroundColor = color
+    }
+//    public override func didMoveToSuperview() {
+//        super.didMoveToSuperview()
+//        guard self.superview != nil else {
+//            return
+//        }
+//        if let lts = self.topItem?.leftBarButtonItems {
+//            lts.forEach { (it) in
+//                if let sp = it.customView as? BaseBarCustomScene {
+//                    sp.position = .left
+//                }
+//            }
+//        } else if let lts  = topItem?.rightBarButtonItems {
+//            lts.forEach { (it) in
+//                if let sp = it.customView as? BaseBarCustomScene {
+//                    sp.position = .right
+//                }
+//            }
+//        }
+//    }
+}
+// MARK: - UIBarButtonItem custom view
+public enum SBBarPosition {
+    case left, right
+}
+public class BaseBarCustomScene: UIView {
+    private var applied: Bool = false
+    public var position: SBBarPosition = .left {
+        didSet {
+            debugPrint("did set postion, will update")
+            layoutIfNeeded()
+        }
+    }
+    public init(frame: CGRect, with posit: SBBarPosition) {
+        super.init(frame: frame)
+        self.position = posit
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        guard applied == false, #available(iOS 11, *) else {
+            return
+        }
+        var tmp: UIView! = self
+        while (tmp.isKind(of: UINavigationBar.self) == false), let tmps = tmp.superview {
+            tmp = tmps
+            if tmp.isKind(of: UIStackView.self), let tmpSuper = tmp.superview {
+                if position == .left {
+                    for cnst in tmpSuper.constraints {
+                        guard let fit = cnst.firstItem, fit.isKind(of: UILayoutGuide.self), cnst.firstAttribute == .trailing else {
+                            continue
+                        }
+                        tmpSuper.removeConstraint(cnst)
+                    }
+                    let ncnst = NSLayoutConstraint(item: tmp, attribute: .leading, relatedBy: .equal, toItem: tmpSuper, attribute: .leading, multiplier: 1.0, constant: 0)
+                    tmpSuper.addConstraint(ncnst)
+                    applied = true
+                } else if position == .right {
+                    for cnst in tmpSuper.constraints {
+                        guard let fit = cnst.firstItem, fit.isKind(of: UILayoutGuide.self), cnst.firstAttribute == .leading else {
+                            continue
+                        }
+                        tmpSuper.removeConstraint(cnst)
+                    }
+                    let ncnst = NSLayoutConstraint(item: tmp, attribute: .trailing, relatedBy: .equal, toItem: tmpSuper, attribute: .trailing, multiplier: 1.0, constant: 0)
+                    tmpSuper.addConstraint(ncnst)
+                    applied = true
+                }
+                break
+            }
+        }
     }
 }
 

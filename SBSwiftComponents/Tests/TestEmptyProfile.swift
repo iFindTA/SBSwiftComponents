@@ -37,10 +37,22 @@ class TestEmptyProfile: BaseProfile {
         super.viewDidLoad()
         
         view.addSubview(navigationBar)
-        let spacer = Kits.barSpacer()
+        let spaceL = Kits.barSpacer()
         let backer = Kits.defaultBackBarItem(self, action: #selector(defaultGobackStack))
+        let spaceR = Kits.barSpacer(true)
+        // Fixed Space
+        let fixedSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        fixedSpace.width = 15.0
+        
+        // Flexible Space
+        let flexibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        let iht = Kits.bar("去兑换", target: self, action: #selector(testRiht), right: true)
+        let tes1 = Kits.bar("tes1", target: self, action: #selector(testRiht))
+        let tes2 = Kits.bar("tes2", target: self, action: #selector(testRiht), right: true)
         let item = UINavigationItem(title: "Empty")
-        item.leftBarButtonItems = [spacer, backer]
+        item.leftBarButtonItems = [spaceL, backer]
+        item.rightBarButtonItems = [spaceR, iht, tes2]
         navigationBar.pushItem(item, animated: true)
         
         let bottom = AppSize.HEIGHT_INVALID_BOTTOM()
@@ -77,6 +89,9 @@ class TestEmptyProfile: BaseProfile {
                 Kits.handleError(e)
             }
         }
+    }
+    @objc private func testRiht() {
+        debugPrint("sss")
     }
 }
 

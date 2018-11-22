@@ -108,9 +108,11 @@ public struct Kits {
     /// MARK: UIBarButtonItems @attention: iOS11+失效
     public static func barSpacer(_ right: Bool=false) -> UIBarButtonItem {
         let item = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        if #available(iOS 11.0, *) {
+        guard #available(iOS 11.0, *) else {
             item.width = right ? AppSize.WIDTH_MARGIN : -AppSize.WIDTH_MARGIN
+            return item
         }
+        item.width = right ? AppSize.WIDTH_MARGIN*1.5 : -AppSize.WIDTH_MARGIN
         return item
     }
     
@@ -128,6 +130,17 @@ public struct Kits {
     public static func bar(_ title: String, target: Any?, action: Selector?, right: Bool = false) -> UIBarButtonItem {
         let font = AppFont.pingFangSC(AppFont.SIZE_TITLE)
         let fontColor = AppColor.COLOR_NAVIGATOR_TINT
+        let bar = self.bar(title, with: font, color: fontColor, target: target, action: action, right: right)
+        return bar
+    }
+    private static func barWithUnicode(_ code: String, title: String?, color: UIColor?, target: Any?, action:Selector?, right: Bool = false) -> UIBarButtonItem {
+        let font = AppFont.iconFont(AppFont.SIZE_TITLE * 1.5)
+        let barTitle = code + String.available(title)
+        let fontColor = ((color != nil) ?color!:UIColor.white)
+        let bar = self.bar(barTitle, with: font, color: fontColor, target: target, action: action, right: right)
+        return bar
+    }
+    private static func bar(_ title: String, with font: UIFont, color fontColor: UIColor, target: Any?, action: Selector?, right: Bool = false) -> UIBarButtonItem {
         let barSize = title.sb_size(AppSize.WIDTH_SCREEN, font: font)
         let btn = BaseButton(type: .custom)
         btn.titleLabel?.font = font
@@ -139,40 +152,13 @@ public struct Kits {
         guard #available(iOS 11, *) else {
             return UIBarButtonItem(customView: btn)
         }
-        let offset = right ? AppSize.WIDTH_MARGIN : -AppSize.WIDTH_MARGIN
-        var bounds = CGRect(x: offset, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
-        bounds.origin.x = offset
-        btn.frame = bounds
-        let barScene = BaseScene(frame: bounds)
-        barScene.backgroundColor = UIColor.clear
-        barScene.addSubview(btn)
-        let bar = UIBarButtonItem(customView: barScene)
-        bar.tintColor = fontColor
-        return bar
-    }
-    private static func barWithUnicode(_ code: String, title: String?, color: UIColor?, target: Any?, action:Selector?, right: Bool = false) -> UIBarButtonItem {
-        let font = AppFont.iconFont(AppFont.SIZE_TITLE * 1.5)
-        let barTitle = code + String.available(title)
-        let barSize = barTitle.sb_size(AppSize.WIDTH_SCREEN, font: font)
-        let fontColor = ((color != nil) ?color!:UIColor.white)
-        let btn = BaseButton(type: .custom)
-        btn.titleLabel?.font = font
-        btn.isExclusiveTouch = true
-        btn.frame = CGRect(x: 0, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
-        btn.setTitle(barTitle as String, for: .normal)
-        btn.setTitleColor(fontColor, for: .normal)
-        btn.addTarget(target, action: action!, for: .touchUpInside)
-        guard #available(iOS 11, *) else {
-            return UIBarButtonItem(customView: btn)
-        }
-        let offset = right ? AppSize.WIDTH_MARGIN : -AppSize.WIDTH_MARGIN
-        var bounds = CGRect(x: offset, y: 0, width: barSize.width+AppSize.SIZE_OFFSET, height: barSize.height+AppSize.SIZE_OFFSET)
-        bounds.origin.x = offset
-        btn.frame = bounds
-        let barScene = BaseScene(frame: bounds)
-        barScene.backgroundColor = UIColor.clear
-        barScene.addSubview(btn)
-        let bar = UIBarButtonItem(customView: barScene)
+        //btn.backgroundColor = UIColor.sb_random()
+        //let barScene = BaseBarCustomScene(frame: bounds, with: right ? .right : .left)
+        //barScene.backgroundColor = UIColor.sb_random()
+        //barScene.addSubview(btn)
+        //btn.center = barScene.center
+        //barScene.position = right ? .right : .left
+        let bar = UIBarButtonItem(customView: btn)
         bar.tintColor = fontColor
         return bar
     }
