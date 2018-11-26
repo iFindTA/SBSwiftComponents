@@ -11,7 +11,8 @@ import Foundation
 // MARK: - 第三方平台UI选择
 class TPShareProfile: BaseProfile {
     /// Callbacks
-    public var callback: TPShareCallback?
+    public var platClosure: TPShareCallback?
+    public var cancelClosure: VoidClosure?
     
     private var color = RGBA(r: 153, g: 153, b: 153, a: 1)
     private var font = AppFont.pingFangBold(AppFont.SIZE_SUB_TITLE)
@@ -81,7 +82,7 @@ class TPShareProfile: BaseProfile {
         cancelShare()
     }
     @objc private func cancelShare() {
-        SBSceneRouter.back()
+        SBSceneRouter.back(nil, excute: cancelClosure)
     }
     
     public override func viewDidLoad() {
@@ -141,7 +142,7 @@ class TPShareProfile: BaseProfile {
     }
     private func share2(_ platform: TPlatform) {
         let clousure: VoidClosure = {[weak self] in
-            self?.callback?(platform)
+            self?.platClosure?(platform)
         }
         SBSceneRouter.back(nil, excute: clousure)
     }

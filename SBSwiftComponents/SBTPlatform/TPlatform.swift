@@ -237,8 +237,11 @@ extension TPOpen {
             animation.duration = Macros.APP_ANIMATE_INTERVAL
             UIApplication.shared.keyWindow?.layer.add(animation, forKey: nil)
             profile.present(rooter, animated: true, completion: nil)
-            plater.callback = {[weak self](platform) in
+            plater.platClosure = {[weak self](platform) in
                 self?.shareLinkThrid(platform, title: title, desciption: desc, icon: uri, hybrid: link)
+            }
+            plater.cancelClosure = {[weak self] in
+                self?.callback?(nil)
             }
             return
         }
