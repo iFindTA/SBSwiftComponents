@@ -117,6 +117,7 @@ open class BaseProfile: UIViewController {
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopAllRequest()
+        BaseLoading.shared.hide()
     }
     private func stopAllRequest() {
         let this = NSStringFromClass(type(of: self))
