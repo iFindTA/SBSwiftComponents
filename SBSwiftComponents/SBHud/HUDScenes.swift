@@ -15,6 +15,8 @@ fileprivate let ballMargin: CGFloat = 3
 fileprivate let ballSceneSize: CGFloat = 100
 fileprivate let ballSceneBounds = CGRect(x: 0, y: 0, width: 100, height: 100)
 
+fileprivate var instance: BallLoading?
+
 /// 球球loading
 public class BallLoading: UIView {
     /// vars lets
@@ -56,14 +58,22 @@ public class BallLoading: UIView {
         s.backgroundColor = colorRight
         return s
     }()
-    fileprivate static let shared = BallLoading(frame: ballSceneBounds)
+    //fileprivate static let shared = BallLoading(frame: ballSceneBounds)
+    fileprivate class func shared() -> BallLoading {
+        guard let ivar = instance else {
+            let s = BallLoading(frame: ballSceneBounds)
+            instance = s
+            return s
+        }
+        return ivar
+    }
     public override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(ballContainer)
         ballContainer.contentView.addSubview(ballMiddle)
         ballContainer.contentView.addSubview(ballLeft)
         ballContainer.contentView.addSubview(ballRight)
-
+        
     }
     public override func layoutSubviews() {
         super.layoutSubviews()
@@ -74,6 +84,8 @@ public class BallLoading: UIView {
     }
     
     private func startAnimations() {
+        ballLeft.layer.removeAllAnimations()
+        ballRight.layer.removeAllAnimations()
         //-------第一个球的动画
         let width: CGFloat = ballContainer.bounds.size.width
         //小圆半径
@@ -125,16 +137,17 @@ extension BallLoading: CAAnimationDelegate {
     public func animationDidStart(_ anim: CAAnimation) {
         let delay: CGFloat = 0.3
         let duration = CGFloat(animationDuration * 0.5) - delay
-        
+        let transform = CGAffineTransform(scaleX: ballScale, y: ballScale)
+        let identity = CGAffineTransform.identity
         UIView.animate(withDuration: TimeInterval(duration), delay: TimeInterval(delay), options: [.curveEaseOut, .beginFromCurrentState], animations: {[weak self] in
-            self?.ballLeft.transform = CGAffineTransform(scaleX: ballScale, y: ballScale)
-            self?.ballMiddle.transform = CGAffineTransform(scaleX: ballScale, y: ballScale)
-            self?.ballRight.transform = CGAffineTransform(scaleX: ballScale, y: ballScale)
+            self?.ballLeft.transform = transform
+            self?.ballMiddle.transform = transform
+            self?.ballRight.transform = transform
         }) { finished in
             UIView.animate(withDuration: TimeInterval(duration), delay: TimeInterval(delay), options: [.curveEaseInOut, .beginFromCurrentState], animations: {[weak self] in
-                self?.ballLeft.transform = CGAffineTransform.identity
-                self?.ballMiddle.transform = CGAffineTransform.identity
-                self?.ballRight.transform = CGAffineTransform.identity
+                self?.ballLeft.transform = identity
+                self?.ballMiddle.transform = identity
+                self?.ballRight.transform = identity
             })
         }
     }
@@ -151,12 +164,17 @@ extension BallLoading: CAAnimationDelegate {
     }
     fileprivate func stop() {
         stopAnimationByUser = true
+        ballLeft.transform = .identity
         ballLeft.layer.removeAllAnimations()
-        ballMiddle.layer.removeAllAnimations()
+        ballRight.transform = .identity
         ballRight.layer.removeAllAnimations()
+        ballMiddle.transform = .identity
+    }
+    public class func configure() {
+        _ = BallLoading.shared()
     }
     public class func show() {
-        let ballScene = BallLoading.shared
+        let ballScene = BallLoading.shared()
         if ballScene.superview == nil {
             UIApplication.shared.keyWindow?.addSubview(ballScene)
             ballScene.snp.makeConstraints { (m) in
@@ -168,7 +186,7 @@ extension BallLoading: CAAnimationDelegate {
         ballScene.isHidden = false
     }
     public class func hide() {
-        let ballScene = BallLoading.shared
+        let ballScene = BallLoading.shared()
         ballScene.stop()
         ballScene.isHidden = true
     }
