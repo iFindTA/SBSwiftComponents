@@ -9,9 +9,6 @@
 import UIKit
 import Foundation
 
-// MARK: - Variables
-public typealias SBSceneRouteParameter = [String: Any]
-
 // MARK: - protocols
 public protocol SBScenePathable {
     func route() -> String
@@ -25,12 +22,12 @@ fileprivate enum SBNotFound: String, SBScenePathable {
     case notFound
 }
 public protocol SBSceneRouteable {
-    static func __init(_ params: SBSceneRouteParameter?) -> UIViewController
+    static func __init(_ params: SBParameter?) -> UIViewController
 }
 
 // MARK: - 场景路由
 public class SBSceneRouter {
-    public class func route2(_ path: SBScenePathable, params: SBSceneRouteParameter?=nil, space: String?=nil, push: Bool = true, replace: Bool = false, animate: Bool = true, completion: (() -> Void)? = nil) -> BaseError? {
+    public class func route2(_ path: SBScenePathable, params: SBParameter?=nil, space: String?=nil, push: Bool = true, replace: Bool = false, animate: Bool = true, completion: (() -> Void)? = nil) -> BaseError? {
         //assemble class for route
         let clsRoute = path.route()
         var routePath = ""

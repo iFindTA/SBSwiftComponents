@@ -25,6 +25,7 @@ public typealias VoidClosure = ()->Void
 public typealias BoolClosure = (Bool)->Void
 public typealias StringClosure = (String)->Void
 public typealias ErrorClosure = (BaseError?)->Void
+public typealias SBParameter = [String: Any]
 
 // MARK: - Macros Defines
 public struct Macros {

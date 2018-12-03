@@ -67,8 +67,8 @@ class TPShareProfile: BaseProfile {
         return b
     }()
     
-    private var params: SBSceneRouteParameter?
-    init(_ parameters: SBSceneRouteParameter?) {
+    private var params: SBParameter?
+    init(_ parameters: SBParameter?) {
         super.init(nibName: nil, bundle: nil)
         params = parameters
     }

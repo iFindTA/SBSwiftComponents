@@ -223,7 +223,7 @@ extension TPOpen {
         let qqInstalled = isInstalled(.qq)
         let wxInstalled = isInstalled(.wxSession)
         if qqInstalled && wxInstalled {
-            var p = SBSceneRouteParameter()
+            var p = SBParameter()
             p["platforms"] = platform
             let plater = TPShareProfile(p)
             let rooter = BaseNavigationProfile(rootViewController: plater)

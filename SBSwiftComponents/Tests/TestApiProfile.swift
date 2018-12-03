@@ -9,8 +9,8 @@
 import Foundation
 
 class TestApiProfile: BaseProfile {
-    private var params: SBSceneRouteParameter?
-    init(_ parameters: SBSceneRouteParameter?) {
+    private var params: SBParameter?
+    init(_ parameters: SBParameter?) {
         super.init(nibName: nil, bundle: nil)
         params  = parameters
     }
@@ -38,7 +38,7 @@ class TestApiProfile: BaseProfile {
     }
 }
 extension TestApiProfile: SBSceneRouteable {
-    static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+    static func __init(_ params: SBParameter?) -> UIViewController {
         return TestApiProfile(params)
     }
 }

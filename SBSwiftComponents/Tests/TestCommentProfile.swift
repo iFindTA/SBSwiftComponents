@@ -24,8 +24,8 @@ class TestCommentProfile: BaseProfile {
         return t
     }()
     
-    private var params: SBSceneRouteParameter?
-    init(_ parameters: SBSceneRouteParameter?) {
+    private var params: SBParameter?
+    init(_ parameters: SBParameter?) {
         super.init(nibName: nil, bundle: nil)
         params  = parameters
     }
@@ -78,7 +78,7 @@ class TestCommentProfile: BaseProfile {
     }
 }
 extension TestCommentProfile: SBSceneRouteable {
-    static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+    static func __init(_ params: SBParameter?) -> UIViewController {
         return TestCommentProfile(params)
     }
 }

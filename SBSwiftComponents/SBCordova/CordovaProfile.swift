@@ -43,13 +43,13 @@ public class CordovaProfile: CDVViewController {
         return image!
     }
     
-    var params: SBSceneRouteParameter?
+    var params: SBParameter?
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    init(_ parameters: SBSceneRouteParameter?) {
+    init(_ parameters: SBParameter?) {
         self.params = parameters
         super.init(nibName: nil, bundle: nil)
         
@@ -99,7 +99,7 @@ public class CordovaProfile: CDVViewController {
 
 // MARK: - router protocol
 extension CordovaProfile: SBSceneRouteable {
-    public static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+    public static func __init(_ params: SBParameter?) -> UIViewController {
         return CordovaProfile(params)
     }
 }

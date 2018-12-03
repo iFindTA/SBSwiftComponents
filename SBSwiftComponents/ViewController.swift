@@ -159,7 +159,7 @@ class ViewController: BaseProfile {
         Kits.handleError(err)
     }
     @objc private func testWebBrowser() {
-        var p = SBSceneRouteParameter()
+        var p = SBParameter()
         p["url"] = "https://baidu.com/"
         let browser = WebBrowser(p)
         self.navigationController?.pushViewController(browser, animated: true)

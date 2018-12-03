@@ -496,8 +496,8 @@ open class QRScanProfile: BaseProfile {
         input.returnKeyType = .go
         return input
     }()
-    private var params: SBSceneRouteParameter?
-    public init(_ parameters: SBSceneRouteParameter?) {
+    private var params: SBParameter?
+    public init(_ parameters: SBParameter?) {
         super.init(nibName: nil, bundle: nil)
         params = parameters
     }

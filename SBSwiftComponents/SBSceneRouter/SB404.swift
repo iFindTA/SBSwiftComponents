@@ -30,7 +30,7 @@ public class SB404: BaseProfile {
         return tempBackBarButtonItem
     }()
     
-    init(_ parameters: SBSceneRouteParameter?) {
+    init(_ parameters: SBParameter?) {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,7 +61,7 @@ public class SB404: BaseProfile {
 }
 
 extension SB404: SBSceneRouteable {
-    public static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+    public static func __init(_ params: SBParameter?) -> UIViewController {
         return SB404(params)
     }
 }

@@ -51,8 +51,8 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
         return i
     }()
     private weak var delegate: SBWebDelegate?
-    private var params: SBSceneRouteParameter?
-    init(_ parameters: SBSceneRouteParameter?) {
+    private var params: SBParameter?
+    init(_ parameters: SBParameter?) {
         params = parameters
         super.init(nibName: nil, bundle: nil)
     }
@@ -398,7 +398,7 @@ extension WebBrowser {
 
 // MARK: - Router Ext
 extension WebBrowser: SBSceneRouteable {
-    public static func __init(_ params: SBSceneRouteParameter?) -> UIViewController {
+    public static func __init(_ params: SBParameter?) -> UIViewController {
         return WebBrowser(params)
     }
 }
