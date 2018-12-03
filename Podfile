@@ -24,5 +24,6 @@ pod 'CHIPageControl/Jaloro', '~> 0.1.7'
 
 #third platform
 pod 'SDWebImage/Core'
+pod 'DTCoreText', '~> 1.6.21'
 
 end

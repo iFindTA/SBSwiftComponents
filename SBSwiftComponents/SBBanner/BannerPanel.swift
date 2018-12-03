@@ -101,9 +101,6 @@ open class BaseBanner: UIView {
     }
     override open func layoutSubviews() {
         super.layoutSubviews()
-        banner.snp.makeConstraints { (m) in
-            m.edges.equalToSuperview()
-        }
     }
     public func update(_ imgs: [String]?, with infinite: Bool=false ) {
         source = imgs

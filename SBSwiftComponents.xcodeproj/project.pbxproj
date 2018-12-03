@@ -59,6 +59,7 @@
 		ABB11240CF33EB9409266633EAAB0627 /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E75BC5235E7D10656F1D48606AFA1C /* Activities.swift */; };
 		AC6ABD78304B5F82C41835AC6E2742BF /* SBBrowser.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E47F711888B6AEE220A530BBA9C44A9 /* SBBrowser.xcassets */; };
 		AEB6C82B8C3922F530817023851C68BE /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1978A375F337BAC3ADDB60F61FFA515 /* TencentOpenAPI.framework */; };
+		B3770AFF8412DE2E49FFD15AEABC9DB4 /* StepperPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735BFAD2403D7662DCA302C66525E335 /* StepperPanel.swift */; };
 		B6F3DA0DE9BBB4D838777B05F140C938 /* SBSwiftComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD65417A41741CE6209B4EA9E6A60EC /* SBSwiftComponentsTests.swift */; };
 		BA350E604A3858D308C712221D25A116 /* HUDScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AE1318E5E4D490F510CDEEFCE30D6 /* HUDScenes.swift */; };
 		BCE5773C519ACC6655BEB642ED6966E1 /* SBSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD2710821D2FE6CB31DB56EEC869C82 /* SBSceneRouter.swift */; };
@@ -75,6 +76,7 @@
 		DBF3E147AD950DAA397411A774BDB9D7 /* CordovaProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */; };
 		DC04A70DD69C6F0227A3BA11FE7F9E70 /* TestEmptyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A0A77274C9C51C0F25EB0E2B65F43 /* TestEmptyProfile.swift */; };
 		DDA276C980FA8D7ED3FAA3C46DD74931 /* BannerPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D2FBF3E506D7A187C482C2A5D50C1B /* BannerPanel.swift */; };
+		DEB5584F95C7D351EEBC1CD9760F6B63 /* RichTextPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE74C6EA0E3BEB25586E0122DF755E51 /* RichTextPanel.swift */; };
 		DF16CC36221EF0CC58A0E6B54E0D6DB6 /* AudioIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7340742ED36B01EAB3975DB3BBC52 /* AudioIndicator.swift */; };
 		E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C51534A8826498D01CCAB979CD433C /* PluginEnv.swift */; };
 		E2706C09DDDC61F245914A0BBA9BAB95 /* SBSwiftComponentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE0B7B72FB17C3EE5FBC78EE405E32 /* SBSwiftComponentsUITests.swift */; };
@@ -154,6 +156,7 @@
 		6DE878A1D06A8093F56452C1FA00752F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E626915CBB1B1EB80A2E2DD18FFEFDC /* SBSwiftComponentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBSwiftComponentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7049E6B22F98A99E3525752265532AED /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
+		735BFAD2403D7662DCA302C66525E335 /* StepperPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperPanel.swift; sourceTree = "<group>"; };
 		7396E868DC521C3317D3A2831FF9571C /* BundleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExt.swift; sourceTree = "<group>"; };
 		73D2FBF3E506D7A187C482C2A5D50C1B /* BannerPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerPanel.swift; sourceTree = "<group>"; };
 		782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBHTTPRouter.swift; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 		F6FAC2023B6C4D210C0F5478679EBDB2 /* SBSwiftComponents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBSwiftComponents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7846F2067816E55BF73BCE3E77D5E45 /* DBColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBColumns.swift; sourceTree = "<group>"; };
 		F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SBSwiftComponents.release.xcconfig"; path = "Pods/Target Support Files/Pods-SBSwiftComponents/Pods-SBSwiftComponents.release.xcconfig"; sourceTree = "<group>"; };
+		FE74C6EA0E3BEB25586E0122DF755E51 /* RichTextPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextPanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +366,15 @@
 				F9B7BD62ECF06A2929B30DF9B9F93C9E /* Pods-SBSwiftComponents.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		679713807D4ABEFBAFA44E3F35603106 /* SBPanels */ = {
+			isa = PBXGroup;
+			children = (
+				FE74C6EA0E3BEB25586E0122DF755E51 /* RichTextPanel.swift */,
+				735BFAD2403D7662DCA302C66525E335 /* StepperPanel.swift */,
+			);
+			path = SBPanels;
 			sourceTree = "<group>";
 		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
@@ -633,6 +646,7 @@
 				E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */,
 				8769962C140E3F4E22A45A42A5494DB7 /* SBMacros */,
 				79B30C29447397AC4D89A8643B93BF3A /* SBNavigator */,
+				679713807D4ABEFBAFA44E3F35603106 /* SBPanels */,
 				0BE476A6E7748D88B64F3EE3C3647F41 /* SBRSA */,
 				184152EAAF93CB642900204FC178C2C1 /* SBScan */,
 				A50889B0D01F952986C8C9D5AA190D3C /* SBSceneRouter */,
@@ -852,6 +866,8 @@
 				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/Cordova/Cordova.framework",
+				"${BUILT_PRODUCTS_DIR}/DTCoreText/DTCoreText.framework",
+				"${BUILT_PRODUCTS_DIR}/DTFoundation/DTFoundation.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
@@ -872,6 +888,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cordova.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTCoreText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTFoundation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
@@ -940,6 +958,7 @@
 				E043CE4C23C77C0B57462D084035A3C4 /* PluginEnv.swift in Sources */,
 				C30541BCBCCDC9FDC429DAF9F98231D0 /* PresentMaskScene.swift in Sources */,
 				9B96366B483337EA283F28754C2CC1B0 /* RSAKit.swift in Sources */,
+				DEB5584F95C7D351EEBC1CD9760F6B63 /* RichTextPanel.swift in Sources */,
 				CAB5E6388B4D64C690571FEF7C2E019B /* SB404.swift in Sources */,
 				3B975828B3561D2DB36AFF93F8E13A51 /* SBHTTPRouter.swift in Sources */,
 				AB25BEB2398039DFDB6F711FCDA5E352 /* SBHTTPState.swift in Sources */,
@@ -948,6 +967,7 @@
 				9F37198B612C25187E718D8CAAF6A596 /* ScanProfile.swift in Sources */,
 				7C6C93CEC683AB7E186CD2D31E48D012 /* Share.swift in Sources */,
 				E46705B0D6F86BADF03BDB88852907F7 /* SnapKitExt.swift in Sources */,
+				B3770AFF8412DE2E49FFD15AEABC9DB4 /* StepperPanel.swift in Sources */,
 				847C269C5E7657AD6E7AABC126827A4D /* StringExt.swift in Sources */,
 				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
 				F97D9181F7E1A41941F2DDA8E58947F2 /* TPShareProfile.swift in Sources */,
