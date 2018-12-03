@@ -92,7 +92,7 @@ public class RichTextPanel: BaseScene {
 }
 extension RichTextPanel: DTAttributedTextContentViewDelegate {
     //图片占位
-    func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, viewFor attachment: DTTextAttachment!, frame: CGRect) -> UIView! {
+    public func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, viewFor attachment: DTTextAttachment!, frame: CGRect) -> UIView! {
         guard let imgAttach = attachment as? DTImageTextAttachment else {
             return UIView()
         }
@@ -113,19 +113,19 @@ extension RichTextPanel: DTAttributedTextContentViewDelegate {
         }
         return imageView
     }
-    func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, viewForLink url: URL!, identifier: String!, frame: CGRect) -> UIView! {
+    public func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, viewForLink url: URL!, identifier: String!, frame: CGRect) -> UIView! {
         let btn = DTLinkButton(frame: frame)
         return btn
     }
     
-    func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, didDraw layoutFrame: DTCoreTextLayoutFrame!, in context: CGContext!) {
+    public func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, didDraw layoutFrame: DTCoreTextLayoutFrame!, in context: CGContext!) {
         availableHeight = layoutFrame?.frame.height ?? 0
         callback?()
         debugPrint("did end draw,,,,,,,,,,")
     }
 }
 extension RichTextPanel: DTLazyImageViewDelegate {
-    func lazyImageView(_ lazyImageView: DTLazyImageView!, didChangeImageSize size: CGSize) {
+    public func lazyImageView(_ lazyImageView: DTLazyImageView!, didChangeImageSize size: CGSize) {
         if let uri = lazyImageView.url {
             let imageSize = size
             if let attachs = label.layoutFrame?.textAttachments() as? [DTTextAttachment] {
