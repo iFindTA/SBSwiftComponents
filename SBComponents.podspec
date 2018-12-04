@@ -30,23 +30,20 @@ Pod::Spec.new do |s|
     k.dependency 'SBComponents/Error'
   end
 
-  s.subspec 'Hud' do |hd|
-    hd.source_files = "SBSwiftComponents/SBHud/*.swift"
-    hd.dependency 'SBComponents/Macros'
-  end
-
  # s.subspec 'RSA' do |rsa|
  #   rsa.source_files = "SBSwiftComponents/SBRSA/*.swift"
  #   rsa.framework = "Security", "CommonCrypto"
  # end
+ 
+ s.subspec 'Hud' do |hd|
+    hd.source_files = "SBComponents/SBHud/*.swift"
+    hd.dependency 'SBComponents/Macros'
+  end
 
   s.subspec 'Base' do |b|
     b.source_files = "SBSwiftComponents/SBBase/*.swift"
     b.dependency 'SBComponents/HTTPRouter'
-    b.dependency 'ESPullToRefresh'
     b.dependency 'PPBadgeViewSwift'
-    b.dependency 'IQKeyboardManagerSwift'
-    b.dependency 'GDPerformanceView-Swift'
   end
 
   s.subspec 'Error' do |r|
@@ -103,6 +100,15 @@ Pod::Spec.new do |s|
   end
 
   ## custom uis
+
+  # s.subspec 'Banner' do |bn|
+  #   bn.source_files = "SBComponents/SBBanner/*.swift"
+  #   bn.dependency 'FSPagerView'
+  #   bn.dependency 'SDWebImage/Core'
+  #   bn.dependency 'CHIPageControl/Jaloro'
+  #   bn.dependency 'SBComponents/Macros'
+  # end
+
   # s.subspec 'Panels' do |pn|
   #   pn.source_files = "SBSwiftComponents/SBPanels/*.swift"
   #   pn.dependency 'SBComponents/Base'
@@ -115,14 +121,6 @@ Pod::Spec.new do |s|
   #   ss.resources = "SBSwiftComponents/SBScenes/Assets/*.*"
   #   ss.dependency 'SBComponents/Kit'
   #   ss.dependency 'SDWebImage/Core'
-  # end
-
-  # s.subspec 'Banner' do |bn|
-  #   bn.source_files = "SBSwiftComponents/SBBanner/*.swift"
-  #   bn.dependency 'FSPagerView'
-  #   bn.dependency 'SDWebImage/Core'
-  #   bn.dependency 'CHIPageControl/Jaloro'
-  #   bn.dependency 'SBComponents/Macros'
   # end
 
   # s.subspec 'Scan' do |q|
