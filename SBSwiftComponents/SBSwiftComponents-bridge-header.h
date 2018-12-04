@@ -12,10 +12,4 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
 
-//third-platform
-#import "WXApi.h"
-#import <AlipaySDK/AlipaySDK.h>
-#import <TencentOpenAPI/TencentOAuth.h>
-#import <TencentOpenAPI/QQApiInterface.h>
-
 #endif /* SBSwiftComponents_bridge_header_h */

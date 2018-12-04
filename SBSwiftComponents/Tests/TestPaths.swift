@@ -13,23 +13,14 @@ import Foundation
 public enum TestPaths: SBScenePathable {
     case test
     case api
-    case empty
-    case share
     case snapkit
-    case comment
     
     public func route() -> String {
         switch self {
         case .api:
             return "TestApiProfile"
-        case .empty:
-            return "TestEmptyProfile"
-        case .share:
-            return "TShare"
         case .snapkit:
             return "TestSnapkitProfile"
-        case .comment:
-            return "TestCommentProfile"
         default:
             return "SB404"
         }
