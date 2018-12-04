@@ -2,7 +2,7 @@ platform :ios, '9.0'
 
 # hook for install
 post_install do |installer|
-  exTargets = ['Toaster', 'DTCoreText', 'DTFoundation', 'ESPullToRefresh']
+  exTargets = ['DTCoreText', 'DTFoundation', 'ESPullToRefresh']
   installer.pods_project.targets.each do |target|
     if exTargets.include? target.name
       target.build_configurations.each do |config|
@@ -16,8 +16,8 @@ use_frameworks!
 
 target 'SBSwiftComponents' do
 pod 'SnapKit', '~> 4.2.0'
-pod 'Toaster', '~> 2.1.1'
 pod 'Cordova', '~> 4.5.4'
+pod 'SBToaster', '~> 2.1.2'
 pod 'Alamofire', '~> 4.7.3'
 pod 'SwiftyJSON', '~> 4.2.0'
 pod 'SQLite.swift', '~> 0.11.5'

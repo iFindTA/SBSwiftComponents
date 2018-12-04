@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SBToaster
 import Foundation
 
 // MARK: - Hash-MAC for String

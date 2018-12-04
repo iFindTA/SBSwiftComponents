@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import Toaster
 
 class ViewController: BaseProfile {
     
@@ -216,6 +215,7 @@ class ViewController: BaseProfile {
             btn.sb_busyState = false
             btn.appearState = .idle
         }
+        Kits.makeToast("test for sb toaster")
     }
     
     override func didReceiveMemoryWarning() {

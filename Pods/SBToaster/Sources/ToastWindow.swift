@@ -2,7 +2,7 @@ import UIKit
 
 open class ToastWindow: UIWindow {
 
-  open static let shared = ToastWindow(frame: UIScreen.main.bounds)
+  public static let shared = ToastWindow(frame: UIScreen.main.bounds)
 
   /// Will not return `rootViewController` while this value is `true`. Or the rotation will be fucked in iOS 9.
   var isStatusBarOrientationChanging = false
@@ -43,7 +43,19 @@ open class ToastWindow: UIWindow {
   public override init(frame: CGRect) {
     super.init(frame: frame)
     self.isUserInteractionEnabled = false
-    self.windowLevel = CGFloat.greatestFiniteMagnitude
+    #if swift(>=4.2)
+    self.windowLevel = .init(rawValue: .greatestFiniteMagnitude)
+    let didBecomeVisibleName = UIWindow.didBecomeVisibleNotification
+    let willChangeStatusBarOrientationName = UIApplication.willChangeStatusBarOrientationNotification
+    let didChangeStatusBarOrientationName = UIApplication.didChangeStatusBarOrientationNotification
+    let didBecomeActiveName = UIApplication.didBecomeActiveNotification
+    #else
+    self.windowLevel = .greatestFiniteMagnitude
+    let didBecomeVisibleName = NSNotification.Name.UIWindowDidBecomeVisible
+    let willChangeStatusBarOrientationName = NSNotification.Name.UIApplicationWillChangeStatusBarOrientation
+    let didChangeStatusBarOrientationName = NSNotification.Name.UIApplicationDidChangeStatusBarOrientation
+    let didBecomeActiveName = NSNotification.Name.UIApplicationDidBecomeActive
+    #endif
     self.backgroundColor = .clear
     self.isHidden = false
     self.handleRotate(UIApplication.shared.statusBarOrientation)
@@ -51,31 +63,31 @@ open class ToastWindow: UIWindow {
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(self.bringWindowToTop),
-      name: .UIWindowDidBecomeVisible,
+      name: didBecomeVisibleName,
       object: nil
     )
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(self.statusBarOrientationWillChange),
-      name: .UIApplicationWillChangeStatusBarOrientation,
+      name: willChangeStatusBarOrientationName,
       object: nil
     )
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(self.statusBarOrientationDidChange),
-      name: .UIApplicationDidChangeStatusBarOrientation,
+      name: didChangeStatusBarOrientationName,
       object: nil
     )
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(self.applicationDidBecomeActive),
-      name: .UIApplicationDidBecomeActive,
+      name: didBecomeActiveName,
       object: nil
     )
   }
 
   required public init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+    fatalError("init(coder:) has not been implemented: please use ToastWindow.shared")
   }
 
   /// Bring ToastWindow to top when another window is being shown.
