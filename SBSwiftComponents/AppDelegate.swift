@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         //install services
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         #if DEBUG
-        GDPerformanceMonitor.sharedInstance.startMonitoring()
+        PerformanceMonitor.shared().start()
         #endif
         startServices()
         
@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     /// third-apps callback
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         let handle = TPOpen.shared.handle(url)
         return handle
     }

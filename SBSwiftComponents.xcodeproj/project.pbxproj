@@ -368,15 +368,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		679713807D4ABEFBAFA44E3F35603106 /* SBPanels */ = {
-			isa = PBXGroup;
-			children = (
-				FE74C6EA0E3BEB25586E0122DF755E51 /* RichTextPanel.swift */,
-				735BFAD2403D7662DCA302C66525E335 /* StepperPanel.swift */,
-			);
-			path = SBPanels;
-			sourceTree = "<group>";
-		};
 		62BC56500FD91D0B1B96A9925418562D /* SBError */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +382,15 @@
 				782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */,
 			);
 			path = SBHTTPRouter;
+			sourceTree = "<group>";
+		};
+		679713807D4ABEFBAFA44E3F35603106 /* SBPanels */ = {
+			isa = PBXGroup;
+			children = (
+				FE74C6EA0E3BEB25586E0122DF755E51 /* RichTextPanel.swift */,
+				735BFAD2403D7662DCA302C66525E335 /* StepperPanel.swift */,
+			);
+			path = SBPanels;
 			sourceTree = "<group>";
 		};
 		6E6EEB68A1745AB946E19401B5510EC4 /* Assets */ = {
@@ -1091,7 +1091,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1290,7 +1290,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.landun.SBSwiftComponents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/SBSwiftComponents/SBSwiftComponents-bridge-header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

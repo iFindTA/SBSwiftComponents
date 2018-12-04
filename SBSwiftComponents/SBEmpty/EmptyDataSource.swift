@@ -44,18 +44,18 @@ public class EmptyDataSource: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDe
     public func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let font = UIFont(name: AppFont.PF_BOLD, size: AppFont.SIZE_TITLE)
         let fontColor = EmptyColor
-        var attributes = [NSAttributedStringKey: Any]()
-        attributes[NSAttributedStringKey.font] = font
-        attributes[NSAttributedStringKey.foregroundColor] = fontColor
+        var attributes = [NSAttributedString.Key: Any]()
+        attributes[NSAttributedString.Key.font] = font
+        attributes[NSAttributedString.Key.foregroundColor] = fontColor
         return NSAttributedString(string: Macros.EMPTY_TITLE, attributes: attributes)
     }
     
     public func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let font = UIFont(name: AppFont.PF_BOLD, size: AppFont.SIZE_SUB_TITLE)
         let fontColor = EmptyColor
-        var attributes = [NSAttributedStringKey: Any]()
-        attributes[NSAttributedStringKey.font] = font
-        attributes[NSAttributedStringKey.foregroundColor] = fontColor
+        var attributes = [NSAttributedString.Key: Any]()
+        attributes[NSAttributedString.Key.font] = font
+        attributes[NSAttributedString.Key.foregroundColor] = fontColor
         guard SBHTTPState.shared.isReachable() else {
             return NSAttributedString(string: Macros.EMPTY_NETWORK, attributes: attributes)
         }
@@ -129,7 +129,7 @@ public extension BaseTableView {
             color = AppColor.COLOR_TITLE_LIGHTGRAY
             font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE+1)
             let bgColor = RGBA(r: 247, g: 247, b: 247, a: 1)
-            let btn = BaseButton(type: .custom)
+            let btn = BaseButton(type: UIButton.ButtonType.custom)
             btn.titleLabel?.font = font
             btn.layer.cornerRadius = bh*0.5
             btn.layer.masksToBounds = true
@@ -183,7 +183,7 @@ public class EmptyCell: UITableViewCell {
         let color = AppColor.COLOR_TITLE_LIGHTGRAY
         let font = AppFont.pingFangSC(AppFont.SIZE_SUB_TITLE+1)
         let bgColor = RGBA(r: 247, g: 247, b: 247, a: 1)
-        let b = BaseButton(type: .custom)
+        let b = BaseButton(type: UIButton.ButtonType.custom)
         b.titleLabel?.font = font
         b.layer.cornerRadius = AppSize.HEIGHT_SUBBAR*0.5
         b.layer.masksToBounds = true
@@ -193,7 +193,7 @@ public class EmptyCell: UITableViewCell {
         return b
     }()
     
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(scene)
         scene.addSubview(titleLab)

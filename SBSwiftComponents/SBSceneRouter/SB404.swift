@@ -22,7 +22,7 @@ public class SB404: BaseProfile {
     private lazy var backBarButtonItem: UIBarButtonItem =  {
         let icon = SB404.bundledImage(named: "scene_router_back")
         var tempBackBarButtonItem = UIBarButtonItem(image:icon,
-                                                    style: UIBarButtonItemStyle.plain,
+                                                    style: UIBarButtonItem.Style.plain,
                                                     target: self,
                                                     action: #selector(defaultGobackStack))
         tempBackBarButtonItem.width = 18.0

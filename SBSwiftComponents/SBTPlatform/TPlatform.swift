@@ -231,9 +231,9 @@ extension TPOpen {
             rooter.modalPresentationStyle = .overCurrentContext
             rooter.setNavigationBarHidden(true, animated: true)
             let animation = CATransition()
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            animation.type = "Reveal"
-            animation.subtype = kCATransitionFromTop
+            animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            animation.type = CATransitionType(rawValue: "Reveal")
+            animation.subtype = .fromTop
             animation.duration = Macros.APP_ANIMATE_INTERVAL
             UIApplication.shared.keyWindow?.layer.add(animation, forKey: nil)
             profile.present(rooter, animated: true, completion: nil)
@@ -303,7 +303,7 @@ extension TPOpen {
             req.message = msg
             WXApi.send(req)
         } else if platform == .qq {
-            let data = UIImageJPEGRepresentation(source, 1)
+            let data = source.jpegData(compressionQuality: 1)
             let obj = QQApiNewsObject.object(with: URL(string: link)!, title: title, description: desc, previewImageData: data)
             let req = SendMessageToQQReq(content: obj as? QQApiObject)
             let code = QQApiInterface.send(req)
@@ -317,14 +317,14 @@ extension TPOpen {
         let qqInstalled = isInstalled(.qq)
         let wxInstalled = isInstalled(.wxSession)
         if qqInstalled && wxInstalled {
-            guard let data = UIImageJPEGRepresentation(source, 1.0) else {
+            guard let data = source.jpegData(compressionQuality: 1) else {
                 let e = BaseError("failed convert image to data binary!")
                 completion(e)
                 return
             }
             let preSize = CGSize(width: AppSize.HEIGHT_CELL, height: AppSize.HEIGHT_CELL)
             var thumbData: Data?
-            if let previous = source.sb_resize(preSize), let p = UIImageJPEGRepresentation(previous, 1.0) {
+            if let previous = source.sb_resize(preSize), let p = previous.jpegData(compressionQuality: 1) {
                 thumbData = p
             }
             realShareImage(platform, icon: data, thumb: thumbData)

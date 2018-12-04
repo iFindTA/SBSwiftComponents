@@ -74,7 +74,7 @@ open class BaseMaskScene: BaseScene {
     open func show() {
         whetherDisplay.toggle()
         isHidden = false
-        fatherScene?.bringSubview(toFront: self)
+        fatherScene?.bringSubviewToFront(self)
         updateScenePosition()
     }
     @objc public func dismiss() {

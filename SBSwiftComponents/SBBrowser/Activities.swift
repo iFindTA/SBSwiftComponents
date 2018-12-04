@@ -12,10 +12,10 @@ public class SBActivity: UIActivity {
     var URLToOpen: URL?
     var schemePrefix: String?
     
-    override public var activityType : UIActivityType? {
+    override public var activityType : UIActivity.ActivityType? {
         let typeArray = "\(type(of: self))".components(separatedBy: ".")
         let _type: String = typeArray[typeArray.count-1]
-        return UIActivityType(rawValue: _type)
+        return UIActivity.ActivityType(rawValue: _type)
     }
     
     override public var activityImage : UIImage {

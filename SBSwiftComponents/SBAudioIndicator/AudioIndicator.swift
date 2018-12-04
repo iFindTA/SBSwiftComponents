@@ -131,7 +131,7 @@ class IndicatorContent: UIView {
         animation.repeatCount = Float.greatestFiniteMagnitude
         animation.autoreverses = true
         animation.duration = (period/2.0)*Double((style.maxPeakBarHeight/peekHeight))
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animation.timingFunction = CAMediaTimingFunction(name: .easeIn)
         animation.isRemovedOnCompletion = false
         layer.add(animation, forKey: kOscillationAnimationKey)
     }
@@ -151,7 +151,7 @@ class IndicatorContent: UIView {
         animation.fromValue = layer.presentation()?.bounds
         animation.toValue = layer.bounds
         animation.duration = kDecayDuration
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
         animation.isRemovedOnCompletion = false
         layer.add(animation, forKey: kDecayAnimationKey)
     }
@@ -199,7 +199,7 @@ public class AudioIndicator: UIView {
         
         pState = .idle
         
-        NotificationCenter.default.addObserver(self, selector: #selector(__applicationDidForeground), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(__applicationDidForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
     }
     required public init?(coder aDecoder: NSCoder) {

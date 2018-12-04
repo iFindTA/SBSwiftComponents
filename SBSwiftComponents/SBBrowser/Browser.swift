@@ -74,7 +74,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
     /// getters
     lazy var backBarButtonItem: UIBarButtonItem =  {
         var tempBackBarButtonItem = UIBarButtonItem(image: WebBrowser.bundledImage(named: "browser_icon_back"),
-                                                    style: UIBarButtonItemStyle.plain,
+                                                    style: UIBarButtonItem.Style.plain,
                                                     target: self,
                                                     action: #selector(goBackTapped(_:)))
         tempBackBarButtonItem.width = 18.0
@@ -84,7 +84,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
     
     lazy var forwardBarButtonItem: UIBarButtonItem =  {
         var tempForwardBarButtonItem = UIBarButtonItem(image: WebBrowser.bundledImage(named: "browser_icon_forward"),
-                                                       style: UIBarButtonItemStyle.plain,
+                                                       style: UIBarButtonItem.Style.plain,
                                                        target: self,
                                                        action: #selector(goForwardTapped(_:)))
         tempForwardBarButtonItem.width = 18.0
@@ -93,7 +93,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
     }()
     
     lazy var refreshBarButtonItem: UIBarButtonItem = {
-        var tempRefreshBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh,
+        var tempRefreshBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh,
                                                        target: self,
                                                        action: #selector(reloadTapped(_:)))
         tempRefreshBarButtonItem.tintColor = self.buttonColor
@@ -101,7 +101,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
     }()
     
     lazy var stopBarButtonItem: UIBarButtonItem = {
-        var tempStopBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.stop,
+        var tempStopBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.stop,
                                                     target: self,
                                                     action: #selector(stopTapped(_:)))
         tempStopBarButtonItem.tintColor = self.buttonColor
@@ -109,7 +109,7 @@ public class WebBrowser: BaseProfile, WKUIDelegate, WKNavigationDelegate {
     }()
     
     lazy var actionBarButtonItem: UIBarButtonItem = {
-        var tempActionBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action,
+        var tempActionBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.action,
                                                       target: self,
                                                       action: #selector(actionButtonTapped(_:)))
         tempActionBarButtonItem.tintColor = self.buttonColor
@@ -271,8 +271,8 @@ extension WebBrowser {
         
         let refreshStopBarButtonItem: UIBarButtonItem = webView.isLoading ? stopBarButtonItem : refreshBarButtonItem
         
-        let fixedSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
-        let flexibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let fixedSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.fixedSpace, target: nil, action: nil)
+        let flexibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
         if (UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad) {
             

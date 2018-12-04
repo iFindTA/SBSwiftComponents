@@ -1,5 +1,17 @@
 platform :ios, '9.0'
 
+# hook for install
+post_install do |installer|
+  exTargets = ['Toaster', 'DTCoreText', 'DTFoundation', 'ESPullToRefresh']
+  installer.pods_project.targets.each do |target|
+    if exTargets.include? target.name
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '4.0'
+      end
+    end
+  end
+end
+
 use_frameworks!
 
 target 'SBSwiftComponents' do
@@ -17,7 +29,7 @@ pod 'RealReachability', '~> 1.2.2'
 pod 'CocoaAsyncSocket', '~> 7.6.3'
 #pod 'SJNavigationPopGesture', '~> 1.4.7'
 pod 'IQKeyboardManagerSwift', '~> 6.0.2'
-pod 'GDPerformanceView-Swift', '~> 1.3.2'
+pod 'GDPerformanceView-Swift', '~> 2.0.2'
 
 pod 'FSPagerView', '~> 0.8.1'
 pod 'CHIPageControl/Jaloro', '~> 0.1.7'

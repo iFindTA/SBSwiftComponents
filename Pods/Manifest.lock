@@ -22,7 +22,7 @@ PODS:
     - DTFoundation/Core
   - DZNEmptyDataSet (1.8.1)
   - FSPagerView (0.8.1)
-  - GDPerformanceView-Swift (1.3.2)
+  - GDPerformanceView-Swift (2.0.2)
   - IQKeyboardManagerSwift (6.0.5)
   - PPBadgeViewSwift (2.2.2)
   - RealReachability (1.2.2):
@@ -48,7 +48,7 @@ DEPENDENCIES:
   - DTCoreText (~> 1.6.21)
   - DZNEmptyDataSet (~> 1.8.1)
   - FSPagerView (~> 0.8.1)
-  - GDPerformanceView-Swift (~> 1.3.2)
+  - GDPerformanceView-Swift (~> 2.0.2)
   - IQKeyboardManagerSwift (~> 6.0.2)
   - PPBadgeViewSwift (~> 2.2.2)
   - RealReachability (~> 1.2.2)
@@ -91,7 +91,7 @@ SPEC CHECKSUMS:
   DTFoundation: f03be9fd786f11e505bb8fc44e2a3732bf0917df
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
-  GDPerformanceView-Swift: a74cd679587b199e4526492b6e68ce61593c6123
+  GDPerformanceView-Swift: a40b2f675589449f5b5082f3178f01bfdb7882ce
   IQKeyboardManagerSwift: c14eca30f6001457d6ddf25e313f23fb6578c41c
   PPBadgeViewSwift: 96a41852df7437e9d948565a1bc894f757c29933
   RealReachability: 7ea2093650004e5e30635edbf9d29ce9b9091001
@@ -103,6 +103,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: ebcc28e5fe9749e0dc9d37d753318b4689bdca39
+PODFILE CHECKSUM: 6c84045a9fac4a002b02794589e8daa1ba928d6a
 
 COCOAPODS: 1.6.0.beta.2

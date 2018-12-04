@@ -22,45 +22,37 @@
 
 import UIKit
 
-internal class GDWindowViewController: UIViewController {
+// MARK: Class Definition
+
+/// Label indented from the edge on the left and right.
+internal class MarginLabel: UILabel {
     
     // MARK: Private Properties
     
-    private var selectedStatusBarHidden: Bool = false
-    
-    private var selectedStatusBarStyle: UIStatusBarStyle = UIStatusBarStyle.default
+    private var edgeInsets = UIEdgeInsets.init(top: 0.0, left: 5.0, bottom: 0.0, right: 5.0)
     
     // MARK: Properties Overriders
     
-    override var prefersStatusBarHidden: Bool {
+    override internal var intrinsicContentSize: CGSize {
         get {
-            return self.selectedStatusBarHidden
-        }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        get {
-            return self.selectedStatusBarStyle
+            var size = super.intrinsicContentSize
+            size.width += self.edgeInsets.left + self.edgeInsets.right
+            size.height += self.edgeInsets.top + self.edgeInsets.bottom
+            return size
         }
     }
     
     // MARK: Init Methods & Superclass Overriders
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.view.backgroundColor = .clear
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: self.edgeInsets))
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: Public Methods
-    
-    internal func configureStatusBarAppearance(prefersStatusBarHidden: Bool, preferredStatusBarStyle: UIStatusBarStyle) {
-        self.selectedStatusBarHidden = prefersStatusBarHidden
-        self.selectedStatusBarStyle = preferredStatusBarStyle
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.width += self.edgeInsets.left + self.edgeInsets.right
+        sizeThatFits.height += self.edgeInsets.top + self.edgeInsets.bottom
+        return sizeThatFits
     }
     
 }

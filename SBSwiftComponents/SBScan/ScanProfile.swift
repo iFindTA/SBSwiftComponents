@@ -221,7 +221,7 @@ fileprivate class QRScanView: UIView {
         if activityView == nil {
             activityView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             activityView?.center = CGPoint(x: XRectangleLeft + sizeRectangle.width*0.5 - 50, y: YMinRectangle + sizeRectangle.height*0.5)
-            activityView?.activityIndicatorViewStyle = .whiteLarge
+            activityView?.style = .whiteLarge
             self.addSubview(activityView!)
             let activityFrame = (activityView?.frame)!
             let labelBounds = CGRect(x: activityFrame.origin.x + activityFrame.width + 10, y: activityFrame.origin.y, width: 100, height: 30)
@@ -647,7 +647,7 @@ extension QRScanProfile {
         }
         scene.addSubview(self.inputActive)
         inputActive.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, AppSize.WIDTH_MARGIN, 0, AppSize.WIDTH_MARGIN))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: AppSize.WIDTH_MARGIN, bottom: 0, right: AppSize.WIDTH_MARGIN))
         }
         let bgImage = UIImage.sb_imageWithColor(AppColor.COLOR_THEME)
         var btn = BaseButton(type: .custom)

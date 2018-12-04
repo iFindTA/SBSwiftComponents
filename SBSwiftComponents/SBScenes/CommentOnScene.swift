@@ -145,8 +145,8 @@ public class CommentOnScene: BaseScene {
 extension CommentOnScene {
     /// keyboard
     private func installKeyboardObserves() {
-        NotificationCenter.default.addObserver(self, selector: #selector(__keyboardWillShow(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(__keyboardWillHide(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(__keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(__keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     private func unInstallKeyboardObserves() {
         NotificationCenter.default.removeObserver(self)
@@ -175,11 +175,11 @@ extension CommentOnScene {
         }
         
         var userInfo = notify.userInfo!
-        let kbRect = userInfo[UIKeyboardFrameEndUserInfoKey]! as! CGRect
-        let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey]! as! UInt
+        let kbRect = userInfo[UIResponder.keyboardFrameEndUserInfoKey]! as! CGRect
+        let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey]! as! UInt
         let convertedFrame = convert(kbRect, from: nil)
-        let opts = UIViewAnimationOptions(rawValue: curve << 16 | UIViewAnimationOptions.beginFromCurrentState.rawValue)
-        let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]! as! Double
+        let opts = UIView.AnimationOptions(rawValue: curve << 16 | UIView.AnimationOptions.beginFromCurrentState.rawValue)
+        let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey]! as! Double
         inputBarBottomOffsetActive = show ? (bounds.height - convertedFrame.origin.y) : 0
         /// animation
         UIView.animate(withDuration: duration, delay: 0, options: opts, animations: {[weak self] in
@@ -193,10 +193,10 @@ extension CommentOnScene {
         }
     }
     private func backwardHierarchy() {
-        superview?.sendSubview(toBack: self)
+        superview?.sendSubviewToBack(self)
     }
     private func forewardHierarchy() {
-        superview?.bringSubview(toFront: self)
+        superview?.bringSubviewToFront(self)
     }
 }
 
@@ -261,7 +261,7 @@ fileprivate class ComInputBar: BaseScene {
         i.layer.borderWidth = 1
         i.layer.cornerRadius = kOffsetHorizontal
         i.scrollsToTop = false
-        i.textContainerInset = UIEdgeInsetsMake(9, kOffsetHorizontal, kOffsetHorizontal, kOffsetHorizontal)
+        i.textContainerInset = UIEdgeInsets(top: 9, left: kOffsetHorizontal, bottom: kOffsetHorizontal, right: kOffsetHorizontal)
         i.returnKeyType = .send
         i.enablesReturnKeyAutomatically = true
         i.layoutManager.allowsNonContiguousLayout = false
@@ -326,7 +326,7 @@ fileprivate class ComInputBar: BaseScene {
             m.left.equalTo(iconScene.snp.right)
             m.right.equalTo(releaseBtn.snp.left)
         }
-        let insets = UIEdgeInsetsMake(kOffsetVertical, kOffsetVertical, kOffsetVertical, kOffsetVertical)
+        let insets = UIEdgeInsets(top: kOffsetVertical, left: kOffsetVertical, bottom: kOffsetVertical, right: kOffsetVertical)
         input.snp.makeConstraints { (m) in
             m.edges.equalToSuperview().inset(insets)
         }

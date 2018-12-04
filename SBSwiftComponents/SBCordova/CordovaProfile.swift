@@ -25,8 +25,8 @@ public class CordovaProfile: CDVViewController {
         n.tintColor = tintColor
         n.isTranslucent = false
         n.titleTextAttributes = {[
-            NSAttributedStringKey.font: font,
-            NSAttributedStringKey.foregroundColor:tintColor
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor:tintColor
             ]}()
         return n
     }()
