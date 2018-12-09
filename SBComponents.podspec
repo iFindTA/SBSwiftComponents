@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.6.1"
+  s.version      = "0.6.2"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
  # end
  
  s.subspec 'Hud' do |hd|
-    hd.source_files = "SBComponents/SBHud/*.swift"
+    hd.source_files = "SBSwiftComponents/SBHud/*.swift"
     hd.dependency 'SBComponents/Macros'
   end
 
