@@ -206,6 +206,7 @@ public enum SBUserPath: Int {
 // MARK: - app显示类型
 public enum SceneType: Int {
     case none
+    case guide
     case main
     case oauth
     case visitor
