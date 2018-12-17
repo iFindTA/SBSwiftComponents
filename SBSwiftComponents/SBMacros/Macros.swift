@@ -24,6 +24,7 @@ public typealias TagClosure = (Int)->Void
 public typealias VoidClosure = ()->Void
 public typealias BoolClosure = (Bool)->Void
 public typealias StringClosure = (String)->Void
+public typealias DoubleClosure = (Double)->Void
 public typealias ErrorClosure = (BaseError?)->Void
 public typealias SBParameter = [String: Any]
 
