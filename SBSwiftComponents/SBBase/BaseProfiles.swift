@@ -12,7 +12,6 @@ import PPBadgeViewSwift
 
 // MARK: - Base Profile
 open class BaseProfile: UIViewController {
-    
     /// - override
     deinit {
         debugPrint("profile:\(type(of: self)) 析构")
@@ -114,10 +113,13 @@ open class BaseProfile: UIViewController {
         super.viewDidLoad();fixedIssue()
         view.backgroundColor = UIColor.white
     }
+    
+    /// network request
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopAllRequest()
         BaseLoading.shared.hide()
+        resetBusy()
     }
     private func stopAllRequest() {
         let this = NSStringFromClass(type(of: self))
@@ -129,6 +131,12 @@ open class BaseProfile: UIViewController {
             return
         }
         SBHTTPRouter.shared.cancel(this)
+    }
+    
+    /// vars for busy
+    open var isBusy: Bool = false
+    public func resetBusy() {
+        isBusy = false
     }
 }
 
