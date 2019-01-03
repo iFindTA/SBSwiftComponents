@@ -35,6 +35,9 @@ public class CountDownButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     @objc private func didTouched() {
+        guard isCounting == false else {
+            return
+        }
         let __tag = self.tag
         DispatchQueue.main.async {[weak self] in
             self?.didTrigger?(__tag)
