@@ -34,10 +34,10 @@ fileprivate extension URLSessionTask {
 }
 
 // MARK: - 网络Router
-public class SBAPInterface {
+public class SBHTTPApi {
     /// variables
     //private var manager: NetworkReachabilityManager?
-    public static let shared = SBAPInterface()
+    public static let shared = SBHTTPApi()
     private init() {}
     public func challengeNetworkPermission() {
         let url = URL(string: "https://baidu.com")
