@@ -23,6 +23,7 @@
 		57DAF0232D0B687395D3F8168AD31903 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2ABA97AED7055EFE6B58A12552A8E4 /* libc++.tbd */; };
 		5F5418D680F0271B70DE1AE8689BF05A /* TestApiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400DED0BE8D9DD1AFDC14F4A7D5AF1A /* TestApiProfile.swift */; };
 		5FBF0A01BF9938879CE802C48BF01F62 /* KitsCordova.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257D4695458A7F5D2B9DCB73D0A133D /* KitsCordova.swift */; };
+		600DBBED21F1C35700791C7E /* SBAPInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600DBBEC21F1C35700791C7E /* SBAPInterface.swift */; };
 		609C440321B67840001414AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609C440221B67840001414AD /* UIKit.framework */; };
 		609C440521B67848001414AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609C440421B67848001414AD /* Foundation.framework */; };
 		609C440721B6785D001414AD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609C440621B6785D001414AD /* CoreFoundation.framework */; };
@@ -114,6 +115,7 @@
 		5A5BFC948C006C33B65FC004C9F34A22 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		5D3E28099477D2B1165681FE55E77585 /* CordovaProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordovaProfile.swift; sourceTree = "<group>"; };
 		5D5A036602B35B3671EF879FE67242C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		600DBBEC21F1C35700791C7E /* SBAPInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAPInterface.swift; sourceTree = "<group>"; };
 		609C440221B67840001414AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		609C440421B67848001414AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		609C440621B6785D001414AD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				782D097F8D42F327FCB1DE5A8E9F0E28 /* SBHTTPRouter.swift */,
+				600DBBEC21F1C35700791C7E /* SBAPInterface.swift */,
 			);
 			path = SBHTTPRouter;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				2E741FA18E5B35E04AF682ECEC56761C /* TCPServer.swift in Sources */,
 				5F5418D680F0271B70DE1AE8689BF05A /* TestApiProfile.swift in Sources */,
 				C1B50F636033E0405794769CC6BDF700 /* TestPaths.swift in Sources */,
+				600DBBED21F1C35700791C7E /* SBAPInterface.swift in Sources */,
 				9DE0FF2AD13606D7B620743E07E5B85C /* TestSnapkitProfile.swift in Sources */,
 				8AC2CF3C8509B113D9DAEEFE7D232979 /* UIButtonExt.swift in Sources */,
 				7C1FEE7B5762E05D0515E7B9B4353262 /* UIColorExt.swift in Sources */,
