@@ -71,13 +71,13 @@ public class SBHTTPApi {
     }
     private func handle(_ response: DataResponse<Any>, completion:@escaping SBResponse) -> Void {
         /// step1 filter response for authorization
-        guard let authResp = filteAuthorization(response) else {
+        guard let authResp = authStatusFilter(response) else {
             var e = BaseError("授权已过期，请重新登录～")
             e.code = SBHTTPRespCode.forbidden.rawValue
             completion(nil, e, nil)
             return
         }
-        guard let newResp = filteServerInnerError(authResp) else {
+        guard let newResp = innerErrorFilter(authResp) else {
             var e = BaseError("系统内部错误～")
             e.code = SBHTTPRespCode.innerError.rawValue
             completion(nil, e, nil)
@@ -128,14 +128,14 @@ public class SBHTTPApi {
     }
     
     /// filter actions
-    private func filteAuthorization(_ res: DataResponse<Any>) -> DataResponse<Any>? {
+    private func authStatusFilter(_ res: DataResponse<Any>) -> DataResponse<Any>? {
         let code = res.response?.statusCode
         guard code != SBHTTPRespCode.unAuthorization.rawValue, code != SBHTTPRespCode.forbidden.rawValue else {
             return nil
         }
         return res
     }
-    private func filteServerInnerError(_ res: DataResponse<Any>) -> DataResponse<Any>? {
+    private func innerErrorFilter(_ res: DataResponse<Any>) -> DataResponse<Any>? {
         let code = res.response?.statusCode
         guard code != SBHTTPRespCode.innerError.rawValue else {
             return nil
