@@ -188,8 +188,9 @@ public struct AppColor {
 
 // MARK: - 网络定义
 public enum SBHTTPRespCode: Int {
-    case unAuthorization = 401  //未授权
-    case forbidden = 403        //禁止访问 没有权限
+    case unAuthorization = 401  ///  未授权
+    case forbidden = 403        ///  禁止访问 
+    case innerError = 500       ///  内部错误
 }
 
 // MARK: - 用户沙盒类型

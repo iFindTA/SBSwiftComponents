@@ -46,11 +46,98 @@ public class SBHTTPApi {
         let task = session.dataTask(with: request)
         task.resume()
     }
+    /// network fetch event
+    public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="", file: String=#file, completion:@escaping SBResponse) -> Void {
+        let stacks = Thread.callStackSymbols
+        var identifier = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
+        if stacks.count > 1 {
+            identifier = parserStack(stacks[1], with: identifier)
+        }
+        if hud {
+            Macros.executeInMain {
+                BallLoading.show()
+            }
+        }
+        let session = Alamofire.SessionManager.default
+        let req = session.request(request).responseJSON { [weak self](response) in
+            if hud {
+                Macros.executeInMain {
+                    BallLoading.hide()
+                }
+            }
+            self?.handle(response, completion: completion)
+        }
+        req.task?.sb_identifier = identifier
+    }
+    private func handle(_ response: DataResponse<Any>, completion:@escaping SBResponse) -> Void {
+        /// step1 filter response for authorization
+        guard let authResp = filteAuthorization(response) else {
+            var e = BaseError("授权已过期，请重新登录～")
+            e.code = SBHTTPRespCode.forbidden.rawValue
+            completion(nil, e, nil)
+            return
+        }
+        guard let newResp = filteServerInnerError(authResp) else {
+            var e = BaseError("系统内部错误～")
+            e.code = SBHTTPRespCode.innerError.rawValue
+            completion(nil, e, nil)
+            return
+        }
+        
+        /// step2 check error
+        if let err = newResp.error {
+            var e = BaseError(err.localizedDescription)
+            e.code = (err as NSError).code
+            completion(nil, e, nil)
+            return
+        }
+        
+        /// step3 check inner status
+        guard newResp.result.isSuccess, let value = newResp.result.value, let json = JSON.init(rawValue: value) else {
+            let e = BaseError("Oops，发生了系统错误！")
+            completion(nil, e, nil)
+            return
+        }
+        
+        /// then, check status for this do-action
+        var e: BaseError?
+        if json["code"].intValue != 0 {
+            e = BaseError(json["msg"].stringValue)
+        }
+        /// finally, callback
+        let page = json["page"]
+        completion(json["data"], e, page)
+    }
+    public func cancelAll() {
+        let session = Alamofire.SessionManager.default
+        session.session.getAllTasks { (tasks) in
+            tasks.forEach({ (t) in
+                t.cancel()
+            })
+        }
+    }
+    public func cancel(_ file: String=#file) {
+        let session = Alamofire.SessionManager.default
+        session.session.getAllTasks { (tasks) in
+            tasks.forEach({ (t) in
+                if t.sb_identifier.contains(file) {
+                    t.cancel()
+                }
+            })
+        }
+    }
     
-    /// inner action
-    private func responseFilter(_ res: DataResponse<Any>) -> DataResponse<Any>? {
+    /// filter actions
+    private func filteAuthorization(_ res: DataResponse<Any>) -> DataResponse<Any>? {
         let code = res.response?.statusCode
         guard code != SBHTTPRespCode.unAuthorization.rawValue, code != SBHTTPRespCode.forbidden.rawValue else {
+            return nil
+        }
+        return res
+    }
+    private func filteServerInnerError(_ res: DataResponse<Any>) -> DataResponse<Any>? {
+        let code = res.response?.statusCode
+        guard code != SBHTTPRespCode.innerError.rawValue else {
             return nil
         }
         return res
@@ -83,85 +170,6 @@ public class SBHTTPApi {
         } catch let error {
             debugPrint("invalid regex: \(error.localizedDescription)")
             return []
-        }
-    }
-    /// 返回401/403错误
-    private func didCameForbiddenQuery() {
-        //TODO:可以发送通知
-    }
-    /// network fetch event
-    public func fetch(_ request: URLRequestConvertible, hud: Bool=true, hudString: String="", file: String=#file, completion:@escaping SBResponse) -> Void {
-        let stacks = Thread.callStackSymbols
-        var identifier = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        if stacks.count > 1 {
-            identifier = parserStack(stacks[1], with: identifier)
-        }
-        if hud {
-            Macros.executeInMain {
-                BallLoading.show()
-            }
-        }
-        let session = Alamofire.SessionManager.default
-        let req = session.request(request).responseJSON { [weak self](response) in
-            if hud {
-                Macros.executeInMain {
-                    BallLoading.hide()
-                }
-            }
-            self?.handle(response, completion: completion)
-        }
-        req.task?.sb_identifier = identifier
-    }
-    private func handle(_ response: DataResponse<Any>, completion:@escaping SBResponse) -> Void {
-        /// step1 filter response for authorization
-        guard let newRes = responseFilter(response) else {
-            var e = BaseError("授权已过期！")
-            e.code = SBHTTPRespCode.forbidden.rawValue
-            completion(nil, e, nil)
-            didCameForbiddenQuery()
-            return
-        }
-        
-        /// step2 check error
-        if let err = newRes.error {
-            var e = BaseError(err.localizedDescription)
-            e.code = (err as NSError).code
-            completion(nil, e, nil)
-            return
-        }
-        
-        /// step3 check inner status
-        guard newRes.result.isSuccess, let value = newRes.result.value, let json = JSON.init(rawValue: value) else {
-            let e = BaseError("Oops，发生了系统错误！")
-            completion(nil, e, nil)
-            return
-        }
-        
-        /// then, check status for this do-action
-        var e: BaseError?
-        if json["code"].intValue != 0 {
-            e = BaseError(json["msg"].stringValue)
-        }
-        /// finally, callback
-        let page = json["page"]
-        completion(json["data"], e, page)
-    }
-    public func cancelAll() {
-        let session = Alamofire.SessionManager.default
-        session.session.getAllTasks { (tasks) in
-            tasks.forEach({ (t) in
-                t.cancel()
-            })
-        }
-    }
-    public func cancel(_ file: String=#file) {
-        let session = Alamofire.SessionManager.default
-        session.session.getAllTasks { (tasks) in
-            tasks.forEach({ (t) in
-                if t.sb_identifier.contains(file) {
-                    t.cancel()
-                }
-            })
         }
     }
 }

@@ -130,6 +130,7 @@ open class BaseProfile: UIViewController {
             SBHTTPRouter.shared.cancel(nr)
             return
         }
+        SBHTTPApi.shared.cancel(this)
         SBHTTPRouter.shared.cancel(this)
     }
     
