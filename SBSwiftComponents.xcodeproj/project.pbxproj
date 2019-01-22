@@ -255,13 +255,6 @@
 			path = SBExtension;
 			sourceTree = "<group>";
 		};
-		4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SBHash;
-			sourceTree = "<group>";
-		};
 		574F105C9362E00AB1A1D603D2E7B543 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,7 +439,6 @@
 				C223D89214B20DCC539E8C56FCF07C1D /* SBFileStream */,
 				62D11C3C0ED5D7525C06FC2ACEBC9B34 /* SBHTTPRouter */,
 				E43C81945D2DE1FBAAC92FF6A2B7AA62 /* SBHTTPState */,
-				4C8DA948570EFD76FEB0145AD64507B0 /* SBHash */,
 				AB49AC7889D3C7C3F7C72F9E1AD17306 /* SBHud */,
 				E123FEDFBD23F0FED7BA03DB64D11246 /* SBKit */,
 				8769962C140E3F4E22A45A42A5494DB7 /* SBMacros */,
