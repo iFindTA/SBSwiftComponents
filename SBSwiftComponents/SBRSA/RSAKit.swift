@@ -223,15 +223,17 @@ fileprivate func rsa_form_public(_ key: String) -> SecKey? {
         return nil
     }
     
-    //method1: create with data
-    let keyMap:[NSObject:NSObject] = [
-        kSecAttrKeyType: kSecAttrKeyTypeRSA,
-        kSecAttrKeyClass: kSecAttrKeyClassPublic,
-        kSecAttrKeySizeInBits: NSNumber(value: 2048),
-        kSecReturnPersistentRef: true as NSObject
-    ]
-    let seckey = SecKeyCreateWithData(data as CFData, keyMap as CFDictionary, nil)
-    return seckey
+    return nil
+    
+    //method1: create with data required iOS10.0+
+//    let keyMap:[NSObject:NSObject] = [
+//        kSecAttrKeyType: kSecAttrKeyTypeRSA,
+//        kSecAttrKeyClass: kSecAttrKeyClassPublic,
+//        kSecAttrKeySizeInBits: NSNumber(value: 2048),
+//        kSecReturnPersistentRef: true as NSObject
+//    ]
+//    let seckey = SecKeyCreateWithData(data as CFData, keyMap as CFDictionary, nil)
+//    return seckey
     
     /*method2: create with keychain
      let tag = "RSA_PUBLIC_KEY"
