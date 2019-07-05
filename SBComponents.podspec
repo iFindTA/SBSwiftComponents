@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SBComponents"
-  s.version      = "0.6.7"
+  s.version      = "0.6.8"
   s.summary      = "a swift base components"
   s.description  = <<-DESC
        一个swift的基础库，包括BaseScene, BaseProfile, BaseInput etc.
@@ -66,7 +66,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Extension' do |e|
     e.source_files = "SBSwiftComponents/SBExtension/*.swift"
-    e.dependency 'SnapKit'
+    e.dependency 'SnapKit', '~> 4.2.0'
   end
 
   s.subspec 'HTTPState' do |st|
