@@ -27,7 +27,7 @@ public enum TestPaths: SBScenePathable {
     }
 }
 
-fileprivate let baseURI = "http://192.168.1.199:8080"
+fileprivate let baseURI = "http://localhost:9528"
 /// HTTP paths
 public enum SBHTTP {
     case void
@@ -44,7 +44,7 @@ public enum SBHTTP {
     var path: String {
         switch self {
         case .test:
-            return "app"
+            return "msu/v1/test/def"
         default:
             return ""
         }
