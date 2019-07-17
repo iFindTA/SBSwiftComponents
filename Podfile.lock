@@ -38,7 +38,7 @@ PODS:
   - SQLite.swift/standard (0.11.5)
   - SSZipArchive (2.1.4)
   - SVProgressHUD (2.2.5)
-  - SwiftyJSON (4.2.0)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.3)
@@ -58,7 +58,7 @@ DEPENDENCIES:
   - SQLite.swift (~> 0.11.5)
   - SSZipArchive (~> 2.1.4)
   - SVProgressHUD (~> 2.2.5)
-  - SwiftyJSON (~> 4.2.0)
+  - SwiftyJSON (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -101,8 +101,8 @@ SPEC CHECKSUMS:
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a43ed1ba84add225ca9be27e25846f05926a3624
+PODFILE CHECKSUM: 41cf6d05f4b27efef1a6cc609aca1eadf668643a
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.3

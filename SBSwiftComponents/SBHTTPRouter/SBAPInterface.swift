@@ -74,13 +74,13 @@ public class SBHTTPApi {
         guard let authResp = authStatusFilter(response) else {
             var e = BaseError("授权已过期，请重新登录～")
             e.code = SBHTTPRespCode.forbidden.rawValue
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             return
         }
         guard let newResp = innerErrorFilter(authResp) else {
             var e = BaseError("系统内部错误～")
             e.code = SBHTTPRespCode.innerError.rawValue
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             return
         }
         
@@ -88,14 +88,14 @@ public class SBHTTPApi {
         if let err = newResp.error {
             var e = BaseError(err.localizedDescription)
             e.code = (err as NSError).code
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             return
         }
         
         /// step3 check inner status
         guard newResp.result.isSuccess, let value = newResp.result.value, let json = JSON.init(rawValue: value) else {
             let e = BaseError("Oops，发生了系统错误！")
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             return
         }
         
@@ -105,8 +105,9 @@ public class SBHTTPApi {
             e = BaseError(json["msg"].stringValue)
         }
         /// finally, callback
-        let page = json["page"]
-        completion(json["data"], e, page)
+        let page = json["paging"]
+        let ext = json["ext"]
+        completion(json["data"], e, page, ext)
     }
     public func cancelAll() {
         let session = Alamofire.SessionManager.default

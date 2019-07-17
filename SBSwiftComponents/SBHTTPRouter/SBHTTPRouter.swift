@@ -14,7 +14,7 @@ import SwiftyJSON
 fileprivate let APP_TIMEOUT_INTERVAL  =   30.0
 fileprivate let APP_PING_HOST = "www.baidu.com"
 fileprivate let APP_CHECK_HOST = "www.qq.com"
-public typealias SBResponse = (_ data: JSON?, _ error: BaseError?, _ page: JSON?) -> Void
+public typealias SBResponse = (_ data: JSON?, _ error: BaseError?, _ paging: JSON?, _ ext: JSON?) -> Void
 
 // MARK: - Extension for Request
 fileprivate extension URLSessionTask {
@@ -118,7 +118,7 @@ public class SBHTTPRouter {
         guard let newRes = responseFilter(response) else {
             var e = BaseError("授权已过期！")
             e.code = SBHTTPRespCode.forbidden.rawValue
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             didCameForbiddenQuery()
             return
         }
@@ -127,25 +127,26 @@ public class SBHTTPRouter {
         if let err = newRes.error {
             var e = BaseError(err.localizedDescription)
             e.code = (err as NSError).code
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             return
         }
         
         /// step3 check inner status
         guard newRes.result.isSuccess, let value = newRes.result.value, let json = JSON.init(rawValue: value) else {
             let e = BaseError("Oops，发生了系统错误！")
-            completion(nil, e, nil)
+            completion(nil, e, nil, nil)
             return
         }
         
         /// then, check status for this do-action
         var e: BaseError?
-        if json["status"].intValue != 0 {
-            e = BaseError(json["error"].stringValue)
+        if json["code"].intValue != 0 {
+            e = BaseError(json["msg"].stringValue)
         }
         /// finally, callback
-        let page = json["page"]
-        completion(json["data"], e, page)
+        let page = json["paging"]
+        let ext = json["ext"]
+        completion(json["data"], e, page, ext)
     }
     public func cancelAll() {
         let session = Alamofire.SessionManager.default

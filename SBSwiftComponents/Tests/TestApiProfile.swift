@@ -30,7 +30,7 @@ class TestApiProfile: BaseProfile {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        SBHTTPRouter.shared.fetch(SBHTTP.test) { (res, err, _) in
+        SBHTTPRouter.shared.fetch(SBHTTP.test) { (res, err, _, _) in
             if let e = err {
                 Kits.handleError(e)
             }
