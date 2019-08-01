@@ -103,6 +103,7 @@ public class SBHTTPApi {
         var e: BaseError?
         if json["code"].intValue != 0 {
             e = BaseError(json["msg"].stringValue)
+            e?.code = json["code"].intValue
         }
         /// finally, callback
         let page = json["paging"]
