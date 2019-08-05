@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.framework    = "UIKit","Foundation"
   s.requires_arc = true
-  #s.dependency 
+  s.swift_version = '4.2' 
+ #s.dependency 
 
   s.subspec 'DB' do |d|
     d.source_files = "SBSwiftComponents/SBDB/*.swift"
